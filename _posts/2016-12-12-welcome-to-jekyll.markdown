@@ -1,5 +1,6 @@
 ---
 layout: post
+tags: tahu
 title:  "Welcome to Jekyll!"
 date:   2016-12-12 18:48:58 +0700
 categories: jekyll update
@@ -17,6 +18,10 @@ end
 print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
+
+![GitHub Logo](https://static.pexels.com/photos/9752/taking-photo-hiking-sport-adventure.jpg)
+
+{% gist parkr/c08ee0f2726fd0e3909d %}
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
