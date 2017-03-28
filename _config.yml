@@ -1,38 +1,70 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#Site
+title: Miayam
+description: Delicious Meal for Thought
+logo: favicon.png
+url: miayam.github.io
+rss_url: /feed.xml
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+# Jekyll
+permalink:          /blog/:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+sass:
+  sass_dir:         assets/_sass
+  style:            compressed
 
-# Build settings
-markdown: kramdown
-theme: minima
+# Comment
+comment:
+  disqus: miayam
+
+# Website analytics
+google_analytics:
+baidu_analytics:
+
+# Author information:
+author:
+  resume: /resume
+  projects: /projects
+  name: Muhammad D. Ramadhan
+  about_me: I am a boring person doing boring thing.
+
+# Social Links
+email:               muhammaddeni90@gmail.com
+#google.plus:        username
+#twitter:            username
+facebook:            miiayam
+github:              miayam
+#stackoverflow:
+linkedin:           miayam
+#xing:              username
+#instagram:          username
+#lastfm:            username
+#tumblr:            username
+#pinterest:         username
+#foursquare:        username
+#steam:              username
+#dribbble:          username
+#youtube:           username
+#soundcloud:        username
+#weibo:             username
+#flickr:            username
+#codepen:           username
+#keybase:           username
+#xmpp:              username@server.com
+#hackernews:        username
+#behance:           username
+#
+# Gems
 gems:
   - jekyll-feed
-  - jekyll-paginate
+  - jekyll-sitemap
   - jekyll-gist
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - bower_components
-  - node_modules
+
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, _site, src, vendor, CNAME, LICENSE, Rakefile,.sass-cache,.DS_Store,.idea]

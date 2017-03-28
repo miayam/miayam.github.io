@@ -1,0 +1,141 @@
+a {
+  font-weight: $base-font-bold;
+  text-decoration: none;
+  color: $light-red;
+  text-shadow:  1px 1px $dark-white ,2px 2px $darker-white;
+}
+
+blockquote a {
+  color: $blue;
+  text-shadow: none;
+  &:hover {
+    border-bottom: 1px dashed $blue;
+  }
+}
+
+/**
+ * btn
+ */
+
+.btn-primary {
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  @include border-radius(20px);
+  @include transition-duration(0.5s);
+  text-shadow: none;
+  border: 2px solid $blue;
+  color: $blue;
+  background-color: transparent;
+  &:hover,
+  &:active {
+    background-color: rgba(98, 179, 245, 0.1);
+  }
+}
+
+.btn-blue {
+  border: none;
+  color: $white;
+  background-color: $blue;
+  &:hover,
+  &:active {
+    background-color: $light-red;
+  }
+}
+
+.btn-white {
+  border: 2px solid $white;
+  color: $white;
+  background-color: transparent;
+  &:hover,
+  &:active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.btn-top {
+  font-size: 3em;
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+}
+
+.btn-pagination {
+  color: $blue;
+  &:hover,
+  &:active {
+    color: $light-red;
+  }
+}
+
+.post-pagination {
+  height: 1.5em;
+  margin-top: 1.5em;
+  .next {
+    float: right;
+  }
+}
+
+.page-holder {
+	text-align: center;
+	a {
+		color: $blue;
+		text-align: center;
+		cursor: pointer;
+        display: inline-block;
+        height: 25px;
+        width: 25px;
+		&:not(:last-child) {
+			margin-right: 5px;
+		}
+	}
+	span {
+		color: $blue;
+		font-weight: $base-font-bold;
+        text-shadow:  1px 1px $dark-white ,2px 2px $darker-white;
+        margin: 0 5px;
+	}
+	.jp-current {
+        pointer-events: none;
+        cursor: auto;
+        @include border-radius(0.3em);
+        background-color: $blue;
+        text-shadow: none;
+        color: $white;
+        box-shadow: 1px 1px 0 1px $darker-white;
+        -webkit-box-shadow: 1px 1px 0 1px $darker-white;
+    }
+	.jp-disabled {
+		color: $grey-color;
+		cursor: auto;
+		event-pointers:none;
+	}
+}
+
+
+/**
+ * title
+ */
+
+.post-title {
+  display: inline-block;
+  max-width: 75%;
+  color: $light-red;
+  text-shadow: 1px 1px $dark-white, 2px 2px $darker-white;
+  &:hover {
+    text-shadow: 1px 1px $dark-white, 2px 2px $light-blue;
+  }
+}
+
+.entry-title {
+  color: $blue;
+  a {
+    color: $blue;
+    text-shadow: none;
+    &:hover {
+      border-bottom: 1px dashed $blue;
+    }
+  }
+}
+
+
