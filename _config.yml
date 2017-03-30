@@ -19,6 +19,8 @@ sass:
   sass_dir:         assets/_sass
   style:            compressed
 
+paginate: 5
+
 # Comment
 comment:
   disqus: miayam
@@ -32,7 +34,7 @@ author:
   resume: /resume
   projects: /projects
   name: Muhammad D. Ramadhan
-  about_me: I am a boring person doing boring thing.
+  about_me: I am a boring person interested in building user-facing applications using HTML, CSS and JavaScript. Currently working fulltime as Ruby on Rails developer.
 
 # Social Links
 email:               muhammaddeni90@gmail.com
@@ -65,6 +67,7 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-gist
+  - jekyll-paginate
 
 # Exclude list
 exclude: [README.md, Gemfile, Gemfile.lock, _site, src, vendor, CNAME, LICENSE, Rakefile,.sass-cache,.DS_Store,.idea]
