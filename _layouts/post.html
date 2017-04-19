@@ -1,26 +1,39 @@
 ---
 layout: default
+permalink: pretty
 ---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-<section style="padding-bottom: 0">
-  <article class="wrapper">
-    <div class="post-header">
-    <h2 class="red-title" >{{ page.title }}</h2>
-    <ul class="tags">
-      {% for tag in page.tags %}
-      <li><a href="/tags#{{ tag }}">{{ tag }}</a></li>
-      {% unless forloop.last %}
-      {% endunless %}
-      {% endfor %}
-    </ul>
-    <div class="line-highlight">{% if page.date %}{{ page.date | date: '%d %b %Y' }}{% else %}<i class="fa fa-paw" aria-hidden="true"></i>{% endif %}</div>
-    </div>
-    <div class="post-content">
-      {{ content }}
-    </div>
-    {% include post-pagination.html %}
-    {% include share.html %}
-  </article>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}"
+            itemprop="datePublished"
+            class="media-heading">
+        {{ page.date | date: "%-d %B %Y" }}
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="{{ site.github }}">{{ site.your_name }}</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <div class="blog-navigation">
+    {% if page.previous %}
+      <a href="{{ page.previous.url }}" class="blog-navigation__previous-link">&laquo; {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a href="{{ page.next.url }}" class="blog-navigation__next-link"> {{ page.next.title }} &raquo;</a>
+    {% endif %}
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="{{ page.url | prepend: site.url }}" data-width="100%" data-numposts="10">
+  </div>
 </section>
-
-{% include comments.html %}

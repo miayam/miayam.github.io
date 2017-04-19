@@ -1,8 +1,135 @@
 ---
-layout: post-list
-nav: home
-comment: false
+layout: default
 ---
-{% include about.html %}
-{% include blog.html %}
-{% include projects.html %}
+
+<section class="t-hackcss-placard">
+  <h1>My Notes</h1>
+
+  <p>
+    These are scribbles written for the sake of increasing learning retention.
+    To me, writing down my own thought after experiencing something with 5 senses
+    is a good exercise for mental strength. Don't believe me, please.
+  </p>
+</section>
+
+<!--
+<section>
+  <h2>Posts</h2>
+
+  {% for post in site.posts %}
+    {% assign nth = forloop.index0 | modulo:2 %}
+    <div class="media t-hackcss-media">
+
+      {% if nth == 0 %}
+      <div class="t-hackcss-media-shift media-left">
+        <img class="t-hackcss-media-image"
+             src="{{ post.image_preview }}" alt="{{ post.title }}"
+             title="{{ post.title }}" />
+      </div>
+      {% endif %}
+
+      <div class="media-body">
+        <div class="media-heading">
+          <span>{{ post.date | date_to_string }} &raquo;
+            {% if post.external_url %}
+              <a href="{{ post.external_url }}" target="_blank" title="{{ project.name }}">
+                {{ post.title }}
+              </a>
+            {% else %}
+              <a href="{{ post.url | prepend: site.baseurl }}" title="{{ project.name }}">
+                {{ post.title }}
+              </a>
+            {% endif %}
+          </span>
+        </div>
+        <div class="media-content">
+          {{ post.short_description }}
+        </div>
+      </div>
+
+      {% if nth == 1 %}
+      <div class="t-hackcss-media-shift media-right">
+        <img class="t-hackcss-media-image"
+             src="{{ post.image_preview }}" alt="{{ post.title }}"
+             title="{{ post.title }}" />
+      </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</section>
+-->
+
+<section>
+  <div class="grid t-hackcss-cards">
+    {% for post in paginator.posts %}
+
+    <div class="cell -6of12 t-hackcss-cards-cell">
+      <div class="card">
+        {% for category in site.data.categories %}
+          {% if post.category == category.slug %}
+            <header class="card-header">{{ category.name }}</header>
+          {% endif %}
+        {% endfor %}
+
+        <div class="card-content">
+          <div class="inner">
+            {% if post.image_preview %}
+            <img src="{{ post.image_preview }}" class="t-hackcss-cards-image"
+                 alt="{{ post.title }}"
+                 title="{{ post.short_description }}" />
+            {% endif %}
+
+            <h1 class="card-title">
+              {{ post.title }}
+              <span class="card-title__date">{{ post.date |  date: '%d %B %Y'}}</span>
+            </h1>
+
+            <p class="t-hackcss-cards-text">
+              {{ post.short_description }}
+              <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                Read more.
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+
+  </div>
+</section>
+<section>
+  {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+      {% else %}
+        <span>&laquo; Prev</span>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page and page < 16 %}
+          <span>{{ page }}</span>
+        {% elsif page == 1 %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        {% elsif page == 16 %}
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+        {% elsif page > 16 %}
+        {% else %}
+          <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+      {% else %}
+        <span>Next &raquo;</span>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
+

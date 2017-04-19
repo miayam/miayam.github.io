@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html>
+
   {% include head.html %}
-  <body>
-    <div class="main-wrapper">
-      {% include header.html %}
-      {{content}}
-      {% if !page.comment %}
-        {% include comments.html %}
-      {% endif %}
-      {% include footer.html %}
+
+
+  {% if site.theme_mode == 'markdown' %}
+    <body class="hack">
+  {% elsif site.theme_mode == 'standard' %}
+    <body class="standard">
+  {% elsif site.theme_mode == 'dark' %}
+    <body class="hack dark">
+  {% endif %}
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <h1>
+            <img src="/images/logo.svg" style="height: 50px">
+            <span class="bullshit">Delicious Meal for Thought...</span>
+          </h1>
+          {% include navigation.html %}
+        </aside>
+
+        <main class="cell -9of12">
+          {{ content }}
+        </main>
+      </div>
+
+    {% include footer.html %}
+
     </div>
+
+    <!-- Prism.js -->
+    <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
   </body>
-  {% include analytics.html %}
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </html>
