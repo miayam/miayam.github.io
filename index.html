@@ -1,30 +1,88 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>miayam.in</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">MIAYAM</h1>
-      <h2 class="project-tagline">This Site Is Under Construction</h2>
-    </section>
+---
+layout: default
+---
 
-    <section class="main-content">
-      <h3>
-        <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome...
-      </h3>
+<section class="t-hackcss-placard">
+  <h1>My Notes</h1>
 
-      <p>No content available.</p>
-      <footer class="site-footer">
-      </footer>
+  <p>
+    These are scribbles written for the sake of increasing learning retention.
+    To me, writing down my own thought after experiencing something with 5 senses
+    is a good exercise for mental strength. Don't believe me, please.
+  </p>
+</section>
 
-    </section>
+<section>
+  <div class="grid t-hackcss-cards">
+    {% for post in paginator.posts %}
 
-  </body>
-</html>
+    <div class="cell -6of12 t-hackcss-cards-cell">
+      <div class="card">
+        {% for category in site.data.categories %}
+          {% if post.category == category.slug %}
+            <header class="card-header">{{ category.name }}</header>
+          {% endif %}
+        {% endfor %}
+
+        <div class="card-content">
+          <div class="inner">
+            {% if post.image_preview %}
+            <img src="{{ post.image_preview }}" class="t-hackcss-cards-image"
+                 alt="{{ post.title }}"
+                 title="{{ post.short_description }}" />
+            {% endif %}
+
+            <h1 class="card-title">
+              {{ post.title }}
+              <span class="card-title__date">{{ post.date |  date: '%d %B %Y'}}</span>
+            </h1>
+
+            <p class="t-hackcss-cards-text">
+              {{ post.short_description }}
+              <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                Read more.
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+
+  </div>
+</section>
+<section>
+  {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+      {% else %}
+        <span>&laquo; Prev</span>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page and page < 16 %}
+          <span>{{ page }}</span>
+        {% elsif page == 1 %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        {% elsif page == 16 %}
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+        {% elsif page > 16 %}
+        {% else %}
+          <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+      {% else %}
+        <span>Next &raquo;</span>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
+
