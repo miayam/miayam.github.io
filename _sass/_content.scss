@@ -1,4 +1,12 @@
 .standard {
+  .blog-post-image {
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
   .post {
     margin-bottom: 20px;
   }
