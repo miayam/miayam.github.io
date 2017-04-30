@@ -15,7 +15,7 @@ As far as I believe, human beings are disgusting animal. Yeah, we are the only b
 I too often look outward and go on insulting people in my mind so as to comfort myself, forgetting that I am also a human being.
 That's not good for my mental strength and I should stop.
 
-Let's start from within, right at the core of my being. Who the fuck I am?
+Let's start from within, right at the core of my being. Who the fuck am I?
 
 When was the last time I saw the sky without buildings blocking my view?
 
