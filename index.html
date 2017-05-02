@@ -15,44 +15,41 @@ layout: default
 <section>
   <div class="grid t-hackcss-cards">
     {% for post in paginator.posts %}
-
-    <div class="cell -6of12 t-hackcss-cards-cell">
-      <div class="card">
-        {% for category in site.data.categories %}
-          {% if post.category == category.slug %}
-            <header class="card-header">{{ category.name }}</header>
-          {% endif %}
-        {% endfor %}
-
-        <div class="card-content">
-          <div class="inner">
-            {% if post.image_preview %}
-            <img src="{{ post.image_preview }}" class="t-hackcss-cards-image"
-                 alt="{{ post.title }}"
-                 title="{{ post.short_description }}" />
+      <div class="cell -6of12 t-hackcss-cards-cell">
+        <div class="card">
+          {% for category in site.data.categories %}
+            {% if post.category == category.slug %}
+              <header class="card-header">{{ category.name }}</header>
             {% endif %}
+          {% endfor %}
 
-            <h1 class="card-title">
-              {{ post.title }}
-              <span class="card-title__date">{{ post.date |  date: '%-d %B %Y'}}</span>
-            </h1>
+          <div class="card-content">
+            <div class="inner">
+              {% if post.image_preview %}
+              <img src="{{ post.image_preview }}" class="t-hackcss-cards-image"
+                   alt="{{ post.title }}"
+                   title="{{ post.short_description }}" />
+              {% endif %}
 
-            <p class="t-hackcss-cards-text">
-              {{ post.short_description }}
-              <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-                Read more.
-              </a>
-            </p>
+              <h1 class="card-title">
+                {{ post.title }}
+                <span class="card-title__date">{{ post.date |  date: '%-d %B %Y'}}</span>
+              </h1>
+
+              <p class="t-hackcss-cards-text">
+                {{ post.short_description }}
+                <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
+                  Read more.
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
     {% endfor %}
-
-
   </div>
 </section>
+
 <section>
   {% if paginator.total_pages > 1 %}
     <div class="pagination">
@@ -85,4 +82,3 @@ layout: default
     </div>
   {% endif %}
 </section>
-
