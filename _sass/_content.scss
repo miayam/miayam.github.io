@@ -23,16 +23,20 @@
 
   .blog-navigation {
     position: relative;
-    padding-bottom: 20px;
+    height: 90px;
+
+    .blog-navigation__previous-link, .blog-navigation__next-link {
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
 
     .blog-navigation__previous-link {
-      position: absolute;
-      left: 0px;
+      left: 0;
     }
 
     .blog-navigation__next-link {
-      position: absolute;
-      right: 0px;
+      right: 0;
     }
   }
 
