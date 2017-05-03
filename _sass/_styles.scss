@@ -1,5 +1,13 @@
 // This file contains custom (non hack.css) styles
 
+.standard {
+  .card {
+    @include fix-screen($on-palm) {
+      height: 420px;
+    }
+  }
+}
+
 .t-hackcss {  // Main prefix to avoid collisions
   &-placard {
     @include media-query($on-palm) {

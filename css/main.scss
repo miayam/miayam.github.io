@@ -12,7 +12,7 @@ $icon-size:        15px;
 
 
 // Sizes
-$on-palm:          768px;
+$on-palm:          720px;
 
 
 
@@ -24,9 +24,15 @@ $on-palm:          768px;
 //     }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+  @media screen and (max-width: $device) {
+      @content;
+  }
+}
+
+@mixin fix-screen($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
 }
 
 
