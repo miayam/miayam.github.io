@@ -3,7 +3,7 @@ layout: post
 title: Insignificant
 category: "personal-life"
 short_description: I found a great article that really slaps me on the face.
-image_preview: /images/personal_life.svg
+image_preview: /images/personal_life.png
 ---
 
 I found a [great article](https://markmanson.net/not-giving-a-fuck) that really slaps me on the face.
