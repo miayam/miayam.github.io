@@ -30,14 +30,14 @@ What I have learnt in junior high school are how to decode Morse’s code, how t
 how to send email, how to take shit, how to masturbate, and nothing worth-spelling. I only have 4 friends from junior high school,
 we often see each other.
 
-And then, I graduated and entered high school without struggling on exam because I can enter any high schools in Bogor with
-my precious certificate for representing my city in Boy Scout Tournament. I chose SMA Negeri 4 Bogor, not so fancy school.
-For the next 3 years, I wasn’t doing anything there. I slept on the desk all the time wondering where I was sleeping
-tonight.
+Fortunately, I graduated and entered high school without having to put extra effort into exam because I can enter
+any high schools in the city using my precious certificate from [Regional Boy Scout Tournament](https://id.wikipedia.org/wiki/Lomba_Tingkat_Pramuka_Penggalang).
+I deliberately chose SMA Negeri 4 Bogor—not so fancy school by all means. For the next 3 years, I wasn’t doing anything there.
+I slept on the desk all the time wondering where I was sleeping tonight.
 
 What I have learnt in high school are how to admire girls (Fida, Ayu, and Elvina) for the first time in my life. I wrote
 many poems about them but I never told them that I like them so much.
 
-Apart from being melancholic and poetic, I was a member of Montaineering Club in which no one in school would have a nerve to put
-up a fight with us. I am the weakest member but well respected for some reason. I only have 2 friends from high school,
+Apart from being melancholic and poetic, I was a member of Montaineering Club in which no one in the school would have a nerve
+to put up a fight with us. I am the weakest member but well respected for some reasons. I only have 2 friends from high school,
 we barely know each other but we are friends, if not brothers.
