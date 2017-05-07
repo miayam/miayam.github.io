@@ -32,7 +32,7 @@ we often see each other.
 
 And then I graduated and entered high school without struggling on exam because I can enter any high schools in Bogor with
 my precious certificate for representing my city in Boy Scout Tournament. I chose SMA Negeri 4 Bogor, not so fancy school.
-For the next 3 years, I wasn’t doing anything there, I slept on the desk all the time wondering where I was sleeping
+For the next 3 years, I wasn’t doing anything there. I slept on the desk all the time wondering where I was sleeping
 tonight.
 
 What I have learnt in high school are how to admire girls (Fida, Ayu, and Elvina) for the first time in my life. I wrote
