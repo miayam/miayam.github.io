@@ -30,7 +30,7 @@ What I have learnt in junior high school are how to decode Morse’s code, how t
 how to send email, how to take shit, how to masturbate, and nothing worth-spelling. I only have 4 friends from junior high school,
 we often see each other.
 
-And then I graduated and entered high school without struggling on exam because I can enter any high schools in Bogor with
+And then, I graduated and entered high school without struggling on exam because I can enter any high schools in Bogor with
 my precious certificate for representing my city in Boy Scout Tournament. I chose SMA Negeri 4 Bogor, not so fancy school.
 For the next 3 years, I wasn’t doing anything there. I slept on the desk all the time wondering where I was sleeping
 tonight.
