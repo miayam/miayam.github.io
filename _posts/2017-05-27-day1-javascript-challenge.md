@@ -2,12 +2,13 @@
 layout: post
 title: "Day 1: JavaScript Challenge"
 category: javascript
-short_description: In this lovely month, I would love to spend my meaningless life on something that's meaningful. It's 30 days JavaScript challenge.
+short_description: In this lovely month, I would love to spend my meaningless life on something that's meaningful. It's 30 day JavaScript challenge.
 image_preview: /images/javascript.png
 ---
 
 In this lovely month, I would love to spend my meaningless life on something
-that's meaningful. It's 30 days JavaScript challenge.
+that's meaningful. It's
+[30 day JavaScript challenge](https://javascript30.com/){:target="_blank"}.
 
 <div class="blog-post-image">
   <img src="/images/lovely_month.jpg" alt="Lala Larissa">
@@ -15,11 +16,11 @@ that's meaningful. It's 30 days JavaScript challenge.
 </div>
 
 This is the first challenge. It's not tricky but lots of fun.
-Clone my [repo](https://github.com/miayam/js30) if you are interested.
-Here's the [demo](/demo_day1).
+Clone my [repo](https://github.com/miayam/js30){:target="_blank"}
+if you are interested and here's the [demo](/demo_day1){:target="_blank"}.
 
 It's quite interesting because this is the first time I manipuate SVG image
-with JavaScript. I forget that SVG is just XML-based vector image and can be
+using JavaScript. I forget that SVG is just XML-based vector image and can be
 parsed into the DOM.
 
 {% highlight js %}
@@ -28,17 +29,17 @@ parsed into the DOM.
   document.querySelector('#Snare-Drum')
 {% endhighlight %}
 
-Here's my stupid JavaScript code...
+Here's my simple boring JavaScript code...
 
 {% gist miayam/78981e95652fcfc0bda9336a44aa5464 %}
 
 Until today I have added event listener to `click`, `keyup`, `keydown`,
 `submit`, and `changed` in my daily JavaScript code. Now, I know there are
-another interesting events can be triggered in the browser. In my case,
+lots of interesting events can be triggered in the browser. In my case,
 they are `animationend` and `transitionend`.
 
-Here's my stupid CSS code that manipulates SVG image when certain key on
-keyboard punched.
+Here's CSS code that manipulates SVG image when certain character on
+keyboard typed.
 
 {% highlight css %}
   /* It's for manipulating SVG image */
@@ -50,7 +51,7 @@ keyboard punched.
   @keyframes rollDrum {
     from {
       transform-origin: 50% 50%;
-      transform: scale(1);
+      transform: scale(0.99);
     }
 
     to {
@@ -68,4 +69,4 @@ keyboard punched.
 {% endhighlight %}
 
 I hope I can manage to finish the rest of the
-challenges. I am not sure. Tomorrow's challenge is waiting...
+challenges. I am not sure, but tomorrow's challenge is waiting...
