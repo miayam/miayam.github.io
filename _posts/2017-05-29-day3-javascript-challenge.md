@@ -14,7 +14,7 @@ I am doing it so fast in the office. Not quite interesting.
 </div>
 
 Well, I can only change the image background and comment on code that's really
-important to me. Here's the [demo](/demo_day3).
+important to me. Here's the [demo](/demo_day3){:target="_blank".
 
 One good thing about CSS variable is when you change the variable,
 any elements that have reference to it will change as is. The behaviour of CSS
