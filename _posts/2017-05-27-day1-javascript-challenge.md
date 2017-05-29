@@ -19,7 +19,7 @@ This is the first challenge. It's not tricky but lots of fun.
 Clone my [repo](https://github.com/miayam/js30){:target="_blank"}
 if you are interested and here's the [demo](/demo_day1){:target="_blank"}.
 
-It's quite interesting because this is the first time I manipuate SVG image
+It's quite interesting because this is the first time I manipulate SVG image
 using JavaScript. I forget that SVG is just XML-based vector image and can be
 parsed into the DOM.
 
@@ -34,7 +34,7 @@ Here's my simple boring JavaScript code...
 {% gist miayam/78981e95652fcfc0bda9336a44aa5464 %}
 
 Until today I have added event listener to `click`, `keyup`, `keydown`,
-`submit`, and `changed` in my daily JavaScript code. Now, I know there are
+`submit`, and `change` in my daily JavaScript code. Now, I know there are
 lots of interesting events can be triggered in the browser. In my case,
 they are `animationend` and `transitionend`.
 
