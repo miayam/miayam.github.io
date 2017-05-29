@@ -12,7 +12,7 @@ the [demo](/demo_day2){:target="_blank"}.
 
 <div class="blog-post-image">
   <img src="/images/lala.jpg" alt="Lala Larissa Again">
-  <em>I cannot stop loving her.</em>
+  <em>I cannot stop loving her</em>
 </div>
 
 
