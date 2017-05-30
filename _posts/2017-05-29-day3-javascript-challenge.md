@@ -16,7 +16,7 @@ I am doing it so fast in the office. Not quite interesting.
 Well, I can only change the image background and comment on code that's really
 important to me. Here's the [demo](/demo_day3){:target="_blank"}.
 
-One good thing about CSS variable is when you change the variable,
+One good thing about CSS variable is when you change the variable
 any elements that have reference to it will change as is. The behaviour of CSS
 variable has no difference from the rest of CSS features, it cascades. You can
 override it if you declare CSS variable on child element. In this challenge,

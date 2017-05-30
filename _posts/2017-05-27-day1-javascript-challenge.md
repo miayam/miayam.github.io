@@ -12,7 +12,7 @@ that's meaningful. It's
 
 <div class="blog-post-image">
   <img src="/images/lovely_month.jpg" alt="Lala Larissa">
-  <em>She is also beautiful</em>
+  <em>She is also lovely...</em>
 </div>
 
 This is the first challenge. It's not tricky but lots of fun.
