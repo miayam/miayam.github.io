@@ -13,7 +13,7 @@ I am doing it so fast in the office. Not quite interesting.
   <em>Stop smiling because I love you!</em>
 </div>
 
-Well, I can only change the image background and comment on code that's really
+Well, I can only change the image and comment on code that's really
 important to me. Here's the [demo](/demo_day3){:target="_blank"}.
 
 One great thing about CSS variable is when you change the variable,
