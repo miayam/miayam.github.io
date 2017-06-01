@@ -5,6 +5,12 @@
     img {
       width: 100%;
     }
+
+    em {
+      content:" ";
+      white-space: pre;
+      display: block;
+    }
   }
 
   .post {
