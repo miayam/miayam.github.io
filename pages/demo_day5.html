@@ -138,6 +138,8 @@ permalink: demo_day5
       }
 
       function toggleOpen(event) {
+        event.preventDefault();
+
         this.classList.toggle('open');
 
         siblings.call(this).forEach(function (el) {
@@ -146,6 +148,8 @@ permalink: demo_day5
       }
 
       function toggleActive(event) {
+        event.preventDefault();
+
         if (event.propertyName.includes('flex')) {
           this.classList.toggle('open-active');
         }
@@ -153,6 +157,7 @@ permalink: demo_day5
 
       panels.forEach(function (panel) {
         panel.addEventListener('click', toggleOpen);
+        panel.addEventListener('touchstart', toggleOpen);
         panel.addEventListener('transitionend', toggleActive);
       });
     })(window);

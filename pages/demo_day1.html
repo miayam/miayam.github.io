@@ -421,6 +421,8 @@ permalink: demo_day1
     }
 
     function syncTheDrum(event) {
+      event.preventDefault();
+
       // certain character on keyboard when typed
       var key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
       // the sound of the drum
@@ -440,6 +442,7 @@ permalink: demo_day1
     }
 
     window.addEventListener('keydown', syncTheDrum);
+    window.addEventListener('touchstart', syncTheDrum);
   })(window);
 </script>
 </body>
