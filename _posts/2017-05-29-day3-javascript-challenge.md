@@ -15,6 +15,7 @@ I am doing it so fast in the office. Not quite interesting.
 
 Well, I can only change the image and comment on code that's really
 important to me. Here's the [demo](/demo_day3){:target="_blank"}.
+Clone my [repo](https://github.com/miayam/js30){:target="_blank"} if you are so keen.
 
 One great thing about CSS variable is when you change the variable,
 any elements that have reference to it will change as is. The behaviour of CSS
