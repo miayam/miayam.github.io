@@ -22,6 +22,14 @@ variable has no difference from the rest of CSS features, it cascades. You can
 override it if you declare CSS variable on child element. In this challenge,
 all CSS variables declared on `:root` (`<html>` tag).
 
+{% highlight css %}
+  :root {
+    --base: #ffc600;
+    --blur: 0;
+    --spacing: 0;
+  }
+{% endhighlight %}
+
 Here's yet another boring JavaScript code.
 
 {% gist miayam/2858c0673d2f94baa1899741cec7d4e8 %}
