@@ -32,16 +32,23 @@
     height: 90px;
 
     .blog-navigation__previous-link, .blog-navigation__next-link {
-      top: 50%;
-      transform: translateY(-50%);
       position: absolute;
+      width: 50%;
+      border-bottom: 0;
+    }
+
+    a:hover {
+      color: #c50b5c;
+      background: white;
     }
 
     .blog-navigation__previous-link {
+      text-align: left;
       left: 0;
     }
 
     .blog-navigation__next-link {
+      text-align: right;
       right: 0;
     }
   }
