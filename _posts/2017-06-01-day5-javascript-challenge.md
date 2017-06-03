@@ -8,10 +8,8 @@ image_preview: /images/javascript.png
 
 I know nothing about CSS flexbox!
 
-<div class="blog-post-image">
-  <img src="/images/yoshitaka.jpg" alt="she is cute in some way">
-  <em>In 2030, I will have a robot that take on the appearance of you!</em>
-</div>
+![she is cute in some way](/images/yoshitaka.jpg){:class="blog-post-image"}
+<em class="description">In 2030, I will have a robot that take on the appearance of you!</em>
 
 I will skip all the CSS thingy in this challenge and focus on the experience I'd love to have.
 At first, in Wes Bos JavaScript code, when you click one of the panels, it will make it bigger and the rest will shrink.

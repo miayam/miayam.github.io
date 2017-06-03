@@ -10,10 +10,8 @@ In this lovely month, I would love to spend my meaningless life on something
 that's meaningful. It's
 [30 day JavaScript challenge](https://javascript30.com/){:target="_blank"}.
 
-<div class="blog-post-image">
-  <img src="/images/lovely_month.jpg" alt="Lala Larissa">
-  <em>She is also lovely...</em>
-</div>
+![Lala Larissa](/images/lovely_month.jpg){:class="blog-post-image"}
+<em class="description">She is also lovely...</em>
 
 This is the first challenge. It's not tricky but lots of fun.
 Clone my [repo](https://github.com/miayam/js30){:target="_blank"}

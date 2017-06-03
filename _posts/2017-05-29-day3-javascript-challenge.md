@@ -8,10 +8,8 @@ image_preview: /images/javascript.png
 
 I am doing it so fast in the office. Not quite interesting.
 
-<div class="blog-post-image">
-  <img src="/images/lala_again.jpg" alt="Oh God, she is beauitiful">
-  <em>Stop smiling because I love you!</em>
-</div>
+![Lala Larissa Again](/images/lala_again.jpg){:class="blog-post-image"}
+<em class="description">Stop smiling because I love you!</em>
 
 Well, I can only change the image and comment on code that's really
 important to me. Here's the [demo](/demo_day3){:target="_blank"}.

@@ -10,11 +10,8 @@ It's so hard to keep up with this challenge. I am struggling even if it's seemin
 clock). Clone my [repo](https://github.com/miayam/js30){:target="_blank"} if you are interested and here's
 the [demo](/demo_day2){:target="_blank"}.
 
-<div class="blog-post-image">
-  <img src="/images/lala.jpg" alt="Lala Larissa Again">
-  <em>I cannot stop loving her!</em>
-</div>
-
+![Lala Larissa Again](/images/lala.jpg){:class="blog-post-image"}
+<em class="description">I cannot stop loving her!</em>
 
 My first mistake that takes too long to solve is turning hours into corresponding degree.
 
@@ -28,10 +25,10 @@ I thought it would be like this because there are 24 hours per day.
 
 But fool me, the clock will always be like this.
 
-<div class="blog-post-image">
-  <img src="/images/clock.png" alt="clock">
-  <em>12 is the maximum, stupid!</em>
-</div>
+
+
+![clock](/images/clock.png){:class="blog-post-image"}
+<em class="description">12 is the maximum, stupid!</em>
 
 Here's how I solve it.
 
