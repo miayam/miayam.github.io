@@ -21,11 +21,14 @@ sass:
   style: compressed
 
 # Pagination settings
-paginate: 8
+pagination:
+  collection:   posts
+  per_page:     8             # maximum number of items per page
+  limit:        false         # Maximum number of pages to paginate (false for unlimited)
+  permalink:    /page/:num/   # pagination path (relative to template page)
 
 permalink: /:categories/:year/:month/:day/:title
-
-paginate_path: "/page/:num/"
+paginate_path: /page/:num
 
 # Theme settings
 theme_mode: standard  # choices are: 'dark', 'standard', 'markdown'
@@ -69,4 +72,4 @@ category_pages:
 gems:
   - jekyll-seo-tag
   - jekyll-gist
-  - jekyll-paginate
+  - octopress-paginate

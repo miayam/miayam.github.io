@@ -4,4 +4,7 @@ source "https://rubygems.org"
 gem "jekyll"
 gem "jekyll-seo-tag"
 gem "jekyll-gist"
-gem "jekyll-paginate"
+
+group :jekyll_plugins do
+  gem 'octopress-paginate'
+end
