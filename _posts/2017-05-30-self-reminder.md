@@ -7,7 +7,7 @@ image_preview: /images/personal_life.png
 category_page: personal
 ---
 
-![Zen as Fuck](/images/bahan_blog.png){:class="blog-post-image"}
+![Zen as Fuck](/images/zen_as_fuck.jpg){:class="blog-post-image"}
 <em class="description">Amitābha...</em>
 
 Worry not, worry not.
