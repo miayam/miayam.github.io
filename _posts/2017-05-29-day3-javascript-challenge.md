@@ -4,6 +4,7 @@ title: "Day 3: JavaScript Challenge"
 category: javascript
 short_description: I am doing it so fast in the office. Not quite interesting.
 image_preview: /images/javascript.png
+category_page: js
 ---
 
 I am doing it so fast in the office. Not quite interesting.

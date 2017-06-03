@@ -4,6 +4,7 @@ title: The Beginning
 category: "personal-life"
 short_description: I was born and raised in Bogor,  the small damp city surrounded by two gigantic rows of montain (Salak and Pangrango).
 image_preview: /images/personal_life.png
+category_page: personal
 ---
 
 I was born and raised in Bogor, the small damp city surrounded by two gigantic rows of montain (Salak and Pangrango).

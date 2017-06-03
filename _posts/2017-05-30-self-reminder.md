@@ -4,6 +4,7 @@ title: Self Reminder
 category: "personal-life"
 short_description: Dear myself, you are going to die sooner or later. You probably won't care about this event or those events when you have it coming.
 image_preview: /images/personal_life.png
+category_page: personal
 ---
 
 <div class="blog-post-image">

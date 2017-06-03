@@ -4,6 +4,7 @@ title: "Day 4: JavaScript Challenge"
 category: javascript
 short_description: I have to do it on and on until I get it. Never underestimate the power of JavaScript's Array!
 image_preview: /images/javascript.png
+category_page: js
 ---
 
 I have to do it on and on until I get it. Never underestimate the power of JavaScript's Array!

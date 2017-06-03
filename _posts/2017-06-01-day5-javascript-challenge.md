@@ -4,6 +4,7 @@ title: "Day 5: JavaScript Challenge"
 category: javascript
 short_description: I know nothing about CSS flexbox!
 image_preview: /images/javascript.png
+category_page: js
 ---
 
 I know nothing about CSS flexbox!

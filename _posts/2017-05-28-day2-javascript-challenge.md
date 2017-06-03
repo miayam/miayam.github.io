@@ -4,6 +4,7 @@ title: "Day 2: JavaScript Challenge"
 category: javascript
 short_description: It's so hard to keep up with it. I am struggling even if it's seemingly an easy task (making analogue clock).
 image_preview: /images/javascript.png
+category_page: js
 ---
 
 It's so hard to keep up with this challenge. I am struggling even if it's seemingly an easy task (making analogue

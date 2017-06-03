@@ -21,7 +21,8 @@ sass:
   style: compressed
 
 # Pagination settings
-paginate: 6
+paginate: 8
+paginate_path: "/page/:num/"
 
 # Theme settings
 theme_mode: standard  # choices are: 'dark', 'standard', 'markdown'
@@ -40,6 +41,26 @@ navigation:
     url: /about
   - text: Archive
     url: /archive
+
+category_pages:
+  - text: JavaScript
+    url: /js
+    src: /images/javascript.png
+  - text: Mathematics
+    url: /math
+    src: /images/mathematics.jpg
+  - text: Personal Life
+    url: /personal
+    src: /images/personal_life.png
+  - text: Philosophy
+    url: /phil
+    src: /images/philosophy.png
+  - text: Ruby
+    url: /rb
+    src: /images/ruby.png
+  - text: The Web
+    url: /web
+    src: /images/the_web.png
 
 # Plugins
 gems:
