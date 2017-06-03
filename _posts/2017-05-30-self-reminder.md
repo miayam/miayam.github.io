@@ -7,10 +7,8 @@ image_preview: /images/personal_life.png
 category_page: personal
 ---
 
-<div class="blog-post-image">
-  <img src="/images/zen_as_fuck.jpg" alt="Zen as Fuck">
-  <em>Amitābha...</em>
-</div>
+![Zen as Fuck](/images/zen_as_fuck.jpg){:class="blog-post-image"}
+<em class="description">Amitābha...</em>
 
 Worry not, worry not.
 
