@@ -14,7 +14,7 @@ layout: default
 
 <section>
   <div class="grid t-hackcss-cards">
-    {% for post in paginator.posts %}
+    {% for post in site.categories[page.category] %}
       <div class="cell -6of12 t-hackcss-cards-cell">
         <div class="card">
           {% for category in site.data.categories %}
@@ -52,30 +52,3 @@ layout: default
   </div>
 </section>
 
-<section>
-  {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-      {% else %}
-        <span>&laquo; Prev</span>
-      {% endif %}
-
-      {% for num in (1..paginator.total_pages) %}
-        {% if num == paginator.page and num < 16 %}
-          <span>{{ num }}</span>
-        {% elsif num == 1 %}
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ num }}</a>
-        {% else %}
-          <a href="{{ site.paginate_path | prepend: page.base_url | replace: ':num', num }}">{{ num }}</a>
-        {% endif %}
-      {% endfor %}
-
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-      {% else %}
-        <span>Next &raquo;</span>
-      {% endif %}
-    </div>
-  {% endif %}
-</section>

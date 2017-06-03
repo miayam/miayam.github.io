@@ -20,6 +20,7 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-gist (1.4.0)
       octokit (~> 4.2)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.4.0)
       sass (~> 3.4)
     jekyll-seo-tag (2.0.0)
@@ -35,10 +36,6 @@ GEM
     multipart-post (2.0.0)
     octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
-    octopress-hooks (2.6.2)
-      jekyll (>= 2.0)
-    octopress-paginate (1.2.0)
-      octopress-hooks
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
@@ -58,8 +55,8 @@ PLATFORMS
 DEPENDENCIES
   jekyll
   jekyll-gist
+  jekyll-paginate
   jekyll-seo-tag
-  octopress-paginate
 
 BUNDLED WITH
    1.14.6
