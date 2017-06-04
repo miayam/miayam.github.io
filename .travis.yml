@@ -1,6 +1,14 @@
 language: ruby
 rvm:
   2.1
+before_script:
+  - git config --global user.email "your@gmail.com"
+  - git config --global user.name "your name"
+  - git remote rm origin
+  - git remote add origin https://user:${GH_TOKEN}@github.com/miayam/miayam.github.io.git
+
+script: git push origin master
+
 deploy:
   provider: pages
   skip_cleanup: true
