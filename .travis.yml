@@ -2,7 +2,7 @@ language: ruby
 rvm:
   2.1
 
-script: jekyll --version
+script: "ls"
 
 deploy:
   provider: pages
