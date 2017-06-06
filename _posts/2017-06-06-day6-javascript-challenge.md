@@ -20,7 +20,7 @@ design which I really love the most. Here's one of the most cutest girl in China
 <em class="description">Please notice me my dear!</em>
 
 I had nothing to say about this challenge. Here's the [demo](/demo_day6){:target="_blank"} and
-the [repo](https://github.com/miayam/js30){:target="_blank"}. Please, read it while fixing
-your eyes on that beauitiful girl above!
+the [repo](https://github.com/miayam/js30){:target="_blank"}. Please, read the gist while fixing
+your eyes on that beautiful girl above!
 
 I like this challenge.
