@@ -50,7 +50,7 @@ Here's a simple array that represent those 4 cute girls.
   ];
 {% endhighlight %}
 
-Nah, today's challenge introduce us to `Array.prototype` built-in method like
+Nah, today's challenge introduce us to `Array.prototype` built-in method:
 `some`, `find`, `findIndex`, and `every`. It's simply boring because there's
 no point to have a [demo](/demo_day7){:target="_blank"}
 for this kind of challenge (a bunch of `console.log` will do!). Clone my
@@ -113,11 +113,11 @@ some of my crushes are not single at all...
   console.log(unmarriageable); // true
 {% endhighlight %}
 
-I save the best for last. She is average compared to the rest but endowed with
-cute and wonderful hands (the ones you can only see in *anime* or *manga*).
-Her finger nails are so clean and sparkling. I can tell her present by
-listening to her unique high pitch laughter. I admire her vigorous attitude.
-I even dreamed of her kissing me on the cheek. I really want to make a
-confession about this feeling. Maybe next time.
+Lastly, I save the best for last. オーリア ラフマ is average compared to the rest
+but endowed with cute and wonderful hands (the ones you can only see in
+*anime* or *manga*). Her finger nails are so clean and sparkling. I can tell
+her present by listening to her unique high pitch laughter. I admire her
+vigorous attitude. I even dreamed of her kissing me on the cheek. I really
+want to make a confession about this feeling. Maybe next time.
 
 I like オーリア ラフマ. Let me sniff you from short distance, my dear!
