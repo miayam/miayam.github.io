@@ -14,7 +14,8 @@ they are nothing compared to this superb cute girl!
 ![kawai pisaaaan!](/images/kawai.jpg){:class="blog-post-image"}
 <em class="description">You are killing me!</em>
 
-How about making use of JavaScript's `Array.prototype` built-in method to take care of them?
+How about making use of JavaScript's `Array.prototype` built-in method to take
+care of them?
 
 Here's a simple array that represent those 4 cute girls.
 
@@ -71,10 +72,10 @@ I get information about her if I only remember that she is obnoxious?
   console.log(her);
 {% endhighlight %}
 
-I recently hate her, チージア セリーナ. I don't know why she is so sensitive. Overreacting over
-something that has nothing to do with her. What a weak soul. She is fragile
-and emotional because she is the youngest (only 23). I really want to
-delete her from the list. How could I do that if I would?
+I recently hate her, チージア セリーナ. I don't know why she is so sensitive.
+Overreacting over something that has nothing to do with her. What a weak soul.
+She is fragile and emotional (she is only 23). I really want to delete her from
+the list. How could I do that if I would?
 
 {% highlight js %}
   var herIndex = crushes.findIndex(function (crush) {
@@ -99,7 +100,7 @@ I am really sure though!
   console.log(cuteness); // true
 {% endhighlight %}
 
-Well, they are so cute and I believe cuteness has nothing to do with age.
+Truly, they are so cute and I believe cuteness has nothing to do with age.
 メリー メディオーアティ is a year older than me. Oh, I forget, I am not
 romantically attached to her, I am in love with her! I am willing to spend
 my time, money, and energy on her. Unfortunately, she is married. Truth be told,
