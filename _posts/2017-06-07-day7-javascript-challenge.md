@@ -117,7 +117,7 @@ some of my crushes are not single at all...
 Lastly, I save the best for last. オーリア ラフマ is average compared to the rest
 but endowed with cute and wonderful hands (the ones you can only see in
 *anime* or *manga*). Her finger nails are so clean and sparkling. I can tell
-her present by listening to her unique high pitch laughter. I admire her
+her present by listening to her unique high-pitched laughter. I admire her
 vigorous attitude. I even dreamed of her kissing me on the cheek. I really
 want to make a confession about this feeling. Maybe next time.
 
