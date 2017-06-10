@@ -3,7 +3,7 @@ layout: post
 title: Insignificant
 category: "personal-life"
 short_description: I found a great article that really slaps me in the face.
-image_preview: /images/personal_life.png
+image_preview: /images/opinion.png
 category_page: personal
 ---
 

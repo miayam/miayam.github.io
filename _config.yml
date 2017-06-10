@@ -52,9 +52,9 @@ category_pages:
   - text: Mathematics
     url: /math
     src: /images/mathematics.jpg
-  - text: Personal Life
+  - text: My Two Cents
     url: /personal
-    src: /images/personal_life.png
+    src: /images/opinion.png
   - text: Philosophy
     url: /phil
     src: /images/philosophy.png
