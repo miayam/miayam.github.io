@@ -1,6 +1,10 @@
 // This file contains custom (non hack.css) styles
 
 .standard {
+  main {
+    padding: 15px 25px;
+  }
+
   .card {
     @include fix-screen($on-palm) {
       height: 420px;
@@ -22,7 +26,7 @@
   // navigation.html
 
   &-navigation {
-    padding-right: $spacing-unit;
+    padding-right: 0;
   }
 
   @at-root .hack &-navigation-heading {
