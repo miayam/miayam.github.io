@@ -2,12 +2,12 @@
 layout: post
 title: Insignificant
 category: "personal-life"
-short_description: I found a great article that really slaps me on the face.
+short_description: I found a great article that really slaps me in the face.
 image_preview: /images/personal_life.png
 category_page: personal
 ---
 
-I found a [great article](https://markmanson.net/not-giving-a-fuck) that really slaps me on the face.
+I found a [great article](https://markmanson.net/not-giving-a-fuck) that really slaps me in the face.
 
 Whenever I get annoyed by people who don't really matter in my life, I always google a question on how to deal with them.
 I am not good with people, so I won't ask them for help if possible.
