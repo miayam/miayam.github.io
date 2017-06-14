@@ -18,7 +18,6 @@ I hope my hobby doesn't conflict with yours. I don't mind getting into
 fistfight to resolve it (kidding).
 
 ![ampun pisaaaan!](/images/mayuyu.jpg){:class="blog-post-image"}
-<em class="description">Stop it! I love you! I love you! I love you!</em>
 
 I hope the code explain itself. Thanks for reading.
 

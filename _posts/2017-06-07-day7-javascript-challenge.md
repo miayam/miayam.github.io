@@ -12,7 +12,6 @@ high school, college, and office. How could I manage them? Unfortunately,
 they are nothing compared to this superb cute girl!
 
 ![kawai pisaaaan!](/images/kawai.jpg){:class="blog-post-image"}
-<em class="description">You are killing me!</em>
 
 How about making use of JavaScript's `Array.prototype` built-in method to take
 care of them?

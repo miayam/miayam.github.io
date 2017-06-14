@@ -10,7 +10,6 @@ category_page: js
 I am doing it so fast in the office. Not quite interesting.
 
 ![Lala Larissa Again](/images/lala_again.jpg){:class="blog-post-image"}
-<em class="description">Stop smiling because I love you!</em>
 
 Well, I can only change the image and comment on code that's really
 important to me. Here's the [demo](/demo_day3){:target="_blank"}.

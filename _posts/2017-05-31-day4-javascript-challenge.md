@@ -11,7 +11,6 @@ I have to do it on and on until I get it. Never underestimate the power of JavaS
 
 
 ![she is cute](/images/aoi.jpg){:class="blog-post-image"}
-<em class="description">Oh God, please help me! It's too cute!</em>
 
 In this challenge, there's no interesting thing like manipulating the DOM or
 whatsoever. It's purely intellectual journey towards JavaScript's Array

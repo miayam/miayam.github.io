@@ -12,7 +12,6 @@ clock). Clone my [repo](https://github.com/miayam/js30){:target="_blank"} if you
 the [demo](/demo_day2){:target="_blank"}.
 
 ![Lala Larissa Again](/images/lala.jpg){:class="blog-post-image"}
-<em class="description">I cannot stop loving her!</em>
 
 My first mistake that takes too long to solve is turning hours into corresponding degree.
 

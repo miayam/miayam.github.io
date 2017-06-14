@@ -11,7 +11,6 @@ I was using fetch method which really shows me the Promise and its early usage f
 programming. Here's one of the most cutest girl in China.
 
 ![she is also cute](/images/chen.jpg){:class="blog-post-image"}
-<em class="description">Please notice me my dear!</em>
 
 I had nothing to say about this challenge. Here's the [demo](/demo_day6){:target="_blank"} and
 the [repo](https://github.com/miayam/js30){:target="_blank"}. Please, read the gist while fixing
