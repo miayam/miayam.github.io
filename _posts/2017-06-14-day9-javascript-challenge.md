@@ -13,12 +13,12 @@ play with the console.
 ![Emi Takei!](/images/emi.jpg){:class="blog-post-image"}
 
 Before this challenge, I only made use of `console.log` for debugging.
-That's enough for me, but there are other built-in methods from `console`
-object to help us eradicate bugs and errors. We are going to make
-the most of it.
+To me, that was enough to make sure the outputs of certain program, but there
+are other built-in methods from native `console` object available to help us
+eradicate bugs and errors. We are going to make the most of it.
 
-To increase my own understanding, I will make it super personal. Hope you
-don't mind.
+To increase my own understanding, I'll take all examples here personal.
+I hope you don't mind.
 
 ### `Regular Logging`
 This is regular `console.log` we often encounter in  our spaghetti code.
@@ -28,7 +28,7 @@ This is regular `console.log` we often encounter in  our spaghetti code.
 
 ### `With Interpolation`
 Sometime we need to insert value between text consumed by `console.log`.
-Well, what for? To make it personal of course!
+Well, what for? To make it easier to change dumb-ass!
 {% highlight js %}
   (function () {
     var her = 'チージア セリーナ';
@@ -51,11 +51,11 @@ Nike says "Just do it!".
   })();
 {% endhighlight %}
 
-I express my love to her...
+You will see this in `console`.
 <p style="color: pink; font-size: 25px">メリー メディオーアティ is the best ❤</p>
 
-`%c` before text indicates the text are going to be styled with inline CSS
-we pass as second parameter.
+Pay attention. `%c` before text indicates the text are going to be styled with
+inline CSS we pass to second parameter.
 
 ### `Warning!`
 Instead of simply "say what you say" via `console.log`, what if we warn our
