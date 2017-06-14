@@ -28,7 +28,7 @@ This is regular `console.log` we often encounter in  our spaghetti code.
 
 ### `With Interpolation`
 Sometime we need to insert value between text consumed by `console.log`.
-Well, what for? To make it easier to change dumb-ass!
+Well, what for? To make it easier to change later on!
 {% highlight js %}
   (function () {
     var her = 'チージア セリーナ';
