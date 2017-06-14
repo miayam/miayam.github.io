@@ -90,8 +90,7 @@ expression above. Of course I like チージア セリーナ, I mean it!
 
 ### `Displaying Error`
 Enough warning, enough conveying, just tell the users that we made a terrible
-mistake even if it was a beautiful mistake! Error! Error! Always error! You
-mediocre!
+mistake even if it was a beautiful mistake! Error! Error! Error!
 {% highlight js %}
   console.error("I love メリー メディオーアティ, that's a mistake, a beautiful mistake...");
 {% endhighlight %}
