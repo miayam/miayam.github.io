@@ -37,7 +37,7 @@ Well, what for? To make it easier to change later on!
     console.log("is %s here with me?", her);
 
     // ES6 style
-    console.log("is ${her} here with me?");
+    console.log(`is ${her} here with me?`);
   })();
 {% endhighlight %}
 
@@ -86,7 +86,7 @@ We also can check the truth via `console`. It's quite useful.
 {% endhighlight %}
 
 `console.assert` only display text whenever the condition `false` like that
-expression above. Of course I like チージア セリーナ, I mean it!
+expression above. Of course I like オーリア ラフマ, I mean it!
 
 ### `Displaying Error`
 Enough warning, enough conveying, just tell the users that we made a terrible
