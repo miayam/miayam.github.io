@@ -43,7 +43,7 @@ Well, what for? To make it easier to change later on!
 
 ### `Styling The Text`
 If we would love to emphasize text with color and style, don't hesitate.
-Nike says "Just do it!".
+Nike says, "Just do it!"
 {% highlight js %}
   (function () {
     var her = "メリー メディオーアティ";
