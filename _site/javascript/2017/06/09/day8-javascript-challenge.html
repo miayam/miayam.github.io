@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 8: JavaScript Challenge</title>
+  <meta name="description"
+        content="Let’s play around with the canvas! What a great API!As usual, I don’t want to explain anything unnecessary. Just play with thedemo. Clone myrepoif you are in...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/06/09/day8-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css" />
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 8: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 8: JavaScript Challenge" />
+<meta name="description" content="Let’s play around with the canvas! What a great API!As usual, I don’t want to explain anything unnecessary. Just play with thedemo. Clone myrepoif you are interested.I hope my hobby doesn’t conflict with yours. I don’t mind getting intofistfight to resolve it (kidding).I hope the code explain itself. Thanks for reading.Markup&lt;!DOCTYPE html&gt;  &lt;html lang=&quot;en&quot;&gt;  &lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;title&gt;HTML5 Canvas&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;canvas id=&quot;draw&quot; width=&quot;800&quot; height=&quot;800&quot;&gt;&lt;/canvas&gt;  &lt;script src=&quot;canvas.js&quot;&gt;&lt;/script&gt;  &lt;style&gt;    html, body {      cursor: url(&quot;/images/personal_life.png&quot;), auto;      margin:0;    }  &lt;/style&gt;  &lt;/body&gt;JavaScript(function (window) {  function drawOnCanvas() {    var canvas = document.querySelector(&#39;#draw&#39;);    var context = canvas.getContext(&#39;2d&#39;);    var lineX = 0;    var lineY = 0;    var isDrawing = false;    var direction = true;    var hue = 0;    // set the canvas attributes so it takes up the whole browser screen    canvas.width = window.innerWidth;    canvas.height = window.innerHeight;    // set the pencil    context.lineJoin = &#39;round&#39;;    context.lineCap = &#39;round&#39;;    context.lineWidth = 1;    // allow the canvas to be drawn and set pencil&#39;s position    function letsDraw(event) {      isDrawing = true;      lineX = event.offsetX;      lineY = event.offsetY;    }    // disallow the canvas to be drawn    function letsNotDraw(event) {      isDrawing = false;    }    // reset the color and line width if certain condition occurs    function flipFlopColorAndLineWidth() {      hue++;      if (hue &gt;= 360) {        hue = 0;      }      if (context.lineWidth &gt;= 100 || context.lineWidth &lt;= 1) {        direction = !direction;      }      if (direction) {        context.lineWidth++;      } else {        context.lineWidth--;      }    }    // actually draw on canvas with pencil    function draw(event) {      if (!isDrawing) {        return;      }      context.beginPath();      context.strokeStyle = `hsl(${hue}, 100%, 50%)`;      context.moveTo(lineX, lineY);      context.lineTo(event.offsetX, event.offsetY);      context.stroke();      lineX = event.offsetX;      lineY = event.offsetY;      flipFlopColorAndLineWidth();    }    // initialize the event listener    function init() {      canvas.addEventListener(&#39;mousemove&#39;, draw);      canvas.addEventListener(&#39;mousedown&#39;, letsDraw);      canvas.addEventListener(&#39;mouseup&#39;, letsNotDraw);    }    return {      canvas: canvas,      init: init    };  }  var drawer = drawOnCanvas();  drawer.init();})(window);" />
+<meta property="og:description" content="Let’s play around with the canvas! What a great API!As usual, I don’t want to explain anything unnecessary. Just play with thedemo. Clone myrepoif you are interested.I hope my hobby doesn’t conflict with yours. I don’t mind getting intofistfight to resolve it (kidding).I hope the code explain itself. Thanks for reading.Markup&lt;!DOCTYPE html&gt;  &lt;html lang=&quot;en&quot;&gt;  &lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;title&gt;HTML5 Canvas&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;canvas id=&quot;draw&quot; width=&quot;800&quot; height=&quot;800&quot;&gt;&lt;/canvas&gt;  &lt;script src=&quot;canvas.js&quot;&gt;&lt;/script&gt;  &lt;style&gt;    html, body {      cursor: url(&quot;/images/personal_life.png&quot;), auto;      margin:0;    }  &lt;/style&gt;  &lt;/body&gt;JavaScript(function (window) {  function drawOnCanvas() {    var canvas = document.querySelector(&#39;#draw&#39;);    var context = canvas.getContext(&#39;2d&#39;);    var lineX = 0;    var lineY = 0;    var isDrawing = false;    var direction = true;    var hue = 0;    // set the canvas attributes so it takes up the whole browser screen    canvas.width = window.innerWidth;    canvas.height = window.innerHeight;    // set the pencil    context.lineJoin = &#39;round&#39;;    context.lineCap = &#39;round&#39;;    context.lineWidth = 1;    // allow the canvas to be drawn and set pencil&#39;s position    function letsDraw(event) {      isDrawing = true;      lineX = event.offsetX;      lineY = event.offsetY;    }    // disallow the canvas to be drawn    function letsNotDraw(event) {      isDrawing = false;    }    // reset the color and line width if certain condition occurs    function flipFlopColorAndLineWidth() {      hue++;      if (hue &gt;= 360) {        hue = 0;      }      if (context.lineWidth &gt;= 100 || context.lineWidth &lt;= 1) {        direction = !direction;      }      if (direction) {        context.lineWidth++;      } else {        context.lineWidth--;      }    }    // actually draw on canvas with pencil    function draw(event) {      if (!isDrawing) {        return;      }      context.beginPath();      context.strokeStyle = `hsl(${hue}, 100%, 50%)`;      context.moveTo(lineX, lineY);      context.lineTo(event.offsetX, event.offsetY);      context.stroke();      lineX = event.offsetX;      lineY = event.offsetY;      flipFlopColorAndLineWidth();    }    // initialize the event listener    function init() {      canvas.addEventListener(&#39;mousemove&#39;, draw);      canvas.addEventListener(&#39;mousedown&#39;, letsDraw);      canvas.addEventListener(&#39;mouseup&#39;, letsNotDraw);    }    return {      canvas: canvas,      init: init    };  }  var drawer = drawOnCanvas();  drawer.init();})(window);" />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/06/09/day8-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/06/09/day8-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-09T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 8: JavaScript Challenge",
+    "datePublished": "2017-06-09T00:00:00+07:00",
+    "description": "Let’s play around with the canvas! What a great API!As usual, I don’t want to explain anything unnecessary. Just play with thedemo. Clone myrepoif you are interested.I hope my hobby doesn’t conflict with yours. I don’t mind getting intofistfight to resolve it (kidding).I hope the code explain itself. Thanks for reading.Markup&lt;!DOCTYPE html&gt;  &lt;html lang=&quot;en&quot;&gt;  &lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;title&gt;HTML5 Canvas&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;canvas id=&quot;draw&quot; width=&quot;800&quot; height=&quot;800&quot;&gt;&lt;/canvas&gt;  &lt;script src=&quot;canvas.js&quot;&gt;&lt;/script&gt;  &lt;style&gt;    html, body {      cursor: url(&quot;/images/personal_life.png&quot;), auto;      margin:0;    }  &lt;/style&gt;  &lt;/body&gt;JavaScript(function (window) {  function drawOnCanvas() {    var canvas = document.querySelector(&#39;#draw&#39;);    var context = canvas.getContext(&#39;2d&#39;);    var lineX = 0;    var lineY = 0;    var isDrawing = false;    var direction = true;    var hue = 0;    // set the canvas attributes so it takes up the whole browser screen    canvas.width = window.innerWidth;    canvas.height = window.innerHeight;    // set the pencil    context.lineJoin = &#39;round&#39;;    context.lineCap = &#39;round&#39;;    context.lineWidth = 1;    // allow the canvas to be drawn and set pencil&#39;s position    function letsDraw(event) {      isDrawing = true;      lineX = event.offsetX;      lineY = event.offsetY;    }    // disallow the canvas to be drawn    function letsNotDraw(event) {      isDrawing = false;    }    // reset the color and line width if certain condition occurs    function flipFlopColorAndLineWidth() {      hue++;      if (hue &gt;= 360) {        hue = 0;      }      if (context.lineWidth &gt;= 100 || context.lineWidth &lt;= 1) {        direction = !direction;      }      if (direction) {        context.lineWidth++;      } else {        context.lineWidth--;      }    }    // actually draw on canvas with pencil    function draw(event) {      if (!isDrawing) {        return;      }      context.beginPath();      context.strokeStyle = `hsl(${hue}, 100%, 50%)`;      context.moveTo(lineX, lineY);      context.lineTo(event.offsetX, event.offsetY);      context.stroke();      lineX = event.offsetX;      lineY = event.offsetY;      flipFlopColorAndLineWidth();    }    // initialize the event listener    function init() {      canvas.addEventListener(&#39;mousemove&#39;, draw);      canvas.addEventListener(&#39;mousedown&#39;, letsDraw);      canvas.addEventListener(&#39;mouseup&#39;, letsNotDraw);    }    return {      canvas: canvas,      init: init    };  }  var drawer = drawOnCanvas();  drawer.init();})(window);",
+    "url": "https://miayam.github.io/javascript/2017/06/09/day8-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 120px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious meal for thought...</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 8: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-06-09T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        9 June 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Let’s play around with the canvas! What a great API!</p>
+
+<p>As usual, I don’t want to explain anything unnecessary. Just play with the
+<a href="/demo_day8" target="_blank">demo</a>. Clone my
+<a href="https://github.com/miayam/js30" target="_blank">repo</a>
+if you are interested.</p>
+
+<p>I hope my hobby doesn’t conflict with yours. I don’t mind getting into
+fistfight to resolve it (kidding).</p>
+
+<p><img src="/images/mayuyu.jpg" alt="ampun pisaaaan!" class="blog-post-image" /></p>
+
+<p>I hope the code explain itself. Thanks for reading.</p>
+
+<h3 id="markup">Markup</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>HTML5 Canvas<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"draw"</span> <span class="na">width=</span><span class="s">"800"</span> <span class="na">height=</span><span class="s">"800"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"canvas.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
+      <span class="nl">cursor</span><span class="p">:</span> <span class="sx">url("/images/personal_life.png")</span><span class="p">,</span> <span class="nb">auto</span><span class="p">;</span>
+      <span class="nl">margin</span><span class="p">:</span><span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;/body&gt;</span></code></pre></figure>
+
+<h3 id="javascript">JavaScript</h3>
+<noscript><pre>(function (window) {
+  function drawOnCanvas() {
+    var canvas = document.querySelector(&#39;#draw&#39;);
+    var context = canvas.getContext(&#39;2d&#39;);
+    var lineX = 0;
+    var lineY = 0;
+    var isDrawing = false;
+    var direction = true;
+    var hue = 0;
+
+    // set the canvas attributes so it takes up the whole browser screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // set the pencil
+    context.lineJoin = &#39;round&#39;;
+    context.lineCap = &#39;round&#39;;
+    context.lineWidth = 1;
+
+    // allow the canvas to be drawn and set pencil&#39;s position
+    function letsDraw(event) {
+      isDrawing = true;
+      lineX = event.offsetX;
+      lineY = event.offsetY;
+    }
+
+    // disallow the canvas to be drawn
+    function letsNotDraw(event) {
+      isDrawing = false;
+    }
+
+    // reset the color and line width if certain condition occurs
+    function flipFlopColorAndLineWidth() {
+      hue++;
+
+      if (hue &gt;= 360) {
+        hue = 0;
+      }
+
+      if (context.lineWidth &gt;= 100 || context.lineWidth &lt;= 1) {
+        direction = !direction;
+      }
+
+      if (direction) {
+        context.lineWidth++;
+      } else {
+        context.lineWidth--;
+      }
+    }
+
+    // actually draw on canvas with pencil
+    function draw(event) {
+      if (!isDrawing) {
+        return;
+      }
+
+      context.beginPath();
+      context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+      context.moveTo(lineX, lineY);
+      context.lineTo(event.offsetX, event.offsetY);
+      context.stroke();
+
+      lineX = event.offsetX;
+      lineY = event.offsetY;
+
+      flipFlopColorAndLineWidth();
+    }
+
+    // initialize the event listener
+    function init() {
+      canvas.addEventListener(&#39;mousemove&#39;, draw);
+      canvas.addEventListener(&#39;mousedown&#39;, letsDraw);
+      canvas.addEventListener(&#39;mouseup&#39;, letsNotDraw);
+    }
+
+    return {
+      canvas: canvas,
+      init: init
+    };
+  }
+
+  var drawer = drawOnCanvas();
+  drawer.init();
+})(window);</pre></noscript>
+<script src="https://gist.github.com/miayam/fe5f5de21ccf22e8fca34e05097de1ac.js"> </script>
+
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/06/07/day7-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 7: JavaScript Challenge</a>
+    
+    
+      <a href="/personal-life/2017/06/10/denissa" class="blog-navigation__next-link"> Denissa P. Putri &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/06/09/day8-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <hr />
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+    <!-- Prism.js -->
+    <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</html>

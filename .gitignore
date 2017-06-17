@@ -2,7 +2,6 @@
 
 #####=== Jekyll ===#####
 
-_site/
 .sass-cache/
 
 #####=== Sass ===#####

@@ -143,13 +143,6 @@ Here's my girls!
     },
 
     {
-      name: "チージア セリーナ",
-      age: 23,
-      status: "single",
-      tags: "cute, fragile, emotional"
-    },
-
-    {
       name: "オーリア ラフマ",
       age: 23,
       status: "single",

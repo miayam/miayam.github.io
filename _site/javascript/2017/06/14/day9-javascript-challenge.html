@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 9: JavaScript Challenge</title>
+  <meta name="description"
+        content="It’s a demo-less post. Nothing to show but a lot to explain. We are going toplay with the console.Before this challenge, I only made use of console.log for d...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/06/14/day9-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css" />
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 9: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 9: JavaScript Challenge" />
+<meta name="description" content="It’s a demo-less post. Nothing to show but a lot to explain. We are going toplay with the console.Before this challenge, I only made use of console.log for debugging.To me, that was enough to make sure the outputs of certain program, but thereare other built-in methods from native console object available to help useradicate bugs and errors. We are going to make the most of it.To increase my own understanding, I’ll take all examples here personal.I hope you don’t mind.Regular LoggingThis is regular console.log we often encounter in  our spaghetti code.  console.log(&quot;Are you here with me?&quot;);With InterpolationSometime we need to insert value between text consumed by console.log.Well, what for? To make it easier to change later on!  (function () {    var her = &#39;チージア セリーナ&#39;;    // PHP style    console.log(&quot;is %s here with me?&quot;, her);    // ES6 style    console.log(`is ${her} here with me?`);  })();Styling The TextIf we would love to emphasize text with color and style, don’t hesitate.Nike says, “Just do it!”  (function () {    var her = &quot;メリー メディオーアティ&quot;;    console.log(`%c ${her} is the best ❤`, &quot;color: pink; font-size: 25px;&quot;)  })();You will see this in console.メリー メディオーアティ is the best ❤Pay attention. %c before text indicates the text are going to be styled withinline CSS we pass to second parameter.Warning!Instead of simply “say what you say” via console.log, what if we warn ourusers about the one we care the most?  (function () {    var her = &quot;オーリア ラフマ&quot;;    console.warn(`Don&#39;t touch ${her}`);  })();InformationWe’ve warned users before, don’t you think we need to kindly inform usersabout something too?  (function () {    var her = &quot;オーリア ラフマ&quot;;    console.info(`I don&#39;t own ${her} but I want to hold her hand and kiss \     her on the cheek like she did to me in my dream`);  })();AssertingWe also can check the truth via console. It’s quite useful.  console.assert(&quot;I hate a lot of people but I don&#39;t hate you&quot; === &quot;I like you&quot;,    &quot;We both know that&#39;s bullshit darling... I really like you.&quot;)console.assert only display text whenever the condition false like thatexpression above. Of course I like オーリア ラフマ, I mean it!Displaying ErrorEnough warning, enough conveying, just tell the users that we made a terriblemistake even if it was a beautiful mistake! Error! Error! Error!  console.error(&quot;I love メリー メディオーアティ, that&#39;s a mistake, a beautiful mistake...&quot;);ClearingBack then, I liked チージア セリーナ, really liked her. Now, I forgetthat feeling… It’s been cleared away…  console.log(&#39;I liked チージア セリーナ&#39;);  console.clear();TimingHow long does it take to fetch my profile from github?  // We start here...  console.time();  fetch(&quot;https://api.github.com/users/miayam&quot;)    .then(function (blob) {      return blob.json();    })    .then(function (data) {      // We end the timer when we&#39;ve actually fetched the data...      console.timeEnd(&#39;fetching data from https://api.github.com&#39;);      console.log(data);    })GroupingThe last one, I want to group my crushes with pride!Here’s my girls!  var crushes = [    {      name: &quot;ルル オーリア&quot;,      age: 25,      status: &quot;single&quot;,      tags: &quot;cute, sexy, hypocrite, obnoxious&quot;    },    {      name: &quot;メリー メディオーアティ&quot;,      age: 26,      status: &quot;married&quot;,      tags: &quot;cute, pious, intelligent&quot;    },    {      name: &quot;オーリア ラフマ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, clean, simple&quot;    }  ];Here’s how it should be done!  (function () {    crushes.forEach(function (crush) {      console.groupCollapsed(`${crush.name}`);      console.log(`I like ${crush.name}`);      console.log(`She is ${crush.age} years old`);      console.groupEnd();    });  })();Copy-paste all the snippets above and run in console. CTRL + SHIFT + i toopen the console.Okay, that’s it for today. Until tomorrow." />
+<meta property="og:description" content="It’s a demo-less post. Nothing to show but a lot to explain. We are going toplay with the console.Before this challenge, I only made use of console.log for debugging.To me, that was enough to make sure the outputs of certain program, but thereare other built-in methods from native console object available to help useradicate bugs and errors. We are going to make the most of it.To increase my own understanding, I’ll take all examples here personal.I hope you don’t mind.Regular LoggingThis is regular console.log we often encounter in  our spaghetti code.  console.log(&quot;Are you here with me?&quot;);With InterpolationSometime we need to insert value between text consumed by console.log.Well, what for? To make it easier to change later on!  (function () {    var her = &#39;チージア セリーナ&#39;;    // PHP style    console.log(&quot;is %s here with me?&quot;, her);    // ES6 style    console.log(`is ${her} here with me?`);  })();Styling The TextIf we would love to emphasize text with color and style, don’t hesitate.Nike says, “Just do it!”  (function () {    var her = &quot;メリー メディオーアティ&quot;;    console.log(`%c ${her} is the best ❤`, &quot;color: pink; font-size: 25px;&quot;)  })();You will see this in console.メリー メディオーアティ is the best ❤Pay attention. %c before text indicates the text are going to be styled withinline CSS we pass to second parameter.Warning!Instead of simply “say what you say” via console.log, what if we warn ourusers about the one we care the most?  (function () {    var her = &quot;オーリア ラフマ&quot;;    console.warn(`Don&#39;t touch ${her}`);  })();InformationWe’ve warned users before, don’t you think we need to kindly inform usersabout something too?  (function () {    var her = &quot;オーリア ラフマ&quot;;    console.info(`I don&#39;t own ${her} but I want to hold her hand and kiss \     her on the cheek like she did to me in my dream`);  })();AssertingWe also can check the truth via console. It’s quite useful.  console.assert(&quot;I hate a lot of people but I don&#39;t hate you&quot; === &quot;I like you&quot;,    &quot;We both know that&#39;s bullshit darling... I really like you.&quot;)console.assert only display text whenever the condition false like thatexpression above. Of course I like オーリア ラフマ, I mean it!Displaying ErrorEnough warning, enough conveying, just tell the users that we made a terriblemistake even if it was a beautiful mistake! Error! Error! Error!  console.error(&quot;I love メリー メディオーアティ, that&#39;s a mistake, a beautiful mistake...&quot;);ClearingBack then, I liked チージア セリーナ, really liked her. Now, I forgetthat feeling… It’s been cleared away…  console.log(&#39;I liked チージア セリーナ&#39;);  console.clear();TimingHow long does it take to fetch my profile from github?  // We start here...  console.time();  fetch(&quot;https://api.github.com/users/miayam&quot;)    .then(function (blob) {      return blob.json();    })    .then(function (data) {      // We end the timer when we&#39;ve actually fetched the data...      console.timeEnd(&#39;fetching data from https://api.github.com&#39;);      console.log(data);    })GroupingThe last one, I want to group my crushes with pride!Here’s my girls!  var crushes = [    {      name: &quot;ルル オーリア&quot;,      age: 25,      status: &quot;single&quot;,      tags: &quot;cute, sexy, hypocrite, obnoxious&quot;    },    {      name: &quot;メリー メディオーアティ&quot;,      age: 26,      status: &quot;married&quot;,      tags: &quot;cute, pious, intelligent&quot;    },    {      name: &quot;オーリア ラフマ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, clean, simple&quot;    }  ];Here’s how it should be done!  (function () {    crushes.forEach(function (crush) {      console.groupCollapsed(`${crush.name}`);      console.log(`I like ${crush.name}`);      console.log(`She is ${crush.age} years old`);      console.groupEnd();    });  })();Copy-paste all the snippets above and run in console. CTRL + SHIFT + i toopen the console.Okay, that’s it for today. Until tomorrow." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/06/14/day9-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/06/14/day9-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-14T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 9: JavaScript Challenge",
+    "datePublished": "2017-06-14T00:00:00+07:00",
+    "description": "It’s a demo-less post. Nothing to show but a lot to explain. We are going toplay with the console.Before this challenge, I only made use of console.log for debugging.To me, that was enough to make sure the outputs of certain program, but thereare other built-in methods from native console object available to help useradicate bugs and errors. We are going to make the most of it.To increase my own understanding, I’ll take all examples here personal.I hope you don’t mind.Regular LoggingThis is regular console.log we often encounter in  our spaghetti code.  console.log(&quot;Are you here with me?&quot;);With InterpolationSometime we need to insert value between text consumed by console.log.Well, what for? To make it easier to change later on!  (function () {    var her = &#39;チージア セリーナ&#39;;    // PHP style    console.log(&quot;is %s here with me?&quot;, her);    // ES6 style    console.log(`is ${her} here with me?`);  })();Styling The TextIf we would love to emphasize text with color and style, don’t hesitate.Nike says, “Just do it!”  (function () {    var her = &quot;メリー メディオーアティ&quot;;    console.log(`%c ${her} is the best ❤`, &quot;color: pink; font-size: 25px;&quot;)  })();You will see this in console.メリー メディオーアティ is the best ❤Pay attention. %c before text indicates the text are going to be styled withinline CSS we pass to second parameter.Warning!Instead of simply “say what you say” via console.log, what if we warn ourusers about the one we care the most?  (function () {    var her = &quot;オーリア ラフマ&quot;;    console.warn(`Don&#39;t touch ${her}`);  })();InformationWe’ve warned users before, don’t you think we need to kindly inform usersabout something too?  (function () {    var her = &quot;オーリア ラフマ&quot;;    console.info(`I don&#39;t own ${her} but I want to hold her hand and kiss \\     her on the cheek like she did to me in my dream`);  })();AssertingWe also can check the truth via console. It’s quite useful.  console.assert(&quot;I hate a lot of people but I don&#39;t hate you&quot; === &quot;I like you&quot;,    &quot;We both know that&#39;s bullshit darling... I really like you.&quot;)console.assert only display text whenever the condition false like thatexpression above. Of course I like オーリア ラフマ, I mean it!Displaying ErrorEnough warning, enough conveying, just tell the users that we made a terriblemistake even if it was a beautiful mistake! Error! Error! Error!  console.error(&quot;I love メリー メディオーアティ, that&#39;s a mistake, a beautiful mistake...&quot;);ClearingBack then, I liked チージア セリーナ, really liked her. Now, I forgetthat feeling… It’s been cleared away…  console.log(&#39;I liked チージア セリーナ&#39;);  console.clear();TimingHow long does it take to fetch my profile from github?  // We start here...  console.time();  fetch(&quot;https://api.github.com/users/miayam&quot;)    .then(function (blob) {      return blob.json();    })    .then(function (data) {      // We end the timer when we&#39;ve actually fetched the data...      console.timeEnd(&#39;fetching data from https://api.github.com&#39;);      console.log(data);    })GroupingThe last one, I want to group my crushes with pride!Here’s my girls!  var crushes = [    {      name: &quot;ルル オーリア&quot;,      age: 25,      status: &quot;single&quot;,      tags: &quot;cute, sexy, hypocrite, obnoxious&quot;    },    {      name: &quot;メリー メディオーアティ&quot;,      age: 26,      status: &quot;married&quot;,      tags: &quot;cute, pious, intelligent&quot;    },    {      name: &quot;オーリア ラフマ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, clean, simple&quot;    }  ];Here’s how it should be done!  (function () {    crushes.forEach(function (crush) {      console.groupCollapsed(`${crush.name}`);      console.log(`I like ${crush.name}`);      console.log(`She is ${crush.age} years old`);      console.groupEnd();    });  })();Copy-paste all the snippets above and run in console. CTRL + SHIFT + i toopen the console.Okay, that’s it for today. Until tomorrow.",
+    "url": "https://miayam.github.io/javascript/2017/06/14/day9-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 120px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious meal for thought...</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 9: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-06-14T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        14 June 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>It’s a demo-less post. Nothing to show but a lot to explain. We are going to
+play with the console.</p>
+
+<p><img src="/images/emi.jpg" alt="Emi Takei!" class="blog-post-image" /></p>
+
+<p>Before this challenge, I only made use of <code class="highlighter-rouge">console.log</code> for debugging.
+To me, that was enough to make sure the outputs of certain program, but there
+are other built-in methods from native <code class="highlighter-rouge">console</code> object available to help us
+eradicate bugs and errors. We are going to make the most of it.</p>
+
+<p>To increase my own understanding, I’ll take all examples here personal.
+I hope you don’t mind.</p>
+
+<h3 id="regular-logging"><code class="highlighter-rouge">Regular Logging</code></h3>
+<p>This is regular <code class="highlighter-rouge">console.log</code> we often encounter in  our spaghetti code.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Are you here with me?"</span><span class="p">);</span></code></pre></figure>
+
+<h3 id="with-interpolation"><code class="highlighter-rouge">With Interpolation</code></h3>
+<p>Sometime we need to insert value between text consumed by <code class="highlighter-rouge">console.log</code>.
+Well, what for? To make it easier to change later on!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">her</span> <span class="o">=</span> <span class="s1">'チージア セリーナ'</span><span class="p">;</span>
+
+    <span class="c1">// PHP style</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"is %s here with me?"</span><span class="p">,</span> <span class="nx">her</span><span class="p">);</span>
+
+    <span class="c1">// ES6 style</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="nx">her</span><span class="p">}</span> <span class="nx">here</span> <span class="kd">with</span> <span class="nx">me</span><span class="p">?</span><span class="err">`</span><span class="p">);</span>
+  <span class="p">})();</span></code></pre></figure>
+
+<h3 id="styling-the-text"><code class="highlighter-rouge">Styling The Text</code></h3>
+<p>If we would love to emphasize text with color and style, don’t hesitate.
+Nike says, “Just do it!”</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">her</span> <span class="o">=</span> <span class="s2">"メリー メディオーアティ"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="o">%</span><span class="nx">c</span> <span class="nx">$</span><span class="p">{</span><span class="nx">her</span><span class="p">}</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">best</span> <span class="err">❤`</span><span class="p">,</span> <span class="s2">"color: pink; font-size: 25px;"</span><span class="p">)</span>
+  <span class="p">})();</span></code></pre></figure>
+
+<p>You will see this in <code class="highlighter-rouge">console</code>.</p>
+<p style="color: pink; font-size: 25px">メリー メディオーアティ is the best ❤</p>
+
+<p>Pay attention. <code class="highlighter-rouge">%c</code> before text indicates the text are going to be styled with
+inline CSS we pass to second parameter.</p>
+
+<h3 id="warning"><code class="highlighter-rouge">Warning!</code></h3>
+<p>Instead of simply “say what you say” via <code class="highlighter-rouge">console.log</code>, what if we warn our
+users about the one we care the most?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">her</span> <span class="o">=</span> <span class="s2">"オーリア ラフマ"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="err">`</span><span class="nx">Don</span><span class="err">'</span><span class="nx">t</span> <span class="nx">touch</span> <span class="nx">$</span><span class="p">{</span><span class="nx">her</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+  <span class="p">})();</span></code></pre></figure>
+
+<h3 id="information"><code class="highlighter-rouge">Information</code></h3>
+<p>We’ve warned users before, don’t you think we need to kindly inform users
+about something too?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">her</span> <span class="o">=</span> <span class="s2">"オーリア ラフマ"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="err">`</span><span class="nx">I</span> <span class="nx">don</span><span class="err">'</span><span class="nx">t</span> <span class="nx">own</span> <span class="nx">$</span><span class="p">{</span><span class="nx">her</span><span class="p">}</span> <span class="nx">but</span> <span class="nx">I</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">hold</span> <span class="nx">her</span> <span class="nx">hand</span> <span class="nx">and</span> <span class="nx">kiss</span> <span class="o">\</span>
+     <span class="nx">her</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">cheek</span> <span class="nx">like</span> <span class="nx">she</span> <span class="nx">did</span> <span class="nx">to</span> <span class="nx">me</span> <span class="k">in</span> <span class="nx">my</span> <span class="nx">dream</span><span class="err">`</span><span class="p">);</span>
+  <span class="p">})();</span></code></pre></figure>
+
+<h3 id="asserting"><code class="highlighter-rouge">Asserting</code></h3>
+<p>We also can check the truth via <code class="highlighter-rouge">console</code>. It’s quite useful.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">console</span><span class="p">.</span><span class="nx">assert</span><span class="p">(</span><span class="s2">"I hate a lot of people but I don't hate you"</span> <span class="o">===</span> <span class="s2">"I like you"</span><span class="p">,</span>
+    <span class="s2">"We both know that's bullshit darling... I really like you."</span><span class="p">)</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">console.assert</code> only display text whenever the condition <code class="highlighter-rouge">false</code> like that
+expression above. Of course I like オーリア ラフマ, I mean it!</p>
+
+<h3 id="displaying-error"><code class="highlighter-rouge">Displaying Error</code></h3>
+<p>Enough warning, enough conveying, just tell the users that we made a terrible
+mistake even if it was a beautiful mistake! Error! Error! Error!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">"I love メリー メディオーアティ, that's a mistake, a beautiful mistake..."</span><span class="p">);</span></code></pre></figure>
+
+<h3 id="clearing"><code class="highlighter-rouge">Clearing</code></h3>
+<p>Back then, I liked チージア セリーナ, really liked her. Now, I forget
+that feeling… It’s been cleared away…</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'I liked チージア セリーナ'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span></code></pre></figure>
+
+<h3 id="timing"><code class="highlighter-rouge">Timing</code></h3>
+<p>How long does it take to fetch my profile from <a href="https://github.com">github</a>?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="c1">// We start here...</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">();</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://api.github.com/users/miayam"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">blob</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// We end the timer when we've actually fetched the data...</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s1">'fetching data from https://api.github.com'</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">})</span></code></pre></figure>
+
+<h3 id="grouping"><code class="highlighter-rouge">Grouping</code></h3>
+<p>The last one, I want to group my crushes with pride!</p>
+
+<p>Here’s my girls!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">crushes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">"ルル オーリア"</span><span class="p">,</span>
+      <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+      <span class="na">tags</span><span class="p">:</span> <span class="s2">"cute, sexy, hypocrite, obnoxious"</span>
+    <span class="p">},</span>
+
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">"メリー メディオーアティ"</span><span class="p">,</span>
+      <span class="na">age</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="s2">"married"</span><span class="p">,</span>
+      <span class="na">tags</span><span class="p">:</span> <span class="s2">"cute, pious, intelligent"</span>
+    <span class="p">},</span>
+
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">"オーリア ラフマ"</span><span class="p">,</span>
+      <span class="na">age</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+      <span class="na">tags</span><span class="p">:</span> <span class="s2">"cute, clean, simple"</span>
+    <span class="p">}</span>
+  <span class="p">];</span></code></pre></figure>
+
+<p>Here’s how it should be done!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">crushes</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">crush</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">groupCollapsed</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="nx">crush</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">I</span> <span class="nx">like</span> <span class="nx">$</span><span class="p">{</span><span class="nx">crush</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">She</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="nx">crush</span><span class="p">.</span><span class="nx">age</span><span class="p">}</span> <span class="nx">years</span> <span class="nx">old</span><span class="err">`</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">();</span>
+    <span class="p">});</span>
+  <span class="p">})();</span></code></pre></figure>
+
+<p>Copy-paste all the snippets above and run in console. <code class="highlighter-rouge">CTRL</code> + <code class="highlighter-rouge">SHIFT</code> + <code class="highlighter-rouge">i</code> to
+open the <code class="highlighter-rouge">console</code>.</p>
+
+<p>Okay, that’s it for today. Until tomorrow.</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/personal-life/2017/06/10/denissa" class="blog-navigation__previous-link">&laquo; Denissa P. Putri</a>
+    
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/06/14/day9-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <hr />
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+    <!-- Prism.js -->
+    <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</html>

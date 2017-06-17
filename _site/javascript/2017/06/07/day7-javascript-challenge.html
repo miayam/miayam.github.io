@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 7: JavaScript Challenge</title>
+  <meta name="description"
+        content="As for now, I am romantically attached to 4 girls I met inhigh school, college, and office. How could I manage them? Unfortunately,they are nothing compared ...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css" />
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 7: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 7: JavaScript Challenge" />
+<meta name="description" content="As for now, I am romantically attached to 4 girls I met inhigh school, college, and office. How could I manage them? Unfortunately,they are nothing compared to this superb cute girl!How about making use of JavaScript’s Array.prototype built-in method to takecare of them?Here’s a simple array that represent those 4 cute girls.  var crushes = [    {      name: &quot;ルル オーリア&quot;,      age: 25,      status: &quot;single&quot;,      tags: &quot;cute, sexy, hypocrite, obnoxious&quot;    },    {      name: &quot;メリー メディオーアティ&quot;,      age: 26,      status: &quot;married&quot;,      tags: &quot;cute, pious, intelligent&quot;    },    {      name: &quot;チージア セリーナ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, fragile, emotional&quot;    },    {      name: &quot;オーリア ラフマ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, clean, simple&quot;    }  ];Nah, today’s challenge introduce us to Array.prototype built-in method:some, find, findIndex, and every. It’s simply boring because there’sno point to have a demofor this kind of challenge (a bunch of console.log will do!). Clone myrepo if you are so keen.Let’s see how I manage those precious ones.It’s been 7 years I haven’t met her, ルル オーリア. My friends told me thatshe had a feeling for me but I wasn’t sure back then. Well, I didn’t approachher because she was/is obnoxious (I’ve never approached a girl before). How canI get information about her if I only remember that she is obnoxious?  var her = crushes.find(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;obnoxious&#39;);  });  console.log(her);I recently hate her, チージア セリーナ. I don’t know why she is so sensitive.Overreacting over something that has nothing to do with her. What a weak soul.She is fragile and emotional (she is only 23). I really want to delete her fromthe list. How could I do that if I would?  var herIndex = crushes.findIndex(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;emotional&#39;) &amp;&amp; crush.age === 23;  });  console.log(&#39;before I delete her: &#39;);  console.table(crushes);  crushes.splice(herIndex, 1);  console.log(&#39;after I delete her: &#39;);  console.table(crushes);I want to make sure that every girl I am romantically attached to is cute.I am really sure though!  var cuteness = crushes.every(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;cute&#39;);  });  console.log(cuteness); // trueTruly, they are so cute and I believe cuteness has nothing to do with age.メリー メディオーアティ is a year older than me. Oh, I forget, I am notromantically attached to her, I am in love with her! I am willing to spendmy time, money, and energy on her. Unfortunately, she is married. Truth be told,some of my crushes are not single at all…  var unmarriageable = crushes.some(function (crush) {    return crush.status === &#39;married&#39;;  });  console.log(unmarriageable); // trueLastly, I save the best for last. オーリア ラフマ is average compared to the restbut endowed with cute and wonderful hands (the ones you can only see inanime or manga). Her finger nails are so clean and sparkling. I can tellher present by listening to her unique high-pitched laughter. I admire hervigorous attitude. I even dreamed of her kissing me on the cheek. I reallywant to make a confession about this feeling. Maybe next time.I like オーリア ラフマ. Let me sniff you from short distance, my dear!" />
+<meta property="og:description" content="As for now, I am romantically attached to 4 girls I met inhigh school, college, and office. How could I manage them? Unfortunately,they are nothing compared to this superb cute girl!How about making use of JavaScript’s Array.prototype built-in method to takecare of them?Here’s a simple array that represent those 4 cute girls.  var crushes = [    {      name: &quot;ルル オーリア&quot;,      age: 25,      status: &quot;single&quot;,      tags: &quot;cute, sexy, hypocrite, obnoxious&quot;    },    {      name: &quot;メリー メディオーアティ&quot;,      age: 26,      status: &quot;married&quot;,      tags: &quot;cute, pious, intelligent&quot;    },    {      name: &quot;チージア セリーナ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, fragile, emotional&quot;    },    {      name: &quot;オーリア ラフマ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, clean, simple&quot;    }  ];Nah, today’s challenge introduce us to Array.prototype built-in method:some, find, findIndex, and every. It’s simply boring because there’sno point to have a demofor this kind of challenge (a bunch of console.log will do!). Clone myrepo if you are so keen.Let’s see how I manage those precious ones.It’s been 7 years I haven’t met her, ルル オーリア. My friends told me thatshe had a feeling for me but I wasn’t sure back then. Well, I didn’t approachher because she was/is obnoxious (I’ve never approached a girl before). How canI get information about her if I only remember that she is obnoxious?  var her = crushes.find(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;obnoxious&#39;);  });  console.log(her);I recently hate her, チージア セリーナ. I don’t know why she is so sensitive.Overreacting over something that has nothing to do with her. What a weak soul.She is fragile and emotional (she is only 23). I really want to delete her fromthe list. How could I do that if I would?  var herIndex = crushes.findIndex(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;emotional&#39;) &amp;&amp; crush.age === 23;  });  console.log(&#39;before I delete her: &#39;);  console.table(crushes);  crushes.splice(herIndex, 1);  console.log(&#39;after I delete her: &#39;);  console.table(crushes);I want to make sure that every girl I am romantically attached to is cute.I am really sure though!  var cuteness = crushes.every(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;cute&#39;);  });  console.log(cuteness); // trueTruly, they are so cute and I believe cuteness has nothing to do with age.メリー メディオーアティ is a year older than me. Oh, I forget, I am notromantically attached to her, I am in love with her! I am willing to spendmy time, money, and energy on her. Unfortunately, she is married. Truth be told,some of my crushes are not single at all…  var unmarriageable = crushes.some(function (crush) {    return crush.status === &#39;married&#39;;  });  console.log(unmarriageable); // trueLastly, I save the best for last. オーリア ラフマ is average compared to the restbut endowed with cute and wonderful hands (the ones you can only see inanime or manga). Her finger nails are so clean and sparkling. I can tellher present by listening to her unique high-pitched laughter. I admire hervigorous attitude. I even dreamed of her kissing me on the cheek. I reallywant to make a confession about this feeling. Maybe next time.I like オーリア ラフマ. Let me sniff you from short distance, my dear!" />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-07T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 7: JavaScript Challenge",
+    "datePublished": "2017-06-07T00:00:00+07:00",
+    "description": "As for now, I am romantically attached to 4 girls I met inhigh school, college, and office. How could I manage them? Unfortunately,they are nothing compared to this superb cute girl!How about making use of JavaScript’s Array.prototype built-in method to takecare of them?Here’s a simple array that represent those 4 cute girls.  var crushes = [    {      name: &quot;ルル オーリア&quot;,      age: 25,      status: &quot;single&quot;,      tags: &quot;cute, sexy, hypocrite, obnoxious&quot;    },    {      name: &quot;メリー メディオーアティ&quot;,      age: 26,      status: &quot;married&quot;,      tags: &quot;cute, pious, intelligent&quot;    },    {      name: &quot;チージア セリーナ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, fragile, emotional&quot;    },    {      name: &quot;オーリア ラフマ&quot;,      age: 23,      status: &quot;single&quot;,      tags: &quot;cute, clean, simple&quot;    }  ];Nah, today’s challenge introduce us to Array.prototype built-in method:some, find, findIndex, and every. It’s simply boring because there’sno point to have a demofor this kind of challenge (a bunch of console.log will do!). Clone myrepo if you are so keen.Let’s see how I manage those precious ones.It’s been 7 years I haven’t met her, ルル オーリア. My friends told me thatshe had a feeling for me but I wasn’t sure back then. Well, I didn’t approachher because she was/is obnoxious (I’ve never approached a girl before). How canI get information about her if I only remember that she is obnoxious?  var her = crushes.find(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;obnoxious&#39;);  });  console.log(her);I recently hate her, チージア セリーナ. I don’t know why she is so sensitive.Overreacting over something that has nothing to do with her. What a weak soul.She is fragile and emotional (she is only 23). I really want to delete her fromthe list. How could I do that if I would?  var herIndex = crushes.findIndex(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;emotional&#39;) &amp;&amp; crush.age === 23;  });  console.log(&#39;before I delete her: &#39;);  console.table(crushes);  crushes.splice(herIndex, 1);  console.log(&#39;after I delete her: &#39;);  console.table(crushes);I want to make sure that every girl I am romantically attached to is cute.I am really sure though!  var cuteness = crushes.every(function (crush) {    return crush.tags.split(&#39;,&#39;).includes(&#39;cute&#39;);  });  console.log(cuteness); // trueTruly, they are so cute and I believe cuteness has nothing to do with age.メリー メディオーアティ is a year older than me. Oh, I forget, I am notromantically attached to her, I am in love with her! I am willing to spendmy time, money, and energy on her. Unfortunately, she is married. Truth be told,some of my crushes are not single at all…  var unmarriageable = crushes.some(function (crush) {    return crush.status === &#39;married&#39;;  });  console.log(unmarriageable); // trueLastly, I save the best for last. オーリア ラフマ is average compared to the restbut endowed with cute and wonderful hands (the ones you can only see inanime or manga). Her finger nails are so clean and sparkling. I can tellher present by listening to her unique high-pitched laughter. I admire hervigorous attitude. I even dreamed of her kissing me on the cheek. I reallywant to make a confession about this feeling. Maybe next time.I like オーリア ラフマ. Let me sniff you from short distance, my dear!",
+    "url": "https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 120px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious meal for thought...</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 7: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-06-07T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        7 June 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>As for now, I am romantically attached to 4 girls I met in
+high school, college, and office. How could I manage them? Unfortunately,
+they are nothing compared to this superb cute girl!</p>
+
+<p><img src="/images/kawai.jpg" alt="kawai pisaaaan!" class="blog-post-image" /></p>
+
+<p>How about making use of JavaScript’s <code class="highlighter-rouge">Array.prototype</code> built-in method to take
+care of them?</p>
+
+<p>Here’s a simple array that represent those 4 cute girls.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">crushes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">"ルル オーリア"</span><span class="p">,</span>
+      <span class="na">age</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+      <span class="na">tags</span><span class="p">:</span> <span class="s2">"cute, sexy, hypocrite, obnoxious"</span>
+    <span class="p">},</span>
+
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">"メリー メディオーアティ"</span><span class="p">,</span>
+      <span class="na">age</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="s2">"married"</span><span class="p">,</span>
+      <span class="na">tags</span><span class="p">:</span> <span class="s2">"cute, pious, intelligent"</span>
+    <span class="p">},</span>
+
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">"チージア セリーナ"</span><span class="p">,</span>
+      <span class="na">age</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+      <span class="na">tags</span><span class="p">:</span> <span class="s2">"cute, fragile, emotional"</span>
+    <span class="p">},</span>
+
+    <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s2">"オーリア ラフマ"</span><span class="p">,</span>
+      <span class="na">age</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+      <span class="na">status</span><span class="p">:</span> <span class="s2">"single"</span><span class="p">,</span>
+      <span class="na">tags</span><span class="p">:</span> <span class="s2">"cute, clean, simple"</span>
+    <span class="p">}</span>
+  <span class="p">];</span></code></pre></figure>
+
+<p>Nah, today’s challenge introduce us to <code class="highlighter-rouge">Array.prototype</code> built-in method:
+<code class="highlighter-rouge">some</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">findIndex</code>, and <code class="highlighter-rouge">every</code>. It’s simply boring because there’s
+no point to have a <a href="/demo_day7" target="_blank">demo</a>
+for this kind of challenge (a bunch of <code class="highlighter-rouge">console.log</code> will do!). Clone my
+<a href="https://github.com/miayam/js30" target="_blank">repo</a> if you are so keen.</p>
+
+<p>Let’s see how I manage those precious ones.</p>
+
+<p>It’s been 7 years I haven’t met her, ルル オーリア. My friends told me that
+she had a feeling for me but I wasn’t sure back then. Well, I didn’t approach
+her because she was/is obnoxious (I’ve never approached a girl before). How can
+I get information about her if I only remember that she is obnoxious?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">her</span> <span class="o">=</span> <span class="nx">crushes</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">crush</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">crush</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">','</span><span class="p">).</span><span class="nx">includes</span><span class="p">(</span><span class="s1">'obnoxious'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">her</span><span class="p">);</span></code></pre></figure>
+
+<p>I recently hate her, チージア セリーナ. I don’t know why she is so sensitive.
+Overreacting over something that has nothing to do with her. What a weak soul.
+She is fragile and emotional (she is only 23). I really want to delete her from
+the list. How could I do that if I would?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">herIndex</span> <span class="o">=</span> <span class="nx">crushes</span><span class="p">.</span><span class="nx">findIndex</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">crush</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">crush</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">','</span><span class="p">).</span><span class="nx">includes</span><span class="p">(</span><span class="s1">'emotional'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">crush</span><span class="p">.</span><span class="nx">age</span> <span class="o">===</span> <span class="mi">23</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'before I delete her: '</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">crushes</span><span class="p">);</span>
+  <span class="nx">crushes</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">herIndex</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'after I delete her: '</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">table</span><span class="p">(</span><span class="nx">crushes</span><span class="p">);</span></code></pre></figure>
+
+<p>I want to make sure that every girl I am romantically attached to is cute.
+I am really sure though!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">cuteness</span> <span class="o">=</span> <span class="nx">crushes</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">crush</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">crush</span><span class="p">.</span><span class="nx">tags</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">','</span><span class="p">).</span><span class="nx">includes</span><span class="p">(</span><span class="s1">'cute'</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cuteness</span><span class="p">);</span> <span class="c1">// true</span></code></pre></figure>
+
+<p>Truly, they are so cute and I believe cuteness has nothing to do with age.
+メリー メディオーアティ is a year older than me. Oh, I forget, I am not
+romantically attached to her, I am in love with her! I am willing to spend
+my time, money, and energy on her. Unfortunately, she is married. Truth be told,
+some of my crushes are not single at all…</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">unmarriageable</span> <span class="o">=</span> <span class="nx">crushes</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">crush</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">crush</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">'married'</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unmarriageable</span><span class="p">);</span> <span class="c1">// true</span></code></pre></figure>
+
+<p>Lastly, I save the best for last. オーリア ラフマ is average compared to the rest
+but endowed with cute and wonderful hands (the ones you can only see in
+<em>anime</em> or <em>manga</em>). Her finger nails are so clean and sparkling. I can tell
+her present by listening to her unique high-pitched laughter. I admire her
+vigorous attitude. I even dreamed of her kissing me on the cheek. I really
+want to make a confession about this feeling. Maybe next time.</p>
+
+<p>I like オーリア ラフマ. Let me sniff you from short distance, my dear!</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/06/06/day6-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 6: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/06/09/day8-javascript-challenge" class="blog-navigation__next-link"> Day 8: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <hr />
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+    <!-- Prism.js -->
+    <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</html>

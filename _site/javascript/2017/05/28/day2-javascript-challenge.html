@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 2: JavaScript Challenge</title>
+  <meta name="description"
+        content="It’s so hard to keep up with this challenge. I am struggling even if it’s seemingly an easy task (making analogueclock). Clone my repo if you are interested ...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/05/28/day2-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css" />
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 2: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 2: JavaScript Challenge" />
+<meta name="description" content="It’s so hard to keep up with this challenge. I am struggling even if it’s seemingly an easy task (making analogueclock). Clone my repo if you are interested and here’sthe demo.My first mistake that takes too long to solve is turning hours into corresponding degree.I thought it would be like this because there are 24 hours per day.  var date = new Date();  var hour = date.getHours();  var hourDegree = (hour / 24) * 360But fool me, the clock will always be like this.12 is the maximum, stupid!Here’s how I solve it.(function clock(window) {  var secondHand = document.querySelector(&#39;.second-hand&#39;);  var minuteHand = document.querySelector(&#39;.min-hand&#39;);  var hourHand = document.querySelector(&#39;.hour-hand&#39;);  function tickTheClock() {    var now = new Date();    var second = now.getSeconds();    // secondRatio is leftover to be added to the corresponding minute    // of the date, so the clock will rotate as expected.    // For example: 30 minutes 20 seconds. The minute hand will tick and    // rotate 180 degree + extra 20 seconds in degree.    var secondRatio = second / 60;    var secondDegree = (secondRatio * 360) + 90;    var minute = now.getMinutes();    // minuteRatio is also leftover to be added to the corresponding hour    // of the date.    var minuteRatio = minute / 60    var minuteDegree = (minute + secondRatio) / 60 * 360 + 90;    var hour = now.getHours();    var hourDegree = (hour + minuteRatio) / 12 * 360 + 90;    secondHand.style.transform = `rotate(${secondDegree}deg)`;    minuteHand.style.transform = `rotate(${minuteDegree}deg)`;    hourHand.style.transform = `rotate(${hourDegree}deg)`;  }  window.setInterval(tickTheClock, 1000);})(window);Well, that’s it for today. I am not sure I can solve tomorrow’s challenge." />
+<meta property="og:description" content="It’s so hard to keep up with this challenge. I am struggling even if it’s seemingly an easy task (making analogueclock). Clone my repo if you are interested and here’sthe demo.My first mistake that takes too long to solve is turning hours into corresponding degree.I thought it would be like this because there are 24 hours per day.  var date = new Date();  var hour = date.getHours();  var hourDegree = (hour / 24) * 360But fool me, the clock will always be like this.12 is the maximum, stupid!Here’s how I solve it.(function clock(window) {  var secondHand = document.querySelector(&#39;.second-hand&#39;);  var minuteHand = document.querySelector(&#39;.min-hand&#39;);  var hourHand = document.querySelector(&#39;.hour-hand&#39;);  function tickTheClock() {    var now = new Date();    var second = now.getSeconds();    // secondRatio is leftover to be added to the corresponding minute    // of the date, so the clock will rotate as expected.    // For example: 30 minutes 20 seconds. The minute hand will tick and    // rotate 180 degree + extra 20 seconds in degree.    var secondRatio = second / 60;    var secondDegree = (secondRatio * 360) + 90;    var minute = now.getMinutes();    // minuteRatio is also leftover to be added to the corresponding hour    // of the date.    var minuteRatio = minute / 60    var minuteDegree = (minute + secondRatio) / 60 * 360 + 90;    var hour = now.getHours();    var hourDegree = (hour + minuteRatio) / 12 * 360 + 90;    secondHand.style.transform = `rotate(${secondDegree}deg)`;    minuteHand.style.transform = `rotate(${minuteDegree}deg)`;    hourHand.style.transform = `rotate(${hourDegree}deg)`;  }  window.setInterval(tickTheClock, 1000);})(window);Well, that’s it for today. I am not sure I can solve tomorrow’s challenge." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/05/28/day2-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/05/28/day2-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-28T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 2: JavaScript Challenge",
+    "datePublished": "2017-05-28T00:00:00+07:00",
+    "description": "It’s so hard to keep up with this challenge. I am struggling even if it’s seemingly an easy task (making analogueclock). Clone my repo if you are interested and here’sthe demo.My first mistake that takes too long to solve is turning hours into corresponding degree.I thought it would be like this because there are 24 hours per day.  var date = new Date();  var hour = date.getHours();  var hourDegree = (hour / 24) * 360But fool me, the clock will always be like this.12 is the maximum, stupid!Here’s how I solve it.(function clock(window) {  var secondHand = document.querySelector(&#39;.second-hand&#39;);  var minuteHand = document.querySelector(&#39;.min-hand&#39;);  var hourHand = document.querySelector(&#39;.hour-hand&#39;);  function tickTheClock() {    var now = new Date();    var second = now.getSeconds();    // secondRatio is leftover to be added to the corresponding minute    // of the date, so the clock will rotate as expected.    // For example: 30 minutes 20 seconds. The minute hand will tick and    // rotate 180 degree + extra 20 seconds in degree.    var secondRatio = second / 60;    var secondDegree = (secondRatio * 360) + 90;    var minute = now.getMinutes();    // minuteRatio is also leftover to be added to the corresponding hour    // of the date.    var minuteRatio = minute / 60    var minuteDegree = (minute + secondRatio) / 60 * 360 + 90;    var hour = now.getHours();    var hourDegree = (hour + minuteRatio) / 12 * 360 + 90;    secondHand.style.transform = `rotate(${secondDegree}deg)`;    minuteHand.style.transform = `rotate(${minuteDegree}deg)`;    hourHand.style.transform = `rotate(${hourDegree}deg)`;  }  window.setInterval(tickTheClock, 1000);})(window);Well, that’s it for today. I am not sure I can solve tomorrow’s challenge.",
+    "url": "https://miayam.github.io/javascript/2017/05/28/day2-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 120px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious meal for thought...</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 2: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-05-28T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        28 May 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>It’s so hard to keep up with this challenge. I am struggling even if it’s seemingly an easy task (making analogue
+clock). Clone my <a href="https://github.com/miayam/js30" target="_blank">repo</a> if you are interested and here’s
+the <a href="/demo_day2" target="_blank">demo</a>.</p>
+
+<p><img src="/images/lala.jpg" alt="Lala Larissa Again" class="blog-post-image" /></p>
+
+<p>My first mistake that takes too long to solve is turning hours into corresponding degree.</p>
+
+<p>I thought it would be like this because there are 24 hours per day.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">hour</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">hourDegree</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hour</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span> <span class="o">*</span> <span class="mi">360</span></code></pre></figure>
+
+<p>But fool me, the clock will always be like this.</p>
+
+<p><img src="/images/clock.png" alt="clock" class="blog-post-image" />
+<em class="description">12 is the maximum, stupid!</em></p>
+
+<p>Here’s how I solve it.</p>
+
+<noscript><pre>(function clock(window) {
+  var secondHand = document.querySelector(&#39;.second-hand&#39;);
+  var minuteHand = document.querySelector(&#39;.min-hand&#39;);
+  var hourHand = document.querySelector(&#39;.hour-hand&#39;);
+
+  function tickTheClock() {
+    var now = new Date();
+
+    var second = now.getSeconds();
+
+    // secondRatio is leftover to be added to the corresponding minute
+    // of the date, so the clock will rotate as expected.
+
+    // For example: 30 minutes 20 seconds. The minute hand will tick and
+    // rotate 180 degree + extra 20 seconds in degree.
+    var secondRatio = second / 60;
+
+    var secondDegree = (secondRatio * 360) + 90;
+
+    var minute = now.getMinutes();
+
+    // minuteRatio is also leftover to be added to the corresponding hour
+    // of the date.
+    var minuteRatio = minute / 60
+
+    var minuteDegree = (minute + secondRatio) / 60 * 360 + 90;
+
+    var hour = now.getHours();
+    var hourDegree = (hour + minuteRatio) / 12 * 360 + 90;
+
+    secondHand.style.transform = `rotate(${secondDegree}deg)`;
+    minuteHand.style.transform = `rotate(${minuteDegree}deg)`;
+    hourHand.style.transform = `rotate(${hourDegree}deg)`;
+  }
+
+  window.setInterval(tickTheClock, 1000);
+})(window);</pre></noscript>
+<script src="https://gist.github.com/miayam/789e82acc85bca0ca03878c0e48ae5ef.js"> </script>
+
+<p>Well, that’s it for today. I am not sure I can solve tomorrow’s challenge.</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/05/27/day1-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 1: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/05/29/day3-javascript-challenge" class="blog-navigation__next-link"> Day 3: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/05/28/day2-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <hr />
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+    <!-- Prism.js -->
+    <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</html>

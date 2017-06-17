@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>miayam.github.io</title>
+    <description>Written words by Muhammad D. Ramadhan.
+</description>
+    <link>https://miayam.github.io</link>
+    <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 17 Jun 2017 07:03:26 +0700</pubDate>
+    <lastBuildDate>Sat, 17 Jun 2017 07:03:26 +0700</lastBuildDate>
+    <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Day 9: JavaScript Challenge</title>
+        <description>&lt;p&gt;It’s a demo-less post. Nothing to show but a lot to explain. We are going to
+play with the console.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/emi.jpg&quot; alt=&quot;Emi Takei!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Before this challenge, I only made use of &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log&lt;/code&gt; for debugging.
+To me, that was enough to make sure the outputs of certain program, but there
+are other built-in methods from native &lt;code class=&quot;highlighter-rouge&quot;&gt;console&lt;/code&gt; object available to help us
+eradicate bugs and errors. We are going to make the most of it.&lt;/p&gt;
+
+&lt;p&gt;To increase my own understanding, I’ll take all examples here personal.
+I hope you don’t mind.&lt;/p&gt;
+
+&lt;h3 id=&quot;regular-logging&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Regular Logging&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;This is regular &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log&lt;/code&gt; we often encounter in  our spaghetti code.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Are you here with me?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;with-interpolation&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;With Interpolation&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Sometime we need to insert value between text consumed by &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log&lt;/code&gt;.
+Well, what for? To make it easier to change later on!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'チージア セリーナ'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// PHP style&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;is %s here with me?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// ES6 style&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;styling-the-text&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Styling The Text&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;If we would love to emphasize text with color and style, don’t hesitate.
+Nike says, “Just do it!”&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;メリー メディオーアティ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;best&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;❤`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;color: pink; font-size: 25px;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You will see this in &lt;code class=&quot;highlighter-rouge&quot;&gt;console&lt;/code&gt;.&lt;/p&gt;
+&lt;p style=&quot;color: pink; font-size: 25px&quot;&gt;メリー メディオーアティ is the best ❤&lt;/p&gt;
+
+&lt;p&gt;Pay attention. &lt;code class=&quot;highlighter-rouge&quot;&gt;%c&lt;/code&gt; before text indicates the text are going to be styled with
+inline CSS we pass to second parameter.&lt;/p&gt;
+
+&lt;h3 id=&quot;warning&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Warning!&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Instead of simply “say what you say” via &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log&lt;/code&gt;, what if we warn our
+users about the one we care the most?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;オーリア ラフマ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Don&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;touch&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;information&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Information&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;We’ve warned users before, don’t you think we need to kindly inform users
+about something too?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;オーリア ラフマ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;don&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;own&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;but&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hand&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;kiss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;\&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cheek&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;she&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;did&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dream&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;asserting&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Asserting&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;We also can check the truth via &lt;code class=&quot;highlighter-rouge&quot;&gt;console&lt;/code&gt;. It’s quite useful.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;I hate a lot of people but I don't hate you&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;I like you&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;We both know that's bullshit darling... I really like you.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;console.assert&lt;/code&gt; only display text whenever the condition &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; like that
+expression above. Of course I like オーリア ラフマ, I mean it!&lt;/p&gt;
+
+&lt;h3 id=&quot;displaying-error&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Displaying Error&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Enough warning, enough conveying, just tell the users that we made a terrible
+mistake even if it was a beautiful mistake! Error! Error! Error!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;I love メリー メディオーアティ, that's a mistake, a beautiful mistake...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;clearing&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Clearing&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Back then, I liked チージア セリーナ, really liked her. Now, I forget
+that feeling… It’s been cleared away…&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'I liked チージア セリーナ'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;timing&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Timing&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;How long does it take to fetch my profile from &lt;a href=&quot;https://github.com&quot;&gt;github&lt;/a&gt;?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// We start here...&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://api.github.com/users/miayam&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// We end the timer when we've actually fetched the data...&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;timeEnd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'fetching data from https://api.github.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;grouping&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Grouping&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;The last one, I want to group my crushes with pride!&lt;/p&gt;
+
+&lt;p&gt;Here’s my girls!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ルル オーリア&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;single&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cute, sexy, hypocrite, obnoxious&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;メリー メディオーアティ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;married&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cute, pious, intelligent&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;オーリア ラフマ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;single&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cute, clean, simple&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here’s how it should be done!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;groupCollapsed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;She&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;years&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;groupEnd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Copy-paste all the snippets above and run in console. &lt;code class=&quot;highlighter-rouge&quot;&gt;CTRL&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;SHIFT&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; to
+open the &lt;code class=&quot;highlighter-rouge&quot;&gt;console&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Okay, that’s it for today. Until tomorrow.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 14 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/06/14/day9-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/14/day9-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Denissa P. Putri</title>
+        <description>&lt;p&gt;Saya selalu kagum dengan orang ini sampai-sampai sering bertemu di dalam mimpi.
+Jangan salah paham. Ini bukan romansa.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/denissa.jpg&quot; alt=&quot;respect!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Dia lulusan program Vokasi UI Jurusan Komunikasi. Tampangnya biasa-biasa saja
+seperti perempuan kebanyakan. Hidungnya pesek, rambutnya terurai sebahu jika
+tidak dikuncir, payudaranya tipis, dan tidak perlu disebutkan lagi. Makna
+“hobi” menurut saya semuanya diambil dari Denissa.&lt;/p&gt;
+
+&lt;p&gt;Di Bogor, jika ada orang yang hobi mengirim kartu pos ke luar negeri, nama dia
+yang pertama kali disebut. Dengan bahasa Inggris ala kadarnya, dia tidak malu
+mengiklankan Kota Bogor dan Indonesia ke belahan dunia lain. Tidak jarang dia
+mendapatkan pernak-pernik lucu bersama kartu pos balasan dari sahabat
+penanya di luar negeri. Hidupnya benar-benar menyenangkan.&lt;/p&gt;
+
+&lt;p&gt;Isi rumahnya dipenuhi burung, kucing, dan adik-adiknya yang telah beranjak
+remaja. Semuanya gaduh, tapi terdengar begitu harmonis. Bagaimana dia
+menghidupi mereka? Dia menjual kartu pos buatannya sendiri. Dengan kemampuan
+desain ala kadarnya, dia memanfaatkan jaringan pertemanannya sebagai lahan
+bisnis. Tidak prestisius, tapi menjanjikan.&lt;/p&gt;
+
+&lt;p&gt;Apa lagi? Dia penggemar berat Jorge Lorenzo. Semua keuntungan bisnisnya
+dihabiskan untuk menonton MotoGP di Malaysia dan Singapura.
+Jika ada acara menonton bersama MotoGP di kafe-kafe, dia yang paling
+gaduh di media sosial. Hidupnya benar-benar menyenangkan.&lt;/p&gt;
+
+&lt;p&gt;Terus terang, sebenarnya kita tidak begitu saling kenal, tapi kenapa bisa
+sampai sejauh ini?&lt;/p&gt;
+
+&lt;p&gt;Bagi saya, keberadaan saya adalah insiden kosmik yang sia-sia belaka.
+Untuk apa hidup ini? Menjadi terkenal? Menjadi kaya? Disukai banyak perempuan?
+Menyelamatkan dunia? Membasmi kejahatan? Semuanya begitu monoton.
+Semuanya adalah tema-tema membosankan ala novel remaja.&lt;/p&gt;
+
+&lt;p&gt;Adakah yang bisa memaknai keberadaan saya yang sia-sia ini? Hanya satu. Hobi.&lt;/p&gt;
+
+&lt;p&gt;Hobi adalah oksigen di dunia yang palsu ini di mana kemunafikan
+satu-satunya cara paling mudah untuk menghindari masalah.&lt;/p&gt;
+
+&lt;p&gt;Hobi adalah kegiatan suci selain ibadah kepada Tuhan. Burung-burung
+bertasbih kepada Tuhan sebagaimana saya menghabiskan waktu membaca
+buku filsafat di kamar.&lt;/p&gt;
+
+&lt;p&gt;Saya rela manghabiskan umur untuk hobi-hobi saya yang berharga.&lt;/p&gt;
+
+&lt;p&gt;Saya rela baradu tinju demi melindungi hobi-hobi saya yang berharga.&lt;/p&gt;
+
+&lt;p&gt;Apa kebutuhan pokok setelah pangan dan papan? Waktu luang yang diisi
+dengan kegiatan yang kita cintai.&lt;/p&gt;
+
+&lt;p&gt;Terima kasih Denissa yang telah memperlihatkan sinar mentari setelah mendung
+yang seolah tidak mau pergi.&lt;/p&gt;
+
+&lt;p&gt;Harta yang paling berharga adalah keluarga dan hobi. Titik.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 10 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/personal-life/2017/06/10/denissa</link>
+        <guid isPermaLink="true">https://miayam.github.io/personal-life/2017/06/10/denissa</guid>
+        
+        
+        <category>personal-life</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 8: JavaScript Challenge</title>
+        <description>&lt;p&gt;Let’s play around with the canvas! What a great API!&lt;/p&gt;
+
+&lt;p&gt;As usual, I don’t want to explain anything unnecessary. Just play with the
+&lt;a href=&quot;/demo_day8&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;. Clone my
+&lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;
+if you are interested.&lt;/p&gt;
+
+&lt;p&gt;I hope my hobby doesn’t conflict with yours. I don’t mind getting into
+fistfight to resolve it (kidding).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/mayuyu.jpg&quot; alt=&quot;ampun pisaaaan!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I hope the code explain itself. Thanks for reading.&lt;/p&gt;
+
+&lt;h3 id=&quot;markup&quot;&gt;Markup&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;HTML5 Canvas&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;canvas&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;draw&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;800&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;800&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/canvas&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;canvas.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&quot;/images/personal_life.png&quot;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
+&lt;noscript&gt;&lt;pre&gt;(function (window) {
+  function drawOnCanvas() {
+    var canvas = document.querySelector(&amp;#39;#draw&amp;#39;);
+    var context = canvas.getContext(&amp;#39;2d&amp;#39;);
+    var lineX = 0;
+    var lineY = 0;
+    var isDrawing = false;
+    var direction = true;
+    var hue = 0;
+
+    // set the canvas attributes so it takes up the whole browser screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // set the pencil
+    context.lineJoin = &amp;#39;round&amp;#39;;
+    context.lineCap = &amp;#39;round&amp;#39;;
+    context.lineWidth = 1;
+
+    // allow the canvas to be drawn and set pencil&amp;#39;s position
+    function letsDraw(event) {
+      isDrawing = true;
+      lineX = event.offsetX;
+      lineY = event.offsetY;
+    }
+
+    // disallow the canvas to be drawn
+    function letsNotDraw(event) {
+      isDrawing = false;
+    }
+
+    // reset the color and line width if certain condition occurs
+    function flipFlopColorAndLineWidth() {
+      hue++;
+
+      if (hue &amp;gt;= 360) {
+        hue = 0;
+      }
+
+      if (context.lineWidth &amp;gt;= 100 || context.lineWidth &amp;lt;= 1) {
+        direction = !direction;
+      }
+
+      if (direction) {
+        context.lineWidth++;
+      } else {
+        context.lineWidth--;
+      }
+    }
+
+    // actually draw on canvas with pencil
+    function draw(event) {
+      if (!isDrawing) {
+        return;
+      }
+
+      context.beginPath();
+      context.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+      context.moveTo(lineX, lineY);
+      context.lineTo(event.offsetX, event.offsetY);
+      context.stroke();
+
+      lineX = event.offsetX;
+      lineY = event.offsetY;
+
+      flipFlopColorAndLineWidth();
+    }
+
+    // initialize the event listener
+    function init() {
+      canvas.addEventListener(&amp;#39;mousemove&amp;#39;, draw);
+      canvas.addEventListener(&amp;#39;mousedown&amp;#39;, letsDraw);
+      canvas.addEventListener(&amp;#39;mouseup&amp;#39;, letsNotDraw);
+    }
+
+    return {
+      canvas: canvas,
+      init: init
+    };
+  }
+
+  var drawer = drawOnCanvas();
+  drawer.init();
+})(window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/fe5f5de21ccf22e8fca34e05097de1ac.js&quot;&gt; &lt;/script&gt;
+
+</description>
+        <pubDate>Fri, 09 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/06/09/day8-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/09/day8-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 7: JavaScript Challenge</title>
+        <description>&lt;p&gt;As for now, I am romantically attached to 4 girls I met in
+high school, college, and office. How could I manage them? Unfortunately,
+they are nothing compared to this superb cute girl!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/kawai.jpg&quot; alt=&quot;kawai pisaaaan!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;How about making use of JavaScript’s &lt;code class=&quot;highlighter-rouge&quot;&gt;Array.prototype&lt;/code&gt; built-in method to take
+care of them?&lt;/p&gt;
+
+&lt;p&gt;Here’s a simple array that represent those 4 cute girls.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ルル オーリア&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;single&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cute, sexy, hypocrite, obnoxious&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;メリー メディオーアティ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;married&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cute, pious, intelligent&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;チージア セリーナ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;single&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cute, fragile, emotional&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;オーリア ラフマ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;single&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cute, clean, simple&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Nah, today’s challenge introduce us to &lt;code class=&quot;highlighter-rouge&quot;&gt;Array.prototype&lt;/code&gt; built-in method:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;some&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;findIndex&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;every&lt;/code&gt;. It’s simply boring because there’s
+no point to have a &lt;a href=&quot;/demo_day7&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;
+for this kind of challenge (a bunch of &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log&lt;/code&gt; will do!). Clone my
+&lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt; if you are so keen.&lt;/p&gt;
+
+&lt;p&gt;Let’s see how I manage those precious ones.&lt;/p&gt;
+
+&lt;p&gt;It’s been 7 years I haven’t met her, ルル オーリア. My friends told me that
+she had a feeling for me but I wasn’t sure back then. Well, I didn’t approach
+her because she was/is obnoxious (I’ve never approached a girl before). How can
+I get information about her if I only remember that she is obnoxious?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'obnoxious'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;her&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I recently hate her, チージア セリーナ. I don’t know why she is so sensitive.
+Overreacting over something that has nothing to do with her. What a weak soul.
+She is fragile and emotional (she is only 23). I really want to delete her from
+the list. How could I do that if I would?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;herIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;findIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'emotional'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'before I delete her: '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;splice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;herIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'after I delete her: '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I want to make sure that every girl I am romantically attached to is cute.
+I am really sure though!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cuteness&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cute'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cuteness&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Truly, they are so cute and I believe cuteness has nothing to do with age.
+メリー メディオーアティ is a year older than me. Oh, I forget, I am not
+romantically attached to her, I am in love with her! I am willing to spend
+my time, money, and energy on her. Unfortunately, she is married. Truth be told,
+some of my crushes are not single at all…&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unmarriageable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crushes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;some&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;crush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'married'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unmarriageable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Lastly, I save the best for last. オーリア ラフマ is average compared to the rest
+but endowed with cute and wonderful hands (the ones you can only see in
+&lt;em&gt;anime&lt;/em&gt; or &lt;em&gt;manga&lt;/em&gt;). Her finger nails are so clean and sparkling. I can tell
+her present by listening to her unique high-pitched laughter. I admire her
+vigorous attitude. I even dreamed of her kissing me on the cheek. I really
+want to make a confession about this feeling. Maybe next time.&lt;/p&gt;
+
+&lt;p&gt;I like オーリア ラフマ. Let me sniff you from short distance, my dear!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 07 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 6: JavaScript Challenge</title>
+        <description>&lt;p&gt;I was using fetch method which really shows me the Promise and its early usage for AJAX
+programming. Here’s one of the most cutest girl in China.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/chen.jpg&quot; alt=&quot;she is also cute&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I had nothing to say about this challenge. Here’s the &lt;a href=&quot;/demo_day6&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; and
+the &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;. Please, read the gist while fixing
+your eyes on that beautiful girl above!&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function search(window) {
+  // We expect to get array of all `cities` in US from this endpoint
+  var endpoint = &amp;#39;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&amp;#39; // certain endpoint here
+  
+  function findMatches(cities) {
+
+    function getMatches(word) {
+      var regex = new RegExp(word, &amp;#39;gi&amp;#39;);
+      var matches = cities.filter(function (place) {
+        return place.city.match(regex) || place.state.match(regex);
+      });
+
+      return matches;
+    }
+
+    // I shamlessly grab it from:
+    // https://stackoverflow.com/questions/2254185/regular-expression-for-formatting-numbers-in-javascript?answertab=active
+    function numberWithComma(number){
+      return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, &amp;quot;$1,&amp;quot;);
+    }
+
+    // Return callback for handling event on search input. In our case &amp;#39;keyup&amp;#39; and &amp;#39;change&amp;#39;
+    return function displayMatches(event) {
+      var suggestions = document.querySelector(&amp;#39;.suggestions&amp;#39;); // suggestions list DOM
+      var word = this.value; // get string of characters from search input
+      var matches = getMatches(word);
+      var html = matches.map(function (place) {
+        var regex = new RegExp(word, &amp;#39;gi&amp;#39;);
+        var highlight = `&amp;lt;span class=&amp;#39;hl&amp;#39;&amp;gt;${word}&amp;lt;/span&amp;gt;`
+        var city = place.city.replace(regex, highlight);
+        var state = place.state.replace(regex, highlight);
+        var population = numberWithComma(place.population);
+
+        return `
+          &amp;lt;li&amp;gt;
+            &amp;lt;span class=&amp;quot;name&amp;quot;&amp;gt;${city}, ${state}&amp;lt;/span&amp;gt;
+            &amp;lt;span class=&amp;quot;population&amp;quot;&amp;gt;${population}&amp;lt;/span&amp;gt;
+          &amp;lt;/li&amp;gt;
+        `;
+      }).join(&amp;#39;&amp;#39;);
+
+      suggestions.innerHTML = html;
+    };
+  }
+ 
+  fetch(endpoint)
+    .then(function (blob) {
+      return blob.json();
+    })
+    .then(function (cities) {
+      var form = document.querySelector(&amp;#39;.search-form&amp;#39;);
+      var search = document.querySelector(&amp;#39;.search&amp;#39;);
+      var handler;
+
+      // display search form because the data is ready to be implemented
+      form.style.display = &amp;quot;block&amp;quot;
+
+      handler = findMatches(cities);
+
+      search.addEventListener(&amp;#39;keyup&amp;#39;, handler);
+      search.addEventListener(&amp;#39;change&amp;#39;, handler);
+    });
+})(window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/f7199f806a4ab40dc2c0a23f7018d311.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Firstly, I copied the boilerplate and tinkered with the UI for a bit. I intended to make it look more
+like Reddit with its calming light blue. I ditched all the CSS transition and went on with boring
+design which I really love the most.&lt;/p&gt;
+
+&lt;p&gt;I like this challenge.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 06 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 5: JavaScript Challenge</title>
+        <description>&lt;p&gt;I know nothing about CSS flexbox!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/yoshitaka.jpg&quot; alt=&quot;she is cute in some way&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I will skip all the CSS thingy in this challenge and focus on the experience I’d love to have.
+At first, in Wes Bos JavaScript code, when you click one of the panels, it will make it bigger and the rest will shrink.
+If you click the other one while letting the previous one clicked (it’s toggle), both panels will shrink but still bigger than
+the rest. What I want to have is when I click the other panel, the previous one will shrink, so there’s only one bigger
+panel in the row. If I keep explaining to you with words, it would be more complicated.
+Just see the damn &lt;a href=&quot;/demo_day5&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;. Have a look at the entire challenges, here’s the
+&lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s yet another boring JavaScript code with a little bit of explanation.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function (window) {
+  var panels = document.querySelectorAll(&amp;#39;.panel&amp;#39;);
+  
+  // get all the element&amp;#39;s siblings
+  function siblings() {
+    var thisElement = this;
+    // Return the shallow copy of array-like object. In this case NodeList
+    var allChildren = [].slice.call(thisElement.parentNode.children);
+    var siblings = allChildren.filter(function (element) {
+      return element !== thisElement;
+    });
+
+    return siblings;
+  }
+
+  function toggleOpen(event) {
+    this.classList.toggle(&amp;#39;open&amp;#39;);
+
+    siblings.call(this).forEach(function (el) {
+      el.classList.remove(&amp;#39;open&amp;#39;);
+    });
+  }
+
+  function toggleActive(event) {
+    if (event.propertyName.includes(&amp;#39;flex&amp;#39;)) {
+      this.classList.toggle(&amp;#39;open-active&amp;#39;);
+    }
+  }
+
+  panels.forEach(function (panel) {
+    panel.addEventListener(&amp;#39;click&amp;#39;, toggleOpen);
+    panel.addEventListener(&amp;#39;transitionend&amp;#39;, toggleActive);
+  });
+})(window);
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/2c194eb2ca42ea7bedb1c8640e8295c5.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;I hate this challenge.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 01 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/06/01/day5-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/01/day5-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 4: JavaScript Challenge</title>
+        <description>&lt;p&gt;I have to do it on and on until I get it. Never underestimate the power of JavaScript’s Array!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/aoi.jpg&quot; alt=&quot;she is cute&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this challenge, there’s no interesting thing like manipulating the DOM or
+whatsoever. It’s purely intellectual journey towards JavaScript’s Array
+mastery. Here’s the &lt;a href=&quot;/demo_day4&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; and
+the &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Every time you reload the page, please open the console and see the result
+of my work. You have to redo the challenge until you really get it. It’s really
+hard, especially reduce method. My first attempt is awful but the next 10th
+attempt is awesome (kidding).&lt;/p&gt;
+
+&lt;p&gt;I am sorry, there must be a cute girl in every post about 30 day JavaScript
+challenge so as to cheer me up. Until tomorrow!&lt;/p&gt;
+
+&lt;p&gt;I am running out of cute girls! I don’t know who is going to be in my next post!
+Emi Takei maybe?&lt;/p&gt;
+</description>
+        <pubDate>Wed, 31 May 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/05/31/day4-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/05/31/day4-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Self Reminder</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/images/zen_as_fuck.jpg&quot; alt=&quot;Zen as Fuck&quot; class=&quot;blog-post-image&quot; /&gt;
+&lt;em class=&quot;description&quot;&gt;Amitābha…&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Worry not, worry not.&lt;/p&gt;
+
+&lt;p&gt;Dear myself, you are going to die sooner or later. You probably won’t care about this event or those events when you have it coming.
+Death I mean.&lt;/p&gt;
+
+&lt;p&gt;Dear myself, you are not compelete asshole. You care about your family and do your best for them.&lt;/p&gt;
+
+&lt;p&gt;Dear myself, you brag about everything, you are fucking fuck. Need more improvement!&lt;/p&gt;
+
+&lt;p&gt;Dear myself, you are not going to be here or there forever. You have imagined working abroad with different people from different
+cultures. Be real, be confident, be strong mentally. Improve your English. Come on!&lt;/p&gt;
+
+&lt;p&gt;Dear myself, how about reading more about philosopy, the real deal philosphy.&lt;/p&gt;
+
+&lt;p&gt;Dear myself, those videos you watch on and on when you are nothing. Watch them idiot!&lt;/p&gt;
+
+&lt;p&gt;Dear myself, do you remember your schizophrenic episodes? You gets better right now!&lt;/p&gt;
+
+&lt;p&gt;Annoying people are going to die in one way or another. When they die, life goes on. Your fucks will be meaningless.
+Can you believe it? Please dear man, get your fucks together!&lt;/p&gt;
+
+&lt;p&gt;Meditate more my dear.&lt;/p&gt;
+
+&lt;p&gt;Remember one thing, one thing only. Death is the only destiny we share. Watch more Steve Jobs speech.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 30 May 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/personal-life/2017/05/30/self-reminder</link>
+        <guid isPermaLink="true">https://miayam.github.io/personal-life/2017/05/30/self-reminder</guid>
+        
+        
+        <category>personal-life</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 3: JavaScript Challenge</title>
+        <description>&lt;p&gt;I am doing it so fast in the office. Not quite interesting.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/lala_again.jpg&quot; alt=&quot;Lala Larissa Again&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, I can only change the image and comment on code that’s really
+important to me. Here’s the &lt;a href=&quot;/demo_day3&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.
+Clone my &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt; if you are so keen.&lt;/p&gt;
+
+&lt;p&gt;One great thing about CSS variable is when you change the variable,
+any elements that have reference to it will change as is. The behaviour of CSS
+variable has no difference from the rest of CSS features, it cascades. You can
+override it if you declare CSS variable on child element. In this challenge,
+all CSS variables declared on &lt;code class=&quot;highlighter-rouge&quot;&gt;:root&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;/code&gt; tag).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;--base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#ffc600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;--blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;--spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here’s yet another boring JavaScript code.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function changeCSSVariable(window) {
+  // rootStyle is styling placed on &amp;lt;html&amp;gt; tag, the root. We set CSS variable on the root.
+  // 
+  // Look at the &amp;lt;style&amp;gt; above!
+  //
+  // :root {
+  //    the variable goes here...
+  // }
+  // https://developer.mozilla.org/en/docs/Web/API/Document/documentElement
+
+  var rootStyle = document.documentElement.style;
+  var inputs = document.querySelectorAll(&amp;#39;.controls input&amp;#39;);
+
+  function setCSSVariable(event) {
+    // get value from data-sizing attribute.
+    var suffix = this.dataset.sizing || &amp;#39;&amp;#39;;
+    rootStyle.setProperty(`--${this.name}`, this.value + suffix);
+  }
+
+  inputs.forEach(function (input) {
+    input.addEventListener(&amp;#39;change&amp;#39;, setCSSVariable);
+    input.addEventListener(&amp;#39;mousemove&amp;#39;, setCSSVariable);
+  });
+})(window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/2858c0673d2f94baa1899741cec7d4e8.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;I am tired, I just want to look at her beautiful face on and on.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 May 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/05/29/day3-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/05/29/day3-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 2: JavaScript Challenge</title>
+        <description>&lt;p&gt;It’s so hard to keep up with this challenge. I am struggling even if it’s seemingly an easy task (making analogue
+clock). Clone my &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt; if you are interested and here’s
+the &lt;a href=&quot;/demo_day2&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/lala.jpg&quot; alt=&quot;Lala Larissa Again&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My first mistake that takes too long to solve is turning hours into corresponding degree.&lt;/p&gt;
+
+&lt;p&gt;I thought it would be like this because there are 24 hours per day.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hour&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHours&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hourDegree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hour&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;360&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;But fool me, the clock will always be like this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/clock.png&quot; alt=&quot;clock&quot; class=&quot;blog-post-image&quot; /&gt;
+&lt;em class=&quot;description&quot;&gt;12 is the maximum, stupid!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s how I solve it.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function clock(window) {
+  var secondHand = document.querySelector(&amp;#39;.second-hand&amp;#39;);
+  var minuteHand = document.querySelector(&amp;#39;.min-hand&amp;#39;);
+  var hourHand = document.querySelector(&amp;#39;.hour-hand&amp;#39;);
+
+  function tickTheClock() {
+    var now = new Date();
+
+    var second = now.getSeconds();
+
+    // secondRatio is leftover to be added to the corresponding minute
+    // of the date, so the clock will rotate as expected.
+
+    // For example: 30 minutes 20 seconds. The minute hand will tick and
+    // rotate 180 degree + extra 20 seconds in degree.
+    var secondRatio = second / 60;
+
+    var secondDegree = (secondRatio * 360) + 90;
+
+    var minute = now.getMinutes();
+
+    // minuteRatio is also leftover to be added to the corresponding hour
+    // of the date.
+    var minuteRatio = minute / 60
+
+    var minuteDegree = (minute + secondRatio) / 60 * 360 + 90;
+
+    var hour = now.getHours();
+    var hourDegree = (hour + minuteRatio) / 12 * 360 + 90;
+
+    secondHand.style.transform = `rotate(${secondDegree}deg)`;
+    minuteHand.style.transform = `rotate(${minuteDegree}deg)`;
+    hourHand.style.transform = `rotate(${hourDegree}deg)`;
+  }
+
+  window.setInterval(tickTheClock, 1000);
+})(window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/789e82acc85bca0ca03878c0e48ae5ef.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Well, that’s it for today. I am not sure I can solve tomorrow’s challenge.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 28 May 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/05/28/day2-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/05/28/day2-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+  </channel>
+</rss>
