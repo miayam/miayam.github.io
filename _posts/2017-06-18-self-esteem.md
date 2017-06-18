@@ -28,7 +28,7 @@ berdiam di rumah selama satu tahun sambil membantu ibu saya menjaga kedai kami
 yang bertempat di dekat kampus D3 IPB. Banyak teman-teman SMA kuliah di sana.
 
 Selama menjaga kedai, saya sering mencuri pandang cewek-cewek IPB yang mampir
-makan. Meskipun hidup susah, saya tetap genit.
+makan.
 
 Meskipun hidup malas-malasan, saya rajin membaca buku. Saya memaksakan
 diri membaca semua literatur dalam bahasa Inggris (kakak perempuan saya yang
