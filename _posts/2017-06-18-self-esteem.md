@@ -73,7 +73,7 @@ Dari 2014 sampai 2015, saya menjadi pekerja lepas, menulis konten untuk
 situs-situs yang tidak saya kenal. Bayarannya cukup untuk kebutuhan
 sehari-hari.
 
-Di tahun 2015 akhir, [KMKLabs mengadakan pelatihan](https://www.kmkonline.co.id/akademi)
+Di akhir tahun 2015, [KMKLabs mengadakan pelatihan](https://www.kmkonline.co.id/akademi)
 (Ruby on Rails dan Laravel) sekaligus mencari pengembang web untuk di tempatkan
 di proyek-proyek yang tidak membutuhkan keahlian rumit. Saya termasuk 10 orang
 beruntung yang diterima.
