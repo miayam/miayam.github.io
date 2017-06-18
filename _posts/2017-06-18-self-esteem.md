@@ -2,18 +2,19 @@
 layout: post
 title: Waktu dan Energi
 category: "personal-life"
-short_description: Sudah terlalu lama saya lembek dengan diri sendiri. Kali ini saya menuntut perubahan.
+short_description: Sudah terlalu lama saya lembek dengan diri sendiri. Saya ingin menekuni hobi sebrutal Michael Natterer.
 image_preview: /images/opinion.png
 category_page: personal
 ---
 
-Sudah terlalu lama saya lembek dengan diri sendiri. Kali ini saya menuntut
-perubahan.
+Sudah terlalu lama saya lembek dengan diri sendiri. Saya ingin menekuni hobi
+sebrutal Michael Natterer. Michael adalah pemilik toko buku yang memelihara
+proyek GIMP selama bertahun-tahun. Bisa dilihat di [sini](https://www.gimp.org/news/2017/03/01/an-interview-with-michael-natterer-gimp-maintainer/){:target="_blank"}.
 
 Tadi malam saya bermimpi kembali ke masa SMA. Meski di dalam mimpi,
 kekhawatiran saya terhadap UN sangat besar. Saking paniknya, saya menepuk-nepuk
-bahu sambil bersumpah akan mempelajari semua mata pelajaran dalam satu tahun
-penuh. Saya tidak pernah belajar di SMA dan kemungkinan lulus sangat kecil.
+bahu sambil bersumpah akan menguasai tiga tahun masa studi hanya dalam satu
+tahun. Saya tidak pernah belajar di SMA dan kemungkinan lulus sangat kecil.
 
 Perasaan berdebar ini berlanjut sampai akhirnya saya bangun dan tersadar bahwa
 saya sudah lulus dan secara finansial tidak bergantung lagi pada orang tua.
@@ -23,8 +24,8 @@ Waktu itu keluarga saya dililit hutang karena kasus yang melibatkan
 kakak laki-laki saya (makanya saya emoh berhutang ke bank). Saya memilih
 berdiam di rumah selama satu tahun sambil membantu ibu saya menjaga kedai kami
 yang bertempat di dekat kampus D3 IPB. Banyak teman-teman SMA kuliah di sana.
-Selama menjaga kedai, saya sering mencuri pandang cewek-cewek IPB yang mampir
-makan.
+Selama menjaga kedai, saya sering mencuri pandang mahasiswi-mahasiswi IPB
+yang mampir makan.
 
 Meskipun hidup malas-malasan, saya rajin membaca buku. Saya memaksakan
 diri membaca semua literatur dalam bahasa Inggris (kakak perempuan saya yang
@@ -77,7 +78,7 @@ Di tahun 2015 akhir, [KMKLabs mengadakan pelatihan](https://www.kmkonline.co.id/
 di proyek-proyek yang tidak membutuhkan keahlian rumit. Saya termasuk 10 orang
 beruntung yang diterima.
 
-Di pertengahan tahun 2016, saya diterima di tempat saya bekerja sekarang. Di
+Di pertengahan tahun 2016, saya bekerja di tempat saya bekerja sekarang. Di
 sinilah pertama kali saya mengenal AJAX dan Promise. Selama bekerja di sini,
 saya menekuni pekerjaan saya sebagai hobi.
 
