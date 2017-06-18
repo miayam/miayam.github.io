@@ -26,7 +26,6 @@ Waktu itu keluarga saya dililit hutang karena kasus yang melibatkan
 kakak laki-laki saya (makanya saya emoh berhutang ke bank). Saya memilih
 berdiam di rumah selama satu tahun sambil membantu ibu saya menjaga kedai kami
 yang bertempat di dekat kampus D3 IPB. Banyak teman-teman SMA kuliah di sana.
-
 Selama menjaga kedai, saya sering mencuri pandang cewek-cewek IPB yang mampir
 makan.
 
