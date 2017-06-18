@@ -12,7 +12,7 @@ perubahan.
 
 Tadi malam saya bermimpi kembali ke masa SMA. Meski di dalam mimpi,
 kekhawatiran saya terhadap UN sangat besar. Saking paniknya, saya menepuk-nepuk
-bahu sampil bersumpah akan mempelajari semua mata pelajaran dalam satu tahun
+bahu sambil bersumpah akan mempelajari semua mata pelajaran dalam satu tahun
 penuh. Saya tidak pernah belajar di SMA dan kemungkinan lulus sangat kecil.
 
 Perasaan berdebar ini berlanjut sampai akhirnya saya bangun dan tersadar bahwa
