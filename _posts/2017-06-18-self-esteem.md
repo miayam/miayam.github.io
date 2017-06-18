@@ -19,9 +19,6 @@ Perasaan berdebar ini berlanjut sampai akhirnya saya bangun dan tersadar bahwa
 saya sudah lulus dan secara finansial tidak bergantung lagi pada orang tua.
 Betapa leganya bisa melewati masa-masa suram itu meskipun hanya dalam mimpi.
 
-Jujur saja, saya sempat berniat menjadi loper koran setelah lulus SMA karena
-gagal ujian masuk STAN dan bingung mau melakukan apa.
-
 Waktu itu keluarga saya dililit hutang karena kasus yang melibatkan
 kakak laki-laki saya (makanya saya emoh berhutang ke bank). Saya memilih
 berdiam di rumah selama satu tahun sambil membantu ibu saya menjaga kedai kami
