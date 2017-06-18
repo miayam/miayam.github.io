@@ -65,7 +65,7 @@ Di usia 21 tahun, saya kembali bekerja sebagai staf pengajar di tempat yang
 sama sebelum akhirnya diterima di majalah favorit sebagai penulis lepas.
 Bayarannya lumayan, Rp. 1.500.000 per bulan. Bos saya pernah bilang
 kalau saya berbakat menjadi penulis, tapi saya tahu dia berkata demikian
-untuk mempertahankan saya karena saya murahan (tidak menuntut upah banyak).
+untuk mempertahankan saya karena saya tidak menuntut upah banyak.
 
 2014, majalah favorit saya bangkrut dan saya kembali menganggur.
 Di tahun yang sama, saya bercita-cita menjadi aktuaris dan mendaftar di
