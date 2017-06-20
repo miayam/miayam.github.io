@@ -2,12 +2,30 @@
 
 .standard {
   main {
-    padding: 15px 25px;
+    @include fix-screen($on-palm) {
+      padding: 15px 25px;
+    }
+
+    @include media-query($on-palm) {
+      padding: 15px 0;
+    }
   }
 
   .card {
     @include fix-screen($on-palm) {
       height: 420px;
+    }
+
+    p {
+      @include media-query($on-palm) {
+        max-width: 75%;
+        margin: 0 auto;
+      }
+
+      @include fix-screen($on-palm) {
+        max-width: 90%;
+        margin: 0 auto;
+      }
     }
   }
 
@@ -96,6 +114,7 @@
   }
 
   &-cards-text {
+
     margin: 0
   }
 
