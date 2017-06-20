@@ -82,6 +82,10 @@
       text-align: center;
       font-weight: normal;
       font-size: 20px;
+      @include media-query($on-palm) {
+        max-width: 80%;
+        margin: 20px auto;
+      }
     }
 
     .card-title {
