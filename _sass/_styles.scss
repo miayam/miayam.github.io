@@ -20,6 +20,10 @@
       @include media-query($on-palm) {
         padding: 30px 0;
       }
+
+      @include fix-screen($on-palm) {
+        padding-top: 30px;
+      }
     }
 
     p {
