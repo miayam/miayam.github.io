@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Jun 2017 00:13:44 +0700</pubDate>
-    <lastBuildDate>Wed, 21 Jun 2017 00:13:44 +0700</lastBuildDate>
+    <pubDate>Wed, 21 Jun 2017 00:18:28 +0700</pubDate>
+    <lastBuildDate>Wed, 21 Jun 2017 00:18:28 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -672,7 +672,7 @@ design which I really love the most.&lt;/p&gt;
 At first, in Wes Bos JavaScript code, when you click one of the panels, it will make it bigger and the rest will shrink.
 If you click the other one while letting the previous one clicked (it’s toggle), both panels will shrink but still bigger than
 the rest. What I want to have is when I click the other panel, the previous one will shrink, so there’s only one bigger
-panel in the row. If I keep explaining to you with words, it would be more complicated.
+panel in the row. If I keep explaining this to you with words, it would be more complicated.
 Just see the damn &lt;a href=&quot;/demo_day5&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;. Have a look at the entire challenges, here’s the
 &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 
