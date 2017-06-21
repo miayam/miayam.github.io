@@ -13,8 +13,9 @@ proyek GIMP selama bertahun-tahun. Bisa dilihat di [sini](https://www.gimp.org/n
 
 Tadi malam saya bermimpi kembali ke masa SMA. Meski di dalam mimpi,
 kekhawatiran saya terhadap UN sangat besar. Saking paniknya, saya menepuk-nepuk
-bahu sambil bersumpah akan menguasai tiga tahun masa studi hanya dalam satu
-tahun. Saya tidak pernah belajar di SMA dan kemungkinan lulus sangat kecil.
+bahu sambil bersumpah akan menguasai seluruh bahan ajar tiga tahun masa studi
+hanya dalam satu tahun. Saya tidak pernah belajar di SMA dan kemungkinan lulus
+sangat kecil.
 
 Perasaan berdebar ini berlanjut sampai akhirnya saya bangun dan tersadar bahwa
 saya sudah lulus dan secara finansial tidak bergantung lagi pada orang tua.
