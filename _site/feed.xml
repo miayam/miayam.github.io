@@ -6,9 +6,40 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Jun 2017 00:18:28 +0700</pubDate>
-    <lastBuildDate>Wed, 21 Jun 2017 00:18:28 +0700</lastBuildDate>
+    <pubDate>Fri, 23 Jun 2017 11:33:24 +0700</pubDate>
+    <lastBuildDate>Fri, 23 Jun 2017 11:33:24 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Thanks Rails!</title>
+        <description>&lt;p&gt;Probably my time as Ruby on Rails Developer is up.&lt;/p&gt;
+
+&lt;p&gt;Every carpenter has his/her own favorite tool-set and mine is
+JavaScript.&lt;/p&gt;
+
+&lt;p&gt;I know nothing about Rails and refuse to go any further. I have a love affair
+with JavaScript and its horror environment (DOM and Web API).&lt;/p&gt;
+
+&lt;p&gt;I refuse to touch database directly. ORM is fine for now, but please, just give
+me the damn end-point and let me consume it.&lt;/p&gt;
+
+&lt;p&gt;I refuse to set up tedious configuration. I barely know about infrastructure
+whatsoever. I am sorry that I have a love affair with JavaScript and its horror
+environment (not NodeJS).&lt;/p&gt;
+
+&lt;p&gt;Okay, I will leave Rails gradually starting from now.&lt;/p&gt;
+
+&lt;p&gt;For Ruby, I still love it. I am willing to learn Ruby and Sinatra after I kind
+of master JavaScript.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 23 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/ruby/2017/06/23/rails</link>
+        <guid isPermaLink="true">https://miayam.github.io/ruby/2017/06/23/rails</guid>
+        
+        
+        <category>ruby</category>
+        
+      </item>
     
       <item>
         <title>Waktu dan Energi</title>
@@ -18,8 +49,9 @@ proyek GIMP selama bertahun-tahun. Bisa dilihat di &lt;a href=&quot;https://www.
 
 &lt;p&gt;Tadi malam saya bermimpi kembali ke masa SMA. Meski di dalam mimpi,
 kekhawatiran saya terhadap UN sangat besar. Saking paniknya, saya menepuk-nepuk
-bahu sambil bersumpah akan menguasai tiga tahun masa studi hanya dalam satu
-tahun. Saya tidak pernah belajar di SMA dan kemungkinan lulus sangat kecil.&lt;/p&gt;
+bahu sambil bersumpah akan menguasai seluruh bahan ajar tiga tahun masa studi
+hanya dalam satu tahun. Saya tidak pernah belajar di SMA dan kemungkinan lulus
+sangat kecil.&lt;/p&gt;
 
 &lt;p&gt;Perasaan berdebar ini berlanjut sampai akhirnya saya bangun dan tersadar bahwa
 saya sudah lulus dan secara finansial tidak bergantung lagi pada orang tua.
@@ -306,7 +338,7 @@ buku filsafat di kamar.&lt;/p&gt;
 
 &lt;p&gt;Saya rela baradu tinju demi melindungi hobi-hobi saya yang berharga.&lt;/p&gt;
 
-&lt;p&gt;Apa kebutuhan pokok setelah pangan dan papan? Waktu luang yang diisi
+&lt;p&gt;Apa kebutuhan pokok setelah pangan, sandang, dan papan? Waktu luang yang diisi
 dengan kegiatan yang kita cintai.&lt;/p&gt;
 
 &lt;p&gt;Terima kasih Denissa yang telah memperlihatkan sinar mentari setelah mendung
@@ -793,67 +825,6 @@ Can you believe it? Please dear man, get your fucks together!&lt;/p&gt;
         
         
         <category>personal-life</category>
-        
-      </item>
-    
-      <item>
-        <title>Day 3: JavaScript Challenge</title>
-        <description>&lt;p&gt;I am doing it so fast in the office. Not quite interesting.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/lala_again.jpg&quot; alt=&quot;Lala Larissa Again&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Well, I can only change the image and comment on code that’s really
-important to me. Here’s the &lt;a href=&quot;/demo_day3&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.
-Clone my &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt; if you are so keen.&lt;/p&gt;
-
-&lt;p&gt;One great thing about CSS variable is when you change the variable,
-any elements that have reference to it will change as is. The behaviour of CSS
-variable has no difference from the rest of CSS features, it cascades. You can
-override it if you declare CSS variable on child element. In this challenge,
-all CSS variables declared on &lt;code class=&quot;highlighter-rouge&quot;&gt;:root&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;/code&gt; tag).&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;py&quot;&gt;--base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#ffc600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;py&quot;&gt;--blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;py&quot;&gt;--spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Here’s yet another boring JavaScript code.&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;(function changeCSSVariable(window) {
-  // rootStyle is styling placed on &amp;lt;html&amp;gt; tag, the root. We set CSS variable on the root.
-  // 
-  // Look at the &amp;lt;style&amp;gt; above!
-  //
-  // :root {
-  //    the variable goes here...
-  // }
-  // https://developer.mozilla.org/en/docs/Web/API/Document/documentElement
-
-  var rootStyle = document.documentElement.style;
-  var inputs = document.querySelectorAll(&amp;#39;.controls input&amp;#39;);
-
-  function setCSSVariable(event) {
-    // get value from data-sizing attribute.
-    var suffix = this.dataset.sizing || &amp;#39;&amp;#39;;
-    rootStyle.setProperty(`--${this.name}`, this.value + suffix);
-  }
-
-  inputs.forEach(function (input) {
-    input.addEventListener(&amp;#39;change&amp;#39;, setCSSVariable);
-    input.addEventListener(&amp;#39;mousemove&amp;#39;, setCSSVariable);
-  });
-})(window);&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/miayam/2858c0673d2f94baa1899741cec7d4e8.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;I am tired, I just want to look at her beautiful face on and on.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 29 May 2017 00:00:00 +0700</pubDate>
-        <link>https://miayam.github.io/javascript/2017/05/29/day3-javascript-challenge</link>
-        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/05/29/day3-javascript-challenge</guid>
-        
-        
-        <category>javascript</category>
         
       </item>
     
