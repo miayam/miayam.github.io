@@ -2,7 +2,7 @@
 layout: post
 title: "Bogus Module Dependency Manager"
 category: javascript
-short_description: I wonder how module dependency manager like requireJS or webpack really works.
+short_description: I wonder how module dependency manager like RequireJS or webpack really works.
 image_preview: /images/javascript.png
 category_page: js
 ---
