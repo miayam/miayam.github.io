@@ -66,7 +66,7 @@ variable, `modules`.
   var modules = {};
 {% endhighlight %}
 
-Let's say I'd like to have a module that greets anyone I encounter.
+Let's say I'd like to have a module that greets anyone I meet.
 
 {% highlight js %}
   // $mod and ModuleManager are two sides of the same coin.

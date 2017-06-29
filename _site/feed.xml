@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 30 Jun 2017 03:28:31 +0700</pubDate>
-    <lastBuildDate>Fri, 30 Jun 2017 03:28:31 +0700</lastBuildDate>
+    <pubDate>Fri, 30 Jun 2017 03:36:45 +0700</pubDate>
+    <lastBuildDate>Fri, 30 Jun 2017 03:36:45 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -143,7 +143,7 @@ variable, &lt;code class=&quot;highlighter-rouge&quot;&gt;modules&lt;/code&gt;.&
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// There... cannot be accessed directly.&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Let’s say I’d like to have a module that greets anyone I encounter.&lt;/p&gt;
+&lt;p&gt;Let’s say I’d like to have a module that greets anyone I meet.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// $mod and ModuleManager are two sides of the same coin.&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;$mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'greeting'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
