@@ -20,7 +20,7 @@ sass:
   style: compressed
 
 # Pagination settings
-paginate: 15
+paginate: 16
 
 permalink: /:categories/:year/:month/:day/:title
 
