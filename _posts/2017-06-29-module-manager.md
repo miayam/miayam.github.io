@@ -104,7 +104,7 @@ repeat yourself they say!
             // persist the girl's name
             attributes.names[index] = name;
             // persist the default pick up line
-            attributes.pickUpLines[name] = function confession() {
+            attributes.pickUpLines[name] = function pickUpLine() {
               var wording = greeting.sayHello(name);
               return `${wording} I love you.`;
             };
@@ -114,7 +114,7 @@ repeat yourself they say!
 
       // Melt a girl's heart with implicit words.
       setCustomPickUpLine: function setCustomPickUpLine(wording, name) {
-        attributes.pickUpLines[name] = function confession() {
+        attributes.pickUpLines[name] = function pickUpLine() {
           return `Dear ${name}, ${wording}`;
         }
       }
