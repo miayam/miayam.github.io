@@ -58,8 +58,8 @@ JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 Well done! After reading the documentation about `apply`, I am sure you
 understand the snippet more than I do. With that premise, I can say that you
 recognize that the `$mod` or `ModuleManager` make any objects (modules)
-we define persist throughout the runtime. Those modules resides in that
-private variable `modules`.
+we define persist throughout the runtime. Those modules resides in private
+variable, `modules`.
 
 {% highlight js %}
   // There... cannot be accessed directly.

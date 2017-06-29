@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Jun 2017 17:33:35 +0700</pubDate>
-    <lastBuildDate>Thu, 29 Jun 2017 17:33:35 +0700</lastBuildDate>
+    <pubDate>Thu, 29 Jun 2017 17:37:35 +0700</pubDate>
+    <lastBuildDate>Thu, 29 Jun 2017 17:37:35 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -137,8 +137,8 @@ JavaScript documentation&lt;/a&gt; that explains &lt;code class=&quot;highlighte
 &lt;p&gt;Well done! After reading the documentation about &lt;code class=&quot;highlighter-rouge&quot;&gt;apply&lt;/code&gt;, I am sure you
 understand the snippet more than I do. With that premise, I can say that you
 recognize that the &lt;code class=&quot;highlighter-rouge&quot;&gt;$mod&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ModuleManager&lt;/code&gt; make any objects (modules)
-we define persist throughout the runtime. Those modules resides in that
-private variable &lt;code class=&quot;highlighter-rouge&quot;&gt;modules&lt;/code&gt;.&lt;/p&gt;
+we define persist throughout the runtime. Those modules resides in private
+variable, &lt;code class=&quot;highlighter-rouge&quot;&gt;modules&lt;/code&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// There... cannot be accessed directly.&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
