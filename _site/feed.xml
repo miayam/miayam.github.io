@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Jun 2017 17:37:35 +0700</pubDate>
-    <lastBuildDate>Thu, 29 Jun 2017 17:37:35 +0700</lastBuildDate>
+    <pubDate>Thu, 29 Jun 2017 17:45:05 +0700</pubDate>
+    <lastBuildDate>Thu, 29 Jun 2017 17:45:05 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -161,7 +161,7 @@ variable, &lt;code class=&quot;highlighter-rouge&quot;&gt;modules&lt;/code&gt;.&
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'greeting'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'チージア セリーナ'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Right now, my heart burns with high dosage of cuteness, I really want to confess
+&lt;p&gt;Right now, my heart burns with high dosage of cuteness. I really want to confess
 this feeling to the ones I like the most, but I need to greet them before I do
 that. Why not I make use of existing module (‘greeting’) we just defined? Don’t
 repeat yourself they say!&lt;/p&gt;
@@ -209,7 +209,7 @@ repeat yourself they say!&lt;/p&gt;
     &lt;span class=&quot;s1&quot;&gt;'オーリア ラフマ'&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Oh, for the girl endowed with sparkling finger nails, I have prepared a
+&lt;p&gt;Oh, for that cute girl endowed with sparkling finger nails, I have prepared a
 special pick up line I borrow from a friend. I am sure I can touch her heart
 with it.&lt;/p&gt;
 
@@ -233,7 +233,7 @@ with it.&lt;/p&gt;
 &lt;p&gt;You know what, I lie about me loving them. I am sure it’s not about “love”, it’s
 a mere infatuation, a long lasting desire of attachment that would vanish in no
 time. It’s hormonal. One thing I can tell them truthfully is that I love my
-family and my hobbies. I am sorry my dear.&lt;/p&gt;
+family and my hobbies. I am sorry darling.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;$mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'lying'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'confession'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lying&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;confession&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -266,7 +266,7 @@ family and my hobbies. I am sorry my dear.&lt;/p&gt;
   &lt;span class=&quot;c1&quot;&gt;// I don't hate you, therefore I love you.&quot;&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// I am sorry... That was a lie.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;That’s i for today.&lt;/p&gt;
+&lt;p&gt;That’s it for today. I want to kiss オーリア ラフマ on the cheek.&lt;/p&gt;
 </description>
         <pubDate>Thu, 29 Jun 2017 00:00:00 +0700</pubDate>
         <link>https://miayam.github.io/javascript/2017/06/29/module-manager</link>

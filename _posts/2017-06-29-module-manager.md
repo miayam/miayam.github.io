@@ -88,7 +88,7 @@ Here's how I make use of it.
   greeting.sayHello('チージア セリーナ');
 {% endhighlight %}
 
-Right now, my heart burns with high dosage of cuteness, I really want to confess
+Right now, my heart burns with high dosage of cuteness. I really want to confess
 this feeling to the ones I like the most, but I need to greet them before I do
 that. Why not I make use of existing module ('greeting') we just defined? Don't
 repeat yourself they say!
@@ -140,7 +140,7 @@ Alright! Now I can confess my feeling to multiple girls at once! I am fabulous!
   ]);
 {% endhighlight %}
 
-Oh, for the girl endowed with sparkling finger nails, I have prepared a
+Oh, for that cute girl endowed with sparkling finger nails, I have prepared a
 special pick up line I borrow from a friend. I am sure I can touch her heart
 with it.
 
@@ -168,7 +168,7 @@ List my pick up lines toward those cute girls.
 You know what, I lie about me loving them. I am sure it's not about "love", it's
 a mere infatuation, a long lasting desire of attachment that would vanish in no
 time. It's hormonal. One thing I can tell them truthfully is that I love my
-family and my hobbies. I am sorry my dear.
+family and my hobbies. I am sorry darling.
 
 {% highlight js %}
   $mod.define('lying', ['confession'], function lying(confession) {
@@ -205,4 +205,4 @@ Truth be told.
   // I am sorry... That was a lie.
 {% endhighlight %}
 
-That's i for today.
+That's it for today. I want to kiss オーリア ラフマ on the cheek.
