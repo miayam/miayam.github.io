@@ -99,16 +99,16 @@ repeat yourself they say!
       // pick up line for each girl (we can override it)
       pickUpLines: {},
 
-      // persist the name of my crushes
+      // log the name of my crushes for later use
       names: [],
 
       // `crushes` is an array of girl's name I like
       confess: function confess(crushes) {
         crushes.map(function (name, index) {
           (function (name, index) {
-            // persist the girl's name
+            // log the girl's name
             attributes.names[index] = name;
-            // persist the default pick up line
+            // log the default pick up line
             attributes.pickUpLines[name] = function pickUpLine() {
               var wording = greeting.sayHello(name);
               return `${wording} I love you.`;
