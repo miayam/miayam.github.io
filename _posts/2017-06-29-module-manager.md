@@ -166,7 +166,7 @@ time. It's hormonal. One thing I can tell them truthfully is that I love my
 family and my hobbies. I am sorry my dear.
 
 {% highlight js %}
-   $mod.define('lying', ['confession'], function lying(confession) {
+  $mod.define('lying', ['confession'], function lying(confession) {
     var attributes = {
       lieToThem: function lieToThem() {
         confession.names.map(function (name) {
