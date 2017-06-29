@@ -80,7 +80,7 @@ Here's how I make use of it.
 
 {% highlight js %}
   var greeting = $mod.get('greeting');
-  greeting.sayHello('チージア セリー');
+  greeting.sayHello('チージア セリーナ');
 {% endhighlight %}
 
 Right now, my heart burns with high dosage of cuteness, I really want to confess

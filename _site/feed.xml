@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Jun 2017 09:17:47 +0700</pubDate>
-    <lastBuildDate>Thu, 29 Jun 2017 09:17:47 +0700</lastBuildDate>
+    <pubDate>Thu, 29 Jun 2017 16:30:05 +0700</pubDate>
+    <lastBuildDate>Thu, 29 Jun 2017 16:30:05 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -68,32 +68,33 @@ something but God knows that I know nothing about it.&lt;/p&gt;
   var modules = {};
 
   // parameters:
-  //   name: module&amp;#39;s name
-  //   dependencies: array of module&amp;#39;s name this brand new module depends on
+  //   name: our brand new module&amp;#39;s name
+  //   dependencies: array of module&amp;#39;s name this brand new module would
+  //                 depend on
   //   implementation: callback that returns this brand new module with its
-  //                   own methods made accessible to public
+  //                   methods made accessible to public
   //
   // how to use:
-  //   function callback(modul1, module2) { // do whatever you want // }
+  //   function callback(Modul1, Module2) { // do whatever you want // }
   //   $mod.define(&amp;#39;newModule&amp;#39;, [&amp;#39;module1&amp;#39;, &amp;#39;module2&amp;#39;], callback)
   function define(name, dependencies, implementation) {
     // Further explanation:
     //
-    // Let&amp;#39;s define our brand new module.
+    // Let&amp;#39;s define our brand new module this way.
     // &amp;gt; $mod.define(&amp;#39;module1&amp;#39;, [&amp;#39;module2&amp;#39;, &amp;#39;module3&amp;#39;], callback)
     // 
     // At first, `dependecies` is an array of module&amp;#39;s name.
     // &amp;gt; dependencies === [&amp;#39;module2&amp;#39;, &amp;#39;module3&amp;#39;]
     //
     // After this mapping, `dependencies` would become an array of module
-    // each of which consist of its own public methods.
+    // each of which consist of its public methods.
     // &amp;gt; dependencies === [Module2, Module3]
     //
     // Pay attention to `self[index] = modules[moduleName]`.
     dependencies.map(function (moduleName, index, self) {
       // self === dependencies
       self[index] = modules[moduleName];
-    })
+    });
 
     // What is with `apply` there?
     // `this` would bind to the callback (`implementation`) itself
@@ -155,7 +156,7 @@ about consist of those modules.&lt;/p&gt;
 &lt;p&gt;Here’s how I make use of it.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'greeting'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'チージア セリー'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+  &lt;span class=&quot;nx&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'チージア セリーナ'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Right now, my heart burns with high dosage of cuteness, I really want to confess
 this feeling to the ones I like the most, but I need to greet them before I do
