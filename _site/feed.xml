@@ -6,9 +6,139 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 30 Jun 2017 03:36:45 +0700</pubDate>
-    <lastBuildDate>Fri, 30 Jun 2017 03:36:45 +0700</lastBuildDate>
+    <pubDate>Fri, 30 Jun 2017 22:38:24 +0700</pubDate>
+    <lastBuildDate>Fri, 30 Jun 2017 22:38:24 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Day 10: JavaScript Challenge</title>
+        <description>&lt;p&gt;It’s been 15 days since the last challenge. In this challenge, we are going to
+“steal” multiple checkbox selection’s feature from Gmail. Great artist steal
+they say! Here’s the &lt;a href=&quot;/demo_day10&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ah.jpg&quot; alt=&quot;Stop it! I can't handle it!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s really different from Wes Bos solution. I don’t fully watch the video.&lt;/p&gt;
+
+&lt;p&gt;Now I realize how tedious it is to work with the DOM without any help from
+third-party libraries (JQuery perhaps?). I have to “polyfill” simple method
+for mapping each DOM element because &lt;code class=&quot;highlighter-rouge&quot;&gt;Array.prototype.forEach&lt;/code&gt; cannot handle
+NodeList. I feel sorry for being a newbie.&lt;/p&gt;
+
+&lt;p&gt;For more about the polyfill, &lt;a href=&quot;https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/&quot; target=&quot;_blank&quot;&gt;visit this blog&lt;/a&gt;. I think
+Todd Motto did a really good job explaining how to deal with NodeList.&lt;/p&gt;
+
+&lt;p&gt;I hope you can get what I mean.&lt;/p&gt;
+
+&lt;h3 id=&quot;markup&quot;&gt;Markup&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;main&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;inbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;This is an inbox layout.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Check one item&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Hold down your Shift key&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Check a lower item&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Everything inbetween should also be set to checked&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Try do it with out any libraries&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Just regular JavaScript&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Good Luck!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item__checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Don't forget to tweet your result!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/main&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
+&lt;noscript&gt;&lt;pre&gt;(function (window) {
+  var checkboxes = document.getElementsByClassName(&amp;#39;item__checkbox&amp;#39;);
+  var firstChecked, firstIdx, lastIdx;
+
+  // It&amp;#39;s for mapping dom elements. The Array.prototype.forEach won&amp;#39;t work
+  // with NodeList
+  function forEach(callback) {
+    for (var i = 0; i &amp;lt; this.length; i++) {
+      callback.call(this, this[i], i);
+    }
+  }
+
+  function inBetween(firstIdx, lastIdx) {
+    var start, end;
+
+    var owningObj = this;
+
+    // Decide which one of those two arguments is the start and the end
+    // of in between array
+    if (firstIdx &amp;gt; lastIdx) {
+      start = lastIdx;
+      end = firstIdx;
+    } else {
+      start = firstIdx;
+      end = lastIdx;
+    }
+
+    return function checkInBetween() {
+      var inBetween = Array.prototype.slice.call(owningObj, start, end);
+      inBetween.map(function (checkbox) {
+        checkbox.checked = true;
+      });
+    };
+  }
+
+  forEach.call(checkboxes, function (checkbox, index) {
+    checkbox.addEventListener(&amp;#39;click&amp;#39;, function (checkbox) {
+      if (event.shiftKey) {
+        if (this.checked &amp;amp;&amp;amp; firstChecked === undefined) {
+          firstChecked = this;
+          firstIdx = index;
+        }
+
+        //
+        if (this.checked &amp;amp;&amp;amp; firstChecked &amp;amp;&amp;amp; firstChecked !== this) {
+          lastIdx = index;
+          inBetween.call(checkboxes, firstIdx, lastIdx)();
+        }
+      }
+    });
+  });
+})(window);
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/84fbdc276836f18da9e79f9ed4f49d53.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Okay, that’s it for today.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 30 Jun 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/06/30/day10-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/30/day10-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Bogus Module Dependency Manager</title>
@@ -60,7 +190,7 @@ something but God knows that I know nothing about it.&lt;/p&gt;
   //   }
   // }
   //
-  // Public methods can be accessed this way:
+  // Public methods of each module can be accessed this way:
   //
   // &amp;gt; modules[&amp;quot;name&amp;quot;].method1();
   // &amp;gt; modules[&amp;quot;name&amp;quot;].method2();
@@ -75,20 +205,24 @@ something but God knows that I know nothing about it.&lt;/p&gt;
   //                   methods made accessible to public
   //
   // how to use:
-  //   function callback(Modul1, Module2) { // do whatever you want // }
+  //   function callback(Modul1, Module2) { 
+  //     // do whatever you want //
+  //     return NewModule; // here&amp;#39;s our new module
+  //   }
+  //
   //   $mod.define(&amp;#39;newModule&amp;#39;, [&amp;#39;module1&amp;#39;, &amp;#39;module2&amp;#39;], callback)
   function define(name, dependencies, implementation) {
     // Further explanation:
     //
     // Let&amp;#39;s define our brand new module this way.
-    // &amp;gt; $mod.define(&amp;#39;module1&amp;#39;, [&amp;#39;module2&amp;#39;, &amp;#39;module3&amp;#39;], callback)
+    // &amp;gt; $mod.define(&amp;#39;newModule&amp;#39;, [&amp;#39;module1&amp;#39;, &amp;#39;module2&amp;#39;], callback)
     // 
     // At first, `dependecies` is an array of module&amp;#39;s name.
-    // &amp;gt; dependencies === [&amp;#39;module2&amp;#39;, &amp;#39;module3&amp;#39;]
+    // &amp;gt; dependencies === [&amp;#39;module1&amp;#39;, &amp;#39;module2&amp;#39;]
     //
     // After this mapping, `dependencies` would become an array of module
     // each of which consist of its public methods.
-    // &amp;gt; dependencies === [Module2, Module3]
+    // &amp;gt; dependencies === [Module1, Module2]
     //
     // Pay attention to `self[index] = modules[moduleName]`.
     dependencies.map(function (moduleName, index, self) {
@@ -98,13 +232,17 @@ something but God knows that I know nothing about it.&lt;/p&gt;
 
     // What is with `apply` there?
     // `this` would bind to the callback (`implementation`) itself
-    // and array of dependency (`dependencies`) becomes its parameters.
+    // and array of dependency (`dependencies`) becomes its arguments
+    // being passed to it.
     //
     // After `apply` being exercised:
-    // &amp;gt; dependencies === [Module2, Module3]
-    // &amp;gt; implementation === function (Module2, Module3) {}
+    // &amp;gt; dependencies === [Module1, Module2]
+    // &amp;gt; implementation === function (Module1, Module2) { 
+    //                        // do whatever you want //
+    //                        return NewModule; 
+    //                      }
     // &amp;gt; `this` === implementation
-    // &amp;gt; modules[name] === our brand new module (return value of implementation)
+    // &amp;gt; modules[name] === our brand new module (NewModule object)
     modules[name] = implementation.apply(implementation, dependencies);
   }
 
@@ -1019,37 +1157,6 @@ Just see the damn &lt;a href=&quot;/demo_day5&quot; target=&quot;_blank&quot;&gt
         <pubDate>Thu, 01 Jun 2017 00:00:00 +0700</pubDate>
         <link>https://miayam.github.io/javascript/2017/06/01/day5-javascript-challenge</link>
         <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/01/day5-javascript-challenge</guid>
-        
-        
-        <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Day 4: JavaScript Challenge</title>
-        <description>&lt;p&gt;I have to do it on and on until I get it. Never underestimate the power of JavaScript’s Array!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/aoi.jpg&quot; alt=&quot;she is cute&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In this challenge, there’s no interesting thing like manipulating the DOM or
-whatsoever. It’s purely intellectual journey towards JavaScript’s Array
-mastery. Here’s the &lt;a href=&quot;/demo_day4&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; and
-the &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Every time you reload the page, please open the console and see the result
-of my work. You have to redo the challenge until you really get it. It’s really
-hard, especially reduce method. My first attempt is awful but the next 10th
-attempt is awesome (kidding).&lt;/p&gt;
-
-&lt;p&gt;I am sorry, there must be a cute girl in every post about 30 day JavaScript
-challenge so as to cheer me up. Until tomorrow!&lt;/p&gt;
-
-&lt;p&gt;I am running out of cute girls! I don’t know who is going to be in my next post!
-Emi Takei maybe?&lt;/p&gt;
-</description>
-        <pubDate>Wed, 31 May 2017 00:00:00 +0700</pubDate>
-        <link>https://miayam.github.io/javascript/2017/05/31/day4-javascript-challenge</link>
-        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/05/31/day4-javascript-challenge</guid>
         
         
         <category>javascript</category>
