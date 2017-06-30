@@ -139,7 +139,7 @@ permalink: demo_day10
       }
 
       forEach.call(checkboxes, function (checkbox, index) {
-        checkbox.addEventListener('click', function (checkbox) {
+        checkbox.addEventListener('click', function (event) {
           if (event.shiftKey) {
             if (this.checked && firstChecked === undefined) {
               firstChecked = this;

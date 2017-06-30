@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 30 Jun 2017 22:38:24 +0700</pubDate>
-    <lastBuildDate>Fri, 30 Jun 2017 22:38:24 +0700</lastBuildDate>
+    <pubDate>Fri, 30 Jun 2017 22:48:14 +0700</pubDate>
+    <lastBuildDate>Fri, 30 Jun 2017 22:48:14 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -110,7 +110,7 @@ Todd Motto did a really good job explaining how to deal with NodeList.&lt;/p&gt;
   }
 
   forEach.call(checkboxes, function (checkbox, index) {
-    checkbox.addEventListener(&amp;#39;click&amp;#39;, function (checkbox) {
+    checkbox.addEventListener(&amp;#39;click&amp;#39;, function (event) {
       if (event.shiftKey) {
         if (this.checked &amp;amp;&amp;amp; firstChecked === undefined) {
           firstChecked = this;
