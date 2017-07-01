@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Jul 2017 19:07:23 +0700</pubDate>
-    <lastBuildDate>Sat, 01 Jul 2017 19:07:23 +0700</lastBuildDate>
+    <pubDate>Sat, 01 Jul 2017 19:37:24 +0700</pubDate>
+    <lastBuildDate>Sat, 01 Jul 2017 19:37:24 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -104,16 +104,21 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
     }
   }
 
-  // Video viewer you watch the video from. Play and pause as you like.
+  // Video viewer you watch the video from. Click the screen and
+  // you see it paused or played under your control. The progress
+  // bar moves in accord to video&amp;#39;s current time, so on until its
+  // duration ends.
   videoViewer.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
   videoViewer.addEventListener(&amp;#39;click&amp;#39;, togglePlayPauseButton);
   videoViewer.addEventListener(&amp;#39;timeupdate&amp;#39;, progressBarOnPlaying);
 
+  // A button dedicated to toggle video player. Play and pause the
+  // video as you wish.
   toggleButton.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
   toggleButton.addEventListener(&amp;#39;click&amp;#39;, togglePlayPauseButton);
 
   // Moving colored bar informs users that the video is playing.
-  // You can play the video back and forth by clicking and moving
+  // You can play the video back and forth by clicking or moving
   // the mouse on progress bar.
   progress.addEventListener(&amp;#39;click&amp;#39;, scrubTime);
   progress.addEventListener(&amp;#39;mousemove&amp;#39;, function () {
@@ -147,8 +152,8 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
 &lt;script src=&quot;https://gist.github.com/miayam/97782afd8e12cc453ac8fbef5b3b0b00.js&quot;&gt; &lt;/script&gt;
 
 &lt;p&gt;I wanted to display this video from repository (jekyll page asset), but it
-didn’t seem to work. I had tried embedded file from Google Drive,
-but it only works well with  &lt;code class=&quot;highlighter-rouge&quot;&gt;iframe&lt;/code&gt;. I gave up, so I turned this lovely video
+didn’t seem to work. I had tried embedding video file from Google Drive,
+but it only works well with &lt;code class=&quot;highlighter-rouge&quot;&gt;iframe&lt;/code&gt;. I gave up, so I turned this lovely video
 into a gif and it worked (github page doesn’t allow video file maybe…).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/lovely.gif&quot; alt=&quot;Oh no more!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
