@@ -26,9 +26,9 @@ As usual, I can only let the code explain itself.
 
 I wanted to display this video from repository (jekyll page asset), but it
 didn't seem to work. I had tried embedded file from Google Drive,
-but it only works well with  `iframe`. I give up, so I turn this lovely video
-into a gif and it works (github page doesn't allow video file maybe...).
+but it only works well with  `iframe`. I gave up, so I turned this lovely video
+into a gif and it worked (github page doesn't allow video file maybe...).
 
-<iframe src="https://drive.google.com/file/d/0B3JS_US2ZdAvb29sZnp2Y3RDWnM/preview" width="640" height="480"></iframe>
+![Oh no more!](/images/lovely.gif){:class="blog-post-image"}
 
 Enjoy the video, enjoy my spaghetti code. See you next time.

@@ -6,9 +6,163 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 30 Jun 2017 22:48:14 +0700</pubDate>
-    <lastBuildDate>Fri, 30 Jun 2017 22:48:14 +0700</lastBuildDate>
+    <pubDate>Sat, 01 Jul 2017 19:07:23 +0700</pubDate>
+    <lastBuildDate>Sat, 01 Jul 2017 19:07:23 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Day 11: JavaScript Challenge</title>
+        <description>&lt;p&gt;I was very excited building custom HTML5 video player using vanilla JavaScript.
+Right now, I can say that it’s super tiring to rely on Web API alone without
+standing on the shoulders of giants (libraries).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ohno.jpg&quot; alt=&quot;Oh no!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The most interesting part in this challenge was adding event listener to events
+I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As usual, I can only let the code explain itself.&lt;/p&gt;
+
+&lt;h3 id=&quot;html&quot;&gt;HTML&lt;/h3&gt;
+&lt;noscript&gt;&lt;pre&gt;&amp;lt;main&amp;gt; 
+  &amp;lt;div class=&amp;quot;player&amp;quot;&amp;gt;
+     &amp;lt;video class=&amp;quot;player__video viewer&amp;quot; src=&amp;quot;lovely.mp4&amp;quot;&amp;gt;&amp;lt;/video&amp;gt;
+
+     &amp;lt;div class=&amp;quot;player__controls&amp;quot;&amp;gt;
+       &amp;lt;div class=&amp;quot;progress&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;progress__filled&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+       &amp;lt;/div&amp;gt;
+       &amp;lt;button class=&amp;quot;player__button toggle&amp;quot; title=&amp;quot;Toggle Play&amp;quot;&amp;gt;▷&amp;lt;/button&amp;gt;
+       &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;volume&amp;quot; class=&amp;quot;player__slider&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;1&amp;quot; step=&amp;quot;0.05&amp;quot; value=&amp;quot;1&amp;quot;&amp;gt;
+       &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;playbackRate&amp;quot; class=&amp;quot;player__slider&amp;quot; min=&amp;quot;0.5&amp;quot; max=&amp;quot;2&amp;quot; step=&amp;quot;0.1&amp;quot; value=&amp;quot;1&amp;quot;&amp;gt;
+       &amp;lt;button data-skip=&amp;quot;-10&amp;quot; class=&amp;quot;player__button player__button--skip&amp;quot;&amp;gt;« 10s&amp;lt;/button&amp;gt;
+       &amp;lt;button data-skip=&amp;quot;25&amp;quot; class=&amp;quot;player__button player__button--skip&amp;quot;&amp;gt;25s »&amp;lt;/button&amp;gt;
+       &amp;lt;button class=&amp;quot;player__button player__button--fullscreen&amp;quot;&amp;gt;&amp;amp;#11034;&amp;lt;/button&amp;gt;
+     &amp;lt;/div&amp;gt;
+   &amp;lt;/div&amp;gt;
+&amp;lt;/main&amp;gt;&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/fec9b797c34d57410bf2c2102c910716.js&quot;&gt; &lt;/script&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
+&lt;noscript&gt;&lt;pre&gt;(function (window) {
+  var videoPlayer = document.querySelector(&amp;#39;.player&amp;#39;);
+  var videoViewer = videoPlayer.querySelector(&amp;#39;.viewer&amp;#39;);
+  var progress = videoPlayer.querySelector(&amp;#39;.progress&amp;#39;);
+  var progressBar = videoPlayer.querySelector(&amp;#39;.progress__filled&amp;#39;);
+  var toggleButton = videoPlayer.querySelector(&amp;#39;.toggle&amp;#39;);
+  var sliders = videoPlayer.getElementsByClassName(&amp;#39;player__slider&amp;#39;);
+  var skipButtons = videoPlayer.getElementsByClassName(&amp;#39;player__button--skip&amp;#39;);
+  var fullscreen = videoPlayer.querySelector(&amp;#39;.player__button--fullscreen&amp;#39;);
+  var isVideoPlayed = false;
+
+  // It&amp;#39;s for mapping dom elements. The Array.prototype.forEach won&amp;#39;t work
+  // with NodeList.
+  function forEach(callback) {
+    for (var i = 0; i &amp;lt; this.length; i++) {
+      callback.call(this, this[i], i);
+    }
+  }
+
+  function playPauseToggle() {
+    var method = videoViewer.paused ? &amp;#39;play&amp;#39; : &amp;#39;pause&amp;#39;;
+    videoViewer[method]();
+  }
+
+  function handleRangeUpdate() {
+    // Either &amp;#39;volume&amp;#39; or &amp;#39;playbackRate&amp;#39;
+    // Here https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
+    videoViewer[this.name] = this.value;
+  }
+
+  function progressBarOnPlaying() {
+    var currentProgressBar = parseFloat(this.currentTime / this.duration) * 100;
+    progressBar.style.flexBasis = `${currentProgressBar}%`;
+  }
+
+  function togglePlayPauseButton() {
+    var button = videoViewer.paused ? &amp;#39;▷&amp;#39; : &amp;#39;▯▯&amp;#39;;
+    toggleButton.textContent = button;
+  }
+
+  function skipTheVideo() {
+    videoViewer.currentTime += parseInt(this.dataset.skip);
+  }
+
+  function scrubTime(event) {
+    var time = (event.offsetX / this.offsetWidth) * videoViewer.duration;
+    var method = videoViewer.paused ? &amp;#39;paused&amp;#39; : &amp;#39;play&amp;#39;;
+    videoViewer.currentTime = time;
+  }
+
+  function toggleFullscreen() {
+    if (videoViewer.requestFullScreen){
+      videoViewer.requestFullScreen();
+    } else if(videoViewer.webkitRequestFullScreen){
+      videoViewer.webkitRequestFullScreen();
+    } else if(videoViewer.mozRequestFullScreen){
+      videoViewer.mozRequestFullScreen();
+    }
+  }
+
+  // Video viewer you watch the video from. Play and pause as you like.
+  videoViewer.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
+  videoViewer.addEventListener(&amp;#39;click&amp;#39;, togglePlayPauseButton);
+  videoViewer.addEventListener(&amp;#39;timeupdate&amp;#39;, progressBarOnPlaying);
+
+  toggleButton.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
+  toggleButton.addEventListener(&amp;#39;click&amp;#39;, togglePlayPauseButton);
+
+  // Moving colored bar informs users that the video is playing.
+  // You can play the video back and forth by clicking and moving
+  // the mouse on progress bar.
+  progress.addEventListener(&amp;#39;click&amp;#39;, scrubTime);
+  progress.addEventListener(&amp;#39;mousemove&amp;#39;, function () {
+    if (!isVideoPlayed) {
+      return;
+    }
+
+    scrubTime.call(this, event);
+  });
+  progress.addEventListener(&amp;#39;mousedown&amp;#39;, function () {
+    isVideoPlayed = true;
+  });
+  progress.addEventListener(&amp;#39;mouseup&amp;#39;, function () {
+    isVideoPlayed = false;
+  });
+
+  // Sliders for controlling volume and playback rate (faster or slower).
+  forEach.call(sliders, function (slider) {
+    slider.addEventListener(&amp;#39;mousemove&amp;#39;, handleRangeUpdate);
+    slider.addEventListener(&amp;#39;change&amp;#39;, handleRangeUpdate);
+  });
+
+  // Buttons for skipping the video back and forth.
+  forEach.call(skipButtons, function (skipButton) {
+    skipButton.addEventListener(&amp;#39;click&amp;#39;, skipTheVideo);
+  });
+
+  // Watch the video fullscreen (it&amp;#39;s taking up the whole screen).
+  fullscreen.addEventListener(&amp;#39;click&amp;#39;, toggleFullscreen);
+})(window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/97782afd8e12cc453ac8fbef5b3b0b00.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;I wanted to display this video from repository (jekyll page asset), but it
+didn’t seem to work. I had tried embedded file from Google Drive,
+but it only works well with  &lt;code class=&quot;highlighter-rouge&quot;&gt;iframe&lt;/code&gt;. I gave up, so I turned this lovely video
+into a gif and it worked (github page doesn’t allow video file maybe…).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/lovely.gif&quot; alt=&quot;Oh no more!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Enjoy the video, enjoy my spaghetti code. See you next time.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 01 Jul 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/07/01/day11-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/07/01/day11-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Day 10: JavaScript Challenge</title>
@@ -116,8 +270,7 @@ Todd Motto did a really good job explaining how to deal with NodeList.&lt;/p&gt;
           firstChecked = this;
           firstIdx = index;
         }
-
-        //
+        
         if (this.checked &amp;amp;&amp;amp; firstChecked &amp;amp;&amp;amp; firstChecked !== this) {
           lastIdx = index;
           inBetween.call(checkboxes, firstIdx, lastIdx)();
@@ -1093,70 +1246,6 @@ design which I really love the most.&lt;/p&gt;
         <pubDate>Tue, 06 Jun 2017 00:00:00 +0700</pubDate>
         <link>https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge</link>
         <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge</guid>
-        
-        
-        <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Day 5: JavaScript Challenge</title>
-        <description>&lt;p&gt;I know nothing about CSS flexbox!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/yoshitaka.jpg&quot; alt=&quot;she is cute in some way&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I will skip all the CSS thingy in this challenge and focus on the experience I’d love to have.
-At first, in Wes Bos JavaScript code, when you click one of the panels, it will make it bigger and the rest will shrink.
-If you click the other one while letting the previous one clicked (it’s toggle), both panels will shrink but still bigger than
-the rest. What I want to have is when I click the other panel, the previous one will shrink, so there’s only one bigger
-panel in the row. If I keep explaining this to you with words, it would be more complicated.
-Just see the damn &lt;a href=&quot;/demo_day5&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;. Have a look at the entire challenges, here’s the
-&lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Here’s yet another boring JavaScript code with a little bit of explanation.&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;(function (window) {
-  var panels = document.querySelectorAll(&amp;#39;.panel&amp;#39;);
-  
-  // get all the element&amp;#39;s siblings
-  function siblings() {
-    var thisElement = this;
-    // Return the shallow copy of array-like object. In this case NodeList
-    var allChildren = [].slice.call(thisElement.parentNode.children);
-    var siblings = allChildren.filter(function (element) {
-      return element !== thisElement;
-    });
-
-    return siblings;
-  }
-
-  function toggleOpen(event) {
-    this.classList.toggle(&amp;#39;open&amp;#39;);
-
-    siblings.call(this).forEach(function (el) {
-      el.classList.remove(&amp;#39;open&amp;#39;);
-    });
-  }
-
-  function toggleActive(event) {
-    if (event.propertyName.includes(&amp;#39;flex&amp;#39;)) {
-      this.classList.toggle(&amp;#39;open-active&amp;#39;);
-    }
-  }
-
-  panels.forEach(function (panel) {
-    panel.addEventListener(&amp;#39;click&amp;#39;, toggleOpen);
-    panel.addEventListener(&amp;#39;transitionend&amp;#39;, toggleActive);
-  });
-})(window);
-&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/miayam/2c194eb2ca42ea7bedb1c8640e8295c5.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;I hate this challenge.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 01 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://miayam.github.io/javascript/2017/06/01/day5-javascript-challenge</link>
-        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/01/day5-javascript-challenge</guid>
         
         
         <category>javascript</category>
