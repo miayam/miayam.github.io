@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Jul 2017 19:37:24 +0700</pubDate>
-    <lastBuildDate>Sat, 01 Jul 2017 19:37:24 +0700</lastBuildDate>
+    <pubDate>Sat, 01 Jul 2017 19:42:27 +0700</pubDate>
+    <lastBuildDate>Sat, 01 Jul 2017 19:42:27 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -154,7 +154,7 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
 &lt;p&gt;I wanted to display this video from repository (jekyll page asset), but it
 didn’t seem to work. I had tried embedding video file from Google Drive,
 but it only works well with &lt;code class=&quot;highlighter-rouge&quot;&gt;iframe&lt;/code&gt;. I gave up, so I turned this lovely video
-into a gif and it worked (github page doesn’t allow video file maybe…).&lt;/p&gt;
+into a &lt;code class=&quot;highlighter-rouge&quot;&gt;gif&lt;/code&gt; and it worked (github page doesn’t allow video file maybe…).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/lovely.gif&quot; alt=&quot;Oh no more!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
 

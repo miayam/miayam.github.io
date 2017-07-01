@@ -2,7 +2,7 @@
 layout: post
 title: "Day 11: JavaScript Challenge"
 category: javascript
-short_description: I was very excited building custom HTML5 video player using vanilla JavaScript. Right now, I can say that it's super tiring to rely on Web API alone without standing on the shoulders of giants (libraries).
+short_description: I was very excited building custom HTML5 video player using vanilla JavaScript.
 image_preview: /images/javascript.png
 category_page: js
 ---
