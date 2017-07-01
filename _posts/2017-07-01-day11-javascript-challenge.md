@@ -11,7 +11,7 @@ I was very excited building custom HTML5 video player using vanilla JavaScript.
 Right now, I can say that it's super tiring to rely on Web API alone without
 standing on the shoulders of giants (libraries).
 
-![Oh no!](/images/ohno.jpg){:class="blog-post-image"}
+![Oh no!](/images/ah.jpg){:class="blog-post-image"}
 
 The most interesting part in this challenge was adding event listener to events
 I've never heard before! Here's the [demo](/demo_day11){:target="_blank"}.

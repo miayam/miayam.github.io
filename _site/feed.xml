@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Jul 2017 19:42:27 +0700</pubDate>
-    <lastBuildDate>Sat, 01 Jul 2017 19:42:27 +0700</lastBuildDate>
+    <pubDate>Sun, 02 Jul 2017 01:33:55 +0700</pubDate>
+    <lastBuildDate>Sun, 02 Jul 2017 01:33:55 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -16,7 +16,7 @@
 Right now, I can say that it’s super tiring to rely on Web API alone without
 standing on the shoulders of giants (libraries).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/ohno.jpg&quot; alt=&quot;Oh no!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/ah.jpg&quot; alt=&quot;Oh no!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The most interesting part in this challenge was adding event listener to events
 I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
@@ -47,9 +47,9 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
 &lt;noscript&gt;&lt;pre&gt;(function (window) {
   var videoPlayer = document.querySelector(&amp;#39;.player&amp;#39;);
   var videoViewer = videoPlayer.querySelector(&amp;#39;.viewer&amp;#39;);
-  var progress = videoPlayer.querySelector(&amp;#39;.progress&amp;#39;);
-  var progressBar = videoPlayer.querySelector(&amp;#39;.progress__filled&amp;#39;);
-  var toggleButton = videoPlayer.querySelector(&amp;#39;.toggle&amp;#39;);
+  var progressBar = videoPlayer.querySelector(&amp;#39;.progress&amp;#39;);
+  var progressBarFilled = videoPlayer.querySelector(&amp;#39;.progress__filled&amp;#39;);
+  var playOrPauseButton = videoPlayer.querySelector(&amp;#39;.toggle&amp;#39;);
   var sliders = videoPlayer.getElementsByClassName(&amp;#39;player__slider&amp;#39;);
   var skipButtons = videoPlayer.getElementsByClassName(&amp;#39;player__button--skip&amp;#39;);
   var fullscreen = videoPlayer.querySelector(&amp;#39;.player__button--fullscreen&amp;#39;);
@@ -69,28 +69,36 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
   }
 
   function handleRangeUpdate() {
-    // Either &amp;#39;volume&amp;#39; or &amp;#39;playbackRate&amp;#39;
-    // Here https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
+    // The element this function listens to is `.player__slider`.
+    // In this case, we have either &amp;#39;volume&amp;#39; or &amp;#39;playbackRate&amp;#39;
+    // for `this.name` value.
+    //
+    // Here&amp;#39;s the markup:
+    // &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;volume&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt; and
+    // &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;playbackRate&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt;
+    // 
+    // For more info:
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
     videoViewer[this.name] = this.value;
   }
 
   function progressBarOnPlaying() {
     var currentProgressBar = parseFloat(this.currentTime / this.duration) * 100;
-    progressBar.style.flexBasis = `${currentProgressBar}%`;
+    progressBarFilled.style.flexBasis = `${currentProgressBar}%`;
   }
 
   function togglePlayPauseButton() {
     var button = videoViewer.paused ? &amp;#39;▷&amp;#39; : &amp;#39;▯▯&amp;#39;;
-    toggleButton.textContent = button;
+    playOrPauseButton.textContent = button;
   }
 
   function skipTheVideo() {
     videoViewer.currentTime += parseInt(this.dataset.skip);
   }
 
+  // Display video at specific time as the progress bar moved or clicked.
   function scrubTime(event) {
     var time = (event.offsetX / this.offsetWidth) * videoViewer.duration;
-    var method = videoViewer.paused ? &amp;#39;paused&amp;#39; : &amp;#39;play&amp;#39;;
     videoViewer.currentTime = time;
   }
 
@@ -107,35 +115,40 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
   // Video viewer you watch the video from. Click the screen and
   // you see it paused or played under your control. The progress
   // bar moves in accord to video&amp;#39;s current time, so on until its
-  // duration ends.
+  // duration ends. If the viewer clicked and video played, &amp;#39;▯▯&amp;#39;
+  // shown and &amp;#39;▷&amp;#39; hidden. Thing goes the other way round if the
+  // screen clicked and video paused.
   videoViewer.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
   videoViewer.addEventListener(&amp;#39;click&amp;#39;, togglePlayPauseButton);
   videoViewer.addEventListener(&amp;#39;timeupdate&amp;#39;, progressBarOnPlaying);
 
-  // A button dedicated to toggle video player. Play and pause the
-  // video as you wish.
-  toggleButton.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
-  toggleButton.addEventListener(&amp;#39;click&amp;#39;, togglePlayPauseButton);
+  // A button dedicated to toggle video player. Play or pause the
+  // video as you wish. If the button clicked and video played,
+  // &amp;#39;▯▯&amp;#39; shown and &amp;#39;▷&amp;#39; hidden. Thing goes the other way round if
+  // the button clicked and video paused.
+  playOrPauseButton.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
+  playOrPauseButton.addEventListener(&amp;#39;click&amp;#39;, togglePlayPauseButton);
 
   // Moving colored bar informs users that the video is playing.
   // You can play the video back and forth by clicking or moving
   // the mouse on progress bar.
-  progress.addEventListener(&amp;#39;click&amp;#39;, scrubTime);
-  progress.addEventListener(&amp;#39;mousemove&amp;#39;, function () {
+  progressBar.addEventListener(&amp;#39;click&amp;#39;, scrubTime);
+  progressBar.addEventListener(&amp;#39;mousemove&amp;#39;, function () {
     if (!isVideoPlayed) {
       return;
     }
 
     scrubTime.call(this, event);
   });
-  progress.addEventListener(&amp;#39;mousedown&amp;#39;, function () {
+  progressBar.addEventListener(&amp;#39;mousedown&amp;#39;, function () {
     isVideoPlayed = true;
   });
-  progress.addEventListener(&amp;#39;mouseup&amp;#39;, function () {
+  progressBar.addEventListener(&amp;#39;mouseup&amp;#39;, function () {
     isVideoPlayed = false;
   });
 
-  // Sliders for controlling volume and playback rate (faster or slower).
+  // Sliders for controlling volume (louder or softer)
+  // and playback rate (faster or slower).
   forEach.call(sliders, function (slider) {
     slider.addEventListener(&amp;#39;mousemove&amp;#39;, handleRangeUpdate);
     slider.addEventListener(&amp;#39;change&amp;#39;, handleRangeUpdate);

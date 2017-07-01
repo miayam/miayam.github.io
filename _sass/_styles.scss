@@ -4,6 +4,7 @@
   main {
     @include fix-screen($on-palm) {
       padding: 15px 25px;
+      max-width: 75%;
     }
 
     @include media-query($on-palm) {
@@ -38,9 +39,6 @@
     }
   }
 
-  .post {
-    max-width: 664px;
-  }
 }
 
 .t-hackcss {  // Main prefix to avoid collisions
@@ -53,7 +51,7 @@
   // navigation.html
 
   &-navigation {
-    padding-right: 0;
+    padding: 0 5%;
   }
 
   @at-root .hack &-navigation-heading {
