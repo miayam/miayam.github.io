@@ -27,7 +27,7 @@ As usual, I can only let the code explain itself.
 I wanted to display this video from repository (jekyll page asset), but it
 didn't seem to work. I had tried embedding video file from Google Drive,
 but it only works well with `iframe`. I gave up, so I turned this lovely video
-into a gif and it worked (github page doesn't allow video file maybe...).
+into a `gif` and it worked (github page doesn't allow video file maybe...).
 
 ![Oh no more!](/images/lovely.gif){:class="blog-post-image"}
 
