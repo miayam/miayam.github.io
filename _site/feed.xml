@@ -6,9 +6,82 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Jul 2017 08:38:56 +0700</pubDate>
-    <lastBuildDate>Sun, 02 Jul 2017 08:38:56 +0700</lastBuildDate>
+    <pubDate>Mon, 03 Jul 2017 23:58:47 +0700</pubDate>
+    <lastBuildDate>Mon, 03 Jul 2017 23:58:47 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Day 12: JavaScript Challenge</title>
+        <description>&lt;p&gt;Type &lt;strong&gt;“magic”&lt;/strong&gt; and see what happens next! I can assure you how interesting it is!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/3beauty.jpg&quot; alt=&quot;Oh my!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For more about konami code, visit &lt;a href=&quot;https://en.wikipedia.org/wiki/Konami_Code&quot; target=&quot;_blank&quot;&gt;this wikipedia page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here’s my stupid code.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  var easterEgg = &amp;quot;magic&amp;quot;; //
+  var pressedKeys = [];
+
+  window.addEventListener(&amp;#39;keyup&amp;#39;, function (event) {
+    var secretwords = null;
+
+    pressedKeys.push(event.key);
+
+    // Get the last 5 characters because easter egg
+    // words consist of 5 words. &amp;quot;magic&amp;quot; is the
+    // easter egg words.
+    secretwords = pressedKeys.slice(-easterEgg.length).join(&amp;#39;&amp;#39;);
+
+    if (secretwords === easterEgg) {
+      // Add rainbow or unicorn to the screen.
+      cornify_add();
+
+      // Empty array if the secret words correct.
+      pressedKeys.splice(0);
+    }
+  });
+})(window, undefined);
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/85001d163e17bbcc8cf7966057d13060.js&quot;&gt; &lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.cornify.com/js/cornify.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  (function (window, undefined) {
+    var easterEgg = &quot;magic&quot;; //
+    var pressedKeys = [];
+
+    window.addEventListener('keyup', function (event) {
+      var secretwords = null;
+
+      pressedKeys.push(event.key);
+
+      // Get the last 5 characters because easter egg words consist of 5 words.
+      // &quot;magic&quot; is the easter egg words.
+      secretwords = pressedKeys.slice(-easterEgg.length).join('');
+
+      if (secretwords === easterEgg) {
+        // Add rainbow or unicorn to the screen.
+        cornify_add();
+
+        // Empty array if the secret words correct.
+        pressedKeys.splice(0);
+      }
+    });
+  })(window, undefined);
+&lt;/script&gt;
+
+</description>
+        <pubDate>Mon, 03 Jul 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Day 11: JavaScript Challenge</title>
@@ -44,7 +117,7 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
 &lt;script src=&quot;https://gist.github.com/miayam/fec9b797c34d57410bf2c2102c910716.js&quot;&gt; &lt;/script&gt;
 
 &lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
-&lt;noscript&gt;&lt;pre&gt;(function (window) {
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
   // Simplify the method&amp;#39;s name for readibility&amp;#39;s sake.
   var className = &amp;#39;getElementsByClassName&amp;#39;;
   var selector = &amp;#39;querySelector&amp;#39;;
@@ -59,7 +132,7 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
   var skipButtons = videoPlayer[className](&amp;#39;player__button--skip&amp;#39;);
   var isVideoPlayed = false;
 
-  // It&amp;#39;s for mapping dom elements. The Array.prototype.forEach won&amp;#39;t
+  // It&amp;#39;s for mapping DOM elements. The Array.prototype.forEach won&amp;#39;t
   // work with NodeList.
   function forEach(callback) {
     for (var i = 0; i &amp;lt; this.length; i++) {
@@ -67,23 +140,26 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
     }
   }
 
-  function playPauseToggle() {
+  function playOrPauseToggle() {
     var method = videoViewer.paused ? &amp;#39;play&amp;#39; : &amp;#39;pause&amp;#39;;
     videoViewer[method]();
   }
 
   function handleSliderUpdate() {
-    // This function listens to events on elements that include
-    // `player__slider` in their class attribute&amp;#39;s value.
-    // &amp;#39;this.name&amp;#39; must be either &amp;#39;volume&amp;#39; or &amp;#39;playbackRate&amp;#39;.
-    // The video&amp;#39;s volume or playback rate changed as we click
-    // or move the sliders back and forth as we assign &amp;#39;this.value&amp;#39;
-    // to either &amp;#39;videoViewer.volume&amp;#39; or &amp;#39;videoViewer.playbackRate&amp;#39;
-    // property at the same time.
+    // This function listens to various events on elements that
+    // have `player__slider` included inside their class 
+    // attribute&amp;#39;s value.
     //
     // Here&amp;#39;s the markup:
-    // &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;volume&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt; and
-    // &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;playbackRate&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt;
+    //    &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;volume&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt; and
+    //    &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;playbackRate&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt;
+    //
+    // &amp;#39;this.name&amp;#39; must be either &amp;#39;volume&amp;#39; or &amp;#39;playbackRate&amp;#39;.
+    //
+    // Video&amp;#39;s volume and playback rate changed as we click or move
+    // their corresponding slider back and forth. We assign its value
+    // (&amp;#39;this.value&amp;#39;) to either &amp;#39;videoViewer.volume&amp;#39; or
+    // &amp;#39;videoViewer.playbackRate&amp;#39; property.
     // 
     // For more about &amp;quot;volume&amp;quot; and &amp;quot;playbackRate&amp;quot;:
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
@@ -106,7 +182,8 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
   }
 
   // Display video at specific time as the progress bar moved or clicked.
-  function scrubTime(event) {
+  // Here&amp;#39;s the example http://bit.ly/2txq2Sh
+  function scrubTheTimeline(event) {
     var ratio = event.offsetX / this.offsetWidth;
     var time = ratio * videoViewer.duration;
     videoViewer.currentTime = time;
@@ -122,13 +199,13 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
     }
   }
 
-  // Video viewer you watch the video from. Click the screen and
+  // Video viewer you watch the video from. Click the viewer and
   // you see it paused or played under your control. The progress
   // bar moves in accord to video&amp;#39;s current time, so on until its
   // duration ends. If the viewer clicked and video played, &amp;#39;▯▯&amp;#39;
   // shown and &amp;#39;▷&amp;#39; hidden. Thing goes the other way round if the
-  // screen clicked and video paused.
-  videoViewer.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
+  // viewer clicked and video paused.
+  videoViewer.addEventListener(&amp;#39;click&amp;#39;, playOrPauseToggle);
   videoViewer.addEventListener(&amp;#39;click&amp;#39;, togglePlayOrPauseButton);
   videoViewer.addEventListener(&amp;#39;timeupdate&amp;#39;, progressBarOnPlaying);
 
@@ -136,19 +213,19 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
   // video as you wish. If the button clicked and video played,
   // &amp;#39;▯▯&amp;#39; shown and &amp;#39;▷&amp;#39; hidden. Thing goes the other way round if
   // the button clicked and video paused.
-  playOrPauseButton.addEventListener(&amp;#39;click&amp;#39;, playPauseToggle);
+  playOrPauseButton.addEventListener(&amp;#39;click&amp;#39;, playOrPauseToggle);
   playOrPauseButton.addEventListener(&amp;#39;click&amp;#39;, togglePlayOrPauseButton);
 
   // Moving colored bar informs users that the video is playing.
   // You can play the video back and forth by clicking or moving
   // the mouse on progress bar.
-  progressBar.addEventListener(&amp;#39;click&amp;#39;, scrubTime);
-  progressBar.addEventListener(&amp;#39;mousemove&amp;#39;, function () {
+  progressBar.addEventListener(&amp;#39;click&amp;#39;, scrubTheTimeline);
+  progressBar.addEventListener(&amp;#39;mousemove&amp;#39;, function (event) {
     if (!isVideoPlayed) {
       return;
     }
 
-    scrubTime.call(this, event);
+    scrubTheTimeline.call(this, event);
   });
   progressBar.addEventListener(&amp;#39;mousedown&amp;#39;, function () {
     isVideoPlayed = true;
@@ -1183,97 +1260,6 @@ want to make a confession about this feeling. Maybe next time.&lt;/p&gt;
         <pubDate>Wed, 07 Jun 2017 00:00:00 +0700</pubDate>
         <link>https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge</link>
         <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/07/day7-javascript-challenge</guid>
-        
-        
-        <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Day 6: JavaScript Challenge</title>
-        <description>&lt;p&gt;I was using fetch method which really shows me the Promise and its early usage for AJAX
-programming. Here’s one of the most cutest girl in China.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/chen.jpg&quot; alt=&quot;she is also cute&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I had nothing to say about this challenge. Here’s the &lt;a href=&quot;/demo_day6&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; and
-the &lt;a href=&quot;https://github.com/miayam/js30&quot; target=&quot;_blank&quot;&gt;repo&lt;/a&gt;. Please, read the gist while fixing
-your eyes on that beautiful girl above!&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;(function search(window) {
-  // We expect to get array of all `cities` in US from this endpoint
-  var endpoint = &amp;#39;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&amp;#39; // certain endpoint here
-  
-  function findMatches(cities) {
-
-    function getMatches(word) {
-      var regex = new RegExp(word, &amp;#39;gi&amp;#39;);
-      var matches = cities.filter(function (place) {
-        return place.city.match(regex) || place.state.match(regex);
-      });
-
-      return matches;
-    }
-
-    // I shamlessly grab it from:
-    // https://stackoverflow.com/questions/2254185/regular-expression-for-formatting-numbers-in-javascript?answertab=active
-    function numberWithComma(number){
-      return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, &amp;quot;$1,&amp;quot;);
-    }
-
-    // Return callback for handling event on search input. In our case &amp;#39;keyup&amp;#39; and &amp;#39;change&amp;#39;
-    return function displayMatches(event) {
-      var suggestions = document.querySelector(&amp;#39;.suggestions&amp;#39;); // suggestions list DOM
-      var word = this.value; // get string of characters from search input
-      var matches = getMatches(word);
-      var html = matches.map(function (place) {
-        var regex = new RegExp(word, &amp;#39;gi&amp;#39;);
-        var highlight = `&amp;lt;span class=&amp;#39;hl&amp;#39;&amp;gt;${word}&amp;lt;/span&amp;gt;`
-        var city = place.city.replace(regex, highlight);
-        var state = place.state.replace(regex, highlight);
-        var population = numberWithComma(place.population);
-
-        return `
-          &amp;lt;li&amp;gt;
-            &amp;lt;span class=&amp;quot;name&amp;quot;&amp;gt;${city}, ${state}&amp;lt;/span&amp;gt;
-            &amp;lt;span class=&amp;quot;population&amp;quot;&amp;gt;${population}&amp;lt;/span&amp;gt;
-          &amp;lt;/li&amp;gt;
-        `;
-      }).join(&amp;#39;&amp;#39;);
-
-      suggestions.innerHTML = html;
-    };
-  }
- 
-  fetch(endpoint)
-    .then(function (blob) {
-      return blob.json();
-    })
-    .then(function (cities) {
-      var form = document.querySelector(&amp;#39;.search-form&amp;#39;);
-      var search = document.querySelector(&amp;#39;.search&amp;#39;);
-      var handler;
-
-      // display search form because the data is ready to be implemented
-      form.style.display = &amp;quot;block&amp;quot;
-
-      handler = findMatches(cities);
-
-      search.addEventListener(&amp;#39;keyup&amp;#39;, handler);
-      search.addEventListener(&amp;#39;change&amp;#39;, handler);
-    });
-})(window);&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/miayam/f7199f806a4ab40dc2c0a23f7018d311.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;Firstly, I copied the boilerplate and tinkered with the UI for a bit. I intended to make it look more
-like Reddit with its calming light blue. I ditched all the CSS transition and went on with boring
-design which I really love the most.&lt;/p&gt;
-
-&lt;p&gt;I like this challenge.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 06 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge</link>
-        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge</guid>
         
         
         <category>javascript</category>
