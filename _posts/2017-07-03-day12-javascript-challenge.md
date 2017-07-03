@@ -215,8 +215,12 @@ Here's my stupid code.
     var easterEgg = "magic"; //
     var pressedKeys = [];
 
+    // reset the cornify
+    cornify_count = 0;
+
     window.addEventListener('keyup', function (event) {
       var secretwords = null;
+
 
       pressedKeys.push(event.key);
 
