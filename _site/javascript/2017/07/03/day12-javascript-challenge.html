@@ -37,8 +37,8 @@
   <!-- Begin Jekyll SEO tag v2.0.0 -->
 <title>Day 12: JavaScript Challenge - miayam.github.io</title>
 <meta property="og:title" content="Day 12: JavaScript Challenge" />
-<meta name="description" content="Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.(function (window, undefined) {  var easterEgg = &quot;magic&quot;; //  var pressedKeys = [];  window.addEventListener(&#39;keyup&#39;, function (event) {    var secretwords = null;    pressedKeys.push(event.key);    // Get the last 5 characters because easter egg    // words consist of 5 words. &quot;magic&quot; is the    // easter egg words.    secretwords = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);    if (secretwords === easterEgg) {      // Add rainbow or unicorn to the screen.      // It&#39;s public API provided by      // http://www.cornify.com/js/cornify.js      cornify_add();      // Empty array if the secret words correct.      pressedKeys.splice(0);    }  });})(window, undefined);" />
-<meta property="og:description" content="Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.(function (window, undefined) {  var easterEgg = &quot;magic&quot;; //  var pressedKeys = [];  window.addEventListener(&#39;keyup&#39;, function (event) {    var secretwords = null;    pressedKeys.push(event.key);    // Get the last 5 characters because easter egg    // words consist of 5 words. &quot;magic&quot; is the    // easter egg words.    secretwords = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);    if (secretwords === easterEgg) {      // Add rainbow or unicorn to the screen.      // It&#39;s public API provided by      // http://www.cornify.com/js/cornify.js      cornify_add();      // Empty array if the secret words correct.      pressedKeys.splice(0);    }  });})(window, undefined);" />
+<meta name="description" content="Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.(function (window, undefined) {  var easterEgg = &quot;magic&quot;;  var pressedKeys = [];    // Reset random images from cornify.js when page reloaded.  cornify_count = 0;  window.addEventListener(&#39;keyup&#39;, function (event) {    var secretWord = null;    pressedKeys.push(event.key);    // Get the last 5 characters because easter egg    // consist of 5 characters, &quot;magic&quot;.    secretWord = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);    if (secretWord === easterEgg) {      // Add rainbow or unicorn to the screen.      // It&#39;s public API provided by      // http://www.cornify.com/js/cornify.js      cornify_add();      // Empty the pressed keys array if secret word correct.      pressedKeys.splice(0);    }  });})(window);" />
+<meta property="og:description" content="Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.(function (window, undefined) {  var easterEgg = &quot;magic&quot;;  var pressedKeys = [];    // Reset random images from cornify.js when page reloaded.  cornify_count = 0;  window.addEventListener(&#39;keyup&#39;, function (event) {    var secretWord = null;    pressedKeys.push(event.key);    // Get the last 5 characters because easter egg    // consist of 5 characters, &quot;magic&quot;.    secretWord = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);    if (secretWord === easterEgg) {      // Add rainbow or unicorn to the screen.      // It&#39;s public API provided by      // http://www.cornify.com/js/cornify.js      cornify_add();      // Empty the pressed keys array if secret word correct.      pressedKeys.splice(0);    }  });})(window);" />
 <link rel="canonical" href="https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge" />
 <meta property="og:url" content="https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge" />
 <meta property="og:site_name" content="miayam.github.io" />
@@ -50,7 +50,7 @@
     "@type": "BlogPosting",
     "headline": "Day 12: JavaScript Challenge",
     "datePublished": "2017-07-03T00:00:00+07:00",
-    "description": "Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.(function (window, undefined) {  var easterEgg = &quot;magic&quot;; //  var pressedKeys = [];  window.addEventListener(&#39;keyup&#39;, function (event) {    var secretwords = null;    pressedKeys.push(event.key);    // Get the last 5 characters because easter egg    // words consist of 5 words. &quot;magic&quot; is the    // easter egg words.    secretwords = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);    if (secretwords === easterEgg) {      // Add rainbow or unicorn to the screen.      // It&#39;s public API provided by      // http://www.cornify.com/js/cornify.js      cornify_add();      // Empty array if the secret words correct.      pressedKeys.splice(0);    }  });})(window, undefined);",
+    "description": "Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.(function (window, undefined) {  var easterEgg = &quot;magic&quot;;  var pressedKeys = [];    // Reset random images from cornify.js when page reloaded.  cornify_count = 0;  window.addEventListener(&#39;keyup&#39;, function (event) {    var secretWord = null;    pressedKeys.push(event.key);    // Get the last 5 characters because easter egg    // consist of 5 characters, &quot;magic&quot;.    secretWord = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);    if (secretWord === easterEgg) {      // Add rainbow or unicorn to the screen.      // It&#39;s public API provided by      // http://www.cornify.com/js/cornify.js      cornify_add();      // Empty the pressed keys array if secret word correct.      pressedKeys.splice(0);    }  });})(window);",
     "url": "https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge"
   }
 </script>
@@ -126,30 +126,32 @@
 <p>Here’s my stupid code.</p>
 
 <noscript><pre>(function (window, undefined) {
-  var easterEgg = &quot;magic&quot;; //
+  var easterEgg = &quot;magic&quot;;
   var pressedKeys = [];
+  
+  // Reset random images from cornify.js when page reloaded.
+  cornify_count = 0;
 
   window.addEventListener(&#39;keyup&#39;, function (event) {
-    var secretwords = null;
+    var secretWord = null;
 
     pressedKeys.push(event.key);
 
     // Get the last 5 characters because easter egg
-    // words consist of 5 words. &quot;magic&quot; is the
-    // easter egg words.
-    secretwords = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);
+    // consist of 5 characters, &quot;magic&quot;.
+    secretWord = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);
 
-    if (secretwords === easterEgg) {
+    if (secretWord === easterEgg) {
       // Add rainbow or unicorn to the screen.
       // It&#39;s public API provided by
       // http://www.cornify.com/js/cornify.js
       cornify_add();
 
-      // Empty array if the secret words correct.
+      // Empty the pressed keys array if secret word correct.
       pressedKeys.splice(0);
     }
   });
-})(window, undefined);
+})(window);
 </pre></noscript>
 <script src="https://gist.github.com/miayam/85001d163e17bbcc8cf7966057d13060.js"> </script>
 

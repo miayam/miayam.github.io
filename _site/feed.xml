@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Jul 2017 00:17:10 +0700</pubDate>
-    <lastBuildDate>Tue, 04 Jul 2017 00:17:10 +0700</lastBuildDate>
+    <pubDate>Tue, 04 Jul 2017 11:39:02 +0700</pubDate>
+    <lastBuildDate>Tue, 04 Jul 2017 11:39:02 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -21,30 +21,32 @@
 &lt;p&gt;Here’s my stupid code.&lt;/p&gt;
 
 &lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
-  var easterEgg = &amp;quot;magic&amp;quot;; //
+  var easterEgg = &amp;quot;magic&amp;quot;;
   var pressedKeys = [];
+  
+  // Reset random images from cornify.js when page reloaded.
+  cornify_count = 0;
 
   window.addEventListener(&amp;#39;keyup&amp;#39;, function (event) {
-    var secretwords = null;
+    var secretWord = null;
 
     pressedKeys.push(event.key);
 
     // Get the last 5 characters because easter egg
-    // words consist of 5 words. &amp;quot;magic&amp;quot; is the
-    // easter egg words.
-    secretwords = pressedKeys.slice(-easterEgg.length).join(&amp;#39;&amp;#39;);
+    // consist of 5 characters, &amp;quot;magic&amp;quot;.
+    secretWord = pressedKeys.slice(-easterEgg.length).join(&amp;#39;&amp;#39;);
 
-    if (secretwords === easterEgg) {
+    if (secretWord === easterEgg) {
       // Add rainbow or unicorn to the screen.
       // It&amp;#39;s public API provided by
       // http://www.cornify.com/js/cornify.js
       cornify_add();
 
-      // Empty array if the secret words correct.
+      // Empty the pressed keys array if secret word correct.
       pressedKeys.splice(0);
     }
   });
-})(window, undefined);
+})(window);
 &lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/miayam/85001d163e17bbcc8cf7966057d13060.js&quot;&gt; &lt;/script&gt;
 
