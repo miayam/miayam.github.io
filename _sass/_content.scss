@@ -1,4 +1,9 @@
 .standard {
+  .menu .menu-item.active, .menu .menu-item:hover {
+    color: #ff2e88;
+    border-color: #ff2e88;
+  }
+
   .logo_link:hover {
     background-color: transparent;
   }

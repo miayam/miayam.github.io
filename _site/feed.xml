@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Jul 2017 11:39:02 +0700</pubDate>
-    <lastBuildDate>Tue, 04 Jul 2017 11:39:02 +0700</lastBuildDate>
+    <pubDate>Tue, 04 Jul 2017 17:28:33 +0700</pubDate>
+    <lastBuildDate>Tue, 04 Jul 2017 17:28:33 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -533,12 +533,12 @@ Todd Motto did a really good job explaining how to deal with NodeList.&lt;/p&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/main&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
-&lt;noscript&gt;&lt;pre&gt;(function (window) {
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
   var checkboxes = document.getElementsByClassName(&amp;#39;item__checkbox&amp;#39;);
   var firstChecked, firstIdx, lastIdx;
 
-  // It&amp;#39;s for mapping dom elements. The Array.prototype.forEach won&amp;#39;t work
-  // with NodeList
+  // It&amp;#39;s for mapping DOM elements. The Array.prototype.forEach won&amp;#39;t work
+  // with NodeList.
   function forEach(callback) {
     for (var i = 0; i &amp;lt; this.length; i++) {
       callback.call(this, this[i], i);
@@ -551,7 +551,7 @@ Todd Motto did a really good job explaining how to deal with NodeList.&lt;/p&gt;
     var owningObj = this;
 
     // Decide which one of those two arguments is the start and the end
-    // of in between array
+    // of in between array.
     if (firstIdx &amp;gt; lastIdx) {
       start = lastIdx;
       end = firstIdx;
