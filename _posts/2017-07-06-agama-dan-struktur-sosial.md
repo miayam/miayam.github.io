@@ -51,7 +51,7 @@ Atau 30-an. Atau beberapa dekade kemudian.
 Saya tidak bilang kalau kita harus membanting tulang, memeras keringat hingga
 tetes terakhir. Semangat untuk memaksimalkan semuanya adalah indikasi
 sikap tidak pernah puas diri. Kita akan selalu berpikir masih banyak yang
-bisa dilakukan dan akan merasa bersalah dilewatkan.
+bisa dilakukan dan akan merasa bersalah jika dilewatkan.
 
 Sangat berguna untuk berkontemplasi tentang tujuan
 dan intensitas. Bukan hanya tentang bagaimana kita bisa melakukan sesuatu
