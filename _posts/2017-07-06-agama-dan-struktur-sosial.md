@@ -28,8 +28,9 @@ tulisan beliau bisa meresap sampai ke sumsum tulang.
 ## Kamu Bakalan Mampus, Bukankah Itu Mengagumkan?
 
 Mungkin ini kedengaran agak kurang waras, tapi saya membayangkan kematian
-setiap saat. Bukan dengan ketakutan maupun romantisme, tapi dengan makna.
-Suatu saat hidup ini pasti berakhir dan saya senang dengan hal itu.
+setiap saat. Bukan dengan ketakutan maupun romantisisme, tapi dengan makna.
+Suatu saat hidup ini pasti berakhir dan saya dengan senang hati
+menerimanya.
 
 Jangan khawatir. Ini bukan berarti saya putus asa sampai-sampai
 ingin merenggut nyawa sendiri. Tidak perlu mengirimkan nomor layanan
@@ -37,8 +38,8 @@ konseling. Saya menerima, bukan, bahkan merangkul kematian
 dengan suka cita.
 
 Mengetahui kalau saya akan mati adalah sumber kekuatan. Kekuatan untuk
-mempertahankan keyakinan yang menurut saya sangat penting bagi peran
-kecil saya yang singkat di dunia ini.
+mempertahankan keyakinan yang menurut saya sangat penting bagi
+keberadaan kecil saya yang singkat di dunia ini.
 
 "Hidup itu panjang jika kamu tahu cara memanfaatkannya." Kata Seneca.
 
@@ -48,7 +49,7 @@ Atau 30-an. Atau beberapa dekade kemudian.
 
 Saya tidak bilang kalau kita harus membanting tulang, memeras keringat hingga
 tetes penghabisan. Semangat untuk memaksimalkan semuanya adalah indikasi
-sikap tidak pernah puas. Kita akan selalu berpikir masih ada banyak yang
+sikap tidak pernah puas diri. Kita akan selalu berpikir masih ada banyak yang
 bisa dilakukan dan akan merasa bersalah jika tidak dipenuhi.
 
 Sangat berguna untuk berkontemplasi tentang tujuan
@@ -67,7 +68,7 @@ yang bisa dilakukan tapi waktu bergerak terlalu cepat. Jika tidak semua bisa kit
 lakukan, akan jauh lebih baik untuk menerimanya dengan lapang dada.
 
 Kematian juga dapat menghindarkan kita dari omong kosong yang biasa kita telan
-mentah-mentah setiap hari. Jika saya mati hari ini, dengan suasana seperti
+mentah-mentah setiap hari. Jika saya mati hari ini, dengan suasana seperti di
 film Fight Club, bisakah saya berada dalam kedamaian setelah 37 tahun
 menghabiskan umur dalam kesusahan?
 
