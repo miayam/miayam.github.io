@@ -42,7 +42,7 @@ Mengetahui kalau saya akan mati adalah sumber kekuatan. Kekuatan untuk
 mempertahankan keyakinan yang menurut saya sangat penting bagi
 keberadaan kecil saya yang singkat di dunia ini.
 
-"Hidup itu panjang jika kamu tahu cara memanfaatkannya." Kata Seneca.
+"Hidup itu panjang jika kamu tahu cara memanfaatkannya." kata Seneca.
 
 40 jam per minggu sudah cukup untuk bisa melakukan banyak hal luar
 biasa. 10 tahun sudah cukup untuk bisa menikmati hidup di usia 20-an.
@@ -63,7 +63,7 @@ Ini berlawanan dengan kebanyakan orang yang lebih memilih  membanting
 tulang ke sana kemari sampai mati. "Lakukan lebih. Nikmati lebih." katanya.
 
 Kematian itu bermanfaat. Perjalanan menuju kematian sangat singkat. Ada banyak
-yang bisa dilakukan tapi, waktu bergerak terlalu cepat. Jika tidak semua bisa kita
+yang bisa dilakukan, tapi waktu bergerak terlalu cepat. Jika tidak semua bisa kita
 lakukan, akan jauh lebih baik untuk menerimanya dengan lapang dada.
 
 Kematian juga dapat menghindarkan kita dari omong kosong yang biasa kita telan
