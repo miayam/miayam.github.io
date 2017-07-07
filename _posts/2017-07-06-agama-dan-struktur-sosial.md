@@ -18,7 +18,7 @@ Hidup sebelum mati.
 Akhir-akhir ini rasanya seperti ingin memutilasi orang-orang
 kemudian potongan tubuhnya saya beri makan anjing. Agak horor kedengarannya,
 tapi begitulah yang saya rasakan. Mungkin karena kebanyakan
-begadang dan kurang bersyukur. Sangat tidak baik bagi kesahatan mental saya.
+begadang. Sangat tidak baik bagi kesahatan mental saya.
 
 Baiklah, tidak ada salahnya menerjemahkan artikel David Heinemeier
 Hansson tentang lima perkara yang saya singgung di atas. Mudah-mudahan
@@ -49,23 +49,23 @@ Atau 30-an. Atau beberapa dekade berikutnya.
 
 Saya tidak bilang kalau kita harus membanting tulang, memeras keringat hingga
 tetes terakhir. Semangat untuk memaksimalkan semuanya adalah indikasi
-sikap tidak pernah puas diri. Kita akan selalu berpikir masih banyak yang
-bisa dilakukan dan akan merasa bersalah jika dilewatkan.
+sikap tidak pernah puas (dalam artian buruk). Kita akan selalu berpikir
+masih banyak yang bisa dilakukan dan akan merasa bersalah jika dilewatkan.
 
-Sangat berguna untuk berkontemplasi tentang tujuan
-dan intensitas. Bukan hanya tentang bagaimana kita bisa melakukan sesuatu
-lebih baik, atau bagaimana kita bisa berkembang dengan pesat, tapi bagaimana
-kita bisa tahu kapan harus berhenti. Akan jauh lebih mudah terus melangkah
-ke depan daripada tahu kapan harus behenti.
+Berkontemplasi tentang tujuan dan intensitas sangat penting. Bukan hanya tentang
+bagaimana kita bisa melakukan sesuatu lebih baik, atau bagaimana kita bisa
+berkembang dengan pesat, tapi bagaimana kita bisa tahu kapan harus berhenti.
+Lebih mudah terus melangkah ke depan daripada tahu kapan harus berhenti.
 
 Ini berlawanan dengan kebanyakan orang yang lebih memilih  membanting
-tulang ke sana kemari sampai mati. "Lakukan lebih. Nikmati lebih." katanya.
+tulang ke sana kemari sampai mati. "Lakukan lebih banyak.
+Nikmati lebih banyak." katanya.
 
 Kematian itu bermanfaat. Perjalanan menuju kematian sangat singkat. Ada banyak
 yang bisa dilakukan, tapi waktu bergerak terlalu cepat. Jika tidak semua bisa kita
 lakukan, akan jauh lebih baik untuk menerimanya dengan lapang dada.
 
-Kematian juga dapat menghindarkan kita dari omong kosong yang biasa kita
+Mengingat mati juga dapat menghindarkan kita dari omong kosong yang biasa kita
 telan mentah-mentah setiap hari. Jika saya mati hari ini, dengan keadaan
 seperti di film Fight Club, bisakah saya berada dalam kedamaian setelah 37
 tahun menghabiskan umur dalam kesukaran?
