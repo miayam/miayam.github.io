@@ -30,11 +30,10 @@ tulisan beliau bisa meresap sampai ke sumsum tulang.
 
 Mungkin ini kedengaran agak kurang waras, tapi saya membayangkan kematian
 setiap saat. Bukan dengan ketakutan maupun romantisisme, tapi dengan makna.
-Suatu saat hidup ini pasti berakhir dan saya dengan senang hati
-menerimanya.
+Suatu saat hidup ini pasti berakhir dan saya tidak keberatan.
 
 Jangan khawatir. Ini bukan berarti saya putus asa sampai-sampai
-ingin merenggut nyawa sendiri. Tidak perlu mengirimkan nomor layanan
+ingin merenggut nyawa sendiri. Tidak perlu mengirimkan nomor telepon layanan
 konseling. Saya menerima, bukan, bahkan merangkul kematian
 dengan suka cita.
 
@@ -46,7 +45,7 @@ keberadaan kecil saya yang singkat di dunia ini.
 
 40 jam per minggu sudah cukup untuk bisa melakukan banyak hal luar
 biasa. 10 tahun sudah cukup untuk bisa menikmati hidup di usia 20-an.
-Atau 30-an. Atau beberapa dekade kemudian.
+Atau 30-an. Atau beberapa dekade berikutnya.
 
 Saya tidak bilang kalau kita harus membanting tulang, memeras keringat hingga
 tetes terakhir. Semangat untuk memaksimalkan semuanya adalah indikasi
@@ -55,9 +54,9 @@ bisa dilakukan dan akan merasa bersalah jika dilewatkan.
 
 Sangat berguna untuk berkontemplasi tentang tujuan
 dan intensitas. Bukan hanya tentang bagaimana kita bisa melakukan sesuatu
-lebih baik, atau bagaimana kita bisa berkembang dengan pesat, tapi bagaimana kita bisa
-tahu kapan harus berhenti. Akan jauh lebih mudah untuk terus melangkah ke
-depan daripada tahu kapan harus behenti.
+lebih baik, atau bagaimana kita bisa berkembang dengan pesat, tapi bagaimana
+kita bisa tahu kapan harus berhenti. Akan jauh lebih mudah terus melangkah
+ke depan daripada tahu kapan harus behenti.
 
 Ini berlawanan dengan kebanyakan orang yang lebih memilih  membanting
 tulang ke sana kemari sampai mati. "Lakukan lebih. Nikmati lebih." katanya.
@@ -66,10 +65,10 @@ Kematian itu bermanfaat. Perjalanan menuju kematian sangat singkat. Ada banyak
 yang bisa dilakukan, tapi waktu bergerak terlalu cepat. Jika tidak semua bisa kita
 lakukan, akan jauh lebih baik untuk menerimanya dengan lapang dada.
 
-Kematian juga dapat menghindarkan kita dari omong kosong yang biasa kita telan
-mentah-mentah setiap hari. Jika saya mati hari ini, dengan suasana seperti di
-film Fight Club, bisakah saya berada dalam kedamaian setelah 37 tahun
-menghabiskan umur dalam kesusahan?
+Kematian juga dapat menghindarkan kita dari omong kosong yang biasa kita
+telan mentah-mentah setiap hari. Jika saya mati hari ini, dengan keadaan
+seperti di film Fight Club, bisakah saya berada dalam kedamaian setelah 37
+tahun menghabiskan umur dalam kesukaran?
 
 Hargai tiap momen, tapi biarkan itu berlalu. Hidup itu menakjubkan, bukan
 karena suatu saat akan berakhir tapi karena memang demikian adanya.
