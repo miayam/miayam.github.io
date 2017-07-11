@@ -15,11 +15,6 @@ Muda sebelum tua. Kaya sebelum miskin. Lapang sebelum sempit.
 Hidup sebelum mati.
 ― Raihan
 
-Akhir-akhir ini rasanya seperti ingin memutilasi orang-orang
-kemudian potongan tubuhnya saya beri makan anjing. Agak horor kedengarannya,
-tapi begitulah yang saya rasakan. Mungkin karena kebanyakan
-begadang. Sangat tidak baik bagi kesahatan mental saya.
-
 Baiklah, tidak ada salahnya menerjemahkan artikel David Heinemeier
 Hansson tentang lima perkara yang saya singgung di atas. Mudah-mudahan
 tulisan beliau bisa meresap sampai ke sumsum tulang.
@@ -72,3 +67,19 @@ tahun menghabiskan umur dalam kesukaran?
 
 Hargai tiap momen, tapi biarkan itu berlalu. Hidup itu menakjubkan, bukan
 karena suatu saat akan berakhir tapi karena memang demikian adanya.
+
+* * *
+
+## Berita Bahagia
+
+Saya akan benar-benar fokus dengan hobi saya dan berusaha sebaik
+mungkin untuk tidak mengganggu hobi orang lain. Hak asasi manusia
+yang patut dihargai semua orang adalah hak untuk menghabiskan
+waktu melakukan sesuatu yang disenangi.
+
+Saya ada lawakan kasar yang saya tujukan kepada diri sendiri.
+
+>Saya kenal Mang Donal. Dia hobi memancing. Apa hobimu? Apa hobimu?
+Apa hobimu, anjing?
+― Anonim
+
