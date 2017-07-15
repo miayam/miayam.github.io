@@ -17,7 +17,7 @@ It's really different from Wes Bos solution. I don't fully watch the video.
 
 Now I realize how tedious it is to work with the DOM without any help from
 third-party libraries (JQuery perhaps?). I have to "polyfill" simple method
-for mapping each DOM element because `Array.prototype.forEach` cannot handle
+for iterating each DOM element because `Array.prototype.forEach` cannot handle
 NodeList. I feel sorry for being a newbie.
 
 For more about the polyfill, [visit this blog](https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/){:target="_blank"}. I think
