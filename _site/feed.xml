@@ -6,9 +6,127 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 07 Jul 2017 10:45:15 +0700</pubDate>
-    <lastBuildDate>Fri, 07 Jul 2017 10:45:15 +0700</lastBuildDate>
+    <pubDate>Sun, 16 Jul 2017 01:03:26 +0700</pubDate>
+    <lastBuildDate>Sun, 16 Jul 2017 01:03:26 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Day 13: JavaScript Challenge</title>
+        <description>&lt;p&gt;It’s all about &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function and the ‘scroll’ event I care about.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/aoi_oh_aoi.jpg&quot; alt=&quot;My dear!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As I understand it, &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function will prevent event listener
+to fire every time the event it listen to occurred. Scrolling and resizing
+are the best candidates because the function that listen to those activities
+runs almost repeatedly and will significantly impact the browser’s performance.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function will set the duration for it to delay until certain amount
+of time have elapsed since the last time &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function was invoked.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; makes use of &lt;code class=&quot;highlighter-rouge&quot;&gt;window.setTimeout&lt;/code&gt;, for good reason.
+&lt;a href=&quot;https://lodash.com/docs/4.17.4#debounce&quot; target=&quot;_blank&quot;&gt;Lodash&lt;/a&gt; and
+&lt;a href=&quot;http://underscorejs.org/#debounce&quot; target=&quot;_blank&quot;&gt;Underscore.js&lt;/a&gt;
+have one of this kind.&lt;/p&gt;
+
+&lt;p&gt;Well, I cherry-pick the wording from blogs and documentations and cannot make
+sure its originality. I am tired by the way.&lt;/p&gt;
+
+&lt;p&gt;Here’s the &lt;a href=&quot;/demo_day13&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; and a bit of explanation below…&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  // These are images we want to slide in as we scroll half way through
+  // them.
+  var images = document.getElementsByClassName(&amp;#39;slide-in&amp;#39;);
+
+  // It&amp;#39;s for mapping DOM elements. The Array.prototype.forEach won&amp;#39;t work
+  // with NodeList.
+  function forEach(callback) {
+    for (var i = 0; i &amp;lt; this.length; i++) {
+      callback.call(this, this[i], i);
+    }
+  }
+
+  // It&amp;#39;s copy-pasted from internet, but I can explain this
+  // interesting function in my own words.
+  // It&amp;#39;s well-explained by John Dugan http://bit.ly/2troSTT
+  function debounce(func, wait = 20, immediate = true) {
+    // It will store unique ID (number) that `window.setTimeout` return.
+    // For more about &amp;#39;window.setTimeout&amp;#39;, visit https://mzl.la/2uuQs7Z
+    var timeout;
+
+    return function() {
+      // In this case, `this` has reference to `window` object and
+      // `arguments` is an array-like object that includes event
+      // the window object listen to (&amp;#39;scroll&amp;#39;).
+      var context = this, args = arguments;
+
+      // This condition make function being passed to `debounce`
+      // function (`func`) run without having to wait as long as
+      // `timeout` is cleared away. So, the first time `debounce`
+      // return this anonymous function and have it listen to &amp;#39;scroll&amp;#39;
+      // event, `func` will run immediately.
+      var callNow = immediate &amp;amp;&amp;amp; !timeout;
+
+      // This function will fire after we have waited for a given
+      // time. `wait` parameter contains that duration.
+      function later() {
+        // Nullify the variable that stores unique ID (number).
+        timeout = null;
+
+        // If we set `func` not to run immediately after `debounce` being
+        // called, run it anyway until the timeout pass.
+        if (!immediate) {
+          func.apply(context, args);
+        }
+      };
+
+      // Cancel the previous timeout, if there&amp;#39;s any.
+      clearTimeout(timeout);
+
+      // Wait for a given time and run `later` function after it expires.
+      // Store the unique ID (number) it returns.
+      timeout = setTimeout(later, wait);
+
+      if (callNow) {
+        func.apply(context, args);
+      }
+    };
+  }
+
+  function slideIn(event) {
+    // Window position relative to our view point. I mean, as we
+    // scroll, at which position the window is?
+    var windowPosition = window.scrollY + window.innerHeight;
+
+    forEach.call(images, function (image) {
+      var slideInAt = windowPosition - (image.height / 2.0);
+      var imageBottom = image.offsetTop + image.height;
+      var isHalfWayThroughTheImage = slideInAt &amp;gt; image.offsetTop;
+      var isNotOffTheImageBottom = window.scrollY &amp;lt; imageBottom;
+
+      // Slide in if we has passed half way through the image and
+      // the scroll position is not off the image bottom.
+      if (isHalfWayThroughTheImage &amp;amp;&amp;amp; isNotOffTheImageBottom) {
+        image.classList.add(&amp;#39;active&amp;#39;);
+      } else {
+        image.classList.remove(&amp;#39;active&amp;#39;);
+      }
+    });
+  }
+
+  window.addEventListener(&amp;#39;scroll&amp;#39;, debounce(slideIn, 50));
+})(window);
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/fd94bb4549231a00dd9eee7e41f4eabc.js&quot;&gt; &lt;/script&gt;
+
+</description>
+        <pubDate>Sat, 15 Jul 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/07/15/day13-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/07/15/day13-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Lima Perkara</title>
@@ -21,11 +139,6 @@ Muda sebelum tua. Kaya sebelum miskin. Lapang sebelum sempit.
 Hidup sebelum mati.
 ― Raihan&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;Akhir-akhir ini rasanya seperti ingin memutilasi orang-orang
-kemudian potongan tubuhnya saya beri makan anjing. Agak horor kedengarannya,
-tapi begitulah yang saya rasakan. Mungkin karena kebanyakan
-begadang dan kurang bersyukur. Sangat tidak baik bagi kesahatan mental saya.&lt;/p&gt;
 
 &lt;p&gt;Baiklah, tidak ada salahnya menerjemahkan artikel David Heinemeier
 Hansson tentang lima perkara yang saya singgung di atas. Mudah-mudahan
@@ -56,29 +169,47 @@ Atau 30-an. Atau beberapa dekade berikutnya.&lt;/p&gt;
 
 &lt;p&gt;Saya tidak bilang kalau kita harus membanting tulang, memeras keringat hingga
 tetes terakhir. Semangat untuk memaksimalkan semuanya adalah indikasi
-sikap tidak pernah puas diri. Kita akan selalu berpikir masih banyak yang
-bisa dilakukan dan akan merasa bersalah jika dilewatkan.&lt;/p&gt;
+sikap tidak pernah puas (dalam artian buruk). Kita akan selalu berpikir
+masih banyak yang bisa dilakukan dan akan merasa bersalah jika dilewatkan.&lt;/p&gt;
 
-&lt;p&gt;Sangat berguna untuk berkontemplasi tentang tujuan
-dan intensitas. Bukan hanya tentang bagaimana kita bisa melakukan sesuatu
-lebih baik, atau bagaimana kita bisa berkembang dengan pesat, tapi bagaimana
-kita bisa tahu kapan harus berhenti. Akan jauh lebih mudah terus melangkah
-ke depan daripada tahu kapan harus behenti.&lt;/p&gt;
+&lt;p&gt;Berkontemplasi tentang tujuan dan intensitas sangat penting. Bukan hanya tentang
+bagaimana kita bisa melakukan sesuatu lebih baik, atau bagaimana kita bisa
+berkembang dengan pesat, tapi bagaimana kita bisa tahu kapan harus berhenti.
+Lebih mudah terus melangkah ke depan daripada tahu kapan harus berhenti.&lt;/p&gt;
 
 &lt;p&gt;Ini berlawanan dengan kebanyakan orang yang lebih memilih  membanting
-tulang ke sana kemari sampai mati. “Lakukan lebih. Nikmati lebih.” katanya.&lt;/p&gt;
+tulang ke sana kemari sampai mati. “Lakukan lebih banyak.
+Nikmati lebih banyak.” katanya.&lt;/p&gt;
 
 &lt;p&gt;Kematian itu bermanfaat. Perjalanan menuju kematian sangat singkat. Ada banyak
 yang bisa dilakukan, tapi waktu bergerak terlalu cepat. Jika tidak semua bisa kita
 lakukan, akan jauh lebih baik untuk menerimanya dengan lapang dada.&lt;/p&gt;
 
-&lt;p&gt;Kematian juga dapat menghindarkan kita dari omong kosong yang biasa kita
+&lt;p&gt;Mengingat mati juga dapat menghindarkan kita dari omong kosong yang biasa kita
 telan mentah-mentah setiap hari. Jika saya mati hari ini, dengan keadaan
 seperti di film Fight Club, bisakah saya berada dalam kedamaian setelah 37
 tahun menghabiskan umur dalam kesukaran?&lt;/p&gt;
 
 &lt;p&gt;Hargai tiap momen, tapi biarkan itu berlalu. Hidup itu menakjubkan, bukan
 karena suatu saat akan berakhir tapi karena memang demikian adanya.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;berita-bahagia&quot;&gt;Berita Bahagia&lt;/h2&gt;
+
+&lt;p&gt;Saya akan benar-benar fokus dengan hobi saya dan berusaha sebaik
+mungkin untuk tidak mengganggu hobi orang lain. Hak asasi manusia
+yang patut dihargai semua orang adalah hak untuk menghabiskan
+waktu melakukan sesuatu yang disenangi.&lt;/p&gt;
+
+&lt;p&gt;Saya ada lawakan kasar yang saya tujukan kepada diri sendiri.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Saya kenal Mang Donal. Dia hobi memancing. Apa hobimu? Apa hobimu?
+Apa hobimu, anjing?
+― Anonim&lt;/p&gt;
+&lt;/blockquote&gt;
+
 </description>
         <pubDate>Thu, 06 Jul 2017 00:00:00 +0700</pubDate>
         <link>https://miayam.github.io/personal-life/2017/07/06/agama-dan-struktur-sosial</link>
@@ -686,7 +817,7 @@ or &lt;a href=&quot;https://webpack.js.org/&quot; target=&quot;_blank&quot;&gt;w
 
 &lt;p&gt;After rereading the last chapter of Scope &amp;amp; Closure of YDKJS
 (You Don’t Know JavaScript) book series, I impose myself to explain this
-interesting code with my own words.&lt;/p&gt;
+interesting code in my own words.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyModules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
@@ -949,37 +1080,6 @@ family and my hobbies. I am sorry darling.&lt;/p&gt;
         
         
         <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Thanks Rails!</title>
-        <description>&lt;p&gt;Probably my time as Ruby on Rails Developer is up.&lt;/p&gt;
-
-&lt;p&gt;Every carpenter has his/her own favorite tool-set and mine is
-JavaScript.&lt;/p&gt;
-
-&lt;p&gt;I know nothing about Rails and refuse to go any further. I have a love affair
-with JavaScript and its horror environment (DOM and Web API).&lt;/p&gt;
-
-&lt;p&gt;I refuse to touch database directly. ORM is fine for now, but please, just give
-me the damn end-point and let me consume it.&lt;/p&gt;
-
-&lt;p&gt;I refuse to set up tedious configuration. I barely know about infrastructure
-whatsoever. I am sorry that I have a love affair with JavaScript and its horror
-environment (not Node.js®).&lt;/p&gt;
-
-&lt;p&gt;Okay, I will leave Rails gradually starting from now.&lt;/p&gt;
-
-&lt;p&gt;For Ruby, I still love it. I am willing to learn Ruby and Sinatra after I kind
-of master JavaScript.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 23 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://miayam.github.io/ruby/2017/06/23/rails</link>
-        <guid isPermaLink="true">https://miayam.github.io/ruby/2017/06/23/rails</guid>
-        
-        
-        <category>ruby</category>
         
       </item>
     
