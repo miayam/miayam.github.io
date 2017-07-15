@@ -14,7 +14,7 @@ or [webpack](https://webpack.js.org/){:target="_blank"} really works.
 
 After rereading the last chapter of Scope & Closure of YDKJS
 (You Don't Know JavaScript) book series, I impose myself to explain this
-interesting code with my own words.
+interesting code in my own words.
 
 {% highlight js %}
   var MyModules = (function Manager() {
