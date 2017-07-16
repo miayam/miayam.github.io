@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jul 2017 10:55:33 +0700</pubDate>
-    <lastBuildDate>Sun, 16 Jul 2017 10:55:33 +0700</lastBuildDate>
+    <pubDate>Sun, 16 Jul 2017 17:17:21 +0700</pubDate>
+    <lastBuildDate>Sun, 16 Jul 2017 17:17:21 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -18,7 +18,7 @@ they are different from primitive typed values like &lt;code class=&quot;highlig
 
 &lt;p&gt;&lt;img src=&quot;/images/she_is.jpg&quot; alt=&quot;She is the best!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Let we start with &lt;code class=&quot;highlighter-rouge&quot;&gt;string&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;boolean&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt;.
+&lt;p&gt;Let’s start with &lt;code class=&quot;highlighter-rouge&quot;&gt;string&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;boolean&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt;.
 For good reason, I can guarantee that we can copy primitive typed values
 this way.&lt;/p&gt;
 
@@ -47,7 +47,7 @@ then nothing happens to &lt;code class=&quot;highlighter-rouge&quot;&gt;thisYear
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Let say we have an array.&lt;/p&gt;
+&lt;p&gt;Let’s say we have an array.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;players&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Wes'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Sarah'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Ryan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Poppy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -99,7 +99,7 @@ They both point to the same array! So, how do we fix this?&lt;/p&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;team&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ['James', 'Sarah', 'Ryan', 'Poppy']&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Object&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; act the same way when it comes to copying its own
-properties. Let say we have a person object.&lt;/p&gt;
+properties. Let’s say we have a &lt;code class=&quot;highlighter-rouge&quot;&gt;person&lt;/code&gt; object.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Dudung&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -177,7 +177,92 @@ sure its originality. I am tired by the way.&lt;/p&gt;
 
 &lt;p&gt;Here’s the &lt;a href=&quot;/demo_day13&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; and a bit of explanation below…&lt;/p&gt;
 
-&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/miayam/fd94bb4549231a00dd9eee7e41f4eabc.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  // These are images we want to slide in as we scroll half way through
+  // them.
+  var images = document.getElementsByClassName(&amp;#39;slide-in&amp;#39;);
+
+  // It&amp;#39;s for mapping DOM elements. The Array.prototype.forEach won&amp;#39;t work
+  // with NodeList.
+  function forEach(callback) {
+    for (var i = 0; i &amp;lt; this.length; i++) {
+      callback.call(this, this[i], i);
+    }
+  }
+
+  // It&amp;#39;s copy-pasted from internet, but I can explain this
+  // interesting function in my own words.
+  // It&amp;#39;s well-explained by John Dugan http://bit.ly/2troSTT
+  function debounce(func, wait = 20, immediate = true) {
+    // It will store unique ID (number) that `window.setTimeout` return.
+    // For more about &amp;#39;window.setTimeout&amp;#39;, visit https://mzl.la/2uuQs7Z
+    var timeout;
+
+    return function() {
+      // In this case, `this` has reference to `window` object and
+      // `arguments` is an array-like object that includes event
+      // the `window` object listen to (&amp;#39;scroll&amp;#39;).
+      var context = this, args = arguments;
+
+      // This condition make function being passed to `debounce`
+      // function (`func`) run without having to wait as long as
+      // `timeout` is cleared away. So, the first time `debounce`
+      // return this anonymous function and have it listen to &amp;#39;scroll&amp;#39;
+      // event, `func` will run immediately.
+      var callNow = immediate &amp;amp;&amp;amp; !timeout;
+
+      // This function will fire after we have waited for certain amount
+      // of time. `wait` parameter contains that duration.
+      function later() {
+        // Nullify the variable that stores unique ID (number).
+        timeout = null;
+
+        // If we set `func` not to run immediately after `debounce` being
+        // called, run it anyway after the timeout pass.
+        if (!immediate) {
+          func.apply(context, args);
+        }
+      };
+
+      // Cancel the previous timeout, if there&amp;#39;s any.
+      clearTimeout(timeout);
+
+      // Wait for a given time and run `later` function after it expires.
+      // Store the unique ID (number) it returns.
+      timeout = setTimeout(later, wait);
+
+      if (callNow) {
+        func.apply(context, args);
+      }
+    };
+  }
+
+  function slideIn(event) {
+    // Window position relative to our view point. I mean, as we
+    // scroll, at which position the window is?
+    var windowPosition = window.scrollY + window.innerHeight;
+
+    forEach.call(images, function (image) {
+      var slideInAt = windowPosition - (image.height / 2.0);
+      var imageBottom = image.offsetTop + image.height;
+      var isHalfWayThroughTheImage = slideInAt &amp;gt; image.offsetTop;
+      var isNotOffTheImageBottom = window.scrollY &amp;lt; imageBottom;
+
+      // Slide in the image if we has passed half way through it and
+      // the scroll position is not off the image bottom.
+      if (isHalfWayThroughTheImage &amp;amp;&amp;amp; isNotOffTheImageBottom) {
+        image.classList.add(&amp;#39;active&amp;#39;);
+      } else {
+        image.classList.remove(&amp;#39;active&amp;#39;);
+      }
+    });
+  }
+
+  window.addEventListener(&amp;#39;scroll&amp;#39;, debounce(slideIn, 50));
+})(window);
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/fd94bb4549231a00dd9eee7e41f4eabc.js&quot;&gt; &lt;/script&gt;
+
 </description>
         <pubDate>Sat, 15 Jul 2017 00:00:00 +0700</pubDate>
         <link>https://miayam.github.io/javascript/2017/07/15/day13-javascript-challenge</link>
@@ -925,14 +1010,14 @@ something but God knows that I know nothing about it.&lt;/p&gt;
   // &amp;gt; modules[&amp;quot;name2&amp;quot;].hello();
   var modules = {};
 
-  // parameters:
+  // Parameters:
   //   name: our brand new module&amp;#39;s name
   //   dependencies: array of module&amp;#39;s name this brand new module would
   //                 depend on
   //   implementation: callback that returns this brand new module with its
   //                   methods made accessible to public
   //
-  // how to use:
+  // How to use:
   //   function callback(Modul1, Module2) { 
   //     // do whatever you want //
   //     return NewModule; // here&amp;#39;s our new module
@@ -974,10 +1059,10 @@ something but God knows that I know nothing about it.&lt;/p&gt;
     modules[name] = implementation.apply(implementation, dependencies);
   }
 
-  // parameters:
+  // Parameters:
   //   name: module&amp;#39;s name
   //
-  // return:
+  // Return:
   //   public API of certain module
   function get(name) {
     return modules[name];

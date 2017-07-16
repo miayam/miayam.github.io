@@ -10,7 +10,16 @@ code.highlighter-rouge {
   border-radius: 3px;
 }
 
+figure.highlight {
+  margin: 0;
+}
+
 .highlight > pre {
-  overflow: scroll;
   max-height: 800px;
+  max-width: 100%;
+  overflow: scroll;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  background-color: #fff;
 }
