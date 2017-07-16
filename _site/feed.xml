@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jul 2017 01:03:26 +0700</pubDate>
-    <lastBuildDate>Sun, 16 Jul 2017 01:03:26 +0700</lastBuildDate>
+    <pubDate>Sun, 16 Jul 2017 08:50:16 +0700</pubDate>
+    <lastBuildDate>Sun, 16 Jul 2017 08:50:16 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -20,9 +20,9 @@
 to fire every time the event it listen to occurred. Scrolling and resizing
 are the best candidates because the function that listen to those activities
 runs almost repeatedly and will significantly impact the browser’s performance.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function will set the duration for it to delay until certain amount
-of time have elapsed since the last time &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function was invoked.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; makes use of &lt;code class=&quot;highlighter-rouge&quot;&gt;window.setTimeout&lt;/code&gt;, for good reason.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function will set the duration for event listener to delay until
+certain amount of time have elapsed since the last time &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function
+was invoked. &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; makes use of &lt;code class=&quot;highlighter-rouge&quot;&gt;window.setTimeout&lt;/code&gt;, for good reason.
 &lt;a href=&quot;https://lodash.com/docs/4.17.4#debounce&quot; target=&quot;_blank&quot;&gt;Lodash&lt;/a&gt; and
 &lt;a href=&quot;http://underscorejs.org/#debounce&quot; target=&quot;_blank&quot;&gt;Underscore.js&lt;/a&gt;
 have one of this kind.&lt;/p&gt;
@@ -56,7 +56,7 @@ sure its originality. I am tired by the way.&lt;/p&gt;
     return function() {
       // In this case, `this` has reference to `window` object and
       // `arguments` is an array-like object that includes event
-      // the window object listen to (&amp;#39;scroll&amp;#39;).
+      // the `window` object listen to (&amp;#39;scroll&amp;#39;).
       var context = this, args = arguments;
 
       // This condition make function being passed to `debounce`
@@ -66,14 +66,14 @@ sure its originality. I am tired by the way.&lt;/p&gt;
       // event, `func` will run immediately.
       var callNow = immediate &amp;amp;&amp;amp; !timeout;
 
-      // This function will fire after we have waited for a given
-      // time. `wait` parameter contains that duration.
+      // This function will fire after we have waited for certain amount
+      // of time. `wait` parameter contains that duration.
       function later() {
         // Nullify the variable that stores unique ID (number).
         timeout = null;
 
         // If we set `func` not to run immediately after `debounce` being
-        // called, run it anyway until the timeout pass.
+        // called, run it anyway after the timeout pass.
         if (!immediate) {
           func.apply(context, args);
         }
@@ -103,7 +103,7 @@ sure its originality. I am tired by the way.&lt;/p&gt;
       var isHalfWayThroughTheImage = slideInAt &amp;gt; image.offsetTop;
       var isNotOffTheImageBottom = window.scrollY &amp;lt; imageBottom;
 
-      // Slide in if we has passed half way through the image and
+      // Slide in the image if we has passed half way through it and
       // the scroll position is not off the image bottom.
       if (isHalfWayThroughTheImage &amp;amp;&amp;amp; isNotOffTheImageBottom) {
         image.classList.add(&amp;#39;active&amp;#39;);
@@ -691,7 +691,7 @@ they say! Here’s the &lt;a href=&quot;/demo_day10&quot; target=&quot;_blank&qu
 
 &lt;p&gt;Now I realize how tedious it is to work with the DOM without any help from
 third-party libraries (JQuery perhaps?). I have to “polyfill” simple method
-for mapping each DOM element because &lt;code class=&quot;highlighter-rouge&quot;&gt;Array.prototype.forEach&lt;/code&gt; cannot handle
+for iterating each DOM element because &lt;code class=&quot;highlighter-rouge&quot;&gt;Array.prototype.forEach&lt;/code&gt; cannot handle
 NodeList. I feel sorry for being a newbie.&lt;/p&gt;
 
 &lt;p&gt;For more about the polyfill, &lt;a href=&quot;https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/&quot; target=&quot;_blank&quot;&gt;visit this blog&lt;/a&gt;. I think
