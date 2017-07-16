@@ -13,7 +13,7 @@ they are different from primitive typed values like `string`, `boolean`, or
 
 ![She is the best!](/images/she_is.jpg){:class="blog-post-image"}
 
-Let we start with `string`, `boolean`, and `number`.
+Let's start with `string`, `boolean`, and `number`.
 For good reason, I can guarantee that we can copy primitive typed values
 this way.
 
@@ -48,7 +48,7 @@ The same thing goes to `boolean` and `string` values.
   console.log(left); // true
 {% endhighlight %}
 
-Let say we have an array.
+Let's say we have an array.
 
 {% highlight js %}
   var players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
@@ -108,7 +108,7 @@ They both point to the same array! So, how do we fix this?
 {% endhighlight %}
 
 `Object` and `Array` act the same way when it comes to copying its own
-properties. Let say we have a person object.
+properties. Let's say we have a `person` object.
 
 {% highlight js %}
   var person = {
