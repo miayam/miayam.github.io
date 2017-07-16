@@ -30,8 +30,3 @@ your words if it's necessary to treat me somewhat inconsiderately. I will not ta
 I hope you will find this blog interesting.
 
 {% gist miayam/656a8752b93fbfaf83df2d8c13287223 %}
-
-<section>
-  <div class="fb-comments" data-href="{{ page.url | prepend: site.url }}" data-width="100%" data-numposts="10">
-  </div>
-</section>
