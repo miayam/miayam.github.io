@@ -14,7 +14,7 @@ they are different from primitive typed values like `string`, `boolean`, or
 ![She is the best!](/images/she_is.jpg){:class="blog-post-image"}
 
 Let's start with `string`, `boolean`, and `number`.
-For good reason, I can guarantee that we can copy primitive typed values
+I can guarantee that we can copy primitive typed values
 this way.
 
 {% highlight js %}
