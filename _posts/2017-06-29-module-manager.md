@@ -8,7 +8,7 @@ category_page: js
 ---
 
 I wonder how module dependency manager like [RequireJS](http://requirejs.org){:target="_blank"}
-or [webpack](https://webpack.js.org/){:target="_blank"} really works.
+really works.
 
 ![Yuu Aoi San!](/images/yuu.jpg){:class="blog-post-image"}
 
