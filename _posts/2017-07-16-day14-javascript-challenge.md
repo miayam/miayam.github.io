@@ -151,8 +151,8 @@ the future!
   var newPerson = {...person};
 {% endhighlight %}
 
-Things to note that this is only 1 level deep, both for `Arrays` and
-`Objects`. [Lodash](https://lodash.com/docs/4.17.4#cloneDeep){:target="_blank"}
+Things to note that this is only 1 level deep, both for `Array` and
+`Object`. [Lodash](https://lodash.com/docs/4.17.4#cloneDeep){:target="_blank"}
 has a `cloneDeep` method, but you should think twice before using it.
 
 {% highlight js %}
