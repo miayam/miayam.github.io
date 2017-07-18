@@ -13,9 +13,8 @@ they are different from primitive typed values like `string`, `boolean`, or
 
 ![She is the best!](/images/she_is.jpg){:class="blog-post-image"}
 
-Let's start with `string`, `boolean`, and `number`.
-I can guarantee that we can copy primitive typed values
-this way.
+Let's start with them. I can guarantee that we can copy primitive typed
+values this way.
 
 {% highlight js %}
   var year = 2017;
@@ -123,7 +122,7 @@ This kind of statement is completely wrong.
   var newPerson = person;
 {% endhighlight %}
 
-How we fix that?
+How do we fix that?
 
 * Using `Object.assign` instead.
 
@@ -144,7 +143,7 @@ How we fix that?
   // }
 {% endhighlight %}
 
-* We will hopefully soon see `...spread`. It's next
+* We will hopefully soon see `{...spread}`. It's next
 generation of `EcmaScript`. Every cool kid will be using this frantically. It's
 the future!
 
@@ -155,6 +154,23 @@ the future!
 Things to note that this is only 1 level deep, both for `Arrays` and
 `Objects`. [Lodash](https://lodash.com/docs/4.17.4#cloneDeep){:target="_blank"}
 has a `cloneDeep` method, but you should think twice before using it.
+
+{% highlight js %}
+  // You can't just copy this nested object entirely with
+  // any of those built-in methods. Only 1 level deep.
+  {
+    name: "Dudung",
+    lastName: "Maman",
+    education: {
+      highSchool: "Cool Highschool",
+      higherEducation: {
+        bachelorDegree: "Stanford University",
+        graduateDegree: "Harvard University"
+      }
+    }
+  }
+{% endhighlight %}
+
 
 Well, I borrow too many words from Wes Bos. I owe him a beer. That's it
 for today.
