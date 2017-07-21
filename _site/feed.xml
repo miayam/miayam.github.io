@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jul 2017 17:17:21 +0700</pubDate>
-    <lastBuildDate>Sun, 16 Jul 2017 17:17:21 +0700</lastBuildDate>
+    <pubDate>Fri, 21 Jul 2017 07:57:37 +0700</pubDate>
+    <lastBuildDate>Fri, 21 Jul 2017 07:57:37 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -18,9 +18,8 @@ they are different from primitive typed values like &lt;code class=&quot;highlig
 
 &lt;p&gt;&lt;img src=&quot;/images/she_is.jpg&quot; alt=&quot;She is the best!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Let’s start with &lt;code class=&quot;highlighter-rouge&quot;&gt;string&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;boolean&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt;.
-For good reason, I can guarantee that we can copy primitive typed values
-this way.&lt;/p&gt;
+&lt;p&gt;Let’s start with them. I can guarantee that we can copy primitive typed
+values this way.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2017&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;thisYear&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -110,7 +109,7 @@ properties. Let’s say we have a &lt;code class=&quot;highlighter-rouge&quot;&g
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newPerson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;How we fix that?&lt;/p&gt;
+&lt;p&gt;How do we fix that?&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;Object.assign&lt;/code&gt; instead.&lt;/li&gt;
@@ -132,16 +131,30 @@ properties. Let’s say we have a &lt;code class=&quot;highlighter-rouge&quot;&g
   &lt;span class=&quot;c1&quot;&gt;// }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;We will hopefully soon see &lt;code class=&quot;highlighter-rouge&quot;&gt;...spread&lt;/code&gt;. It’s next
+  &lt;li&gt;We will hopefully soon see &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...spread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;. It’s next
 generation of &lt;code class=&quot;highlighter-rouge&quot;&gt;EcmaScript&lt;/code&gt;. Every cool kid will be using this frantically. It’s
 the future!&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newPerson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Things to note that this is only 1 level deep, both for &lt;code class=&quot;highlighter-rouge&quot;&gt;Arrays&lt;/code&gt; and
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Objects&lt;/code&gt;. &lt;a href=&quot;https://lodash.com/docs/4.17.4#cloneDeep&quot; target=&quot;_blank&quot;&gt;Lodash&lt;/a&gt;
+&lt;p&gt;Things to note that this is only 1 level deep, both for &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; and
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Object&lt;/code&gt;. &lt;a href=&quot;https://lodash.com/docs/4.17.4#cloneDeep&quot; target=&quot;_blank&quot;&gt;Lodash&lt;/a&gt;
 has a &lt;code class=&quot;highlighter-rouge&quot;&gt;cloneDeep&lt;/code&gt; method, but you should think twice before using it.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// You can't just copy this nested object entirely with&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// any of those built-in methods. Only 1 level deep.&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Dudung&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;lastName&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Maman&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;education&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;highSchool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Cool Highschool&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;higherEducation&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;bachelorDegree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Stanford University&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;graduateDegree&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Harvard University&quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Well, I borrow too many words from Wes Bos. I owe him a beer. That’s it
 for today.&lt;/p&gt;
@@ -214,11 +227,12 @@ sure its originality. I am tired by the way.&lt;/p&gt;
       // This function will fire after we have waited for certain amount
       // of time. `wait` parameter contains that duration.
       function later() {
-        // Nullify the variable that stores unique ID (number).
+        // Nullify the variable that stores unique ID (number) after the
+        // timeout passed.
         timeout = null;
 
         // If we set `func` not to run immediately after `debounce` being
-        // called, run it anyway after the timeout pass.
+        // called, run it anyway after the timeout passed.
         if (!immediate) {
           func.apply(context, args);
         }
@@ -248,7 +262,7 @@ sure its originality. I am tired by the way.&lt;/p&gt;
       var isHalfWayThroughTheImage = slideInAt &amp;gt; image.offsetTop;
       var isNotOffTheImageBottom = window.scrollY &amp;lt; imageBottom;
 
-      // Slide in the image if we has passed half way through it and
+      // Slide in the image if we have passed half way through it and
       // the scroll position is not off the image bottom.
       if (isHalfWayThroughTheImage &amp;amp;&amp;amp; isNotOffTheImageBottom) {
         image.classList.add(&amp;#39;active&amp;#39;);
@@ -721,7 +735,7 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
     videoViewer[this.name] = this.value;
   }
 
-  function progressBarOnPlaying() {
+  function progressBarWhilePlaying() {
     var ratio = parseFloat(this.currentTime / this.duration);
     var currentProgressBar = ratio * 100;
     progressBarFilled.style.flexBasis = `${currentProgressBar}%`;
@@ -762,7 +776,7 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
   // viewer clicked and video paused.
   videoViewer.addEventListener(&amp;#39;click&amp;#39;, playOrPauseToggle);
   videoViewer.addEventListener(&amp;#39;click&amp;#39;, togglePlayOrPauseButton);
-  videoViewer.addEventListener(&amp;#39;timeupdate&amp;#39;, progressBarOnPlaying);
+  videoViewer.addEventListener(&amp;#39;timeupdate&amp;#39;, progressBarWhilePlaying);
 
   // A button dedicated to toggle video player. Play or pause the
   // video as you wish. If the button clicked and video played,
@@ -956,7 +970,7 @@ Todd Motto did a really good job explaining how to deal with NodeList.&lt;/p&gt;
       <item>
         <title>Bogus Module Dependency Manager</title>
         <description>&lt;p&gt;I wonder how module dependency manager like &lt;a href=&quot;http://requirejs.org&quot; target=&quot;_blank&quot;&gt;RequireJS&lt;/a&gt;
-or &lt;a href=&quot;https://webpack.js.org/&quot; target=&quot;_blank&quot;&gt;webpack&lt;/a&gt; really works.&lt;/p&gt;
+really works.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/yuu.jpg&quot; alt=&quot;Yuu Aoi San!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
 
