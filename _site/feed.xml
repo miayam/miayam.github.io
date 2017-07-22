@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jul 2017 00:47:48 +0700</pubDate>
-    <lastBuildDate>Sun, 23 Jul 2017 00:47:48 +0700</lastBuildDate>
+    <pubDate>Sun, 23 Jul 2017 06:42:42 +0700</pubDate>
+    <lastBuildDate>Sun, 23 Jul 2017 06:42:42 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -20,17 +20,18 @@ Saya mencoba membuka diri dengan menghadiri acara semacam ini.&lt;/p&gt;
 &lt;p&gt;Pukul 13:15, kereta berangkat dari Stasiun Bogor menuju Stasiun Cawang. Sampai di sana
 pukul 14:05. Dari situ saya memesan ojek daring (&lt;em&gt;online&lt;/em&gt;) berwarna hijau karya anak bangsa. Tanpa
 basa-basi, sang pengendara ojek budiman bergegas mengantarkan saya ke
-tempat yang belum pernah saya kunjungi.&lt;/p&gt;
+Mozilla Community Space yang belum pernah saya kunjungi.&lt;/p&gt;
 
 &lt;p&gt;Diam belum tentu paham. Sang pengendara ojek kebingungan dengan rute perjalanan di
 Google Map. Beliau baru bersuara setelah setengah jam bolak-balik menyusuri Jalan Tol
-Cawang Grogol. Tidak ada yang bisa dilakukannya selain menghardik Google Map.&lt;/p&gt;
+Cawang Grogol. Tidak ada yang bisa dilakukan beliau selain menghardik Google Map.&lt;/p&gt;
 
-&lt;p&gt;Salah rute adalah hal yang cukup lazim bagi pengendara ojek yang tidak cekatan.&lt;/p&gt;
+&lt;p&gt;Salah rute memang hal yang cukup lazim bagi pengendara ojek daring yang kurang
+cekatan.&lt;/p&gt;
 
-&lt;p&gt;“Mas patokannya di mana, yah?”, kata si tua bangka.&lt;/p&gt;
+&lt;p&gt;“Mas, patokannya di mana, yah?”, tanya si tua bangka.&lt;/p&gt;
 
-&lt;p&gt;Meskipun perjalannya melelahkan dan menggoyahkan iman, saya berikan tip sebesar
+&lt;p&gt;Meskipun perjalanannya melelahkan dan menggoyahkan iman, saya berikan tip sebesar
 Rp. 20.000 dan satu bintang dari lima bintang yang ditampilkan di layar. Saya
 berterima kasih kepada beliau karena sudah ditemani bertamasya di kota yang
 tingkat polusinya sudah sangat mengkhawatirkan.&lt;/p&gt;
@@ -48,16 +49,16 @@ Mozilla secara eksklusif.&lt;/p&gt;
 &lt;p&gt;Apakah &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; bisa dipakai untuk memanipulasi &lt;code class=&quot;highlighter-rouge&quot;&gt;DOM&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;Web API&lt;/code&gt;?
 Pak István bilang, “Ya!”&lt;/p&gt;
 
-&lt;p&gt;Saya sempat berasumsi bahwa hasil kompilasi &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; yang dijalankan di perembah
+&lt;p&gt;Saya sempat berasumsi bahwa hasil kompilasi &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; yang dijalankan di perambah
 (&lt;em&gt;browser&lt;/em&gt;) akan berupa bahasa mesin, ternyata hanya alih bahasa ke kode &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;.
 Ini tidak jauh beda dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;Elm&lt;/code&gt; atau &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Setelah mengikuti acara ini, saya jadi paham kenapa orang-orang di Mozilla bekerja
-dengan giat. Semua yang mereka lakukan semata-mata untuk kemaslahatan umat.
+dengan giat. Semua yang mereka lakukan semata-mata demi kemaslahatan umat.
 Apa saja yang selama ini saya lakukan?&lt;/p&gt;
 
 &lt;p&gt;Untuk kedepannya, saya akan tetap fokus ke &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt; dan sesekali bermain dengan
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; jika saya sedang khilaf atau kurang waras.&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; jika saya khilaf atau kurang waras.&lt;/p&gt;
 
 &lt;p&gt;Berikut adalah rekaman presentasinya. Ingat, sayalah orang pertama yang bertanya
 meskipun tidak paham apa yang sebenarnya dibicarakan.&lt;/p&gt;
