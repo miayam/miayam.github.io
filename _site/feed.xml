@@ -6,9 +6,74 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Jul 2017 07:57:37 +0700</pubDate>
-    <lastBuildDate>Fri, 21 Jul 2017 07:57:37 +0700</lastBuildDate>
+    <pubDate>Sun, 23 Jul 2017 00:45:06 +0700</pubDate>
+    <lastBuildDate>Sun, 23 Jul 2017 00:45:06 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Kunjungan ke Mozilla Community Space</title>
+        <description>&lt;p&gt;Meskipun saya rupawan dan disukai banyak perempuan, saya termasuk orang yang rendah diri.
+Saya mencoba membuka diri dengan menghadiri acara semacam ini.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tembok_mozilla.jpg&quot; alt=&quot;mozilla&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pukul 13:15, kereta berangkat dari Stasiun Bogor menuju Stasiun Cawang. Sampai di sana
+pukul 14:05. Dari situ saya memesan ojek daring (&lt;em&gt;online&lt;/em&gt;) berwarna hijau karya anak bangsa. Tanpa
+basa-basi, sang pengendara ojek budiman bergegas mengantarkan saya ke
+tempat yang belum pernah saya kunjungi.&lt;/p&gt;
+
+&lt;p&gt;Diam belum tentu paham. Sang pengendara ojek kebingungan dengan rute perjalanan di
+Google Map. Beliau baru bersuara setelah setengah jam bolak-balik menyusuri Jalan Tol
+Cawang Grogol. Tidak ada yang bisa dilakukannya selain menghardik Google Map. Salah
+rute adalah hal yang cukup lazim bagi pengendara ojek yang tidak cekatan.&lt;/p&gt;
+
+&lt;p&gt;“Mas patokannya di mana, yah?”, kata si tua bangka.&lt;/p&gt;
+
+&lt;p&gt;Meskipun perjalannya melelahkan dan menggoyahkan iman, saya berikan tip sebesar
+Rp. 20.000 dan satu bintang dari lima bintang yang ditampilkan di layar. Saya
+berterima kasih kepada beliau karena sudah ditemani bertamasya di kota yang
+tingkat polusinya sudah sangat mengkhawatirkan.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Sesampainya di sana, Pak István Szmozsánszky sudah menyelesaikan setengah
+presentasinya. Tidak ada praktik langsung pemrograman, hanya
+ulasan menarik tentang bagaimana &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; menggantikan &lt;code class=&quot;highlighter-rouge&quot;&gt;C/C++&lt;/code&gt; secara perlahan
+di mesin perambah (&lt;em&gt;browser&lt;/em&gt;) Firefox. &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; dianggap lebih aman, namun
+performanya tidak kalah dengan hasil kompilasi program yang dibuat
+dengan bahasa &lt;code class=&quot;highlighter-rouge&quot;&gt;C/C++&lt;/code&gt;. Pengembangan bahasa pemrograman &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; dibiayai
+Mozilla secara eksklusif.&lt;/p&gt;
+
+&lt;p&gt;Apakah &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; bisa dipakai untuk memanipulasi &lt;code class=&quot;highlighter-rouge&quot;&gt;DOM&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;Web API&lt;/code&gt;?
+Pak István bilang, “Ya!”&lt;/p&gt;
+
+&lt;p&gt;Saya sempat berasumsi bahwa hasil kompilasi &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; yang dijalankan di perembah
+(&lt;em&gt;browser&lt;/em&gt;) akan berupa bahasa mesin, ternyata hanya alih bahasa ke kode &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;.
+Ini tidak jauh beda dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;Elm&lt;/code&gt; atau &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Setelah mengikuti acara ini, saya jadi paham kenapa orang-orang di Mozilla bekerja
+dengan giat. Semua yang mereka lakukan semata-mata untuk kemaslahatan umat.
+Apa saja yang selama ini saya lakukan?&lt;/p&gt;
+
+&lt;p&gt;Untuk kedepannya, saya akan tetap fokus ke &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt; dan sesekali bermain dengan
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; jika saya sedang khilaf atau kurang waras.&lt;/p&gt;
+
+&lt;p&gt;Berikut adalah rekaman presentasinya. Ingat, sayalah orang pertama yang bertanya
+meskipun tidak paham apa yang sebenarnya dibicarakan.&lt;/p&gt;
+
+&lt;iframe width=&quot;854&quot; height=&quot;480&quot; style=&quot;max-width: 100%;&quot; src=&quot;https://www.youtube.com/embed/QwDDFl1E5F0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Kesimpulan dari acara ini adalah ketampanan jangan dijadikan alasan untuk
+tidak berbaur dengan orang lain. Malu bertanya, sesat di jalan!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 22 Jul 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/the-web/2017/07/22/rust</link>
+        <guid isPermaLink="true">https://miayam.github.io/the-web/2017/07/22/rust</guid>
+        
+        
+        <category>the-web</category>
+        
+      </item>
     
       <item>
         <title>Day 14: JavaScript Challenge</title>
@@ -1486,73 +1551,6 @@ open the &lt;code class=&quot;highlighter-rouge&quot;&gt;console&lt;/code&gt;.&l
         
         
         <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Denissa P. Putri</title>
-        <description>&lt;p&gt;Saya selalu kagum dengan orang ini sampai-sampai sering bertemu di dalam mimpi.
-Jangan salah paham. Ini bukan romansa.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/denissa.jpg&quot; alt=&quot;respect!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Dia lulusan program Vokasi UI Jurusan Komunikasi. Tampangnya biasa-biasa saja
-seperti perempuan kebanyakan. Hidungnya pesek, rambutnya terurai sebahu jika
-tidak dikuncir, payudaranya tipis, dan tidak perlu disebutkan lagi. Makna
-“hobi” menurut saya semuanya diambil dari Denissa.&lt;/p&gt;
-
-&lt;p&gt;Di Bogor, jika ada orang yang hobi mengirim kartu pos ke luar negeri, nama dia
-yang pertama kali disebut. Dengan bahasa Inggris ala kadarnya, dia tidak malu
-mengiklankan Kota Bogor dan Indonesia ke belahan dunia lain. Tidak jarang dia
-mendapatkan pernak-pernik lucu bersama kartu pos balasan dari sahabat
-penanya di luar negeri. Hidupnya benar-benar menyenangkan.&lt;/p&gt;
-
-&lt;p&gt;Isi rumahnya dipenuhi burung, kucing, dan adik-adiknya yang telah beranjak
-remaja. Semuanya gaduh, tapi terdengar begitu harmonis. Bagaimana dia
-menghidupi mereka? Dia menjual kartu pos buatannya sendiri. Dengan kemampuan
-desain ala kadarnya, dia memanfaatkan jaringan pertemanannya sebagai lahan
-bisnis. Tidak prestisius, tapi menjanjikan.&lt;/p&gt;
-
-&lt;p&gt;Apa lagi? Dia penggemar berat Jorge Lorenzo. Semua keuntungan bisnisnya
-dihabiskan untuk menonton MotoGP di Malaysia dan Singapura.
-Jika ada acara menonton bersama MotoGP di kafe-kafe, dia yang paling
-gaduh di media sosial. Hidupnya benar-benar menyenangkan.&lt;/p&gt;
-
-&lt;p&gt;Terus terang, sebenarnya kita tidak begitu saling kenal, tapi kenapa bisa
-sampai sejauh ini?&lt;/p&gt;
-
-&lt;p&gt;Bagi saya, keberadaan saya adalah insiden kosmik yang sia-sia belaka.
-Untuk apa hidup ini? Menjadi terkenal? Menjadi kaya? Disukai banyak perempuan?
-Menyelamatkan dunia? Membasmi kejahatan? Semuanya begitu monoton.
-Semuanya adalah tema-tema membosankan ala novel remaja.&lt;/p&gt;
-
-&lt;p&gt;Adakah yang bisa memaknai keberadaan saya yang sia-sia ini? Hanya satu. Hobi.&lt;/p&gt;
-
-&lt;p&gt;Hobi adalah oksigen di dunia yang palsu ini di mana kemunafikan
-satu-satunya cara paling mudah untuk menghindari masalah.&lt;/p&gt;
-
-&lt;p&gt;Hobi adalah kegiatan suci selain ibadah kepada Tuhan. Burung-burung
-bertasbih kepada Tuhan sebagaimana saya menghabiskan waktu membaca
-buku filsafat di kamar.&lt;/p&gt;
-
-&lt;p&gt;Saya rela manghabiskan umur untuk hobi-hobi saya yang berharga.&lt;/p&gt;
-
-&lt;p&gt;Saya rela baradu tinju demi melindungi hobi-hobi saya yang berharga.&lt;/p&gt;
-
-&lt;p&gt;Apa kebutuhan pokok setelah pangan, sandang, dan papan? Waktu luang yang diisi
-dengan kegiatan yang kita cintai.&lt;/p&gt;
-
-&lt;p&gt;Terima kasih Denissa yang telah memperlihatkan sinar mentari setelah mendung
-yang seolah tidak mau pergi.&lt;/p&gt;
-
-&lt;p&gt;Harta yang paling berharga adalah keluarga dan hobi. Titik.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 10 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://miayam.github.io/personal-life/2017/06/10/denissa</link>
-        <guid isPermaLink="true">https://miayam.github.io/personal-life/2017/06/10/denissa</guid>
-        
-        
-        <category>personal-life</category>
         
       </item>
     
