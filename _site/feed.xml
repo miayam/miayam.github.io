@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jul 2017 06:42:42 +0700</pubDate>
-    <lastBuildDate>Sun, 23 Jul 2017 06:42:42 +0700</lastBuildDate>
+    <pubDate>Sun, 23 Jul 2017 11:23:47 +0700</pubDate>
+    <lastBuildDate>Sun, 23 Jul 2017 11:23:47 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -247,7 +247,7 @@ are the best candidates because the function that listen to those activities
 runs almost repeatedly and will significantly impact the browser’s performance.
 &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function will set the duration for event listener to delay until
 certain amount of time have elapsed since the last time &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; function
-was invoked. &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; makes use of &lt;code class=&quot;highlighter-rouge&quot;&gt;window.setTimeout&lt;/code&gt;, for good reason.
+was invoked. &lt;code class=&quot;highlighter-rouge&quot;&gt;debounce&lt;/code&gt; makes use of &lt;code class=&quot;highlighter-rouge&quot;&gt;window.setTimeout&lt;/code&gt;, for a good reason.
 &lt;a href=&quot;https://lodash.com/docs/4.17.4#debounce&quot; target=&quot;_blank&quot;&gt;Lodash&lt;/a&gt; and
 &lt;a href=&quot;http://underscorejs.org/#debounce&quot; target=&quot;_blank&quot;&gt;Underscore.js&lt;/a&gt;
 have one of this kind.&lt;/p&gt;

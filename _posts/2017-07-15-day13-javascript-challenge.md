@@ -17,7 +17,7 @@ are the best candidates because the function that listen to those activities
 runs almost repeatedly and will significantly impact the browser's performance.
 `debounce` function will set the duration for event listener to delay until
 certain amount of time have elapsed since the last time `debounce` function
-was invoked. `debounce` makes use of `window.setTimeout`, for good reason.
+was invoked. `debounce` makes use of `window.setTimeout`, for a good reason.
 [Lodash](https://lodash.com/docs/4.17.4#debounce){:target="_blank"} and
 [Underscore.js](http://underscorejs.org/#debounce){:target="_blank"}
 have one of this kind.
