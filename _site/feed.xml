@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jul 2017 16:02:39 +0700</pubDate>
-    <lastBuildDate>Sun, 23 Jul 2017 16:02:39 +0700</lastBuildDate>
+    <pubDate>Mon, 24 Jul 2017 13:33:21 +0700</pubDate>
+    <lastBuildDate>Mon, 24 Jul 2017 13:33:21 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -41,7 +41,7 @@ tingkat polusinya sudah sangat mengkhawatirkan.&lt;/p&gt;
 &lt;p&gt;Sesampainya di sana, Pak István Szmozsánszky sudah menyelesaikan setengah
 presentasinya. Tidak ada praktik langsung pemrograman, hanya
 ulasan menarik tentang bagaimana &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; menggantikan &lt;code class=&quot;highlighter-rouge&quot;&gt;C/C++&lt;/code&gt; secara perlahan
-di mesin perambah (&lt;em&gt;browser&lt;/em&gt;) Firefox. &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; dianggap lebih aman, namun
+di mesin peramban (&lt;em&gt;browser&lt;/em&gt;) Firefox. &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; dianggap lebih aman, namun
 performanya tidak kalah dengan hasil kompilasi program yang dibuat
 dengan bahasa &lt;code class=&quot;highlighter-rouge&quot;&gt;C/C++&lt;/code&gt;. Pengembangan bahasa pemrograman &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; dibiayai
 Mozilla secara eksklusif.&lt;/p&gt;
@@ -49,7 +49,7 @@ Mozilla secara eksklusif.&lt;/p&gt;
 &lt;p&gt;Apakah &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; bisa dipakai untuk memanipulasi &lt;code class=&quot;highlighter-rouge&quot;&gt;DOM&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;Web API&lt;/code&gt;?
 Pak István bilang, “Ya!”&lt;/p&gt;
 
-&lt;p&gt;Saya sempat berasumsi bahwa hasil kompilasi &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; yang dijalankan di perambah
+&lt;p&gt;Saya sempat berasumsi bahwa hasil kompilasi &lt;code class=&quot;highlighter-rouge&quot;&gt;Rust&lt;/code&gt; yang dijalankan di peramban
 (&lt;em&gt;browser&lt;/em&gt;) akan berupa bahasa mesin, ternyata hanya alih bahasa ke kode &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;.
 Ini tidak jauh beda dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;Elm&lt;/code&gt; atau &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;.&lt;/p&gt;
 
