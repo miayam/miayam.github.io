@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Jul 2017 13:33:21 +0700</pubDate>
-    <lastBuildDate>Mon, 24 Jul 2017 13:33:21 +0700</lastBuildDate>
+    <pubDate>Mon, 24 Jul 2017 23:56:57 +0700</pubDate>
+    <lastBuildDate>Mon, 24 Jul 2017 23:56:57 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -780,16 +780,15 @@ I’ve never heard before! Here’s the &lt;a href=&quot;/demo_day11&quot; targe
     var method = videoViewer.paused ? &amp;#39;play&amp;#39; : &amp;#39;pause&amp;#39;;
     videoViewer[method]();
   }
-
+  
+  // This function listens to various events on elements that
+  // have `player__slider` included inside their class 
+  // attribute&amp;#39;s value.
+  //
+  // Here&amp;#39;s the markup:
+  //    &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;volume&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt; and
+  //    &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;playbackRate&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt;
   function handleSliderUpdate() {
-    // This function listens to various events on elements that
-    // have `player__slider` included inside their class 
-    // attribute&amp;#39;s value.
-    //
-    // Here&amp;#39;s the markup:
-    //    &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;volume&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt; and
-    //    &amp;lt;input type=&amp;quot;range&amp;quot; name=&amp;quot;playbackRate&amp;quot; class=&amp;quot;player__slider&amp;quot;&amp;gt;
-    //
     // &amp;#39;this.name&amp;#39; must be either &amp;#39;volume&amp;#39; or &amp;#39;playbackRate&amp;#39;.
     //
     // Video&amp;#39;s volume and playback rate changed as we click or move
