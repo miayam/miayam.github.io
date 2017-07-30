@@ -6,9 +6,164 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jul 2017 09:36:28 +0700</pubDate>
-    <lastBuildDate>Sun, 30 Jul 2017 09:36:28 +0700</lastBuildDate>
+    <pubDate>Sun, 30 Jul 2017 22:08:51 +0700</pubDate>
+    <lastBuildDate>Sun, 30 Jul 2017 22:08:51 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Day 15: JavaScript Challenge</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LocalStorage&lt;/code&gt; and event delegation are concepts I am familiar with. However,
+I am very excited doing this challenge!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/saya.jpg&quot; alt=&quot;sumpah kawai pisaaaan!&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Have you ever imagined adding event listener to element that never exist
+or will only exist in the future? That’s impossible, right? However, our
+assumption sometime tell the otherwise.&lt;/p&gt;
+
+&lt;p&gt;Let’s say we want to delete item from to-do list whenever we click ‘✖’ button
+on it. If we attach event listener to ‘✖’ button, you won’t get anything works
+correctly if the item was newly created because you cannot attach event
+listener to nonexistence DOM element. Perhaps, it functions correctly for
+existing elements because it’s already on the page, but we’ve been wrong
+conceptually. That’s why we need event delegation to fix that problem.&lt;/p&gt;
+
+&lt;p&gt;Event delegation is not that fancy! It’s like attaching event listener
+to parent element (as for &lt;code class=&quot;highlighter-rouge&quot;&gt;ul&lt;/code&gt;, there must be a bunch of &lt;code class=&quot;highlighter-rouge&quot;&gt;li&lt;/code&gt; inside it), so
+child elements can function specifically without having to attach any event
+listeners to them.&lt;/p&gt;
+
+&lt;p&gt;Pay attention to this snippet:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'#'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Clik me and I don't care!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;Click me and I care!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkbox&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parentElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'parent'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// We only handle 'click' event for &amp;lt;span&amp;gt; element and ignore the others.&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handleClickForSpan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;matches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'span'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'red'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// We only handle 'click' event for &amp;lt;input type=&quot;checkbox&quot;&amp;gt; and ignore the&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// others.&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handleClickForCheckBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Hide parent element (`li`) if we check the check box.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;matches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'input'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parentNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;none&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;parentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handleClickForSpan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;parentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;handleClickForCheckBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Perhaps, my wording is not as cute as オーリア ラフマ. I will let David Walsh
+explain it if you find my explanation confusing. Here’s his
+&lt;a href=&quot;https://davidwalsh.name/event-delegate&quot; target=&quot;_blank&quot;&gt;blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I finish the challenge this way. Have a look at
+the &lt;a href=&quot;/demo_day15&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;. I am off now!&lt;/p&gt;
+
+&lt;p&gt;I promise, I will explain this snippet incrementally but thoroughly.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  var form = document.querySelector(&amp;#39;.form&amp;#39;);
+  var itemList = document.querySelector(&amp;#39;.item-list&amp;#39;);
+  var items = JSON.parse(localStorage.getItem(&amp;#39;items&amp;#39;)) || [];
+
+  function setState(item) {
+    // Append new item if there exist.
+    if (item) {
+      this.push(item);
+    }
+
+    localStorage.setItem(&amp;#39;items&amp;#39;, JSON.stringify(this));
+  }
+
+  function updateList() {
+    itemList.innerHTML = this.map(function (item, index) {
+      var isChecked = item.done ? &amp;#39;checked&amp;#39; : &amp;#39;&amp;#39;;
+      return `
+        &amp;lt;li&amp;gt;
+          &amp;lt;input type=&amp;quot;checkbox&amp;quot; data-index=${index} id=&amp;quot;item${index}&amp;quot;
+           ${isChecked}&amp;gt;
+          &amp;lt;label for=&amp;quot;item${index}&amp;quot;&amp;gt;${item.text}&amp;lt;label&amp;gt;
+          &amp;lt;span class=&amp;quot;delete-item&amp;quot; data-index=${index}&amp;gt;✖&amp;lt;/span&amp;gt;
+        &amp;lt;/li&amp;gt;
+      `;
+    }).join(&amp;#39;&amp;#39;);
+  }
+
+  function deleteItem(event) {
+    var index, element;
+
+    if (event.target.matches(&amp;#39;span&amp;#39;)) {
+      element = event.target;
+      index = element.dataset.index;
+      element.style.display = &amp;quot;none&amp;quot;;
+      items.splice(index, 1);
+      setState.call(items);
+      updateList.call(items);
+    } else {
+      return;
+    }
+  }
+
+  function toggleItemStatus(event) {
+    var index, element;
+
+    if (event.target.matches(&amp;#39;input&amp;#39;)) {
+      element = event.target;
+      index = element.dataset.index;
+      items[index].done = !items[index].done;
+      setState.call(items);
+      updateList.call(items);
+    } else {
+      return;
+    }
+  }
+
+  function addItem(event) {
+    var newItem = this.querySelector(&amp;#39;input[name=&amp;quot;item&amp;quot;]&amp;#39;);
+    var newItemAttributes = {
+      text: newItem.value,
+      done: false
+    };
+
+    setState.call(items, newItemAttributes);
+    updateList.call(items);
+    event.preventDefault();
+    this.reset();
+  }
+
+  function init() {
+    form.addEventListener(&amp;#39;submit&amp;#39;, addItem);
+    itemList.addEventListener(&amp;#39;click&amp;#39;, toggleItemStatus);
+    itemList.addEventListener(&amp;#39;click&amp;#39;, deleteItem);
+    updateList.call(items);
+  }
+
+  init();
+})(window);
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/0f0a478f92b8b31f8e677442faf025b6.js&quot;&gt; &lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 30 Jul 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/07/30/day15-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/07/30/day15-javascript-challenge</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Perundungan (Bullying)</title>
@@ -22,10 +177,10 @@ korban &lt;em&gt;bullying&lt;/em&gt;?&lt;/p&gt;
 &lt;p&gt;Tulisan ini hanya menjawab fenomena yang gaduh di internet. Dari mahasiswa berkebutuhan khusus dari universitas swasta
 berkualitas busuk sampai anak-anak SMP norak yang keranjingan sinetron.&lt;/p&gt;
 
-&lt;p&gt;Percaya atau tidak, saat SMP saya pernah mengejek orang paling ditakuti di kelas (Wery Irawan) dengan menggambar babi yang diatasnya
-ada nama beliau. Teman-teman tertawa terbahak-bahak sementara saya diintimidasi olehnya karena ada kawan yang mengadu. Saya
-ketakutan dan memohon ampun. Sejak saat itu, kami jadi teman baik sampai sekarang.
-Cari saja “Weryy Ceperist Cinta Alam” di Facebook dan tanyakan sendiri.&lt;/p&gt;
+&lt;p&gt;Percaya atau tidak, saat SMP saya pernah mengejek orang paling ditakuti di kelas (Wery Irawan) dengan menggambar
+babi yang di atasnya ada nama beliau. Teman-teman tertawa terbahak-bahak sementara saya diintimidasi olehnya
+karena ada kawan yang mengadu. Saya ketakutan dan memohon ampun. Sejak saat itu, kami jadi teman baik sampai
+sekarang. Cari saja “Weryy Ceperist Cinta Alam” di Facebook dan tanyakan sendiri.&lt;/p&gt;
 
 &lt;p&gt;Saya sering diejek tentu saja, tapi respon saya selalu humoris. Orang-orang yang hobi tawuran di kelas tidak pernah tersinggung
 dengan lawakan saya karena saya membalas ejekan mereka dengan humor jenaka. Bagi kawan-kawan di luar sana yang dijadikan target
@@ -38,16 +193,18 @@ Kalian itu pintar, bukan?&lt;/p&gt;
 jihad. Di pengadilan, kamu yang akan menang! Di akhirat, kamu yang akan mendapat pahala!&lt;/p&gt;
 
 &lt;p&gt;Lanjut ke SMA. Teman-teman di sana jauh lebih beradab dan hampir tidak ada masalah yang signifikan. Hanya satu kejadian yang
-melibatkan atlit wushu teman saya dengan orang jelek bertubuh besar yang mengajak saya berkelahi. Apa ciri-ciri orang bertubuh besar
-yang nyalinya kecil? Dia akan memilih orang-orang yang lebih lemah untuk dijadikan lawan. Jelas saya ketakutan saat diajak
+melibatkan atlet wushu teman saya dengan orang jelek bertubuh besar yang mengajak saya berkelahi. Apa ciri-ciri orang bertubuh besar
+yang nyalinya kecil? Dia akan memilih orang-orang yang lebih lemah untuk dijadikan lawan. Jelas saya agak ketakutan saat diajak
 berkelahi si jelek. Terakhir kali saya berkelahi itu saat SD! Jika ditantang main catur, saya berani!&lt;/p&gt;
 
 &lt;p&gt;Si jelek tersinggung dengan kelakuan saya dan tidak terima dengan sindiran saya yang menyentuh jiwanya yang lemah, padahal saya
-hanya menjawab ejekannya dengan cara yang lebih bijak. Bukan saya yang memulai. Saya sadar tinju saya tidak akan mempan dan
-100% saya yang akan kalah. Satu-satunya cara paling mudah adalah membawa pisau dapur dan mengancam dia secara psikis.
-Ini tidak jadi saya lakukan karena ada teman saya (si atlit wushu) yang tahu dengan kegaduhan ini.&lt;/p&gt;
+hanya menjawab ejekannya dengan cara yang lebih bijak. Bukan saya yang memulai.&lt;/p&gt;
 
-&lt;p&gt;Prediksi saya benar. Meski si atlit wushu tingginya hanya 165cm dan tinggi si jelek 176cm, si jelek hanya diam seribu
+&lt;p&gt;Saya sadar tinju saya tidak akan mempan dan 100% saya yang akan kalah. Satu-satunya cara paling mudah adalah membawa pisau
+dapur dan mengancam dia secara psikis. Ini tidak jadi saya lakukan karena ada teman saya (si atlet wushu) yang tahu
+tentang kegaduhan ini.&lt;/p&gt;
+
+&lt;p&gt;Prediksi saya benar. Meski si atlet wushu tingginya hanya 165 cm dan tinggi si jelek 176 cm, si jelek hanya diam seribu
 bahasa saat diajak berkomunikasi. Masalah selesai tanpa ada pertumpahan darah maupun biaya ke pengadilan.&lt;/p&gt;
 
 &lt;p&gt;Untuk teman-teman yang jadi korban &lt;em&gt;bullying&lt;/em&gt;, jangan melawan jika hanya ejekan omong kosong yang orang tolol pun
@@ -1362,95 +1519,6 @@ family and my hobbies. I am sorry darling.&lt;/p&gt;
         
         
         <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Waktu dan Energi</title>
-        <description>&lt;p&gt;Sudah terlalu lama saya lembek dengan diri sendiri. Saya ingin menekuni hobi
-sebrutal Michael Natterer. Michael adalah pemilik toko buku yang memelihara
-proyek GIMP selama bertahun-tahun. Bisa dilihat di &lt;a href=&quot;https://www.gimp.org/news/2017/03/01/an-interview-with-michael-natterer-gimp-maintainer/&quot; target=&quot;_blank&quot;&gt;sini&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Tadi malam saya bermimpi kembali ke masa SMA. Meski di dalam mimpi,
-kekhawatiran saya terhadap UN sangat besar. Saking paniknya, saya menepuk-nepuk
-bahu sambil bersumpah akan menguasai seluruh bahan ajar tiga tahun masa studi
-hanya dalam satu tahun. Saya tidak pernah belajar di SMA dan kemungkinan lulus
-sangat kecil.&lt;/p&gt;
-
-&lt;p&gt;Perasaan berdebar ini berlanjut sampai akhirnya saya bangun dan tersadar bahwa
-saya sudah lulus dan secara finansial tidak bergantung lagi pada orang tua.
-Betapa leganya bisa melewati masa-masa suram itu meskipun hanya dalam mimpi.&lt;/p&gt;
-
-&lt;p&gt;Waktu itu keluarga saya dililit hutang karena kasus yang melibatkan
-kakak laki-laki saya (makanya saya emoh berhutang ke bank). Saya memilih
-berdiam di rumah selama satu tahun sambil membantu ibu saya menjaga kedai kami
-yang bertempat di dekat kampus D3 IPB. Banyak teman-teman SMA kuliah di sana.
-Selama menjaga kedai, saya sering mencuri pandang mahasiswi-mahasiswi IPB
-yang mampir makan.&lt;/p&gt;
-
-&lt;p&gt;Meskipun hidup malas-malasan, saya rajin membaca buku. Saya memaksakan
-diri membaca semua literatur dalam bahasa Inggris (kakak perempuan saya yang
-kedua menghadiahi kamus Oxford bajakan di ulang tahun saya yang ke-17).
-Dengan uang Rp. 5000, saya bisa mengunduh puluhan buku dan komik di Warung
-Internet terdekat. Saat itu kakak saya masih berpacaran dengan laki-laki mapan
-yang nantinya akan menjadi ayah bagi keponakan saya tercinta.&lt;/p&gt;
-
-&lt;p&gt;Setelah hutang keluarga kami lunas, ibu saya menjual semua aset kedai kami
-dan fokus dengan bisnis kue kering yang tidak terlalu menguras tenaga. Ibu saya
-lebih tertarik mengurus cucu daripada berlelah-lelahan mencari nafkah.&lt;/p&gt;
-
-&lt;p&gt;Karena tidak ada yang bisa dilakukan lagi, saya nekat melamar menjadi staf
-pemasaran di Plaza Telkom dan dengan ajaibnya diterima. Tidak bertahan lama,
-hanya satu hari.&lt;/p&gt;
-
-&lt;p&gt;Setelah sekian lama menganggur, saya nekat melamar menjadi staf pengajar honorer
-di SDN Pengadilan 5 Bogor untuk mata pelajaran komputer. Saya diterima
-dan bertahan lebih dari satu tahun dengan upah Rp. 600.000 per bulan. Dengan
-uang itu, saya rutin berlangganan majalah favorit.&lt;/p&gt;
-
-&lt;p&gt;2 tahun setelah lulus SMA adalah kesempatan terakhir saya mengenyam pendidikan
-di perguruan tinggi negeri. Saya ikut ujian PNJ (Politeknik Negeri Jakarta)
-dan diterima di D3 Penerbitan/Jurnalistik. Biayanya cukup mahal untuk kantong
-saya yang tipis. Hanya bertahan 2 semester. Saya sering mengaku-ngaku menjadi
-mahasiswa UI jika bertemu teman-teman SMA di jalan. Saya benar-benar merasa
-rendah diri dengan intelektualitas saya. Tidak heran kalau sampai sekarang
-saya masih berlagak sok pintar.&lt;/p&gt;
-
-&lt;p&gt;Saya sempat kuliah di UNAS (Universitas Nasional) Jurusan Teknik Fisika atas
-saran paman saya (beliau lulusan sana juga). Lagi-lagi hanya bertahan singkat.
-Saya sudah muak dengan kehidupan kampus.&lt;/p&gt;
-
-&lt;p&gt;Di usia 21 tahun, saya kembali bekerja sebagai staf pengajar di tempat yang
-sama sebelum akhirnya diterima di majalah favorit sebagai penulis lepas.
-Bayarannya lumayan, Rp. 1.500.000 per bulan. Bos saya pernah bilang
-kalau saya berbakat menjadi penulis, tapi saya tahu dia berkata demikian
-untuk mempertahankan saya karena saya tidak menuntut upah banyak.&lt;/p&gt;
-
-&lt;p&gt;2014, majalah favorit saya bangkrut dan saya kembali menganggur.
-Di tahun yang sama, saya bercita-cita menjadi aktuaris dan mendaftar di
-Jurusan Matematika UT.&lt;/p&gt;
-
-&lt;p&gt;Dari 2014 sampai 2015, saya menjadi pekerja lepas, menulis konten untuk
-situs-situs yang tidak saya kenal. Bayarannya cukup untuk kebutuhan
-sehari-hari.&lt;/p&gt;
-
-&lt;p&gt;Di akhir tahun 2015, &lt;a href=&quot;https://www.kmkonline.co.id/akademi&quot;&gt;KMKLabs mengadakan pelatihan&lt;/a&gt;
-(Ruby on Rails dan Laravel) sekaligus mencari pengembang web untuk di tempatkan
-di proyek-proyek yang tidak membutuhkan keahlian rumit. Saya termasuk 10 orang
-beruntung yang diterima.&lt;/p&gt;
-
-&lt;p&gt;Di pertengahan tahun 2016, saya bekerja di tempat saya bekerja sekarang. Di
-sinilah pertama kali saya mengenal AJAX dan Promise. Selama bekerja di sini,
-saya menekuni pekerjaan saya sebagai hobi.&lt;/p&gt;
-
-&lt;p&gt;Sisanya tinggal sejarah.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 18 Jun 2017 00:00:00 +0700</pubDate>
-        <link>https://miayam.github.io/personal-life/2017/06/18/self-esteem</link>
-        <guid isPermaLink="true">https://miayam.github.io/personal-life/2017/06/18/self-esteem</guid>
-        
-        
-        <category>personal-life</category>
         
       </item>
     
