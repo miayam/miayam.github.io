@@ -73,3 +73,6 @@ the [demo](/demo_day15){:target="_blank"}. I am off now!
 I promise, I will explain this snippet incrementally but thoroughly.
 
 {% gist miayam/0f0a478f92b8b31f8e677442faf025b6 %}
+
+Alright then, that's it for today. I long for オーリア ラフマ's sparkling
+finger nails. I cannot wait any longer!
