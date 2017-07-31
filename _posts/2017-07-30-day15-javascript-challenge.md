@@ -14,10 +14,10 @@ I am very excited doing this challenge!
 
 Have you ever imagined adding event listener to element that never exist
 or will only exist in the future? That's impossible, right? However, our
-assumption sometime tell the otherwise.
+assumption sometime tells otherwise.
 
-Let's say we want to delete item from to-do list whenever we click '✖' button
-on it. If we attach event listener to '✖' button, you won't get anything works
+Let's say we want to delete item from to-do list whenever we click ✖ button
+on it. If we attach event listener to ✖ button, you won't get anything works
 correctly if the item was newly created because you cannot attach event
 listener to nonexistence DOM element. Perhaps, it functions correctly for
 existing elements because it's already on the page, but we've been wrong
