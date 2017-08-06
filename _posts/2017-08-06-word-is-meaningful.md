@@ -18,15 +18,15 @@ guarding me figuratively.
 I believe in these words!
 
 > When you find a path to the top, "Is it too abrupt? Is that possible?" None of that
-matters! You just have to climb!
-
+> matters! You just have to climb!
+>
 > If you are lacking the talent, then ask for the help of others without shame!
-
+>
 > Dirty your own hands even if you have to bear the contempt of the ones you love
-in order to get to the top, in order to quench this thirst that is burning every
-man. Getting to the top!
-
+> in order to get to the top, in order to quench this thirst that is burning every
+> man. Getting to the top!
+>
 > What should a man not chosen by God do?
-
+>
 > There is an answer that only a man that kept strugling until the end can see.
 
