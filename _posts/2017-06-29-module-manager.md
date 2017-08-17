@@ -96,19 +96,19 @@ repeat yourself they say!
 {% highlight js %}
   $mod.define('confession', ['greeting'], function confession(greeting) {
     var attributes = {
-      // pick up line for each girl (we can override it)
+      // Pick up line for each girl (we can override it).
       pickUpLines: {},
 
-      // log the name of my crushes for later use
+      // Store the name of my crushes for later use.
       names: [],
 
-      // `crushes` is an array of girl's name I like
+      // `crushes` is an array of girl's names I like
       confess: function confess(crushes) {
         crushes.map(function (name, index) {
           (function (name, index) {
-            // log the girl's name
+            // Store the girl's name.
             attributes.names[index] = name;
-            // log the default pick up line
+            // Store the default pick up line.
             attributes.pickUpLines[name] = function pickUpLine() {
               var wording = greeting.sayHello(name);
               return `${wording} I love you.`;
