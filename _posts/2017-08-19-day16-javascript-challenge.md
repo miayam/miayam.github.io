@@ -15,7 +15,7 @@ If you add event listener that listens to `mousemove` event to block element tha
 wraps another block element (`div` that consists of `article` for example),
 the target element it listens to (`event.target`) sometime confuses us. We expect
 the coordinate of mouse movement be relative to parent element,
-but when we hover over the lower right corner of its child element, the mouse coordinate
+but when we hover over the upper right corner of its child element, the mouse coordinate
 (`event.offsetX` and `event.offsetY`) turn to `(0, 0)`. That's strange.
 
 To fix this problem, we have to adjust the child element's coordinate by
