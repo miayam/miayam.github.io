@@ -12,7 +12,7 @@ It's such a "cooling down" challenge. Nothing more boring than sorting list with
 ![si_cantik2.jpg](https://s20.postimg.org/xwq2khb7h/si_cantik2.jpg){:class="blog-post-image"}
 
 I can only say that I know nothing about regular expression. The challenge instruct us to sort those list of bands, but we
-have to exclude their article ('a', 'a', 'the') first. For example, "The Corrs" will be displayed first before "Gorillaz".
+have to exclude their article ('a', 'an', 'the') first. For example, "The Corrs" will be displayed first before "Gorillaz".
 
 The challenge could be more challenging if only I know a bit about `regex`. `regex` is expensive skill that
 requires years of traning to master.
