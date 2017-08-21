@@ -9,7 +9,7 @@
 
   function getVideo() {
     navigator.mediaDevices.getUserMedia({
-      video: true, audo: true
+      video: true, audio: true
     }).then(function (localMediaStream) {
       video.src = window.URL.createObjectURL(localMediaStream);
       video.play();
@@ -30,7 +30,7 @@
     context.translate(width, 0);
     context.scale(-1, 1);
 
-    clearTimeout(timeout);
+    window.clearInterval(timeout);
 
     timeout =  window.setInterval(function () {
       context.drawImage(video, 0, 0, width, height);
