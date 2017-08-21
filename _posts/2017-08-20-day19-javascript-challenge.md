@@ -31,7 +31,7 @@ The snippets below seems gibberish, but don't worry, there will be comments to e
     </div>
 
     <div class="strip"></div>
-    <audio class="snap" src="assets/sounds/boom.wav" hidden></audio>
+    <audio class="snap" src="assets/sounds/snap.mp3" hidden></audio>
     <script src="assets/js/demo19.js"></script>
   </body>
 {% endhighlight %}

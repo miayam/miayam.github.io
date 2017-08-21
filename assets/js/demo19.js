@@ -5,7 +5,7 @@
   var snap = document.querySelector('.snap');
   var context = canvas.getContext('2d');
   var takePhotoButton = document.querySelector('.take-photo-js');
-  var photos = document.querySelector('.strip');
+  var timeout;
 
   function getVideo() {
     navigator.mediaDevices.getUserMedia({
@@ -30,11 +30,11 @@
     context.translate(width, 0);
     context.scale(-1, 1);
 
-    return window.setInterval(function () {
+    clearTimeout(timeout);
+
+    timeout =  window.setInterval(function () {
       context.drawImage(video, 0, 0, width, height);
-      pixels = context.getImageData(0, 0, width, height);
-      context.putImageData(pixels, 0, 0);
-    }, 32);
+    }, 16);
   }
 
   function takePhoto() {
