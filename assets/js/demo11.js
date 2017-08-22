@@ -61,6 +61,9 @@
   videoViewer.addEventListener('click', playPauseToggle);
   videoViewer.addEventListener('click', togglePlayPauseButton);
   videoViewer.addEventListener('timeupdate', progressBarOnPlaying);
+  videoViewer.addEventListener('ended', function () {
+    toggleButton.textContent = '▷';
+  });
 
   toggleButton.addEventListener('click', playPauseToggle);
   toggleButton.addEventListener('click', togglePlayPauseButton);
