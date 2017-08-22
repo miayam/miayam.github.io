@@ -12,7 +12,7 @@ into Stephen Hawking's voice synthesizer. Utter the words you type, darling!
 
 ![si_cantik4.jpg](https://s20.postimg.org/c1dhdizul/si_cantik4.jpg){:class="blog-post-image"}
 
-It only requires 32 lines of JavaScript code (including the comments). Here's the [demo](/demo_day20){:target="_blank"}.
+It only requires 13 lines of JavaScript code (including the comments). Here's the [demo](/demo_day20){:target="_blank"}.
 
 ### Markup
 {% highlight html %}
