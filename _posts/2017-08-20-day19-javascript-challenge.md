@@ -2,12 +2,12 @@
 layout: post
 title: "Day 19: JavaScript Challenge"
 category: javascript
-short_description: Taking a photo from web camera and painting it to canvas seemed magical before this challenge.
+short_description: Taking a photo from webcam and painting it to canvas seemed magical before this challenge.
 image_preview: /images/javascript.png
 category_page: js
 ---
 
-Taking a photo from web camera and painting it to canvas seemed magical before this challenge.
+Taking a photo from webcam and painting it to canvas seemed magical before this challenge.
 
 ![si_cantik6.jpg](https://s20.postimg.org/55t8uf5dp/si_cantik6.jpg){:class="blog-post-image"}
 
