@@ -1,0 +1,51 @@
+---
+layout: post
+title: "Day 22: JavaScript Challenge"
+category: javascript
+short_description: I don't think following along and highlighting the link while hovering over it is important.
+image_preview: /images/javascript.png
+category_page: js
+---
+
+I don't think following along and highlighting the link while hovering over it is important.
+
+![si_cantik13.jpg](https://s20.postimg.org/hn37ka03h/si_cantik13.jpg){:class="blog-post-image"}
+
+I would say it's superfluous for a web page to have this kind of feature. Craig Newmark will look
+away and insult us in his mind! Well, if it was for fun, I wouldn't attach too much importance to his
+thinking. Here we are copying Stripe new web page!
+
+If we hover over link on Stripe, we can see "mega menu" follow along the link without
+concealing or popping.
+
+![stripe.png](https://s20.postimg.org/itbswtdrx/stripe.png){:class="blog-post-image"}
+
+It's nice thing to have right? I won't build something like that on
+this silly blogging site. However, without this challenge, I wouldn't know the way
+we get the size of an element and its position relative to the `viewport`.
+By the way, `viewport` is just an area to display the web content in the browser. No wonder
+we got smaller `viewport` if we open developer web console...
+
+Each DOM element has access to those properties. Here's how we do that:
+
+
+{% highlight js %}
+  var myHeart = document.querySelector('[data-heart]');
+  var myDomRect = myHeart.getBoundingClientRect();
+
+  console.log(myDomRect);
+{% endhighlight %}
+
+For more about it, visit [this](http://mzl.la/2ggxdcl){:target="_blank"} documentation.
+
+Alright then, here's the damn [demo](/demo_day22){:target="_blank"} and my solution below.
+To get the next challenge right, we only resemble small portion of Stripe's feature and take
+that cute "mega menu" aside. Cuteness will find its way, right?
+
+{% gist miayam/f3096461eb28c930fed86a8cec441e6d %}
+
+That's it for today.
+
+I was a bit nervous when オーリア ラフマ passed by me and
+that cute moment just passed me by. That was probably the last time I felt her
+cuteness. She was mumbling something I wouldn't care...
