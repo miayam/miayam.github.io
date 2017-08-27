@@ -10,7 +10,7 @@ I am a boring person interested in building user-facing application using HTML, 
 about anything that interest me and most of my writings here are dedicated to JavaScript and
 the web in general.
 
-JavaScript is a wierd programming language and might takes a lot of time to tame it.
+JavaScript is a weird programming language and might takes a lot of time to tame it.
 I have spent my precious time, money, and energy on it, therefore I love it. Nonetheless, I still don't know
 JavaScript.
 
