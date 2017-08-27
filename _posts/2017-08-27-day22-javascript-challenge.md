@@ -20,9 +20,9 @@ concealing or popping.
 
 ![stripe.png](https://s20.postimg.org/itbswtdrx/stripe.png){:class="blog-post-image"}
 
-It's nice thing to have right? However, without this challenge, I mightn't have known the way
-we get element's size and its position relative to the `viewport`. By the way, `viewport` is
-just an area to display the web content in the browser. No wonder that
+It's a nice thing to have, right? However, without this challenge, I mightn't have known the way
+we get element's size and its position relative to the `viewport` via DOM element methods.
+By the way, `viewport` is just an area to display the web content in the browser. No wonder that
 we got smaller `viewport` if we open the web console.
 
 Each DOM element has access to those properties. Here's how we do that:
@@ -37,8 +37,8 @@ Each DOM element has access to those properties. Here's how we do that:
   // For more about it, visit http://mzl.la/2ggxdcl
 {% endhighlight %}
 
-To get the next challenge right, we only resemble small portion of Stripe's feature and take
-that cute "mega menu" aside. Cuteness will find its way, right?
+To get the next challenge right, we only make it resembles small portion of Stripe's feature
+and take that cute "mega menu" aside. Cuteness will find its way.
 
 Alright then, here's the [demo](/demo_day22){:target="_blank"} and my solution below.
 
