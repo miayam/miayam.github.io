@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
   margin: 0; /* Important! */
   font-family: sans-serif;
-  background: #cee3f8;
+  background: white;
 }
 
 .wrapper {
@@ -21,15 +21,15 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
-  background:rgba(0,0,0,0.08);
+  color: #001;
+  background:rgba(0,0,0,0.2);
 }
 
 .highlight {
   transition: all 0.2s;
   position: absolute;
   top: 0;
-  background: #fdffa7;
+  background: rgba(117, 249, 255, 0.9);
   left: 0;
   z-index: -1;
   display: block;
