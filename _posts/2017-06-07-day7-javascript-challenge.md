@@ -7,7 +7,7 @@ image_preview: /images/javascript.png
 category_page: js
 ---
 
-As for now, I am romantically attached to 4 girls I met in
+As for now, I am romantically attached to 3 girls I met in
 high school, college, and office. How could I manage them? Unfortunately,
 they are nothing compared to this superb cute girl!
 
@@ -16,7 +16,7 @@ they are nothing compared to this superb cute girl!
 How about making use of JavaScript's `Array.prototype` built-in method to take
 care of them?
 
-Here's a simple array that represent those 4 cute girls.
+Here's a simple array that represent those 3 cute girls.
 
 {% highlight js %}
   var crushes = [
@@ -38,19 +38,12 @@ Here's a simple array that represent those 4 cute girls.
       name: "チージア セリーナ",
       age: 23,
       status: "single",
-      tags: "cute, fragile, emotional"
-    },
-
-    {
-      name: "オーリア ラフマ",
-      age: 23,
-      status: "single",
-      tags: "cute, clean, simple"
+      tags: "cute, fragile, sensitive, emotional"
     }
   ];
 {% endhighlight %}
 
-Nah, today's challenge introduce us to `Array.prototype` built-in method:
+Nah, today's challenge introduce us to `Array.prototype` built-in methods:
 `some`, `find`, `findIndex`, and `every`. It's simply boring because there's
 no point to have a [demo](/demo_day7){:target="_blank"}
 for this kind of challenge (a bunch of `console.log` will do!). Clone my
@@ -113,11 +106,5 @@ some of my crushes are not single at all...
   console.log(unmarriageable); // true
 {% endhighlight %}
 
-Lastly, I save the best for last. オーリア ラフマ is average compared to the rest
-but endowed with cute and wonderful hands (the ones you can only see in
-*anime* or *manga*). Her finger nails are so clean and sparkling. I can tell
-her present by listening to her unique high-pitched laughter. I admire her
-vigorous attitude. I even dreamed of her kissing me on the cheek. I really
-want to make a confession about this feeling. Maybe next time.
-
-I like オーリア ラフマ. Let me sniff you from short distance, my dear!
+Damn! That ponytail is disturbing! I cannot do simple math if I get closer to
+チージア セリーナ.

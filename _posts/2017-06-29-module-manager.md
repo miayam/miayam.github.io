@@ -136,7 +136,7 @@ Alright! Now I can confess my feeling to multiple girls at once! I am fabulous!
   confession.confess([
     'ルル オーリア',
     'メリー メディオーアティ',
-    'オーリア ラフマ'
+    'チージア セリーナ'
   ]);
 {% endhighlight %}
 
@@ -146,7 +146,7 @@ with it.
 
 {% highlight js %}
   confession.setCustomPickUpLine("I hate a lot of people but I don't \
-  hate you, therefore I love you.", 'オーリア ラフマ');
+  hate you, therefore I love you.", 'チージア セリーナ');
 {% endhighlight %}
 
 List my pick up lines toward those cute girls.
@@ -161,7 +161,7 @@ List my pick up lines toward those cute girls.
 
   // Hello メリー メディオーアティ, nice to meet you. I love you.
 
-  // Dear オーリア ラフマ, I hate a lot of people but I don't hate you,
+  // Dear チージア セリーナ, I hate a lot of people but I don't hate you,
   // therefore I love you.
 {% endhighlight %}
 
@@ -200,9 +200,9 @@ Truth be told.
   // I once said, "Hello メリー メディオーアティ, nice to meet you. I love you."
   // I am sorry... That was a lie.
 
-  // I once said, "Dear オーリア ラフマ, I hate a lot of people but
+  // I once said, "Dear チージア セリーナ, I hate a lot of people but
   // I don't hate you, therefore I love you."
   // I am sorry... That was a lie.
 {% endhighlight %}
 
-That's it for today. I want to kiss オーリア ラフマ on the cheek.
+That's it for today. I want to kiss チージア セリーナ on the cheek.

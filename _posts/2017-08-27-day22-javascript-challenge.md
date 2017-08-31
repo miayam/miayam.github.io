@@ -46,6 +46,9 @@ Alright then, here's the [demo](/demo_day22){:target="_blank"} and my solution b
 
 That's it for today.
 
-I was a bit nervous when オーリア ラフマ passed by me and
-that cute moment just passed me by. That was probably the last time I felt her
-cuteness. She was mumbling something I wouldn't care...
+I was a bit nervous when チージア セリーナ get closer to me.
+That was probably the last time I felt her cuteness. Well, I
+have to understand that we just move in different circle.
+I've already given up since I confessed my feeling via
+Telegram. What a coward! Well, I've said that and I am proud
+of that.
