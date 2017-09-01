@@ -2,7 +2,7 @@
 layout: post
 title: "Day 7: JavaScript Challenge"
 category: javascript
-short_description: As for now, I am romantically attached to 4 girls I met in high school, college, and office. How could I manage them?
+short_description: As for now, I am romantically attached to 3 girls I met in high school, college, and office. How could I manage them?
 image_preview: /images/javascript.png
 category_page: js
 ---

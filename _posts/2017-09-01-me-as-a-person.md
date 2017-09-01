@@ -31,4 +31,4 @@ Saya ingin menulis novel grafis seperti Harvey Pekar (beliau memulainya di usia 
 amatir yang menulis matematika di waktu senjang. Saya tertarik dengan perdagangan saham dan Max bilang semua yang ada
 di dunia ini bisa direpresentasikan dengan angka.
 
-Apakah yang saya tulis di sini akan menjadi bualan yang lainnya?
+Apakah yang saya tulis di sini hanya akan menjadi bualan?
