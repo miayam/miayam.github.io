@@ -25,9 +25,9 @@ I've read `this` binding mechanism from This & Prototype of YDKJS (You Don't Kno
 book series and put it into action here.
 
 Passing empty object (`DMZ`) to the first parameter of `Function.prototype.bind` and then passing
-any values to the rest of parameters is to set default arguments that will be passed to callback
-(bound function) when invoked and make it ignore the `this` binding, so the function is bound to
-nothing.
+any values to the rest of parameters is to set default arguments passed to callback
+when invoked and make it ignore the `this` binding. Consequently, after it was applied, the function
+would be bound to nothing.
 
 Here's the [demo](/demo_day23){:target="_blank"} and my half-assed solution below.
 
