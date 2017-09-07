@@ -1,6 +1,6 @@
 # Miayam Blog
 
-I credit the one who make [this beautiful theme](https://github.com/wemake-services/jekyll-theme-hackcss/) that make use of [this dead simple CSS framework](http://hackcss.com/).
+I credit the one who make [this beautiful theme](https://github.com/wemake-services/jekyll-theme-hackcss/) that make use of [this dead simple CSS framework](https://hackcss.egoist.moe/).
 Mobile-ready, modern, stylish and simple.
 
 ## License
