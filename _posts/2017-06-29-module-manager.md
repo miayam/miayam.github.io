@@ -140,7 +140,7 @@ Alright! Now I can confess my feeling to multiple girls at once! I am fabulous!
   ]);
 {% endhighlight %}
 
-Oh, for that cute girl endowed with sparkling finger nails, I have prepared a
+Oh, for that cute girl endowed with cute ponytail (if she happen to wear one), I have prepared a
 special pick up line I borrow from a friend. I am sure I can touch her heart
 with it.
 
