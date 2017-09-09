@@ -18,7 +18,7 @@ this part:
   var DMZ = Object.create(null)
 
   // Adding arguments to callback... Sounds magical!
-  whateverDOM.addEventListener('click', func.bind(DMZ, arg1, arg2, arg3));
+  whateverDOM.addEventListener('click', callback.bind(DMZ, arg1, arg2, arg3));
 {% endhighlight %}
 
 I've read `this` binding mechanism from This & Prototype of YDKJS (You Don't Know JavaScript)
@@ -26,8 +26,9 @@ book series and put it into action here.
 
 Passing empty object (`DMZ`) to the first parameter of `Function.prototype.bind` and then passing
 any values to the rest of parameters is to set default arguments passed to callback
-when invoked and make it ignore the `this` binding. Consequently, after it was applied, the function
-would be bound to nothing.
+and have it ignore the `this` binding. Consequently, after it was applied, the callback
+would be bound to empty object that has no link to `[[Prototype]]` chain and `arguments` are set
+without having to invoke the callback, something like `callback(arg1, arg2);`.
 
 Here's the [demo](/demo_day23){:target="_blank"} and my half-assed solution below.
 
