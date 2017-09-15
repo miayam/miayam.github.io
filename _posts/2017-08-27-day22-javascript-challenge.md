@@ -18,7 +18,7 @@ thinking. Here we are copying Stripe new web page!
 If we hover over link on Stripe, we can see "mega menu" follow along the link without
 concealing or popping.
 
-![stripe.png](https://s20.postimg.org/itbswtdrx/stripe.png){:class="blog-post-image"}
+![Stripe](https://i.imgur.com/6xDzyq4.png){:class="blog-post-image"}
 
 It's a nice thing to have, right? However, without this challenge, I mightn't have known the way
 we get element's size and its position relative to the `viewport` via DOM element methods.
