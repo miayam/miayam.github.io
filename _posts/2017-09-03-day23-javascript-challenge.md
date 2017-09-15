@@ -9,7 +9,7 @@ category_page: js
 
 I've done the similar challenge in day 20 before (Hawking's voice synthesizer), but it's more challenging (not really).
 
-![si_cantik14.jpg](https://s20.postimg.org/hluk1wo3h/si_cantik14.jpg){:class="blog-post-image"}
+![Si cantik 14](https://i.imgur.com/aPCXhce.jpg){:class="blog-post-image"}
 
 I am too tired to explain the challange. Perhaps, the only thing that's worth-explaining is
 this part:

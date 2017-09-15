@@ -9,7 +9,7 @@ category_page: js
 
 It's kind of boring, but at least it has something to do with the DOM. It's yet another JavaScript's `Array` manipulation.
 
-![si_cantik10.jpg](https://s20.postimg.org/svn9wut4t/si_cantik10.jpg){:class="blog-post-image"}
+![Si cantik 10](https://i.imgur.com/9M0c3Eb.jpg){:class="blog-post-image"}
 
 Imagine yourself a `YouTuber` and you kind of wonder about the total duration of all videos you've uploaded. With a little help from
 our friends at Mozilla, you can read the documentation about

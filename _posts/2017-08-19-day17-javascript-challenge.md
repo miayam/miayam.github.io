@@ -9,7 +9,7 @@ category_page: js
 
 It's such a "cooling down" challenge. Nothing more boring than sorting list with built-in JavaScript Array's methods.
 
-![si_cantik2.jpg](https://s20.postimg.org/xwq2khb7h/si_cantik2.jpg){:class="blog-post-image"}
+![Si cantik 2](https://i.imgur.com/9MM4dM0.jpg){:class="blog-post-image"}
 
 I can only say that I know nothing about regular expression. The challenge instruct us to sort those list of bands, but we
 have to exclude their article ('a', 'an', 'the') first. For example, "The Corrs" will be displayed first before "Gorillaz".
