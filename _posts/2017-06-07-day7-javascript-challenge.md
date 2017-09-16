@@ -106,5 +106,4 @@ some of my crushes are not single at all...
   console.log(unmarriageable); // true
 {% endhighlight %}
 
-Damn! That ponytail is disturbing! I cannot do simple math if I get closer to
-チージア セリーナ.
+Okay, that's how I manage my precious ones. How about you?

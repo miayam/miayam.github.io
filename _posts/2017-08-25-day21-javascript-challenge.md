@@ -14,8 +14,8 @@ with Google Map API doesn't leave bad taste in my mouth.
 
 The challenge requires us to install simulator that only runs on Mac computer. I refuse to buy expensive
 Mac computer to engage in this challenge. The challenge itself is quite simple, it's about employing
-geolocation API to manipulate compass-like image, so it will rotate in accord to device's changing position, speed
-and heading. I replace the challenge with manipulating Google Map using that same geolocation API.
+geolocation API to manipulate compass-like image, so it will rotate in accord to device's changing position, speed, and
+heading. I replace the challenge with manipulating Google Map using that same geolocation API.
 
 Here's the [demo](/demo_day21){:target="_blank"} and my stupid code below.
 
