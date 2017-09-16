@@ -10,7 +10,7 @@ category_page: js
 I don't have Mac, so doing the actual challenge might be frustrating. However, playing (copy-pasting)
 with Google Map API doesn't leave bad taste in my mouth.
 
-![Si cantik 5](https://i.imgur.com/8YFjkjq.jpg){:class="blog-post-image"}
+![Si cantik 5](https://i.imgur.com/8YFjkjq.jpg?1){:class="blog-post-image"}
 
 The challenge requires us to install simulator that only runs on Mac computer. I refuse to buy expensive
 Mac computer to engage in this challenge. The challenge itself is quite simple, it's about employing
