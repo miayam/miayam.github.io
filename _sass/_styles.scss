@@ -5,6 +5,7 @@
     @include fix-screen($on-palm) {
       padding: 15px 25px;
       max-width: 75%;
+      margin: 0 auto;
     }
 
     @include media-query($on-palm) {
