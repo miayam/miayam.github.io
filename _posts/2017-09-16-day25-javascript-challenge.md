@@ -16,9 +16,10 @@ Here's the [demo](/demo_day25){:target="_blank"} to help explain how it works.
 
 ## Event propagation
 
-Event propagation is a process of handling multiple event listeners triggered by a single event because
-of both nesting and nested elements listen to the same event type ('click' for example).
-Let's say we attach event listener to both parent and child elements:
+Event propagation is a process of handling multiple event listeners triggered by a
+single event because of both event listeners on nesting and nested
+elements listen to the same event type ('click' for example). Let's say we
+attach event listener to both parent and child elements:
 
 
 {% highlight html %}
