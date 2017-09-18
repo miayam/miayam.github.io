@@ -7,7 +7,7 @@ image_preview: /images/javascript.png
 category_page: js
 ---
 
-This is improvement for [day 22 JavaScript challenge](javascript/2017/08/27/day22-javascript-challenge){:target="_blank"} (copying Stripe feature). It's not so bad.
+This is improvement for [day 22 JavaScript challenge](/javascript/2017/08/27/day22-javascript-challenge){:target="_blank"} (copying Stripe feature). It's not so bad.
 
 ![Si cantik 16](https://i.imgur.com/CwX6NoU.jpg?1){:class="blog-post-image"}
 

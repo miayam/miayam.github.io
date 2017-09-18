@@ -9,7 +9,7 @@ category_page: js
 
 I don't think following along and highlighting the link while hovering over it is important.
 
-![Si cantik 13](https://i.imgur.com/pvvZUjM.jpg){:class="blog-post-image"}
+![Si cantik 13](https://i.imgur.com/pvvZUjM.jpg?1){:class="blog-post-image"}
 
 I would say it's superfluous for a web page to have this kind of feature. Craig Newmark will look
 away and insult us in his mind! Well, if it was for fun, I wouldn't attach too much importance to his
