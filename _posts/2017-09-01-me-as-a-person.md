@@ -28,7 +28,7 @@ Apakah yang saya kerjakan sekarang adalah yang benar-benar ingin saya kerjakan? 
 Karena sudah memasuki usia dewasa, impian besar saya harus ditunda terlebih dahulu. Saya akan tetap mencari
 nafkah di dunia web, tapi akan saya sisihkan waktu untuk hobi-hobi saya yang terbengkalai.
 Saya ingin menulis novel grafis seperti Harvey Pekar (beliau memulainya di usia 37 tahun). Saya ingin menjadi matematikawan
-amatir yang menulis matematika di waktu senjang. Saya tertarik dengan perdagangan saham dan Max bilang semua yang ada
+amatir yang menulis matematika di waktu senggang. Saya tertarik dengan perdagangan saham dan Max bilang semua yang ada
 di dunia ini bisa direpresentasikan dengan angka.
 
 Apakah yang saya tulis di sini hanya akan menjadi bualan?
