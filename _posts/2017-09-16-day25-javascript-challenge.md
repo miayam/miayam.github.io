@@ -100,6 +100,6 @@ up or sink down to upper or lower levels. Don't we only intend to click on a sin
 and see it works correctly? Event delegation is the solution! I blogged about
 [that](/javascript/2017/07/30/day15-javascript-challenge){:target="_blank"} months ago.
 
-That's it for today. I wonder how is it like be in relationship? I always think having a
+That's it for today. I wonder how is it like to be in relationship? I always think having a
 girlfriend is a tremendous waste of time, but I want to taste it for a bit. Just for a
 week and see what happens.
