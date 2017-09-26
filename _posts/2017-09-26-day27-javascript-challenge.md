@@ -13,11 +13,11 @@ Scrolling that fancy carousel by grabbing and moving it back and forth... That s
 
 At first, I really wanted to skip ahead and move on to the next challenge–I was terrified by CSS.
 After hearing チージア セリーナ said 'yes' to my invitation, I got up and read that CSS snippet with hustle to
-fully understand how it works. And then I found a great resource about CSS 3D transforms!
-Kudos to [David DeSandro](https://desandro.com/){:target="_blank"} for his clear explanation!
+fully understand how it works. Sometime affection really affects people. And then I found a great resource about
+CSS 3D transforms! Kudos to [David DeSandro](https://desandro.com/){:target="_blank"} for his clear explanation!
 
-I am not willing to bother myself repeating what the author says. Let him explain himself.
-Here's [his blog](https://desandro.github.io/3dtransforms/){:target="_blank"} and here's my [demo](/demo_day27){:target="_blank"}.
+I am not willing to bother myself repeating what the author says. [Let him explain himself](https://desandro.github.io/3dtransforms/){:target="_blank"}.
+Here's the [demo](/demo_day27){:target="_blank"}.
 
 By the way, I am not concerned about how I finish the challenge,
 I am just concerned about チージア セリーナ's cute ponytail...
