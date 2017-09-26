@@ -11,7 +11,7 @@ Speeding up and down the video by moving up and down that fancy slider back and 
 
 ![Si cantik 17](https://i.imgur.com/cbzfazk.jpg?1){:class="blog-post-image"}
 
-I think day [11 JavaScript challenge](/javascript/2017/07/01/day11-javascript-challenge){:target="_blank"} is more challenging
+I think [day 11 JavaScript challenge](/javascript/2017/07/01/day11-javascript-challenge){:target="_blank"} is more challenging
 than this, but who am I to complain? Just finish the challenge and move on the next challenge. I am not in the mood of
 explaining. Here's the [demo](/demo_day28){:target="_blank"}.
 
