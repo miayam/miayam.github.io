@@ -2,12 +2,12 @@
 layout: post
 title: "Day 27: JavaScript Challenge"
 category: javascript
-short_description: "Scroll that boring carousel by grabbing and moving it back and forth... That sounds boring."
+short_description: "Scrolling that fancy carousel by grabbing and moving it back and forth... That sounds boring."
 image_preview: /images/javascript.png
 category_page: js
 ---
 
-Scroll that boring carousel by grabbing and moving it back and forth... That sounds boring.
+Scrolling that fancy carousel by grabbing and moving it back and forth... That sounds boring.
 
 ![Si cantik 9](https://i.imgur.com/kTIUTAM.jpg?1){:class="blog-post-image"}
 
