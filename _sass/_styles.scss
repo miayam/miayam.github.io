@@ -20,7 +20,7 @@
 
     .inner {
       @include media-query($on-palm) {
-        padding: 30px 0;
+        padding: 30px 50px;
       }
 
       @include fix-screen($on-palm) {
