@@ -18,23 +18,24 @@ interesting code in my own words.
 
 {% highlight js %}
   var MyModules = (function Manager() {
-      var modules = {};
+    var modules = {};
 
-      function define(name, deps, impl) {
-          for (var i=0; i<deps.length; i++) {
-              deps[i] = modules[deps[i]];
-          }
-          modules[name] = impl.apply( impl, deps );
+    function define(name, deps, impl) {
+      for (var i=0; i<deps.length; i++) {
+          deps[i] = modules[deps[i]];
       }
 
-      function get(name) {
-          return modules[name];
-      }
+      modules[name] = impl.apply( impl, deps );
+    }
 
-      return {
-          define: define,
-          get: get
-      };
+    function get(name) {
+      return modules[name];
+    }
+
+    return {
+      define: define,
+      get: get
+    };
   })();
 {% endhighlight %}
 
@@ -85,7 +86,7 @@ Here's how I make use of it.
 
 {% highlight js %}
   var greeting = $mod.get('greeting');
-  greeting.sayHello('チージア セリーナ');
+  greeting.sayHello('ちえさ せれな');
 {% endhighlight %}
 
 Right now, my heart burns with high dosage of cuteness. I really want to confess
@@ -136,7 +137,7 @@ Alright! Now I can confess my feeling to multiple girls at once! I am fabulous!
   confession.confess([
     'ルル オーリア',
     'メリー メディオーアティ',
-    'チージア セリーナ'
+    'ちえさ せれな'
   ]);
 {% endhighlight %}
 
@@ -146,7 +147,7 @@ with it.
 
 {% highlight js %}
   confession.setCustomPickUpLine("I hate a lot of people but I don't \
-  hate you, therefore I love you.", 'チージア セリーナ');
+  hate you, therefore I love you.", 'ちえさ せれな');
 {% endhighlight %}
 
 List my pick up lines toward those cute girls.
@@ -161,7 +162,7 @@ List my pick up lines toward those cute girls.
 
   // Hello メリー メディオーアティ, nice to meet you. I love you.
 
-  // Dear チージア セリーナ, I hate a lot of people but I don't hate you,
+  // Dear ちえさ せれな, I hate a lot of people but I don't hate you,
   // therefore I love you.
 {% endhighlight %}
 
@@ -200,9 +201,9 @@ Truth be told.
   // I once said, "Hello メリー メディオーアティ, nice to meet you. I love you."
   // I am sorry... That was a lie.
 
-  // I once said, "Dear チージア セリーナ, I hate a lot of people but
+  // I once said, "Dear ちえさ せれな, I hate a lot of people but
   // I don't hate you, therefore I love you."
   // I am sorry... That was a lie.
 {% endhighlight %}
 
-That's it for today. I want to kiss チージア セリーナ on the cheek.
+That's it for today. I want to kiss ちえさ せれな on the cheek.
