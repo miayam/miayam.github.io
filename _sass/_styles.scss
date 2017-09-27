@@ -18,9 +18,13 @@
       height: 425px;
     }
 
+    @include media-query($on-palm) {
+      min-height: 475px;
+    }
+
     .inner {
       @include media-query($on-palm) {
-        padding: 30px 50px;
+        padding: 30px 0px;
       }
 
       @include fix-screen($on-palm) {
