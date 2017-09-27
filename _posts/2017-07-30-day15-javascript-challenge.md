@@ -64,7 +64,7 @@ Pay attention to this snippet:
   parentElement.addEventListener('click', handleClickForCheckBox);
 {% endhighlight %}
 
-Perhaps, my wording is not as cute as チージア セリーナ. I will let David Walsh
+Perhaps, my wording is not as cute as ちえさ せれな. I will let David Walsh
 explain it if you find my explanation confusing. Here's his
 [blog](https://davidwalsh.name/event-delegate){:target="_blank"}.
 
@@ -94,5 +94,5 @@ I promise, I will explain this snippet incrementally but thoroughly.
 {% gist miayam/0f0a478f92b8b31f8e677442faf025b6 %}
 
 
-Alright then, that's it for today. I long for チージア セリーナ's ponytail.
+Alright then, that's it for today. I long ちえさ せれな's cute ponytail.
 I cannot wait any longer!

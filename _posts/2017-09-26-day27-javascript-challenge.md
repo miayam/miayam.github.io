@@ -12,7 +12,7 @@ Scrolling that fancy carousel by grabbing and moving it back and forth... That s
 ![Si cantik 9](https://i.imgur.com/kTIUTAM.jpg?1){:class="blog-post-image"}
 
 At first, I really wanted to skip ahead and move on to the next challenge–I was terrified by CSS.
-After hearing チージア セリーナ said 'yes' to my invitation, I got up and read that CSS snippet with hustle to
+After hearing ちえさ せれな said 'yes' to my invitation, I got up and read that CSS snippet with hustle to
 fully understand how it works. Sometime affection really affects people. And then I found a great resource about
 CSS 3D transforms! Kudos to [David DeSandro](https://desandro.com/){:target="_blank"} for his clear explanation!
 
@@ -20,4 +20,4 @@ I am not willing to bother myself repeating what the author says. [Let him expla
 Here's the [demo](/demo_day27){:target="_blank"}.
 
 By the way, I am not concerned about how I finish the challenge,
-I am just concerned about チージア セリーナ's cute ponytail...
+I am just concerned about ちえさ せれな's cute ponytail...

@@ -23,13 +23,13 @@ attach event listener to both parent and child elements:
 
 
 {% highlight html %}
-  <nav onclick="alert('I like you チージア セリーナ')" >
+  <nav onclick="alert('I like you ちえさ せれな')" >
     <button class="clickable">Click me~</button>
   </nav>
 
   <script>
     function askHerOut() {
-      console.log("I would love to ask チージア セリーナ out on a date");
+      console.log("I would love to ask ちえさ せれな out on a date");
     }
 
     var button = document.querySelector('.clickable');
@@ -48,18 +48,18 @@ actually click on it. It starts from within and then bubbles up until it reaches
 
 What if we reverse that process? What will happen? Instead of bubbling, the engine is
 capturing listeners for nesting elements and then sink down to elements at lower levels.
-In other words, the handler that listens to event on outermost target element—`alert('I like you チージア セリーナ')`—will
+In other words, the handler that listens to event on outermost target element—`alert('I like you ちえさ せれな')`—will
 run first and then sink down to inner nested elements—`askHerOut()`, on and on, until it reaches
 the inner core of the earth (kidding).
 
 {% highlight html %}
-  <nav onclick="alert('I like you チージア セリーナ')" >
+  <nav onclick="alert('I like you ちえさ せれな')" >
     <button class="clickable">Click me~</button>
   </nav>
 
   <script>
     function askHerOut() {
-      console.log("I would love to ask チージア セリーナ out on a date");
+      console.log("I would love to ask ちえさ せれな out on a date");
     }
 
     var button = document.querySelector('.clickable');
@@ -73,13 +73,13 @@ Sometime we want to click a button, see it functions correctly, and then disable
 How can we do that?
 
 {% highlight html %}
-  <nav onclick="alert('I like you チージア セリーナ')" >
+  <nav onclick="alert('I like you ちえさ せれな')" >
     <button class="clickable">Click me~</button>
   </nav>
 
   <script>
     function askHerOut() {
-      console.log("I would love to ask チージア セリーナ out on a date");
+      console.log("I would love to ask ちえさ せれな out on a date");
     }
 
     var button = document.querySelector('.clickable');

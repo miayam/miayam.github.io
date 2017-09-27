@@ -19,4 +19,4 @@ I don't think we can understand how it works by simply reading the snippet below
 
 {% gist miayam/8d822c49d80d4fd80f221ff52d7b9855 %}
 
-I really miss チージア セリーナ.
+I really miss ちえさ せれな.

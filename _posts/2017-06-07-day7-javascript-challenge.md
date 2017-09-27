@@ -35,7 +35,7 @@ Here's a simple array that represent those 3 cute girls.
     },
 
     {
-      name: "チージア セリーナ",
+      name: "ちえさ せれな",
       age: 23,
       status: "single",
       tags: "cute, fragile, sensitive, emotional"
@@ -64,7 +64,7 @@ I get information about her if I only remember that she is obnoxious?
   console.log(her);
 {% endhighlight %}
 
-I recently hate her, チージア セリーナ. I don't know why she is so sensitive.
+I recently hate her, ちえさ せれな. I don't know why she is so sensitive.
 Overreacting over something that has nothing to do with her. What a weak soul.
 She is fragile and emotional (she is only 23). I really want to delete her from
 the list. How could I do that if I would?

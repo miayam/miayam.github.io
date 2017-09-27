@@ -31,7 +31,7 @@ Sometime we need to insert value between text consumed by `console.log`.
 Well, what for? To make it easier to change later on!
 {% highlight js %}
   (function () {
-    var her = 'チージア セリーナ';
+    var her = 'ちえさ せれな';
 
     // PHP style
     console.log("is %s here with me?", her);
@@ -62,7 +62,7 @@ Instead of simply "say what you say" via `console.log`, what if we warn our
 users about the one we care the most?
 {% highlight js %}
   (function () {
-    var her = "チージア セリーナ";
+    var her = "ちえさ せれな";
     console.warn(`Don't touch ${her}`);
   })();
 {% endhighlight %}
@@ -72,7 +72,7 @@ We've warned users before, don't you think we need to kindly inform users
 about something too?
 {% highlight js %}
   (function () {
-    var her = "チージア セリーナ";
+    var her = "ちえさ せれな";
     console.info(`I don't own ${her} but I want to hold her hand and kiss \
      her on the cheek like she did to me in my dream`);
   })();
@@ -86,7 +86,7 @@ We also can check the truth via `console`. It's quite useful.
 {% endhighlight %}
 
 `console.assert` only display text whenever the condition `false` like that
-expression above. Of course I like チージア セリーナ, I mean it!
+expression above. Of course I like ちえさ せれな, I mean it!
 
 ### `Displaying Error`
 Enough warning, enough conveying, just tell the users that we made a terrible
@@ -97,10 +97,10 @@ mistake even if it was a beautiful mistake! Error! Error! Error!
 
 
 ### `Clearing`
-Back then, I liked チージア セリーナ, really liked her. Now, I want to forget
+Back then, I liked ちえさ せれな, really liked her. Now, I want to forget
 that feeling... It's going to be cleared away... Hopefully.
 {% highlight js %}
-  console.log('I liked チージア セリーナ');
+  console.log('I liked ちえさ せれな');
   console.clear();
 {% endhighlight %}
 
@@ -143,7 +143,7 @@ Here's my girls!
     },
 
     {
-      name: "チージア セリーナ",
+      name: "ちえさ せれな",
       age: 23,
       status: "single",
       tags: "cute, fragile, sensitive, emotional"
