@@ -2,6 +2,8 @@
 layout: post
 title: "Day 25: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day25
 short_description: It's very important for the one who build user-facing features on top of DOM and Web API to understand event propagation, bubbling, and capturing.
 image_preview: /images/javascript.png
 category_page: js

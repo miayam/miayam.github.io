@@ -2,6 +2,8 @@
 layout: post
 title: "Day 29: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day29
 short_description: Making a custom timer myself for procrastinator like me is quite fun and useful. What an interesting challenge!
 image_preview: /images/javascript.png
 category_page: js

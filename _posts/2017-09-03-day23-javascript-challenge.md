@@ -2,6 +2,8 @@
 layout: post
 title: "Day 23: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day23
 short_description: I've done the similar challenge in day 20 before (Hawking's voice synthesizer), but it's more challenging (not really).
 image_preview: /images/javascript.png
 category_page: js

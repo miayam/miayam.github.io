@@ -2,6 +2,8 @@
 layout: post
 title: "Day 3: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day3
 short_description: I am doing it so fast in the office. Not quite interesting.
 image_preview: /images/javascript.png
 category_page: js

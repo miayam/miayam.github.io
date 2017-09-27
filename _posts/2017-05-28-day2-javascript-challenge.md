@@ -2,6 +2,8 @@
 layout: post
 title: "Day 2: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day2
 short_description: It's so hard to keep up with it. I am struggling even if it's seemingly an easy task (making analogue clock).
 image_preview: /images/javascript.png
 category_page: js

@@ -2,6 +2,8 @@
 layout: post
 title: "Day 15: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day15
 short_description: LocalStorage and event delegation are concepts I am familiar with. However, I am very excited doing this challenge!
 image_preview: /images/javascript.png
 category_page: js

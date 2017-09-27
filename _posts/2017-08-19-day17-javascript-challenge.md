@@ -2,6 +2,8 @@
 layout: post
 title: "Day 17: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day17
 short_description: It's such a "cooling down" challenge. Nothing more boring than sorting list using built-in JavaScript Array's methods.
 image_preview: /images/javascript.png
 category_page: js

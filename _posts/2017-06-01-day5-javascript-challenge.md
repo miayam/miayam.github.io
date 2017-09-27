@@ -2,6 +2,8 @@
 layout: post
 title: "Day 5: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day5
 short_description: I know nothing about CSS flexbox!
 image_preview: /images/javascript.png
 category_page: js

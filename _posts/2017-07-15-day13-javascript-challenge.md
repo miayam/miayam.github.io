@@ -2,6 +2,8 @@
 layout: post
 title: "Day 13: JavaScript Challenge"
 category: javascript
+demo: /demo_day13
+tags: js30
 short_description: It's all about debounce function and the scroll event I care about.
 image_preview: /images/javascript.png
 category_page: js

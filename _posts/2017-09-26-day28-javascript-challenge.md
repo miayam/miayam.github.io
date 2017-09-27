@@ -2,6 +2,8 @@
 layout: post
 title: "Day 28: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day28
 short_description: Speeding up and down the video by moving up and down that fancy slider back and forth... That sounds boring.
 image_preview: /images/javascript.png
 category_page: js

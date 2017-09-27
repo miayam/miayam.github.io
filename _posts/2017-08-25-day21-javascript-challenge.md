@@ -2,6 +2,8 @@
 layout: post
 title: "Day 21: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day21
 short_description: I don't have Mac, so doing the actual challenge might be frustrating. However, playing (copy-pasting) with Google Map API doesn't leave bad taste in my mouth.
 image_preview: /images/javascript.png
 category_page: js

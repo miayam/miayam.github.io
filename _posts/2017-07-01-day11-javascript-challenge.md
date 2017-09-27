@@ -2,6 +2,8 @@
 layout: post
 title: "Day 11: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day11
 short_description: I was very excited building custom HTML5 video player using vanilla JavaScript.
 image_preview: /images/javascript.png
 category_page: js

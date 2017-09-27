@@ -2,6 +2,7 @@
 layout: post
 title: "Day 9: JavaScript Challenge"
 category: javascript
+tags: js30
 short_description: It's a demo-less post. Nothing to show but a lot to explain. We are going to play with the console.
 image_preview: /images/javascript.png
 category_page: js

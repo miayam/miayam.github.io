@@ -2,6 +2,8 @@
 layout: post
 title: "Day 19: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day19
 short_description: Taking a photo from webcam and painting it to canvas seemed magical before this challenge.
 image_preview: /images/javascript.png
 category_page: js

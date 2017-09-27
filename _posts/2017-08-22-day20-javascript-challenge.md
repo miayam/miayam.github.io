@@ -2,6 +2,8 @@
 layout: post
 title: "Day 20: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day20
 short_description: Mozilla has yet to implement SpeechRecognition interface for Firefox, so I turn the challenge into Stephen Hawking's voice synthesizer.
 image_preview: /images/javascript.png
 category_page: js

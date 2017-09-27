@@ -2,6 +2,8 @@
 layout: post
 title: "Day 1: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day1
 short_description: In this lovely month, I would love to spend my meaningless life on something that's meaningful. It's 30 day JavaScript challenge.
 image_preview: /images/javascript.png
 category_page: js

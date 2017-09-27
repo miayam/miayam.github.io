@@ -2,6 +2,7 @@
 layout: post
 title: "Day 12: JavaScript Challenge"
 category: javascript
+tags: js30
 short_description: Type "magic" and see what happens next! I can assure you how interesting it is!
 image_preview: /images/javascript.png
 category_page: js

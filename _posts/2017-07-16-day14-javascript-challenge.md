@@ -2,6 +2,7 @@
 layout: post
 title: "Day 14: JavaScript Challenge"
 category: javascript
+tags: js30
 short_description: Copying Array or Object can be tremendously confusing if we don't know that they are different from primitive typed values like string, boolean, or number.
 image_preview: /images/javascript.png
 category_page: js

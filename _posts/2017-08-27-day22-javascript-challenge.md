@@ -2,6 +2,8 @@
 layout: post
 title: "Day 22: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day22
 short_description: I don't think following along and highlighting the link while hovering over it is important.
 image_preview: /images/javascript.png
 category_page: js

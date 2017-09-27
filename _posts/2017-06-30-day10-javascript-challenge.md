@@ -2,6 +2,8 @@
 layout: post
 title: "Day 10: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day10
 short_description: It's been 15 days since the last challenge. In this challenge, we are going to "steal" multiple checkbox selection's feature from Gmail.
 image_preview: /images/javascript.png
 category_page: js

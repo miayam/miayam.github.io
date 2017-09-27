@@ -2,6 +2,8 @@
 layout: post
 title: "Day 24: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day24
 short_description: It's about sticky navigation bar most modern web pages bother to have.
 image_preview: /images/javascript.png
 category_page: js

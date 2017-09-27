@@ -2,6 +2,8 @@
 layout: post
 title: "Day 18: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day18
 short_description: It's kind of boring, but at least it has something to do with the DOM. It's yet another boring JavaScript's Array manipulation.
 image_preview: /images/javascript.png
 category_page: js

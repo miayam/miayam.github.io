@@ -2,6 +2,8 @@
 layout: post
 title: "Day 8: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day8
 short_description: Let's play around with the canvas! What a great API!
 image_preview: /images/javascript.png
 category_page: js

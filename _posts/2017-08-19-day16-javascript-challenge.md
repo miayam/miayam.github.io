@@ -2,6 +2,8 @@
 layout: post
 title: "Day 16: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day16
 short_description: Dynamically changing box shadow in accord to mouse movement is quite fun to me.
 image_preview: /images/javascript.png
 category_page: js

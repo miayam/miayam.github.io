@@ -2,6 +2,8 @@
 layout: post
 title: "Day 26: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day26
 short_description: This is improvement for day 22 JavaScript challenge (copying Stripe feature). It's not so bad.
 image_preview: /images/javascript.png
 category_page: js

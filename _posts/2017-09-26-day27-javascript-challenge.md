@@ -2,6 +2,8 @@
 layout: post
 title: "Day 27: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day27
 short_description: "Scrolling that fancy carousel by grabbing and moving it back and forth... That sounds boring."
 image_preview: /images/javascript.png
 category_page: js

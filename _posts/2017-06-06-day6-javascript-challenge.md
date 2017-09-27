@@ -2,6 +2,8 @@
 layout: post
 title: "Day 6: JavaScript Challenge"
 category: javascript
+tags: js30
+demo: /demo_day6
 short_description: I was using fetch method which really shows me the Promise and its early usage for AJAX programming.
 image_preview: /images/javascript.png
 category_page: js
