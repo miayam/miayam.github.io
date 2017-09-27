@@ -96,5 +96,5 @@ I promise, I will explain this snippet incrementally but thoroughly.
 {% gist miayam/0f0a478f92b8b31f8e677442faf025b6 %}
 
 
-Alright then, that's it for today. I long ちえさ せれな's cute ponytail.
+Alright then, that's it for today. I long for ちえさ せれな's cute ponytail.
 I cannot wait any longer!
