@@ -19,7 +19,7 @@ What am I going to do now? I am going to learn React, I mean React's source code
 I want to know how it works, not just how to use it smartly like those smart people
 out there.
 
-Why I choose React? Because Reddit use it in production and I am a big fun of Reddit.
+Why I choose React? Because Reddit use it in production and I am a big fan of Reddit.
 If Reddit, Craigslist, Mozilla, or Wikipedia happened to use Angular in production,
 I will learn and use Angular instead. Just as simple as that. I don't care about the
 benchmark, comparison, speed, and whatnot. I am not Software Engineer and I don't
