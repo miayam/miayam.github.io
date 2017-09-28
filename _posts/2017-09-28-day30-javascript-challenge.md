@@ -22,7 +22,7 @@ out there.
 Why I choose React? Because Reddit use it in production and I am a big fun of Reddit.
 If Reddit, Craigslist, Mozilla, or Wikipedia happened to use Angular in production,
 I will learn and use Angular instead. Just as simple as that. I don't care about the
-branchmark, comparison, speed, and whatnot. I am not Software Engineer and I don't
+benchmark, comparison, speed, and whatnot. I am not Software Engineer and I don't
 make any decisions. I just want to follow my heart and my heart says React. By the way,
 here's the [last demo](/demo_day30){:target="_blank"}.
 
