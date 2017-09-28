@@ -19,8 +19,6 @@ if you are interested.
 I hope my hobby doesn't conflict with yours. I don't mind getting into
 fistfight to resolve it (kidding).
 
-![ampun pisaaaan!](/images/mayuyu.jpg){:class="blog-post-image"}
-
 I hope the code explain itself. Thanks for reading.
 
 ### Markup

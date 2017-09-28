@@ -11,8 +11,6 @@ category_page: js
 
 Scrolling that fancy carousel by grabbing and moving it back and forth... That sounds boring.
 
-![Si cantik 9](https://i.imgur.com/kTIUTAM.jpg?1){:class="blog-post-image"}
-
 At first, I really wanted to skip ahead and move on to the next challenge–I was terrified by CSS.
 After hearing ちえさ せれな said 'yes' to my invitation, I got up and read that CSS snippet with hustle to
 fully understand how it works. Sometime affection really affects people. And then I found a great resource about

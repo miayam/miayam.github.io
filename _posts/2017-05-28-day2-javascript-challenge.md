@@ -13,8 +13,6 @@ It's so hard to keep up with this challenge. I am struggling even if it's seemin
 clock). Clone my [repo](https://github.com/miayam/js30){:target="_blank"} if you are interested and here's
 the [demo](/demo_day2){:target="_blank"}.
 
-![Lala Larissa Again](/images/lala.jpg){:class="blog-post-image"}
-
 My first mistake that takes too long to solve is turning hours into corresponding degree.
 
 I thought it would be like this because there are 24 hours per day.

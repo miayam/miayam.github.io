@@ -11,8 +11,6 @@ category_page: js
 It's a demo-less post. Nothing to show but a lot to explain. We are going to
 play with the console.
 
-![Emi Takei!](/images/emi.jpg){:class="blog-post-image"}
-
 Before this challenge, I only made use of `console.log` for debugging.
 To me, that was enough to make sure the outputs of certain program, but there
 are other built-in methods from native `console` object available to help us

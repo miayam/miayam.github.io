@@ -12,8 +12,6 @@ category_page: js
 It's about sticky navigation bar most modern web pages bother to have. Here's the
 [demo](/demo_day24){:target="_blank"}.
 
-![Si cantik 7](https://i.imgur.com/TttfRII.jpg?1){:class="blog-post-image"}
-
 First thing first, we have to determine the distance of navigation bar relative to
 its parent (`html` tag). After that, stick the navigation bar at the point where the
 top edge of the current `viewport` (an area to display the web content in the browser)

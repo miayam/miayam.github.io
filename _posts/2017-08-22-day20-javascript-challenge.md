@@ -12,8 +12,6 @@ category_page: js
 Mozilla has yet to implement `SpeechRecognition` interface for Firefox, so I turn the challenge
 into Stephen Hawking's voice synthesizer. Utter the words you type, darling!
 
-![Si cantik 4](https://i.imgur.com/meETn3N.jpg){:class="blog-post-image"}
-
 It only requires 13 lines of JavaScript code (including the comments). Here's the [demo](/demo_day20){:target="_blank"}.
 
 ### Markup

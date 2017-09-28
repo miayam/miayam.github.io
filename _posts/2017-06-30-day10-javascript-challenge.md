@@ -13,8 +13,6 @@ It's been 15 days since the last challenge. In this challenge, we are going to
 "steal" multiple checkbox selection's feature from Gmail. Great artist steal
 they say! Here's the [demo](/demo_day10){:target="_blank"}.
 
-![Stop it! I can't handle it!](/images/ah.jpg){:class="blog-post-image"}
-
 It's really different from Wes Bos solution. I don't fully watch the video.
 
 Now I realize how tedious it is to work with the DOM without any help from

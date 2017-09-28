@@ -12,8 +12,6 @@ category_page: js
 `LocalStorage` and event delegation are concepts I am familiar with. However,
 I am very excited doing this challenge!
 
-![sumpah kawai pisaaaan!](/images/saya.jpg){:class="blog-post-image"}
-
 Have you ever imagined adding event listener to element that never exist
 or will only exist in the future? That's impossible, right? However, our
 assumption sometime tells otherwise.

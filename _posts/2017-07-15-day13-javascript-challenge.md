@@ -11,8 +11,6 @@ category_page: js
 
 It's all about `debounce` function and the 'scroll' event I care about.
 
-![My dear!](/images/aoi_oh_aoi.jpg){:class="blog-post-image"}
-
 As I understand it, `debounce` function will prevent event listener
 to fire every time the event it listen to occurred. Scrolling and resizing
 are the best candidates because the function that listen to those activities

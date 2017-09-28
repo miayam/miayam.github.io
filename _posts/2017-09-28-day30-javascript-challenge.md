@@ -13,8 +13,6 @@ After 4 months trying to get into the DOM and Web API (without libraries, framew
 I finally finish 30 day JavaScript challenge! It sounds easy, but you have to try it
 yourself. It takes a lot of hard work!
 
-![Si cantik 1](https://i.imgur.com/1LIpkwO.jpg?1){:class="blog-post-image"}
-
 What am I going to do now? I am going to learn React, I mean React's source code.
 I want to know how it works, not just how to use it smartly like those smart people
 out there.

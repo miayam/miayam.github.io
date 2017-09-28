@@ -10,8 +10,6 @@ category_page: js
 
 Type **"magic"** and see what happens next! I can assure you how interesting it is!
 
-![Oh my!](/images/3beauty.jpg){:class="blog-post-image"}
-
 For more about konami code, visit [this wikipedia page](https://en.wikipedia.org/wiki/Konami_Code){:target="_blank"}.
 
 Here's my stupid code.

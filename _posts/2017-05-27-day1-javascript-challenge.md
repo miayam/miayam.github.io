@@ -13,8 +13,6 @@ In this lovely month, I would love to spend my meaningless life on something
 that's meaningful. It's
 [30 day JavaScript challenge](https://javascript30.com/){:target="_blank"}.
 
-![Lala Larissa](/images/lovely_month.jpg){:class="blog-post-image"}
-
 This is the first challenge. It's not tricky but lots of fun.
 Clone my [repo](https://github.com/miayam/js30){:target="_blank"}
 if you are interested and here's the [demo](/demo_day1){:target="_blank"}.

@@ -11,8 +11,6 @@ category_page: js
 
 Dynamically changing box shadow in accord to mouse movement is quite fun to me.
 
-![Si cantik 12](https://i.imgur.com/4ixiB7u.jpg){:class="blog-post-image"}
-
 If you add event listener that listens to `mousemove` event to
 [block-level element](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements){:target="_blank"} that
 wraps another [block-level element](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements){:target="_blank"} (`div` that consists of `article` for example),

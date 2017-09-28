@@ -13,9 +13,6 @@ It's very important for the one who build user-facing features on top of DOM and
 understand event propagation, bubbling, and capturing. What the heck are those terms about?
 Here's the [demo](/demo_day25){:target="_blank"} to help explain how it works.
 
-![Si cantik 18](https://i.imgur.com/7NmbulG.jpg?1){:class="blog-post-image"}
-
-
 ## Event propagation
 
 Event propagation is a process of handling multiple event listeners triggered by a

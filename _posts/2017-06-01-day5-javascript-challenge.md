@@ -11,8 +11,6 @@ category_page: js
 
 I know nothing about CSS flexbox!
 
-![she is cute in some way](/images/yoshitaka.jpg){:class="blog-post-image"}
-
 I will skip all the CSS thingy in this challenge and focus on the experience I'd love to have.
 At first, in Wes Bos JavaScript code, when you click one of the panels, it will make it bigger and the rest will shrink.
 If you click the other one while letting the previous one clicked (it's toggle), both panels will shrink but still bigger than

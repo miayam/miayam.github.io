@@ -12,8 +12,6 @@ category_page: js
 I was using fetch method which really shows me the Promise and its early usage for AJAX
 programming. Here's one of the most cutest girl in China.
 
-![she is also cute](/images/chen.jpg){:class="blog-post-image"}
-
 I had nothing to say about this challenge. Here's the [demo](/demo_day6){:target="_blank"} and
 the [repo](https://github.com/miayam/js30){:target="_blank"}. Please, read the gist while fixing
 your eyes on that beautiful girl above!

@@ -11,9 +11,6 @@ category_page: js
 
 Taking a photo from webcam and painting it to canvas seemed magical before this challenge.
 
-![Si cantik 6](https://i.imgur.com/065fRsM.jpg){:class="blog-post-image"}
-
-
 Here's the [demo](/demo_day19){:target="_blank"}.
 
 The snippets below seems gibberish, but don't worry, there will be comments to explain how it works. I promise.

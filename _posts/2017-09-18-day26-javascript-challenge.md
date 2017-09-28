@@ -11,8 +11,6 @@ category_page: js
 
 This is improvement for [day 22 JavaScript challenge](/javascript/2017/08/27/day22-javascript-challenge){:target="_blank"} (copying Stripe feature). It's not so bad.
 
-![Si cantik 16](https://i.imgur.com/CwX6NoU.jpg?1){:class="blog-post-image"}
-
 I'll say that again, it's superfluous for a web page to have this kind of feature. Craig Newmark will look
 away and insult us in his mind! Well, if it was for fun, I wouldn't attach too much importance to his
 thinking. Here we are completely copying Stripe new web page! Here's the [demo!](/demo_day26){:target="_blank"}

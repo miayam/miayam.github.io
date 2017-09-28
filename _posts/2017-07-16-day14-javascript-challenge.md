@@ -12,8 +12,6 @@ Copying `Array` or `Object` can be tremendously confusing if we don't know that
 they are different from primitive typed values like `string`, `boolean`, or
 `number`.
 
-![She is the best!](/images/she_is.jpg){:class="blog-post-image"}
-
 Let's start with them. I can guarantee that we can copy primitive typed
 values this way.
 

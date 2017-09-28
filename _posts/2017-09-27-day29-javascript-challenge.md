@@ -12,8 +12,6 @@ category_page: js
 Making a custom timer for procrastinator like me is quite fun and useful. What an interesting challenge!
 Here's the [demo](/demo_day29){:target="_blank"}.
 
-![Si cantik 11](https://i.imgur.com/nj0aPDN.jpg?1){:class="blog-post-image"}
-
 I can only show the markup and JavaScript code here. Nothing to explain.
 
 ### Markup
