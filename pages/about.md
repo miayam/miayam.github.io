@@ -6,7 +6,7 @@ permalink: about
 About Me
 ========
 
-I am a boring person interested in building user-facing application using HTML, CSS, and JavaScript. I blog
+I am a boring person interested in building user-facing features using HTML, CSS, and JavaScript. I blog
 about anything that interest me and most of my writings here are dedicated to JavaScript and
 the web in general.
 
