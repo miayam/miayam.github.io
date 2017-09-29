@@ -20,9 +20,3 @@ Every time you reload the page, please open the console and see the result
 of my work. You have to redo the challenge until you really get it. It's really
 hard, especially reduce method. My first attempt is awful but the next 10th
 attempt is awesome (kidding).
-
-I am sorry, there must be a cute girl in every post about 30 day JavaScript
-challenge so as to cheer me up. Until tomorrow!
-
-I am running out of cute girls! I don't know who is going to be in my next post!
-Emi Takei maybe?

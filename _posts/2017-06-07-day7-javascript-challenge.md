@@ -13,7 +13,7 @@ As for now, I am romantically attached to 3 girls I met in
 high school, college, and office. How could I manage them? Unfortunately,
 they are nothing compared to this superb cute girl!
 
-How about making use of JavaScript's `Array.prototype` built-in method to take
+How about making use of JavaScript's `Array.prototype` built-in methods to take
 care of them?
 
 Here's a simple array that represent those 3 cute girls.
