@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pubertas yang Terlambat Datang di Usia Matang
+title: Pubertas yang Terlambat Datang
 category: "personal-life"
 short_description: Terus terang saya agak linglung dengan semua ini. Bayang-bayang romatisisme yang sering saya lamunkan sebelumnya kini sudah menjadi hambar. Bukan... Bukan karena dia.
 image_preview: /images/opinion.png
