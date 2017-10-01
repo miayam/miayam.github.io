@@ -32,7 +32,7 @@ ukuran film buatan orang Indonesia. Sementara itu, saya melirik dia sedikit dan 
 Saya sempat berfantasi kalau dia akan kaget dan memuluk lengan saya yang tinggal tulang dan kulit. Alhasil,
 yang semacam itu memang hanya terjadi di sinetron dan novel remaja.
 
-Oh iya! Saya sempat berbasa-basi mau mengajak dia ke Kebun Binantang Ragunan. Dia menolak karena tempatnya jelek.
+Oh iya! Saya sempat berbasa-basi mau mengajak dia ke Kebun Binatang Ragunan. Dia menolak karena tempatnya jelek.
 Saat dia bilang kalau Taman Safari bagus, dia tidak menolak jika diajak ke sana. Mudah-mudahan dia benar-benar mau dan
 kalau ada pertemuan berikutnya, saya akan berusaha membuatnya menyenangkan.
 
