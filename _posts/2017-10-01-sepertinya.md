@@ -2,12 +2,12 @@
 layout: post
 title: Pubertas yang Terlambat Datang
 category: "personal-life"
-short_description: Terus terang saya agak linglung dengan semua ini. Bayang-bayang romatisisme yang sering saya lamunkan sebelumnya kini sudah menjadi hambar. Bukan... Bukan karena dia.
+short_description: Terus terang saya agak linglung dengan semua ini. Bayang-bayang romatisisme yang sering saya lamunkan sebelumnya kini sudah menjadi hambar. Bukan karena dia.
 image_preview: /images/opinion.png
 category_page: personal
 ---
 Terus terang saya agak linglung dengan semua ini. Bayang-bayang romantisisme yang sering saya lamunkan
-sebelumnya kini sudah menjadi hambar. Bukan... Bukan karena dia.
+sebelumnya kini sudah menjadi hambar. Bukan karena dia.
 
 Hari ini dia begitu cantik, mungil, bersih, dan rapi. Jemarinya lentik seperti balita, ketebalan bibirnya menipis saat
 berbicara, dan aroma tubuhnya tidak terlalu tajam seperti perempuan kebanyakan. 30 cm sudah cukup untuk
