@@ -29,7 +29,7 @@ ketiaknya yang sehambar air. Mohon maaf! Air itu murni dan apa adanya!
 Selama di bioskop, kami (sepertinya hanya saya) fokus dengan film yang dimainkan di depan layar.
 Film sialan ini beberapa kali membuat saya kaget. Teknik mengagetkannya juga cukup bagus untuk
 ukuran film buatan orang Indonesia. Sementara itu, saya melirik dia sedikit dan tidak ada reaksi apa pun.
-Saya sempat berfantasi dia akan kaget dan memuluk lengan saya yang tinggal tulang dan kulit. Alhasil,
+Saya sempat berfantasi kalau dia akan kaget dan memuluk lengan saya yang tinggal tulang dan kulit. Alhasil,
 yang semacam itu memang hanya terjadi di sinetron dan novel remaja.
 
 Oh iya! Saya sempat berbasa-basi mau mengajak dia ke Kebun Binantang Ragunan. Dia menolak karena tempatnya jelek.
