@@ -15,7 +15,7 @@
 
   .card {
     @include fix-screen($on-palm) {
-      height: 425px;
+      height: 440px;
     }
 
     @include media-query($on-palm) {
