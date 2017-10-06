@@ -10,8 +10,7 @@ category_page: js
 ---
 
 As for now, I am romantically attached to 3 girls I met in
-high school, college, and office. How could I manage them? Unfortunately,
-they are nothing compared to this superb cute girl!
+high school, college, and office. How could I manage them?
 
 How about making use of JavaScript's `Array.prototype` built-in methods to take
 care of them?
