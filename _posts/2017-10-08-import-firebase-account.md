@@ -61,7 +61,7 @@ mendapatkan hak akses ke LMS (*Learning Management System*).
 Berikut adalah cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
 dan estetika.
 
-Ini modul untuk mengkapsulasi fungsi-fungsi bawaan `Firebase`:
+Ini modul untuk "membungkus" fungsi-fungsi bawaan `Firebase`:
 
 {% highlight js %}
   // firebase_administrator.js
