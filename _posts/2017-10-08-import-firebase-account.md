@@ -11,7 +11,7 @@ category_page: rb
 Kami punya ide nyeleneh untuk menangani masalah ini.
 
 Biasanya penerimaan mahasiswa dilakukan melalui proses panjang di UMS (*University Management System*):
-Mulai dari penguduhan berkas-berkas, pemilihan lokasi ujian, melakukan berbagai pembayaran, sampai
+Mulai dari pengunggahan berkas-berkas, pemilihan lokasi ujian, melakukan berbagai pembayaran, sampai
 akhirnya calon mahasiswa resmi menjadi mahasiswa di universitas mitra kami. Semua proses dilakukan
 secara daring (*online*).
 
