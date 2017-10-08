@@ -115,7 +115,7 @@ Ini modul untuk mengkapsulasi fungsi-fungsi bawaan `Firebase`:
   exports.getUserUID = firebaseGetUserUID;
 {% endhighlight %}
 
-Ini modul untuk pengunggahan masal akun di `Firebase`:
+Ini modul untuk mengunggah akun secara masal ke `Firebase`:
 
 {% highlight js %}
   // mass_uploader.js
@@ -170,12 +170,12 @@ berdasarkan kelas dan mata kuliah yang diambil di semester yang sedang berjalan.
 
 Inilah kode kunci untuk menyelesaikan masalah ini. Kami meminta mesin `linux` untuk menjalankan
 skrip `Node.js` dari CLI (*Command-line Interface*), sementara parameter-parameter yang kami butuhkan
-dimasukkan secara dinamis—yang berarti tidak ditulis langsung di baris perintah.
+dimasukkan secara dinamis—yang berarti tidak ditulis secara langsung di baris perintah.
 Berikut adalah solusi kami yang agak jenaka:
 
 {% gist miayam/a1c6fa21c1d793e25a13fbe907134a8a %}
 
-Kami membiarkan `Sidekiq` bekerja, sementara saya dan tim punya waktu untuk bisa bernafas lega:
+Kami membiarkan `Sidekiq` bekerja sendiri, sementara saya dan tim punya waktu untuk bisa bernafas lega:
 
 {% gist miayam/bec52f5d6834719f451c4c7206cf1787 %}
 
