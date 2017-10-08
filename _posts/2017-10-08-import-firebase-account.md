@@ -56,7 +56,7 @@ kalian lihat menyakitkan mata.
 
 Solusi paling masuk akal adalah meminta tim operasional mengimpor daftar mahasiswa tersebut dalam bentuk CSV
 ke UMS, kemudian biarkan program berjalan di belakang layar (*background job*) sampai semua mahasiswa
-mendapatkan hak akses ke LMS (*Learning Management System*). Sesederhana itu.
+mendapatkan hak akses ke LMS (*Learning Management System*).
 
 Berikut adalah salah satu cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
 dan estetika.
