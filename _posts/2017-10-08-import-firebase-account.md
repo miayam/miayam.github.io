@@ -56,10 +56,10 @@ kalian lihat menyakitkan mata.
 
 Solusi paling masuk akal adalah meminta tim operasional mengimpor daftar mahasiswa tersebut dalam bentuk CSV
 ke UMS, kemudian biarkan program berjalan di belakang layar (*background job*) sampai semua mahasiswa
-mendapatkan akses ke LMS (*Learning Management System*) setelah mendapatkan notifikasi via surel
-(*email*).
+mendapatkan hak akses ke LMS (*Learning Management System*). Sesederhana itu.
 
-Berikut adalah salah satu cungkilan dari kode busuk karya kami yang sama sekali tidak punya keindahan semantik.
+Berikut adalah salah satu cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
+dan estetika.
 
 Modul untuk mengkapsulasi fungsi-fungsi bawaan Firebase:
 
@@ -169,8 +169,8 @@ akal karena 3000 lebih mahasiswa tidak diunggah dalam 1 dokumen, mereka dibagi
 berdasarkan kelas dan mata kuliah yang diambil di semester yang sedang berjalan.
 
 Inilah kode kunci untuk menyelesaikan masalah ini. Kami meminta mesin `linux` untuk menjalankan
-skrip `Node.js` dari CLI (*Command-line Interface*) dan parameter-parameter yang kami butuhkan
-dimasukkan secara dinamis (tidak dimasukkan secara langsung tanpa disimpan di variabel).
+skrip `Node.js` dari CLI (*Command-line Interface*), sementara parameter-parameter yang kami butuhkan
+dimasukkan secara dinamis—yang berarti tidak ditulis langsung di baris perintah.
 Berikut adalah solusi kami yang agak jenaka:
 
 {% gist miayam/a1c6fa21c1d793e25a13fbe907134a8a %}
