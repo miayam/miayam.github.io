@@ -61,7 +61,7 @@ mendapatkan hak akses ke LMS (*Learning Management System*).
 Berikut adalah cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
 dan estetika.
 
-Modul untuk mengkapsulasi fungsi-fungsi bawaan `Firebase`:
+Ini modul untuk mengkapsulasi fungsi-fungsi bawaan `Firebase`:
 
 {% highlight js %}
   // firebase_administrator.js
@@ -115,7 +115,7 @@ Modul untuk mengkapsulasi fungsi-fungsi bawaan `Firebase`:
   exports.getUserUID = firebaseGetUserUID;
 {% endhighlight %}
 
-Modul untuk pengunggahan masal akun di `Firebase`:
+Ini modul untuk pengunggahan masal akun di `Firebase`:
 
 {% highlight js %}
   // mass_uploader.js
@@ -151,8 +151,8 @@ Modul untuk pengunggahan masal akun di `Firebase`:
   });
 {% endhighlight %}
 
-Dari sini, kami memulai menulis kode `Ruby` untuk pembuatan proses latar belakang menggunakan
-`Sidekiq`. Silahkan baca [dokumentasinya](https://github.com/mperham/sidekiq/wiki){:target="_blank"}
+Dari sini, kami memulai menulis kode `Ruby` untuk pembuatan servis yang akan dieksekusi di belakang layar
+menggunakan `Sidekiq`. Silahkan baca [dokumentasinya](https://github.com/mperham/sidekiq/wiki){:target="_blank"}
 agar lebih jelas.
 
 Sebelum menulis kode, kami memastikan pustaka `execjs` dan `therubyracer` tertera di berkas `Gemfile`:
