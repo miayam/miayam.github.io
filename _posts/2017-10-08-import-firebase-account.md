@@ -58,10 +58,10 @@ Solusi paling masuk akal adalah meminta tim operasional mengimpor daftar mahasis
 ke UMS, kemudian biarkan program berjalan di belakang layar (*background job*) sampai semua mahasiswa
 mendapatkan hak akses ke LMS (*Learning Management System*).
 
-Berikut adalah salah satu cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
+Berikut adalah cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
 dan estetika.
 
-Modul untuk mengkapsulasi fungsi-fungsi bawaan Firebase:
+Modul untuk mengkapsulasi fungsi-fungsi bawaan `Firebase`:
 
 {% highlight js %}
   // firebase_administrator.js
@@ -115,7 +115,7 @@ Modul untuk mengkapsulasi fungsi-fungsi bawaan Firebase:
   exports.getUserUID = firebaseGetUserUID;
 {% endhighlight %}
 
-Modul untuk pengunggahan masal akun di Firebase:
+Modul untuk pengunggahan masal akun di `Firebase`:
 
 {% highlight js %}
   // mass_uploader.js
