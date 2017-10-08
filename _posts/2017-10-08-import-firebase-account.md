@@ -49,7 +49,7 @@ Berikut adalah `package.json` untuk proyek `Node.js` kami.
 {% endhighlight %}
 
 Tidak ada satu pun di tim kami yang punya pengalaman dengan `Node.js`, jadi harap maklum jika kode yang akan
-kalian lihat menyakitkan mata.
+kalian lihat membuat mata perih.
 
 ![my eyes](https://i.imgur.com/zzG8J5w.png){:class="blog-post-image"}
 <em class="description">My eyes!</em>
