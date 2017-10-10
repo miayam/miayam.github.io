@@ -22,7 +22,7 @@ I suck at SQL, NoSQL, any kind of fullstack frameworks (Django, Laravel, Ruby on
 libraries, or any fancy stuffs most developers love to talk about (shiny new technologies).
 
 For more details, you can find me on [LinkedIn](https://www.linkedin.com/in/miayam/), [GitHub](https://github.com/miayam), [CodePen](https://codepen.io/miayam/),
-and [Facebook](https://www.facebook.com/miiayam). If you got any questions about anything, feel free to [send me email](mailto:muhammaddeni90@gmail.com).
+and [Twitter](https://twitter.com/MuhammadD9). If you got any questions about anything, feel free to [send me email](mailto:muhammaddeni90@gmail.com).
 
 I need lots of feedbacks from everyone because I can't keep my attitude in check all the time. Please, don't sugarcoat
 your words if it's necessary to treat me somewhat inconsiderately. I will not take it personal.
