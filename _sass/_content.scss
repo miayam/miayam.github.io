@@ -1,5 +1,6 @@
 .standard {
-  .menu .menu-item.active, .menu .menu-item:hover {
+  .menu .menu-item.active,
+  .menu .menu-item:hover {
     color: #ff2e88;
     border-color: #ff2e88;
   }
@@ -20,9 +21,15 @@
     color: inherit;
     vertical-align: middle;
     margin-right: 10px;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     span {
       padding-left: 5px;
     }
+  }
+
+  .category-link:active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   }
 
   .image-category {
@@ -53,7 +60,8 @@
     margin: 0 auto;
     text-align: center;
 
-    a, span {
+    a,
+    span {
       padding: 5px;
       border-bottom: 0px;
     }
@@ -63,7 +71,8 @@
     position: relative;
     height: 90px;
 
-    .blog-navigation__previous-link, .blog-navigation__next-link {
+    .blog-navigation__previous-link,
+    .blog-navigation__next-link {
       position: absolute;
       width: 50%;
       border-bottom: 0;
