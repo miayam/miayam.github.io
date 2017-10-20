@@ -8,20 +8,20 @@ category_page: rb
 ---
 
 `Firebase` belum menyediakan pustaka (*library*) untuk mengelola akun di `Firebase` dalam bahasa `Ruby`.
-Kami punya ide nyeleneh untuk menangani masalah ini.
+Kami punya ide *nyeleneh* untuk menangani masalah ini.
 
 Biasanya penerimaan mahasiswa dilakukan melalui proses panjang di UMS (*University Management System*):
 Mulai dari pengunggahan berkas-berkas, pemilihan lokasi ujian, melakukan berbagai pembayaran, sampai
-akhirnya calon mahasiswa resmi menjadi mahasiswa di universitas mitra kami. Semua proses dilakukan
+akhirnya calon mahasiswa resmi menjadi mahasiswa di universitas mitra. Semua proses dilakukan
 secara daring (*online*).
 
-Nah! Salah satu universitas mitra kami ternyata sudah memiliki daftar mahasiswa (3000-an lebih) melalui
-proses penerimaan manual. Kami perlu memasukkan daftar mahasiswa tersebut ke basis data agar mereka bisa
-menikmati layanan kami. *VP of Engineering* memutar otak karena kami sudah terlanjur menggunakan `Ruby on
-Rails` dari awal dan melakukan migrasi ke `Node.js` sama saja dengan bunuh diri. Bisa saja kami
-melakukan pengisian manual secara langsung di Firebase, tapi buat apa menjadi
-pengembang web jika masih melakukan pekerjaan repetitif semacam itu? Setelah meminta wejangan
-kepada leluhur (hiperbola), akhirnya kami punya solusi yang cukup nyeleneh.
+Nah! Salah satu universitas mitra ternyata sudah memiliki daftar mahasiswa (3000-an lebih) melalui
+proses manual. Kami perlu memasukkan daftar mahasiswa tersebut ke basis data (*database*) agar mereka bisa
+menikmati semua layanan yang disediakan LMS (*Learning Management System*). *VP of Engineering* memutar otak
+karena kami sudah terlanjur menggunakan `Ruby on Rails` dari awal dan melakukan migrasi ke `Node.js` sama
+saja dengan bunuh diri. Bisa saja kami melakukan pengisian manual secara langsung di Firebase, tapi buat
+apa menjadi pengembang web jika masih melakukan pekerjaan repetitif semacam itu? Setelah meminta wejangan
+kepada leluhur, akhirnya kami punya solusi yang cukup *nyeleneh*.
 
 Pertama-tama, kami membuat berkas (*folder*) baru dengan nama `nodejs`.
 
@@ -56,7 +56,7 @@ kalian lihat membuat mata perih.
 
 Solusi paling masuk akal adalah meminta tim operasional mengimpor daftar mahasiswa tersebut dalam bentuk CSV
 ke UMS, kemudian biarkan program berjalan di belakang layar (*background job*) sampai semua mahasiswa
-mendapatkan hak akses ke LMS (*Learning Management System*).
+mendapatkan hak akses ke LMS.
 
 Berikut adalah cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
 dan estetika.
@@ -155,7 +155,7 @@ Dari sini, kami memulai menulis kode `Ruby` untuk pembuatan servis yang akan die
 menggunakan `Sidekiq`. Silahkan baca [dokumentasinya](https://github.com/mperham/sidekiq/wiki){:target="_blank"}
 agar lebih jelas.
 
-Sebelum menulis kode, kami memastikan pustaka `execjs` dan `therubyracer` tertera di berkas `Gemfile`:
+Sebelum menulis kode, kami memastikan pustaka `execjs` dan `therubyracer` terlampir di berkas `Gemfile`:
 
 ![seperti ini](https://i.imgur.com/DSrVPca.png){:class="blog-post-image"}
 
@@ -164,7 +164,7 @@ Kurang lebih seperti ini kodenya:
 {% gist miayam/d286dc449dc46f5ccf1cf51a54caaa26 %}
 
 Servis ini akan berjalan setiap tim operasional melakukan pengunggahan. Secara otomatis, `Sidekiq`
-akan mendaftarkan proses ini ke daftar antrian sebelum dieksekusi. Ini cukup masuk
+akan mendaftarkan proses ini ke antrian sebelum dieksekusi. Ini cukup masuk
 akal karena 3000 lebih mahasiswa tidak diunggah dalam 1 dokumen, mereka dibagi
 berdasarkan kelas dan mata kuliah yang diambil di semester yang sedang berjalan.
 
@@ -175,7 +175,7 @@ Berikut adalah solusi kami yang agak jenaka:
 
 {% gist miayam/a1c6fa21c1d793e25a13fbe907134a8a %}
 
-Kami membiarkan `Sidekiq` bekerja sendiri, sementara saya dan tim punya waktu untuk bisa bernafas lega:
+Kami membiarkan `Sidekiq` bekerja sendiri, sementara kami punya waktu untuk bisa bernafas lega:
 
 {% gist miayam/bec52f5d6834719f451c4c7206cf1787 %}
 
@@ -183,5 +183,5 @@ Alhamdulillah, karya busuk kami masih berjalan sampai sekarang meski terdapat ba
 di sana-sini.
 
 Kini, ribuan mahasiswa yang sebelumnya sudah terdaftar di universitas mitra bisa
-menikmati layanan kami tanpa perlu melakukan proses penerimaan mahasiswa baru yang melelahkan.
-Terima kasih `Node.js`! Terima kasih `Firebase`! Saya pensiun menggunakan `Ruby on Rails`!
+menikmati layanan yang disediakan LMS tanpa perlu melakukan proses penerimaan mahasiswa baru
+yang melelahkan. Terima kasih `Node.js`! Terima kasih `Firebase`! Saya pensiun menggunakan `Ruby on Rails`!
