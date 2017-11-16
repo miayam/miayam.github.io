@@ -28,7 +28,7 @@ No such thing like bridging motherfucker!
   function message() {
     var contentText = "Hello world!";
     // Fooly expecting `greeting` says "Hello world!" which is impossible!
-    console.log(this.greeting());
+    console.log(greeting());
   }
 {% endhighlight %}
 
