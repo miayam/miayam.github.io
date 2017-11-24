@@ -5,6 +5,7 @@ category: "personal-life"
 short_description: Words are not words until a real man believe in it!
 image_preview: /images/opinion.png
 category_page: personal
+published: false
 ---
 
 Words are not words until a real man believe in it!

@@ -5,6 +5,7 @@ category: "personal-life"
 short_description: "Lirik lagunya sederhana, tapi awet di telinga. Pesan moral dari lagu ini mahal harganya jika dipraktikan di kehidupan sehari-hari."
 image_preview: /images/opinion.png
 category_page: personal
+published: false
 ---
 
 Lirik lagunya sederhana, tapi awet di telinga. Pesan moral dari lagu ini mahal

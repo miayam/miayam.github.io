@@ -5,6 +5,7 @@ category: "personal-life"
 short_description: Dear myself, you are going to die sooner or later. You probably won't care about this event or those events when you have it coming.
 image_preview: /images/opinion.png
 category_page: personal
+published: false
 ---
 
 ![Zen as Fuck](/images/zen_as_fuck.jpg){:class="blog-post-image"}

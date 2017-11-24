@@ -45,6 +45,8 @@ navigation:
     url: /archive
   - text: Resume
     url: /assets/file/Resume_Muhammad_Deni_Ramadhan.pdf
+  - text: Search
+    url: /search
 
 category_pages:
   - text: JavaScript

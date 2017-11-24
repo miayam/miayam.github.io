@@ -5,6 +5,7 @@ category: "personal-life"
 short_description: Saya tidak bijak dalam mengalokasikan waktu untuk sesuatu yang penting. Agak menjengkelkan jika terus begini.
 image_preview: /images/opinion.png
 category_page: personal
+published: false
 ---
 
 Saya tidak bijak dalam mengalokasikan waktu untuk sesuatu yang penting. Agak menjengkelkan jika terus begini.

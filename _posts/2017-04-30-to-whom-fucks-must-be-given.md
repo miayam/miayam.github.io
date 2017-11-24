@@ -5,6 +5,7 @@ category: "personal-life"
 short_description: I found a great article that really slaps me in the face.
 image_preview: /images/opinion.png
 category_page: personal
+published: false
 ---
 
 I found a [great article](https://markmanson.net/not-giving-a-fuck) that really slaps me in the face.

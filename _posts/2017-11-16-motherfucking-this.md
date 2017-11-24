@@ -22,7 +22,7 @@ No such thing like bridging motherfucker!
 {% highlight js %}
   function greeting() {
     // Fooly expecting `contentText` value on `message` function body!
-    console.log(this.contentText);
+    return this.contentText;
   }
 
   function message() {
