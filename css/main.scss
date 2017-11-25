@@ -2,19 +2,12 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-
-
-
 // Our variables
 $spacing-unit:     15px;
 $image-size:       50px;
 $icon-size:        15px;
-
-
 // Sizes
 $on-palm:          768px;
-
-
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -34,7 +27,6 @@ $on-palm:          768px;
     @content;
   }
 }
-
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
