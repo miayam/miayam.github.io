@@ -6,6 +6,7 @@ demo: /demo_day30
 short_description: More than a month, I haven't written a blog to keep ahead of the game.
 image_preview: /images/javascript.png
 category_page: js
+published: false
 ---
 
 More than a month, I haven't written a blog to keep ahead of the game.
