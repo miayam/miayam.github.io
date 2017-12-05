@@ -8,7 +8,7 @@ category_page: rb
 ---
 
 `Firebase` belum menyediakan pustaka (*library*) untuk mengelola akun di `Firebase` dalam bahasa `Ruby`.
-Kami punya ide *nyeleneh* untuk menangani masalah ini.
+Kami punya ide untuk menangani masalah ini.
 
 Biasanya penerimaan mahasiswa dilakukan melalui proses panjang di UMS (*University Management System*):
 Mulai dari pengunggahan berkas-berkas, pemilihan lokasi ujian, melakukan berbagai pembayaran, sampai
@@ -23,7 +23,7 @@ saja dengan bunuh diri. Bisa saja kami melakukan pengisian manual secara langsun
 apa menjadi pengembang web jika masih melakukan pekerjaan repetitif semacam itu? Setelah meminta wejangan
 kepada leluhur, akhirnya kami punya solusi yang cukup *nyeleneh*.
 
-Pertama-tama, kami membuat berkas (*folder*) baru dengan nama `nodejs`.
+Pertama-tama, kami membuat [folder](https://kbbi.web.id/folder) baru dengan nama `nodejs`.
 
 Berikut adalah `package.json` untuk proyek `Node.js` kami.
 
@@ -55,7 +55,7 @@ kalian lihat membuat mata perih.
 <em class="description">My eyes!</em>
 
 Solusi paling masuk akal adalah meminta tim operasional mengimpor daftar mahasiswa tersebut dalam bentuk CSV
-ke UMS, kemudian biarkan program berjalan di belakang layar (*background job*) sampai semua mahasiswa
+ke UMS, kemudian biarkan program berjalan di belakang layar sampai semua mahasiswa
 mendapatkan hak akses ke LMS.
 
 Berikut adalah cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
@@ -155,7 +155,7 @@ Dari sini, kami memulai menulis kode `Ruby` untuk pembuatan servis yang akan die
 menggunakan `Sidekiq`. Silahkan baca [dokumentasinya](https://github.com/mperham/sidekiq/wiki){:target="_blank"}
 agar lebih jelas.
 
-Sebelum menulis kode, kami memastikan pustaka `execjs` dan `therubyracer` terlampir di berkas `Gemfile`:
+Sebelum menulis kode, kami memastikan pustaka `execjs` dan `therubyracer` terlampir di konfigurasi `Gemfile`:
 
 ![seperti ini](https://i.imgur.com/DSrVPca.png){:class="blog-post-image"}
 
