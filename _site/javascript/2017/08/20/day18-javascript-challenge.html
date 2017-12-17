@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 18: JavaScript Challenge</title>
+  <meta name="description"
+        content="It’s kind of boring, but at least it has something to do with the DOM. It’s yet another JavaScript’s Array manipulation.Imagine yourself a YouTuber and you k...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/08/20/day18-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 18: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 18: JavaScript Challenge" />
+<meta name="description" content="It’s kind of boring, but at least it has something to do with the DOM. It’s yet another JavaScript’s Array manipulation.Imagine yourself a YouTuber and you kind of wonder about the total duration of all videos you’ve uploaded. With a little help fromour friends at Mozilla, you can read the documentation aboutArray.prototype’s available methodsand tinker with it as if you understand how it works. The time format displayed on YouTube are like this 45:05 andadding up each video’s duration with that time format is not that complicated!Here’s the demo.I finish this challenge this way. I refuse to touch ES6 and decide to employ ES5 everywhere for thislovely 30 day JavaScript challenge. On December 3, 2009, Ecma International® published ES5 specification.On the same date, ルル オーリア and I made our first eye contact.(function (window, undefined) {  // It&#39;s for mapping DOM elements. The Array.prototype.map won&#39;t work  // with NodeList.  var mapNodeList = function mapNodeList(callback) {    var newArray = [];    for (var i = 0; i &lt; this.length; i++) {      newArray[i] = callback.call(this, this[i], i);    }    return newArray;  };  var totalDurationDOM = document.querySelector(&#39;.total-js&#39;);  var lists = document.querySelectorAll(&#39;[data-time]&#39;);  // Total duration in seconds.  var totalDuration = mapNodeList.call(lists, function (list) {    var text = list.textContent;    list.innerHTML = `      &lt;strong&gt;${text}&lt;/strong&gt; Duration ${list.dataset.time}    `;        return list.dataset.time;  }).map(function (time) {    // The time format is &quot;minutes:seconds&quot;    var timeArray = time.split(&#39;:&#39;).map(window.parseFloat);    var minutes = timeArray[0];    var seconds = timeArray[1];    return (minutes * 60) + seconds;  }).reduce(function (total, videoDuration) {    return total + videoDuration;  });  var leftOver, hours, minutes, seconds;  hours = Math.floor(totalDuration / 3600);  leftOver = totalDuration % 3600;  minutes = Math.floor(leftOver / 60);  seconds = leftOver % 60;  totalDurationDOM.innerHTML = `${hours}:${minutes}:${seconds}`;})(window)" />
+<meta property="og:description" content="It’s kind of boring, but at least it has something to do with the DOM. It’s yet another JavaScript’s Array manipulation.Imagine yourself a YouTuber and you kind of wonder about the total duration of all videos you’ve uploaded. With a little help fromour friends at Mozilla, you can read the documentation aboutArray.prototype’s available methodsand tinker with it as if you understand how it works. The time format displayed on YouTube are like this 45:05 andadding up each video’s duration with that time format is not that complicated!Here’s the demo.I finish this challenge this way. I refuse to touch ES6 and decide to employ ES5 everywhere for thislovely 30 day JavaScript challenge. On December 3, 2009, Ecma International® published ES5 specification.On the same date, ルル オーリア and I made our first eye contact.(function (window, undefined) {  // It&#39;s for mapping DOM elements. The Array.prototype.map won&#39;t work  // with NodeList.  var mapNodeList = function mapNodeList(callback) {    var newArray = [];    for (var i = 0; i &lt; this.length; i++) {      newArray[i] = callback.call(this, this[i], i);    }    return newArray;  };  var totalDurationDOM = document.querySelector(&#39;.total-js&#39;);  var lists = document.querySelectorAll(&#39;[data-time]&#39;);  // Total duration in seconds.  var totalDuration = mapNodeList.call(lists, function (list) {    var text = list.textContent;    list.innerHTML = `      &lt;strong&gt;${text}&lt;/strong&gt; Duration ${list.dataset.time}    `;        return list.dataset.time;  }).map(function (time) {    // The time format is &quot;minutes:seconds&quot;    var timeArray = time.split(&#39;:&#39;).map(window.parseFloat);    var minutes = timeArray[0];    var seconds = timeArray[1];    return (minutes * 60) + seconds;  }).reduce(function (total, videoDuration) {    return total + videoDuration;  });  var leftOver, hours, minutes, seconds;  hours = Math.floor(totalDuration / 3600);  leftOver = totalDuration % 3600;  minutes = Math.floor(leftOver / 60);  seconds = leftOver % 60;  totalDurationDOM.innerHTML = `${hours}:${minutes}:${seconds}`;})(window)" />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/08/20/day18-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/08/20/day18-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-20T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 18: JavaScript Challenge",
+    "datePublished": "2017-08-20T00:00:00+07:00",
+    "description": "It’s kind of boring, but at least it has something to do with the DOM. It’s yet another JavaScript’s Array manipulation.Imagine yourself a YouTuber and you kind of wonder about the total duration of all videos you’ve uploaded. With a little help fromour friends at Mozilla, you can read the documentation aboutArray.prototype’s available methodsand tinker with it as if you understand how it works. The time format displayed on YouTube are like this 45:05 andadding up each video’s duration with that time format is not that complicated!Here’s the demo.I finish this challenge this way. I refuse to touch ES6 and decide to employ ES5 everywhere for thislovely 30 day JavaScript challenge. On December 3, 2009, Ecma International® published ES5 specification.On the same date, ルル オーリア and I made our first eye contact.(function (window, undefined) {  // It&#39;s for mapping DOM elements. The Array.prototype.map won&#39;t work  // with NodeList.  var mapNodeList = function mapNodeList(callback) {    var newArray = [];    for (var i = 0; i &lt; this.length; i++) {      newArray[i] = callback.call(this, this[i], i);    }    return newArray;  };  var totalDurationDOM = document.querySelector(&#39;.total-js&#39;);  var lists = document.querySelectorAll(&#39;[data-time]&#39;);  // Total duration in seconds.  var totalDuration = mapNodeList.call(lists, function (list) {    var text = list.textContent;    list.innerHTML = `      &lt;strong&gt;${text}&lt;/strong&gt; Duration ${list.dataset.time}    `;        return list.dataset.time;  }).map(function (time) {    // The time format is &quot;minutes:seconds&quot;    var timeArray = time.split(&#39;:&#39;).map(window.parseFloat);    var minutes = timeArray[0];    var seconds = timeArray[1];    return (minutes * 60) + seconds;  }).reduce(function (total, videoDuration) {    return total + videoDuration;  });  var leftOver, hours, minutes, seconds;  hours = Math.floor(totalDuration / 3600);  leftOver = totalDuration % 3600;  minutes = Math.floor(leftOver / 60);  seconds = leftOver % 60;  totalDurationDOM.innerHTML = `${hours}:${minutes}:${seconds}`;})(window)",
+    "url": "https://miayam.github.io/javascript/2017/08/20/day18-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 18: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-08-20T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        20 August 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>It’s kind of boring, but at least it has something to do with the DOM. It’s yet another JavaScript’s <code class="highlighter-rouge">Array</code> manipulation.</p>
+
+<p>Imagine yourself a <code class="highlighter-rouge">YouTuber</code> and you kind of wonder about the total duration of all videos you’ve uploaded. With a little help from
+our friends at Mozilla, you can read the documentation about
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank"><code class="highlighter-rouge">Array.prototype</code>’s available methods</a>
+and tinker with it as if you understand how it works. The time format displayed on YouTube are like this <code class="highlighter-rouge">45:05</code> and
+adding up each video’s duration with that time format is not that complicated!</p>
+
+<p>Here’s the <a href="/demo_day18" target="_blank">demo</a>.</p>
+
+<p>I finish this challenge this way. I refuse to touch ES6 and decide to employ ES5 everywhere for this
+lovely 30 day JavaScript challenge. On December 3, 2009, Ecma International® published ES5 specification.
+On the same date, ルル オーリア and I made our first eye contact.</p>
+
+<noscript><pre>(function (window, undefined) {
+  // It&#39;s for mapping DOM elements. The Array.prototype.map won&#39;t work
+  // with NodeList.
+  var mapNodeList = function mapNodeList(callback) {
+    var newArray = [];
+
+    for (var i = 0; i &lt; this.length; i++) {
+      newArray[i] = callback.call(this, this[i], i);
+    }
+
+    return newArray;
+  };
+
+  var totalDurationDOM = document.querySelector(&#39;.total-js&#39;);
+
+  var lists = document.querySelectorAll(&#39;[data-time]&#39;);
+
+  // Total duration in seconds.
+  var totalDuration = mapNodeList.call(lists, function (list) {
+    var text = list.textContent;
+    list.innerHTML = `
+      &lt;strong&gt;${text}&lt;/strong&gt; Duration ${list.dataset.time}
+    `;
+    
+    return list.dataset.time;
+  }).map(function (time) {
+    // The time format is &quot;minutes:seconds&quot;
+    var timeArray = time.split(&#39;:&#39;).map(window.parseFloat);
+    var minutes = timeArray[0];
+    var seconds = timeArray[1];
+
+    return (minutes * 60) + seconds;
+  }).reduce(function (total, videoDuration) {
+    return total + videoDuration;
+  });
+
+  var leftOver, hours, minutes, seconds;
+
+  hours = Math.floor(totalDuration / 3600);
+  leftOver = totalDuration % 3600;
+  minutes = Math.floor(leftOver / 60);
+  seconds = leftOver % 60;
+
+  totalDurationDOM.innerHTML = `${hours}:${minutes}:${seconds}`;
+})(window)
+</pre></noscript>
+<script src="https://gist.github.com/miayam/94cc0105f6e1e2b568782c3ea8290fb0.js"> </script>
+
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/08/19/day17-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 17: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/08/20/day19-javascript-challenge" class="blog-navigation__next-link"> Day 19: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/08/20/day18-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>

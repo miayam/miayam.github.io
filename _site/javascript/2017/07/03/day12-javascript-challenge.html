@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 12: JavaScript Challenge</title>
+  <meta name="description"
+        content="Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.tr...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 12: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 12: JavaScript Challenge" />
+<meta name="description" content="Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.true  	// document.title = ‘✨ 🦄 ✨’;  	var numType = ‘px’;  	var heightRandom = Math.random().75;  	var windowHeight = 768;  	var windowWidth = 1024;  	var height = 0;  	var width = 0;  	var de = document.documentElement;  	if (typeof(window.innerHeight) == ‘number’) {  		windowHeight = window.innerHeight;  		windowWidth = window.innerWidth;  	} else if(de &amp;&amp; de.clientHeight) {  		windowHeight = de.clientHeight;  		windowWidth = de.clientWidth;  	} else {  		numType = ‘%’;  		height = Math.round( height100 )+’%’;  	}  	div.onclick = cornify_add;  	div.style.zIndex = 10;  	div.style.outline = 0;  	if( cornify_count==15 ) {  		div.style.top = Math.max( 0, Math.round( (windowHeight-530)/2 ) )  + ‘px’;  		div.style.left = Math.round( (windowWidth-530)/2 ) + ‘px’;  		div.style.zIndex = 1000;  	} else {  		if( numType==’px’ ) div.style.top = Math.round( windowHeightheightRandom ) + numType;  		else div.style.top = height;  		div.style.left = Math.round( Math.random()90 ) + ‘%’;  	}  	var img = document.createElement(‘img’);  	var currentTime = new Date();  	var submitTime = currentTime.getTime();  	if( cornify_count==15 ) submitTime = 0;  	img.setAttribute(‘src’,cornify_url+’getacorn.php?r=’ + submitTime + ‘&amp;url=’+document.location.href);  	var ease = “all .1s linear”;  	//div.style[‘-webkit-transition’] = ease;  	//div.style.webkitTransition = ease;  	div.style.WebkitTransition = ease;  	div.style.WebkitTransform = “rotate(1deg) scale(1.01,1.01)”;  	//div.style.MozTransition = “all .1s linear”;  	div.style.transition = “all .1s linear”;  	div.onmouseover = function() {  		var size = 1+Math.round(Math.random()10)/100;  		var angle = Math.round(Math.random()20-10);  		var result = “rotate(“+angle+”deg) scale(“+size+”,”+size+”)”;  		this.style.transform = result;  		//this.style[‘-webkit-transform’] = result;  		//this.style.webkitTransform = result;  		this.style.WebkitTransform = result;  		//this.style.MozTransform = result;  		//alert(this + ‘ | ‘ + result);  	};  	div.onmouseout = function() {  		var size = .9+Math.round(Math.random()10)/100;  		var angle = Math.round(Math.random()6-3);  		var result = “rotate(“+angle+”deg) scale(“+size+”,”+size+”)”;  		this.style.transform = result;  		//this.style[‘-webkit-transform’] = result;  		//this.style.webkitTransform = result;  		this.style.WebkitTransform = result;  		//this.style.MozTransform = result;  	};  	var body = document.getElementsByTagName(‘body’)[0];  	body.appendChild(div);  	div.appendChild(img);  	// Add stylesheet.  	if (cornify_count == 5) {  		var cssExisting = document.getElementById(‘__cornify_css’);  		if (!cssExisting) {  			var head = document.getElementsByTagName(“head”)[0];  			var css = document.createElement(‘link’);  			css.id = ‘__cornify_css’;  			css.type = ‘text/css’;  			css.rel = ‘stylesheet’;  			css.href = ‘https://www.cornify.com/css/cornify.css’;  			css.media = ‘screen’;  			head.appendChild(css);  		}  		cornify_replace();  	}  	cornify_updatecount();};var cornify_updatecount = function() {  	var p = document.getElementById(‘cornifycount’);  	if(p == null) {  		var p = document.createElement(‘p’);  		p.id = ‘cornifycount’;  		p.style.position = ‘fixed’;  		p.style.bottom = ‘5px’;  		p.style.left = ‘0px’;  		p.style.right = ‘0px’;  		p.style.zIndex = ‘1000000000’;  		p.style.color = ‘#ff00ff’;  		p.style.textAlign = ‘center’;  		p.style.fontSize = ‘24px’;  		p.style.fontFamily = “‘Comic Sans MS’, ‘Comic Sans’, ‘Marker Felt’, serif”;  		var body = document.getElementsByTagName(‘body’)[0];  		body.appendChild(p);  	}  	if(cornify_count == 1) {  		p.innerHTML = cornify_count+’ UNICORN OR RAINBOW CREATED’;  	} else {  		p.innerHTML = cornify_count+’ UNICORNS &amp;AMP; RAINBOWS CREATED’;  	}  	cornify_setcookie(‘cornify’, cornify_count+’’, 1000);  };var cornify_setcookie = function(name, value, days) {  	var d = new Date();  	d.setTime(d.getTime()+(days2460601000));  	var expires = “expires=”+d.toGMTString();  	document.cookie = name + “=” + value + “; “ + expires;  };var cornify_getcookie = function(cname) {  	var name = cname + “=”;  	var ca = document.cookie.split(‘;’);  	for(var i=0; i&lt;ca.length; i++) {  		var c = ca[i].trim();  		if(c.indexOf(name)==0) {  			return c.substring(name.length,c.length);  		}  	}  	return “”;  };cornify_count = parseInt(cornify_getcookie(‘cornify’));  if(isNaN(cornify_count)) {  	cornify_count = 0;  }var cornify_replace = function() {  	// Replace text.  	var hc = 6;  	var hs;  	var h;  	var k;  	var words = [‘Happy’,’Sparkly’,’Glittery’,’Fun’,’Magical’,’Lovely’,’Cute’,’Charming’,’Amazing’,’Wonderful’];  	while(hc &gt;= 1) {  		hs = document.getElementsByTagName(‘h’ + hc);  		for (k = 0; k &lt; hs.length; k++) {  			h = hs[k];  			h.innerHTML = words[Math.floor(Math.random()*words.length)] + ‘ ‘ + h.innerHTML;  		}  		hc-=1;  	}  };/*   * Adapted from http://www.snaptortoise.com/konami-js/   */  var cornami = {  	input:””,  	pattern:”38384040373937396665”,  	clear:setTimeout(‘cornami.clear_input()’,5000),  	load: function() {  		window.document.onkeydown = function(e) {  			if (cornami.input == cornami.pattern) {  				cornify_add();  				clearTimeout(cornami.clear);  				return;  			}  			else {  				cornami.input += e ? e.keyCode : event.keyCode;  				if (cornami.input == cornami.pattern) cornify_add();  				clearTimeout(cornami.clear);  				cornami.clear = setTimeout(“cornami.clear_input()”, 5000);  			}  		};  	},  	clear_input: function() {  		cornami.input=””;  		clearTimeout(cornami.clear);  	}  };  cornami.load();&lt;/script&gt;" />
+<meta property="og:description" content="Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.true  	// document.title = ‘✨ 🦄 ✨’;  	var numType = ‘px’;  	var heightRandom = Math.random().75;  	var windowHeight = 768;  	var windowWidth = 1024;  	var height = 0;  	var width = 0;  	var de = document.documentElement;  	if (typeof(window.innerHeight) == ‘number’) {  		windowHeight = window.innerHeight;  		windowWidth = window.innerWidth;  	} else if(de &amp;&amp; de.clientHeight) {  		windowHeight = de.clientHeight;  		windowWidth = de.clientWidth;  	} else {  		numType = ‘%’;  		height = Math.round( height100 )+’%’;  	}  	div.onclick = cornify_add;  	div.style.zIndex = 10;  	div.style.outline = 0;  	if( cornify_count==15 ) {  		div.style.top = Math.max( 0, Math.round( (windowHeight-530)/2 ) )  + ‘px’;  		div.style.left = Math.round( (windowWidth-530)/2 ) + ‘px’;  		div.style.zIndex = 1000;  	} else {  		if( numType==’px’ ) div.style.top = Math.round( windowHeightheightRandom ) + numType;  		else div.style.top = height;  		div.style.left = Math.round( Math.random()90 ) + ‘%’;  	}  	var img = document.createElement(‘img’);  	var currentTime = new Date();  	var submitTime = currentTime.getTime();  	if( cornify_count==15 ) submitTime = 0;  	img.setAttribute(‘src’,cornify_url+’getacorn.php?r=’ + submitTime + ‘&amp;url=’+document.location.href);  	var ease = “all .1s linear”;  	//div.style[‘-webkit-transition’] = ease;  	//div.style.webkitTransition = ease;  	div.style.WebkitTransition = ease;  	div.style.WebkitTransform = “rotate(1deg) scale(1.01,1.01)”;  	//div.style.MozTransition = “all .1s linear”;  	div.style.transition = “all .1s linear”;  	div.onmouseover = function() {  		var size = 1+Math.round(Math.random()10)/100;  		var angle = Math.round(Math.random()20-10);  		var result = “rotate(“+angle+”deg) scale(“+size+”,”+size+”)”;  		this.style.transform = result;  		//this.style[‘-webkit-transform’] = result;  		//this.style.webkitTransform = result;  		this.style.WebkitTransform = result;  		//this.style.MozTransform = result;  		//alert(this + ‘ | ‘ + result);  	};  	div.onmouseout = function() {  		var size = .9+Math.round(Math.random()10)/100;  		var angle = Math.round(Math.random()6-3);  		var result = “rotate(“+angle+”deg) scale(“+size+”,”+size+”)”;  		this.style.transform = result;  		//this.style[‘-webkit-transform’] = result;  		//this.style.webkitTransform = result;  		this.style.WebkitTransform = result;  		//this.style.MozTransform = result;  	};  	var body = document.getElementsByTagName(‘body’)[0];  	body.appendChild(div);  	div.appendChild(img);  	// Add stylesheet.  	if (cornify_count == 5) {  		var cssExisting = document.getElementById(‘__cornify_css’);  		if (!cssExisting) {  			var head = document.getElementsByTagName(“head”)[0];  			var css = document.createElement(‘link’);  			css.id = ‘__cornify_css’;  			css.type = ‘text/css’;  			css.rel = ‘stylesheet’;  			css.href = ‘https://www.cornify.com/css/cornify.css’;  			css.media = ‘screen’;  			head.appendChild(css);  		}  		cornify_replace();  	}  	cornify_updatecount();};var cornify_updatecount = function() {  	var p = document.getElementById(‘cornifycount’);  	if(p == null) {  		var p = document.createElement(‘p’);  		p.id = ‘cornifycount’;  		p.style.position = ‘fixed’;  		p.style.bottom = ‘5px’;  		p.style.left = ‘0px’;  		p.style.right = ‘0px’;  		p.style.zIndex = ‘1000000000’;  		p.style.color = ‘#ff00ff’;  		p.style.textAlign = ‘center’;  		p.style.fontSize = ‘24px’;  		p.style.fontFamily = “‘Comic Sans MS’, ‘Comic Sans’, ‘Marker Felt’, serif”;  		var body = document.getElementsByTagName(‘body’)[0];  		body.appendChild(p);  	}  	if(cornify_count == 1) {  		p.innerHTML = cornify_count+’ UNICORN OR RAINBOW CREATED’;  	} else {  		p.innerHTML = cornify_count+’ UNICORNS &amp;AMP; RAINBOWS CREATED’;  	}  	cornify_setcookie(‘cornify’, cornify_count+’’, 1000);  };var cornify_setcookie = function(name, value, days) {  	var d = new Date();  	d.setTime(d.getTime()+(days2460601000));  	var expires = “expires=”+d.toGMTString();  	document.cookie = name + “=” + value + “; “ + expires;  };var cornify_getcookie = function(cname) {  	var name = cname + “=”;  	var ca = document.cookie.split(‘;’);  	for(var i=0; i&lt;ca.length; i++) {  		var c = ca[i].trim();  		if(c.indexOf(name)==0) {  			return c.substring(name.length,c.length);  		}  	}  	return “”;  };cornify_count = parseInt(cornify_getcookie(‘cornify’));  if(isNaN(cornify_count)) {  	cornify_count = 0;  }var cornify_replace = function() {  	// Replace text.  	var hc = 6;  	var hs;  	var h;  	var k;  	var words = [‘Happy’,’Sparkly’,’Glittery’,’Fun’,’Magical’,’Lovely’,’Cute’,’Charming’,’Amazing’,’Wonderful’];  	while(hc &gt;= 1) {  		hs = document.getElementsByTagName(‘h’ + hc);  		for (k = 0; k &lt; hs.length; k++) {  			h = hs[k];  			h.innerHTML = words[Math.floor(Math.random()*words.length)] + ‘ ‘ + h.innerHTML;  		}  		hc-=1;  	}  };/*   * Adapted from http://www.snaptortoise.com/konami-js/   */  var cornami = {  	input:””,  	pattern:”38384040373937396665”,  	clear:setTimeout(‘cornami.clear_input()’,5000),  	load: function() {  		window.document.onkeydown = function(e) {  			if (cornami.input == cornami.pattern) {  				cornify_add();  				clearTimeout(cornami.clear);  				return;  			}  			else {  				cornami.input += e ? e.keyCode : event.keyCode;  				if (cornami.input == cornami.pattern) cornify_add();  				clearTimeout(cornami.clear);  				cornami.clear = setTimeout(“cornami.clear_input()”, 5000);  			}  		};  	},  	clear_input: function() {  		cornami.input=””;  		clearTimeout(cornami.clear);  	}  };  cornami.load();&lt;/script&gt;" />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-03T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 12: JavaScript Challenge",
+    "datePublished": "2017-07-03T00:00:00+07:00",
+    "description": "Type “magic” and see what happens next! I can assure you how interesting it is!For more about konami code, visit this wikipedia page.Here’s my stupid code.true  \t// document.title = ‘✨ 🦄 ✨’;  \tvar numType = ‘px’;  \tvar heightRandom = Math.random().75;  \tvar windowHeight = 768;  \tvar windowWidth = 1024;  \tvar height = 0;  \tvar width = 0;  \tvar de = document.documentElement;  \tif (typeof(window.innerHeight) == ‘number’) {  \t\twindowHeight = window.innerHeight;  \t\twindowWidth = window.innerWidth;  \t} else if(de &amp;&amp; de.clientHeight) {  \t\twindowHeight = de.clientHeight;  \t\twindowWidth = de.clientWidth;  \t} else {  \t\tnumType = ‘%’;  \t\theight = Math.round( height100 )+’%’;  \t}  \tdiv.onclick = cornify_add;  \tdiv.style.zIndex = 10;  \tdiv.style.outline = 0;  \tif( cornify_count==15 ) {  \t\tdiv.style.top = Math.max( 0, Math.round( (windowHeight-530)/2 ) )  + ‘px’;  \t\tdiv.style.left = Math.round( (windowWidth-530)/2 ) + ‘px’;  \t\tdiv.style.zIndex = 1000;  \t} else {  \t\tif( numType==’px’ ) div.style.top = Math.round( windowHeightheightRandom ) + numType;  \t\telse div.style.top = height;  \t\tdiv.style.left = Math.round( Math.random()90 ) + ‘%’;  \t}  \tvar img = document.createElement(‘img’);  \tvar currentTime = new Date();  \tvar submitTime = currentTime.getTime();  \tif( cornify_count==15 ) submitTime = 0;  \timg.setAttribute(‘src’,cornify_url+’getacorn.php?r=’ + submitTime + ‘&amp;url=’+document.location.href);  \tvar ease = “all .1s linear”;  \t//div.style[‘-webkit-transition’] = ease;  \t//div.style.webkitTransition = ease;  \tdiv.style.WebkitTransition = ease;  \tdiv.style.WebkitTransform = “rotate(1deg) scale(1.01,1.01)”;  \t//div.style.MozTransition = “all .1s linear”;  \tdiv.style.transition = “all .1s linear”;  \tdiv.onmouseover = function() {  \t\tvar size = 1+Math.round(Math.random()10)/100;  \t\tvar angle = Math.round(Math.random()20-10);  \t\tvar result = “rotate(“+angle+”deg) scale(“+size+”,”+size+”)”;  \t\tthis.style.transform = result;  \t\t//this.style[‘-webkit-transform’] = result;  \t\t//this.style.webkitTransform = result;  \t\tthis.style.WebkitTransform = result;  \t\t//this.style.MozTransform = result;  \t\t//alert(this + ‘ | ‘ + result);  \t};  \tdiv.onmouseout = function() {  \t\tvar size = .9+Math.round(Math.random()10)/100;  \t\tvar angle = Math.round(Math.random()6-3);  \t\tvar result = “rotate(“+angle+”deg) scale(“+size+”,”+size+”)”;  \t\tthis.style.transform = result;  \t\t//this.style[‘-webkit-transform’] = result;  \t\t//this.style.webkitTransform = result;  \t\tthis.style.WebkitTransform = result;  \t\t//this.style.MozTransform = result;  \t};  \tvar body = document.getElementsByTagName(‘body’)[0];  \tbody.appendChild(div);  \tdiv.appendChild(img);  \t// Add stylesheet.  \tif (cornify_count == 5) {  \t\tvar cssExisting = document.getElementById(‘__cornify_css’);  \t\tif (!cssExisting) {  \t\t\tvar head = document.getElementsByTagName(“head”)[0];  \t\t\tvar css = document.createElement(‘link’);  \t\t\tcss.id = ‘__cornify_css’;  \t\t\tcss.type = ‘text/css’;  \t\t\tcss.rel = ‘stylesheet’;  \t\t\tcss.href = ‘https://www.cornify.com/css/cornify.css’;  \t\t\tcss.media = ‘screen’;  \t\t\thead.appendChild(css);  \t\t}  \t\tcornify_replace();  \t}  \tcornify_updatecount();};var cornify_updatecount = function() {  \tvar p = document.getElementById(‘cornifycount’);  \tif(p == null) {  \t\tvar p = document.createElement(‘p’);  \t\tp.id = ‘cornifycount’;  \t\tp.style.position = ‘fixed’;  \t\tp.style.bottom = ‘5px’;  \t\tp.style.left = ‘0px’;  \t\tp.style.right = ‘0px’;  \t\tp.style.zIndex = ‘1000000000’;  \t\tp.style.color = ‘#ff00ff’;  \t\tp.style.textAlign = ‘center’;  \t\tp.style.fontSize = ‘24px’;  \t\tp.style.fontFamily = “‘Comic Sans MS’, ‘Comic Sans’, ‘Marker Felt’, serif”;  \t\tvar body = document.getElementsByTagName(‘body’)[0];  \t\tbody.appendChild(p);  \t}  \tif(cornify_count == 1) {  \t\tp.innerHTML = cornify_count+’ UNICORN OR RAINBOW CREATED’;  \t} else {  \t\tp.innerHTML = cornify_count+’ UNICORNS &amp;AMP; RAINBOWS CREATED’;  \t}  \tcornify_setcookie(‘cornify’, cornify_count+’’, 1000);  };var cornify_setcookie = function(name, value, days) {  \tvar d = new Date();  \td.setTime(d.getTime()+(days2460601000));  \tvar expires = “expires=”+d.toGMTString();  \tdocument.cookie = name + “=” + value + “; “ + expires;  };var cornify_getcookie = function(cname) {  \tvar name = cname + “=”;  \tvar ca = document.cookie.split(‘;’);  \tfor(var i=0; i&lt;ca.length; i++) {  \t\tvar c = ca[i].trim();  \t\tif(c.indexOf(name)==0) {  \t\t\treturn c.substring(name.length,c.length);  \t\t}  \t}  \treturn “”;  };cornify_count = parseInt(cornify_getcookie(‘cornify’));  if(isNaN(cornify_count)) {  \tcornify_count = 0;  }var cornify_replace = function() {  \t// Replace text.  \tvar hc = 6;  \tvar hs;  \tvar h;  \tvar k;  \tvar words = [‘Happy’,’Sparkly’,’Glittery’,’Fun’,’Magical’,’Lovely’,’Cute’,’Charming’,’Amazing’,’Wonderful’];  \twhile(hc &gt;= 1) {  \t\ths = document.getElementsByTagName(‘h’ + hc);  \t\tfor (k = 0; k &lt; hs.length; k++) {  \t\t\th = hs[k];  \t\t\th.innerHTML = words[Math.floor(Math.random()*words.length)] + ‘ ‘ + h.innerHTML;  \t\t}  \t\thc-=1;  \t}  };/*   * Adapted from http://www.snaptortoise.com/konami-js/   */  var cornami = {  \tinput:””,  \tpattern:”38384040373937396665”,  \tclear:setTimeout(‘cornami.clear_input()’,5000),  \tload: function() {  \t\twindow.document.onkeydown = function(e) {  \t\t\tif (cornami.input == cornami.pattern) {  \t\t\t\tcornify_add();  \t\t\t\tclearTimeout(cornami.clear);  \t\t\t\treturn;  \t\t\t}  \t\t\telse {  \t\t\t\tcornami.input += e ? e.keyCode : event.keyCode;  \t\t\t\tif (cornami.input == cornami.pattern) cornify_add();  \t\t\t\tclearTimeout(cornami.clear);  \t\t\t\tcornami.clear = setTimeout(“cornami.clear_input()”, 5000);  \t\t\t}  \t\t};  \t},  \tclear_input: function() {  \t\tcornami.input=””;  \t\tclearTimeout(cornami.clear);  \t}  };  cornami.load();&lt;/script&gt;",
+    "url": "https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 12: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-07-03T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        3 July 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Type <strong>“magic”</strong> and see what happens next! I can assure you how interesting it is!</p>
+
+<p>For more about konami code, visit <a href="https://en.wikipedia.org/wiki/Konami_Code" target="_blank">this wikipedia page</a>.</p>
+
+<p>Here’s my stupid code.</p>
+
+<noscript><pre>(function (window, undefined) {
+  var easterEgg = &quot;magic&quot;;
+  var pressedKeys = [];
+  
+  // Reset random images from cornify.js when page reloaded.
+  cornify_count = 0;
+
+  window.addEventListener(&#39;keyup&#39;, function (event) {
+    var secretWord = null;
+
+    pressedKeys.push(event.key);
+
+    // Get the last 5 characters because easter egg
+    // consist of 5 characters, &quot;magic&quot;.
+    secretWord = pressedKeys.slice(-easterEgg.length).join(&#39;&#39;);
+
+    if (secretWord === easterEgg) {
+      // Add rainbow or unicorn to the screen.
+      // It&#39;s public API provided by
+      // http://www.cornify.com/js/cornify.js
+      cornify_add();
+
+      // Empty the pressed keys array if secret word correct.
+      pressedKeys.splice(0);
+    }
+  });
+})(window);
+</pre></noscript>
+<script src="https://gist.github.com/miayam/85001d163e17bbcc8cf7966057d13060.js"> </script>
+
+<script>
+  var cornify_count = 0;
+  var cornify_add = function() {
+  	cornify_count += 1;
+  	var cornify_url = 'https://www.cornify.com/';
+  	var div = document.createElement('div');
+  	div.style.position = 'fixed';
+
+  	// document.title = '&#10024; &#129412; &#10024;';
+
+  	var numType = 'px';
+  	var heightRandom = Math.random()*.75;
+  	var windowHeight = 768;
+  	var windowWidth = 1024;
+  	var height = 0;
+  	var width = 0;
+  	var de = document.documentElement;
+  	if (typeof(window.innerHeight) == 'number') {
+  		windowHeight = window.innerHeight;
+  		windowWidth = window.innerWidth;
+  	} else if(de && de.clientHeight) {
+  		windowHeight = de.clientHeight;
+  		windowWidth = de.clientWidth;
+  	} else {
+  		numType = '%';
+  		height = Math.round( height*100 )+'%';
+  	}
+
+  	div.onclick = cornify_add;
+  	div.style.zIndex = 10;
+  	div.style.outline = 0;
+
+  	if( cornify_count==15 ) {
+  		div.style.top = Math.max( 0, Math.round( (windowHeight-530)/2 ) )  + 'px';
+  		div.style.left = Math.round( (windowWidth-530)/2 ) + 'px';
+  		div.style.zIndex = 1000;
+  	} else {
+  		if( numType=='px' ) div.style.top = Math.round( windowHeight*heightRandom ) + numType;
+  		else div.style.top = height;
+  		div.style.left = Math.round( Math.random()*90 ) + '%';
+  	}
+
+  	var img = document.createElement('img');
+  	var currentTime = new Date();
+  	var submitTime = currentTime.getTime();
+  	if( cornify_count==15 ) submitTime = 0;
+  	img.setAttribute('src',cornify_url+'getacorn.php?r=' + submitTime + '&url='+document.location.href);
+  	var ease = "all .1s linear";
+  	//div.style['-webkit-transition'] = ease;
+  	//div.style.webkitTransition = ease;
+  	div.style.WebkitTransition = ease;
+  	div.style.WebkitTransform = "rotate(1deg) scale(1.01,1.01)";
+  	//div.style.MozTransition = "all .1s linear";
+  	div.style.transition = "all .1s linear";
+  	div.onmouseover = function() {
+  		var size = 1+Math.round(Math.random()*10)/100;
+  		var angle = Math.round(Math.random()*20-10);
+  		var result = "rotate("+angle+"deg) scale("+size+","+size+")";
+  		this.style.transform = result;
+  		//this.style['-webkit-transform'] = result;
+  		//this.style.webkitTransform = result;
+  		this.style.WebkitTransform = result;
+  		//this.style.MozTransform = result;
+  		//alert(this + ' | ' + result);
+  	};
+  	div.onmouseout = function() {
+  		var size = .9+Math.round(Math.random()*10)/100;
+  		var angle = Math.round(Math.random()*6-3);
+  		var result = "rotate("+angle+"deg) scale("+size+","+size+")";
+  		this.style.transform = result;
+  		//this.style['-webkit-transform'] = result;
+  		//this.style.webkitTransform = result;
+  		this.style.WebkitTransform = result;
+  		//this.style.MozTransform = result;
+  	};
+  	var body = document.getElementsByTagName('body')[0];
+  	body.appendChild(div);
+  	div.appendChild(img);
+
+  	// Add stylesheet.
+  	if (cornify_count == 5) {
+  		var cssExisting = document.getElementById('__cornify_css');
+  		if (!cssExisting) {
+  			var head = document.getElementsByTagName("head")[0];
+  			var css = document.createElement('link');
+  			css.id = '__cornify_css';
+  			css.type = 'text/css';
+  			css.rel = 'stylesheet';
+  			css.href = 'https://www.cornify.com/css/cornify.css';
+  			css.media = 'screen';
+  			head.appendChild(css);
+  		}
+  		cornify_replace();
+  	}
+
+  	cornify_updatecount();
+  };
+
+  var cornify_updatecount = function() {
+  	var p = document.getElementById('cornifycount');
+  	if(p == null) {
+  		var p = document.createElement('p');
+  		p.id = 'cornifycount';
+  		p.style.position = 'fixed';
+  		p.style.bottom = '5px';
+  		p.style.left = '0px';
+  		p.style.right = '0px';
+  		p.style.zIndex = '1000000000';
+  		p.style.color = '#ff00ff';
+  		p.style.textAlign = 'center';
+  		p.style.fontSize = '24px';
+  		p.style.fontFamily = "'Comic Sans MS', 'Comic Sans', 'Marker Felt', serif";
+  		var body = document.getElementsByTagName('body')[0];
+  		body.appendChild(p);
+  	}
+  	if(cornify_count == 1) {
+  		p.innerHTML = cornify_count+' UNICORN OR RAINBOW CREATED';
+  	} else {
+  		p.innerHTML = cornify_count+' UNICORNS &AMP; RAINBOWS CREATED';
+  	}
+  	cornify_setcookie('cornify', cornify_count+'', 1000);
+  };
+
+  var cornify_setcookie = function(name, value, days) {
+  	var d = new Date();
+  	d.setTime(d.getTime()+(days*24*60*60*1000));
+  	var expires = "expires="+d.toGMTString();
+  	document.cookie = name + "=" + value + "; " + expires;
+  };
+
+  var cornify_getcookie = function(cname) {
+  	var name = cname + "=";
+  	var ca = document.cookie.split(';');
+  	for(var i=0; i<ca.length; i++) {
+  		var c = ca[i].trim();
+  		if(c.indexOf(name)==0) {
+  			return c.substring(name.length,c.length);
+  		}
+  	}
+  	return "";
+  };
+
+  cornify_count = parseInt(cornify_getcookie('cornify'));
+  if(isNaN(cornify_count)) {
+  	cornify_count = 0;
+  }
+
+  var cornify_replace = function() {
+  	// Replace text.
+  	var hc = 6;
+  	var hs;
+  	var h;
+  	var k;
+  	var words = ['Happy','Sparkly','Glittery','Fun','Magical','Lovely','Cute','Charming','Amazing','Wonderful'];
+  	while(hc >= 1) {
+  		hs = document.getElementsByTagName('h' + hc);
+  		for (k = 0; k < hs.length; k++) {
+  			h = hs[k];
+  			h.innerHTML = words[Math.floor(Math.random()*words.length)] + ' ' + h.innerHTML;
+  		}
+  		hc-=1;
+  	}
+  };
+
+  /*
+   * Adapted from http://www.snaptortoise.com/konami-js/
+   */
+  var cornami = {
+  	input:"",
+  	pattern:"38384040373937396665",
+  	clear:setTimeout('cornami.clear_input()',5000),
+  	load: function() {
+  		window.document.onkeydown = function(e) {
+  			if (cornami.input == cornami.pattern) {
+  				cornify_add();
+  				clearTimeout(cornami.clear);
+  				return;
+  			}
+  			else {
+  				cornami.input += e ? e.keyCode : event.keyCode;
+  				if (cornami.input == cornami.pattern) cornify_add();
+  				clearTimeout(cornami.clear);
+  				cornami.clear = setTimeout("cornami.clear_input()", 5000);
+  			}
+  		};
+  	},
+  	clear_input: function() {
+  		cornami.input="";
+  		clearTimeout(cornami.clear);
+  	}
+  };
+  cornami.load();
+</script>
+
+<script>
+  (function (window, undefined) {
+    var easterEgg = "magic"; //
+    var pressedKeys = [];
+
+    // reset the cornify
+    cornify_count = 0;
+
+    window.addEventListener('keyup', function (event) {
+      var secretwords = null;
+
+
+      pressedKeys.push(event.key);
+
+      // Get the last 5 characters because easter egg words consist of 5 words.
+      // "magic" is the easter egg words.
+      secretwords = pressedKeys.slice(-easterEgg.length).join('');
+
+      if (secretwords === easterEgg) {
+        // Add rainbow or unicorn to the screen.
+        cornify_add();
+
+        // Empty array if the secret words correct.
+        pressedKeys.splice(0);
+      }
+    });
+  })(window, undefined);
+</script>
+
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/07/01/day11-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 11: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/07/15/day13-javascript-challenge" class="blog-navigation__next-link"> Day 13: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/07/03/day12-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 26: JavaScript Challenge</title>
+  <meta name="description"
+        content="This is improvement for day 22 JavaScript challenge (copying Stripe feature). It’s not so bad.I’ll say that again, it’s superfluous for a web page to have th...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/09/18/day26-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 26: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 26: JavaScript Challenge" />
+<meta name="description" content="This is improvement for day 22 JavaScript challenge (copying Stripe feature). It’s not so bad.I’ll say that again, it’s superfluous for a web page to have this kind of feature. Craig Newmark will lookaway and insult us in his mind! Well, if it was for fun, I wouldn’t attach too much importance to histhinking. Here we are completely copying Stripe new web page! Here’s the demo!I’ve got nothing to say, but it’s really fun. Here’s my solution.trueThat’s it for today." />
+<meta property="og:description" content="This is improvement for day 22 JavaScript challenge (copying Stripe feature). It’s not so bad.I’ll say that again, it’s superfluous for a web page to have this kind of feature. Craig Newmark will lookaway and insult us in his mind! Well, if it was for fun, I wouldn’t attach too much importance to histhinking. Here we are completely copying Stripe new web page! Here’s the demo!I’ve got nothing to say, but it’s really fun. Here’s my solution.trueThat’s it for today." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/09/18/day26-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/09/18/day26-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-09-18T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 26: JavaScript Challenge",
+    "datePublished": "2017-09-18T00:00:00+07:00",
+    "description": "This is improvement for day 22 JavaScript challenge (copying Stripe feature). It’s not so bad.I’ll say that again, it’s superfluous for a web page to have this kind of feature. Craig Newmark will lookaway and insult us in his mind! Well, if it was for fun, I wouldn’t attach too much importance to histhinking. Here we are completely copying Stripe new web page! Here’s the demo!I’ve got nothing to say, but it’s really fun. Here’s my solution.trueThat’s it for today.",
+    "url": "https://miayam.github.io/javascript/2017/09/18/day26-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 26: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-09-18T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        18 September 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This is improvement for <a href="/javascript/2017/08/27/day22-javascript-challenge" target="_blank">day 22 JavaScript challenge</a> (copying Stripe feature). It’s not so bad.</p>
+
+<p>I’ll say that again, it’s superfluous for a web page to have this kind of feature. Craig Newmark will look
+away and insult us in his mind! Well, if it was for fun, I wouldn’t attach too much importance to his
+thinking. Here we are completely copying Stripe new web page! Here’s the <a href="/demo_day26" target="_blank">demo!</a></p>
+
+<p>I’ve got nothing to say, but it’s really fun. Here’s my solution.</p>
+
+<noscript><pre>(function (window, undefined) {
+  // It&#39;s a row of menu on navigation you hover over it.
+  var menuList = document.querySelectorAll(&#39;.cool &gt; li&#39;);
+  
+  // It&#39;s obviously a dynamic background that follow along
+  // that &quot;mega menu&quot;.
+  var background = document.querySelector(&#39;.dropdownBackground&#39;);
+  
+  var navigation = document.querySelector(&#39;.top&#39;);
+
+  function handleMouseEnter() {
+    // Lexical `this`.
+    var owningObject = this;
+    var dropdown, dropdownCoords, navCoords, coords;
+
+    background.classList.add(&#39;open&#39;);
+    owningObject.classList.add(&#39;trigger-enter&#39;);
+
+    setTimeout(function () {
+      if (owningObject.classList.contains(&#39;trigger-enter&#39;)) {
+        owningObject.classList.add(&#39;trigger-enter-active&#39;);
+      }
+    }, 150);
+
+    // Here&#39;s the mega menu you want to display
+    dropdown = owningObject.querySelector(&#39;.dropdown&#39;);
+
+    // Get the coordinate of mega menu relative to its viewport
+    dropdownCoords = dropdown.getBoundingClientRect();
+  
+    // Get the coordinate of navigation relative to its viewport
+    navCoords = nav.getBoundingClientRect();
+
+    coords = {
+      height: dropdownCoords.height,
+      width: dropdownCoords.width,
+
+      // Why? Because when you add yet another element on top of mega menu,
+      // you will see the background rather off because that added element
+      // takes up an area in which the background that follow along mega
+      // menu stays away from its expected position. So, the offset top
+      // must be adjusted this way.
+      top: dropdownCoords.top - navCoords.top,
+      left: dropdownCoords.left - navCoords.left
+    };
+
+    background.style.setProperty(&#39;width&#39;, `${coords.width}px`);
+    background.style.setProperty(&#39;height&#39;, `${coords.height}px`);
+    background.style.setProperty(
+      &#39;transform&#39;,
+      `translate(${coords.left}px, ${coords.top}px)`
+    );
+  }
+
+  function handleMouseLeave() {
+    this.classList.remove(&#39;trigger-enter&#39;, &#39;trigger-enter-active&#39;);
+    background.classList.remove(&#39;open&#39;);
+  }
+
+  menuList.forEach(function (menu) {
+    menu.addEventListener(&#39;mouseenter&#39;, handleMouseEnter);
+    menu.addEventListener(&#39;mouseleave&#39;, handleMouseLeave);
+  });
+})(window);</pre></noscript>
+<script src="https://gist.github.com/miayam/e4601c797a1fc19499c1df6bd37e7d86.js"> </script>
+
+<p>That’s it for today.</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/09/17/bogus-oop" class="blog-navigation__previous-link">&laquo; Bogus Object Oriented Programming</a>
+    
+    
+      <a href="/javascript/2017/09/26/day27-javascript-challenge" class="blog-navigation__next-link"> Day 27: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/09/18/day26-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 6: JavaScript Challenge</title>
+  <meta name="description"
+        content="I was using fetch method which really shows me the Promise and its early usage for AJAXprogramming.I had nothing to say about this challenge. Here’s the demo...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 6: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 6: JavaScript Challenge" />
+<meta name="description" content="I was using fetch method which really shows me the Promise and its early usage for AJAXprogramming.I had nothing to say about this challenge. Here’s the demoand the repo.(function search(window) {  // We expect to get array of all `cities` in US from this endpoint.  var endpoint = &#39;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&#39; // certain endpoint here    function findMatches(cities) {    function getMatches(keyword) {      var regex = new RegExp(keyword, &#39;gi&#39;);      var matches = cities.filter(function (place) {        return place.city.match(regex) || place.state.match(regex);      });      return matches;    }    // I shamlessly grab it from:    // http://bit.ly/2vpL9TI    function numberWithComma(number){      return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, &quot;$1,&quot;);    }    // Return callback for handling event on search input.    // In our case &#39;keyup&#39; and &#39;change&#39;.    return function displayMatches(event) {      var suggestions = document.querySelector(&#39;.suggestions&#39;);      var keyword = this.value; // string of characters from search input      var matches = getMatches(keyword);      var lists = matches.map(function (place) {        var regex = new RegExp(keyword, &#39;gi&#39;);        var highlight = `&lt;span class=&#39;hl&#39;&gt;${keyword}&lt;/span&gt;`        var city = place.city.replace(regex, highlight);        var state = place.state.replace(regex, highlight);        var population = numberWithComma(place.population);        return `          &lt;li&gt;            &lt;span class=&quot;name&quot;&gt;${city}, ${state}&lt;/span&gt;            &lt;span class=&quot;population&quot;&gt;${population}&lt;/span&gt;          &lt;/li&gt;        `;      }).join(&#39;&#39;);      suggestions.innerHTML = lists;    };  }   fetch(endpoint)    .then(function (blob) {      return blob.json();    })    .then(function (cities) {      var form = document.querySelector(&#39;.search-form&#39;);      var search = document.querySelector(&#39;.search&#39;);      var handler;      // Display search form because the data is ready to be implemented.      form.style.display = &quot;block&quot;      handler = findMatches(cities);      search.addEventListener(&#39;keyup&#39;, handler);      search.addEventListener(&#39;change&#39;, handler);    });})(window);Firstly, I copied the boilerplate and tinkered with the UI for a bit. I intended to make it look morelike Reddit with its calming light blue. I ditched all the CSS transition and went on with boringdesign which I really love the most.I like this challenge." />
+<meta property="og:description" content="I was using fetch method which really shows me the Promise and its early usage for AJAXprogramming.I had nothing to say about this challenge. Here’s the demoand the repo.(function search(window) {  // We expect to get array of all `cities` in US from this endpoint.  var endpoint = &#39;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&#39; // certain endpoint here    function findMatches(cities) {    function getMatches(keyword) {      var regex = new RegExp(keyword, &#39;gi&#39;);      var matches = cities.filter(function (place) {        return place.city.match(regex) || place.state.match(regex);      });      return matches;    }    // I shamlessly grab it from:    // http://bit.ly/2vpL9TI    function numberWithComma(number){      return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, &quot;$1,&quot;);    }    // Return callback for handling event on search input.    // In our case &#39;keyup&#39; and &#39;change&#39;.    return function displayMatches(event) {      var suggestions = document.querySelector(&#39;.suggestions&#39;);      var keyword = this.value; // string of characters from search input      var matches = getMatches(keyword);      var lists = matches.map(function (place) {        var regex = new RegExp(keyword, &#39;gi&#39;);        var highlight = `&lt;span class=&#39;hl&#39;&gt;${keyword}&lt;/span&gt;`        var city = place.city.replace(regex, highlight);        var state = place.state.replace(regex, highlight);        var population = numberWithComma(place.population);        return `          &lt;li&gt;            &lt;span class=&quot;name&quot;&gt;${city}, ${state}&lt;/span&gt;            &lt;span class=&quot;population&quot;&gt;${population}&lt;/span&gt;          &lt;/li&gt;        `;      }).join(&#39;&#39;);      suggestions.innerHTML = lists;    };  }   fetch(endpoint)    .then(function (blob) {      return blob.json();    })    .then(function (cities) {      var form = document.querySelector(&#39;.search-form&#39;);      var search = document.querySelector(&#39;.search&#39;);      var handler;      // Display search form because the data is ready to be implemented.      form.style.display = &quot;block&quot;      handler = findMatches(cities);      search.addEventListener(&#39;keyup&#39;, handler);      search.addEventListener(&#39;change&#39;, handler);    });})(window);Firstly, I copied the boilerplate and tinkered with the UI for a bit. I intended to make it look morelike Reddit with its calming light blue. I ditched all the CSS transition and went on with boringdesign which I really love the most.I like this challenge." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-06T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 6: JavaScript Challenge",
+    "datePublished": "2017-06-06T00:00:00+07:00",
+    "description": "I was using fetch method which really shows me the Promise and its early usage for AJAXprogramming.I had nothing to say about this challenge. Here’s the demoand the repo.(function search(window) {  // We expect to get array of all `cities` in US from this endpoint.  var endpoint = &#39;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&#39; // certain endpoint here    function findMatches(cities) {    function getMatches(keyword) {      var regex = new RegExp(keyword, &#39;gi&#39;);      var matches = cities.filter(function (place) {        return place.city.match(regex) || place.state.match(regex);      });      return matches;    }    // I shamlessly grab it from:    // http://bit.ly/2vpL9TI    function numberWithComma(number){      return number.toString().replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, &quot;$1,&quot;);    }    // Return callback for handling event on search input.    // In our case &#39;keyup&#39; and &#39;change&#39;.    return function displayMatches(event) {      var suggestions = document.querySelector(&#39;.suggestions&#39;);      var keyword = this.value; // string of characters from search input      var matches = getMatches(keyword);      var lists = matches.map(function (place) {        var regex = new RegExp(keyword, &#39;gi&#39;);        var highlight = `&lt;span class=&#39;hl&#39;&gt;${keyword}&lt;/span&gt;`        var city = place.city.replace(regex, highlight);        var state = place.state.replace(regex, highlight);        var population = numberWithComma(place.population);        return `          &lt;li&gt;            &lt;span class=&quot;name&quot;&gt;${city}, ${state}&lt;/span&gt;            &lt;span class=&quot;population&quot;&gt;${population}&lt;/span&gt;          &lt;/li&gt;        `;      }).join(&#39;&#39;);      suggestions.innerHTML = lists;    };  }   fetch(endpoint)    .then(function (blob) {      return blob.json();    })    .then(function (cities) {      var form = document.querySelector(&#39;.search-form&#39;);      var search = document.querySelector(&#39;.search&#39;);      var handler;      // Display search form because the data is ready to be implemented.      form.style.display = &quot;block&quot;      handler = findMatches(cities);      search.addEventListener(&#39;keyup&#39;, handler);      search.addEventListener(&#39;change&#39;, handler);    });})(window);Firstly, I copied the boilerplate and tinkered with the UI for a bit. I intended to make it look morelike Reddit with its calming light blue. I ditched all the CSS transition and went on with boringdesign which I really love the most.I like this challenge.",
+    "url": "https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 6: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-06-06T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        6 June 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I was using fetch method which really shows me the Promise and its early usage for AJAX
+programming.</p>
+
+<p>I had nothing to say about this challenge. Here’s the <a href="/demo_day6" target="_blank">demo</a>
+and the <a href="https://github.com/miayam/js30" target="_blank">repo</a>.</p>
+
+<noscript><pre>(function search(window) {
+  // We expect to get array of all `cities` in US from this endpoint.
+  var endpoint = &#39;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&#39; // certain endpoint here
+  
+  function findMatches(cities) {
+
+    function getMatches(keyword) {
+      var regex = new RegExp(keyword, &#39;gi&#39;);
+      var matches = cities.filter(function (place) {
+        return place.city.match(regex) || place.state.match(regex);
+      });
+
+      return matches;
+    }
+
+    // I shamlessly grab it from:
+    // http://bit.ly/2vpL9TI
+    function numberWithComma(number){
+      return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, &quot;$1,&quot;);
+    }
+
+    // Return callback for handling event on search input.
+    // In our case &#39;keyup&#39; and &#39;change&#39;.
+    return function displayMatches(event) {
+      var suggestions = document.querySelector(&#39;.suggestions&#39;);
+      var keyword = this.value; // string of characters from search input
+      var matches = getMatches(keyword);
+      var lists = matches.map(function (place) {
+        var regex = new RegExp(keyword, &#39;gi&#39;);
+        var highlight = `&lt;span class=&#39;hl&#39;&gt;${keyword}&lt;/span&gt;`
+        var city = place.city.replace(regex, highlight);
+        var state = place.state.replace(regex, highlight);
+        var population = numberWithComma(place.population);
+
+        return `
+          &lt;li&gt;
+            &lt;span class=&quot;name&quot;&gt;${city}, ${state}&lt;/span&gt;
+            &lt;span class=&quot;population&quot;&gt;${population}&lt;/span&gt;
+          &lt;/li&gt;
+        `;
+      }).join(&#39;&#39;);
+
+      suggestions.innerHTML = lists;
+    };
+  }
+ 
+  fetch(endpoint)
+    .then(function (blob) {
+      return blob.json();
+    })
+    .then(function (cities) {
+      var form = document.querySelector(&#39;.search-form&#39;);
+      var search = document.querySelector(&#39;.search&#39;);
+      var handler;
+
+      // Display search form because the data is ready to be implemented.
+      form.style.display = &quot;block&quot;
+
+      handler = findMatches(cities);
+
+      search.addEventListener(&#39;keyup&#39;, handler);
+      search.addEventListener(&#39;change&#39;, handler);
+    });
+})(window);</pre></noscript>
+<script src="https://gist.github.com/miayam/f7199f806a4ab40dc2c0a23f7018d311.js"> </script>
+
+<p>Firstly, I copied the boilerplate and tinkered with the UI for a bit. I intended to make it look more
+like Reddit with its calming light blue. I ditched all the CSS transition and went on with boring
+design which I really love the most.</p>
+
+<p>I like this challenge.</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/06/01/day5-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 5: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/06/07/day7-javascript-challenge" class="blog-navigation__next-link"> Day 7: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/06/06/day6-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>

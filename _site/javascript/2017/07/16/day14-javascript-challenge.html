@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 14: JavaScript Challenge</title>
+  <meta name="description"
+        content="Copying Array or Object can be tremendously confusing if we don’t know thatthey are different from primitive typed values like string, boolean, ornumber.Let’...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/07/16/day14-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 14: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 14: JavaScript Challenge" />
+<meta name="description" content="Copying Array or Object can be tremendously confusing if we don’t know thatthey are different from primitive typed values like string, boolean, ornumber.Let’s start with them. I can guarantee that we can copy primitive typedvalues this way.  var year = 2017;  var thisYear = year;If we change the value of year to something else,then nothing happens to thisYear. As expected.  year = 2016;  console.log(year); // 2016  console.log(thisYear); // 2017The same thing goes to boolean and string values.  var name = &#39;Robert&#39;;  var hisName = name;  var right = true;  var left = right;  name = &#39;James&#39;;  right = false;  console.log(name); // James  console.log(hisName); // Robert  console.log(right); // false  console.log(left); // trueLet’s say we have an array.  var players = [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;];We try to make a copy of array the same way wecopy number, boolean, and string.  var team = players;You might think we can just do something like this, expecting that playerswill not be affected.  team[0] = &#39;Pop&#39;;However what happens when we update that array?  console.log(players); // [&#39;Pop&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;Pop&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(`Both share the same memory.`);Now here is the problem! We have edited the original array too!Why? It’s because that is an array reference, not an array copy.They both point to the same array! So, how do we fix this?  By using old fashioned [].slice.  var team = players.slice();  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  By using [].concat.  var team = [].concat(players);  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  By using the new ES6 spread.  var team = [...players];  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]Object and Array act the same way when it comes to copying its ownproperties. Let’s say we have a person object.  var person = {    name: &quot;Dudung&quot;,    lastName: &quot;Stevenson&quot;  };This kind of statement is completely wrong.  var newPerson = person;How do we fix that?  Using Object.assign instead.  var newPerson = Object.assign({}, person, {isHandsome: false});  console.log(newPerson);  // {  //   name: &quot;Dudung&quot;,  //   lastName: &quot;Stevenson&quot;,  //   isHandsome: false  // }  console.log(person);  // It doesn&#39;t change.  // {  //   name: &quot;Dudung&quot;,  //   lastName: &quot;Stevenson&quot;  // }  We will hopefully soon see {...spread}. It’s nextgeneration of EcmaScript. Every cool kid will be using this frantically. It’sthe future!  var newPerson = {...person};Things to note that this is only 1 level deep, both for Array andObject. Lodashhas a cloneDeep method, but you should think twice before using it.  // You can&#39;t just copy this nested object entirely with  // any of those built-in methods. Only 1 level deep.  {    name: &quot;Dudung&quot;,    lastName: &quot;Maman&quot;,    education: {      highSchool: &quot;Cool Highschool&quot;,      higherEducation: {        bachelorDegree: &quot;Stanford University&quot;,        graduateDegree: &quot;Harvard University&quot;      }    }  }Well, I borrow too many words from Wes Bos. I owe him a beer. That’s itfor today." />
+<meta property="og:description" content="Copying Array or Object can be tremendously confusing if we don’t know thatthey are different from primitive typed values like string, boolean, ornumber.Let’s start with them. I can guarantee that we can copy primitive typedvalues this way.  var year = 2017;  var thisYear = year;If we change the value of year to something else,then nothing happens to thisYear. As expected.  year = 2016;  console.log(year); // 2016  console.log(thisYear); // 2017The same thing goes to boolean and string values.  var name = &#39;Robert&#39;;  var hisName = name;  var right = true;  var left = right;  name = &#39;James&#39;;  right = false;  console.log(name); // James  console.log(hisName); // Robert  console.log(right); // false  console.log(left); // trueLet’s say we have an array.  var players = [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;];We try to make a copy of array the same way wecopy number, boolean, and string.  var team = players;You might think we can just do something like this, expecting that playerswill not be affected.  team[0] = &#39;Pop&#39;;However what happens when we update that array?  console.log(players); // [&#39;Pop&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;Pop&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(`Both share the same memory.`);Now here is the problem! We have edited the original array too!Why? It’s because that is an array reference, not an array copy.They both point to the same array! So, how do we fix this?  By using old fashioned [].slice.  var team = players.slice();  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  By using [].concat.  var team = [].concat(players);  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  By using the new ES6 spread.  var team = [...players];  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]Object and Array act the same way when it comes to copying its ownproperties. Let’s say we have a person object.  var person = {    name: &quot;Dudung&quot;,    lastName: &quot;Stevenson&quot;  };This kind of statement is completely wrong.  var newPerson = person;How do we fix that?  Using Object.assign instead.  var newPerson = Object.assign({}, person, {isHandsome: false});  console.log(newPerson);  // {  //   name: &quot;Dudung&quot;,  //   lastName: &quot;Stevenson&quot;,  //   isHandsome: false  // }  console.log(person);  // It doesn&#39;t change.  // {  //   name: &quot;Dudung&quot;,  //   lastName: &quot;Stevenson&quot;  // }  We will hopefully soon see {...spread}. It’s nextgeneration of EcmaScript. Every cool kid will be using this frantically. It’sthe future!  var newPerson = {...person};Things to note that this is only 1 level deep, both for Array andObject. Lodashhas a cloneDeep method, but you should think twice before using it.  // You can&#39;t just copy this nested object entirely with  // any of those built-in methods. Only 1 level deep.  {    name: &quot;Dudung&quot;,    lastName: &quot;Maman&quot;,    education: {      highSchool: &quot;Cool Highschool&quot;,      higherEducation: {        bachelorDegree: &quot;Stanford University&quot;,        graduateDegree: &quot;Harvard University&quot;      }    }  }Well, I borrow too many words from Wes Bos. I owe him a beer. That’s itfor today." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/07/16/day14-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/07/16/day14-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-16T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 14: JavaScript Challenge",
+    "datePublished": "2017-07-16T00:00:00+07:00",
+    "description": "Copying Array or Object can be tremendously confusing if we don’t know thatthey are different from primitive typed values like string, boolean, ornumber.Let’s start with them. I can guarantee that we can copy primitive typedvalues this way.  var year = 2017;  var thisYear = year;If we change the value of year to something else,then nothing happens to thisYear. As expected.  year = 2016;  console.log(year); // 2016  console.log(thisYear); // 2017The same thing goes to boolean and string values.  var name = &#39;Robert&#39;;  var hisName = name;  var right = true;  var left = right;  name = &#39;James&#39;;  right = false;  console.log(name); // James  console.log(hisName); // Robert  console.log(right); // false  console.log(left); // trueLet’s say we have an array.  var players = [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;];We try to make a copy of array the same way wecopy number, boolean, and string.  var team = players;You might think we can just do something like this, expecting that playerswill not be affected.  team[0] = &#39;Pop&#39;;However what happens when we update that array?  console.log(players); // [&#39;Pop&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;Pop&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(`Both share the same memory.`);Now here is the problem! We have edited the original array too!Why? It’s because that is an array reference, not an array copy.They both point to the same array! So, how do we fix this?  By using old fashioned [].slice.  var team = players.slice();  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  By using [].concat.  var team = [].concat(players);  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  By using the new ES6 spread.  var team = [...players];  team[0] = &quot;James&quot;;  console.log(players); // [&#39;Wes&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]  console.log(team); // [&#39;James&#39;, &#39;Sarah&#39;, &#39;Ryan&#39;, &#39;Poppy&#39;]Object and Array act the same way when it comes to copying its ownproperties. Let’s say we have a person object.  var person = {    name: &quot;Dudung&quot;,    lastName: &quot;Stevenson&quot;  };This kind of statement is completely wrong.  var newPerson = person;How do we fix that?  Using Object.assign instead.  var newPerson = Object.assign({}, person, {isHandsome: false});  console.log(newPerson);  // {  //   name: &quot;Dudung&quot;,  //   lastName: &quot;Stevenson&quot;,  //   isHandsome: false  // }  console.log(person);  // It doesn&#39;t change.  // {  //   name: &quot;Dudung&quot;,  //   lastName: &quot;Stevenson&quot;  // }  We will hopefully soon see {...spread}. It’s nextgeneration of EcmaScript. Every cool kid will be using this frantically. It’sthe future!  var newPerson = {...person};Things to note that this is only 1 level deep, both for Array andObject. Lodashhas a cloneDeep method, but you should think twice before using it.  // You can&#39;t just copy this nested object entirely with  // any of those built-in methods. Only 1 level deep.  {    name: &quot;Dudung&quot;,    lastName: &quot;Maman&quot;,    education: {      highSchool: &quot;Cool Highschool&quot;,      higherEducation: {        bachelorDegree: &quot;Stanford University&quot;,        graduateDegree: &quot;Harvard University&quot;      }    }  }Well, I borrow too many words from Wes Bos. I owe him a beer. That’s itfor today.",
+    "url": "https://miayam.github.io/javascript/2017/07/16/day14-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 14: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-07-16T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        16 July 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Copying <code class="highlighter-rouge">Array</code> or <code class="highlighter-rouge">Object</code> can be tremendously confusing if we don’t know that
+they are different from primitive typed values like <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">boolean</code>, or
+<code class="highlighter-rouge">number</code>.</p>
+
+<p>Let’s start with them. I can guarantee that we can copy primitive typed
+values this way.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">thisYear</span> <span class="o">=</span> <span class="nx">year</span><span class="p">;</span></code></pre></figure>
+
+<p>If we change the value of <code class="highlighter-rouge">year</code> to something else,
+then nothing happens to <code class="highlighter-rouge">thisYear</code>. As expected.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">year</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">year</span><span class="p">);</span> <span class="c1">// 2016</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">thisYear</span><span class="p">);</span> <span class="c1">// 2017</span></code></pre></figure>
+
+<p>The same thing goes to <code class="highlighter-rouge">boolean</code> and <code class="highlighter-rouge">string</code> values.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Robert'</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">hisName</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">right</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">right</span><span class="p">;</span>
+
+  <span class="nx">name</span> <span class="o">=</span> <span class="s1">'James'</span><span class="p">;</span>
+  <span class="nx">right</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// James</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hisName</span><span class="p">);</span> <span class="c1">// Robert</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">right</span><span class="p">);</span> <span class="c1">// false</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">left</span><span class="p">);</span> <span class="c1">// true</span></code></pre></figure>
+
+<p>Let’s say we have an array.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Wes'</span><span class="p">,</span> <span class="s1">'Sarah'</span><span class="p">,</span> <span class="s1">'Ryan'</span><span class="p">,</span> <span class="s1">'Poppy'</span><span class="p">];</span></code></pre></figure>
+
+<p>We try to make a copy of array the same way we
+copy <code class="highlighter-rouge">number</code>, <code class="highlighter-rouge">boolean</code>, and <code class="highlighter-rouge">string</code>.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">team</span> <span class="o">=</span> <span class="nx">players</span><span class="p">;</span></code></pre></figure>
+
+<p>You might think we can just do something like this, expecting that <code class="highlighter-rouge">players</code>
+will not be affected.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">team</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Pop'</span><span class="p">;</span></code></pre></figure>
+
+<p>However what happens when we update that array?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">players</span><span class="p">);</span> <span class="c1">// ['Pop', 'Sarah', 'Ryan', 'Poppy']</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">team</span><span class="p">);</span> <span class="c1">// ['Pop', 'Sarah', 'Ryan', 'Poppy']</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">Both</span> <span class="nx">share</span> <span class="nx">the</span> <span class="nx">same</span> <span class="nx">memory</span><span class="p">.</span><span class="err">`</span><span class="p">);</span></code></pre></figure>
+
+<p>Now here is the problem! We have edited the original array too!
+Why? It’s because that is an array reference, not an array copy.
+They both point to the same array! So, how do we fix this?</p>
+
+<ul>
+  <li>By using old fashioned <code class="highlighter-rouge">[].slice</code>.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">team</span> <span class="o">=</span> <span class="nx">players</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+  <span class="nx">team</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"James"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">players</span><span class="p">);</span> <span class="c1">// ['Wes', 'Sarah', 'Ryan', 'Poppy']</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">team</span><span class="p">);</span> <span class="c1">// ['James', 'Sarah', 'Ryan', 'Poppy']</span></code></pre></figure>
+
+<ul>
+  <li>By using <code class="highlighter-rouge">[].concat</code>.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">team</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">players</span><span class="p">);</span>
+  <span class="nx">team</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"James"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">players</span><span class="p">);</span> <span class="c1">// ['Wes', 'Sarah', 'Ryan', 'Poppy']</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">team</span><span class="p">);</span> <span class="c1">// ['James', 'Sarah', 'Ryan', 'Poppy']</span></code></pre></figure>
+
+<ul>
+  <li>By using the new ES6 spread.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">team</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">players</span><span class="p">];</span>
+  <span class="nx">team</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"James"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">players</span><span class="p">);</span> <span class="c1">// ['Wes', 'Sarah', 'Ryan', 'Poppy']</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">team</span><span class="p">);</span> <span class="c1">// ['James', 'Sarah', 'Ryan', 'Poppy']</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">Object</code> and <code class="highlighter-rouge">Array</code> act the same way when it comes to copying its own
+properties. Let’s say we have a <code class="highlighter-rouge">person</code> object.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Dudung"</span><span class="p">,</span>
+    <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Stevenson"</span>
+  <span class="p">};</span></code></pre></figure>
+
+<p>This kind of statement is completely wrong.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">newPerson</span> <span class="o">=</span> <span class="nx">person</span><span class="p">;</span></code></pre></figure>
+
+<p>How do we fix that?</p>
+
+<ul>
+  <li>Using <code class="highlighter-rouge">Object.assign</code> instead.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">newPerson</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">person</span><span class="p">,</span> <span class="p">{</span><span class="na">isHandsome</span><span class="p">:</span> <span class="kc">false</span><span class="p">});</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newPerson</span><span class="p">);</span>
+  <span class="c1">// {</span>
+  <span class="c1">//   name: "Dudung",</span>
+  <span class="c1">//   lastName: "Stevenson",</span>
+  <span class="c1">//   isHandsome: false</span>
+  <span class="c1">// }</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+  <span class="c1">// It doesn't change.</span>
+  <span class="c1">// {</span>
+  <span class="c1">//   name: "Dudung",</span>
+  <span class="c1">//   lastName: "Stevenson"</span>
+  <span class="c1">// }</span></code></pre></figure>
+
+<ul>
+  <li>We will hopefully soon see <code class="highlighter-rouge"><span class="p">{</span><span class="err">...spread</span><span class="p">}</span></code>. It’s next
+generation of <code class="highlighter-rouge">EcmaScript</code>. Every cool kid will be using this frantically. It’s
+the future!</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">newPerson</span> <span class="o">=</span> <span class="p">{...</span><span class="nx">person</span><span class="p">};</span></code></pre></figure>
+
+<p>Things to note that this is only 1 level deep, both for <code class="highlighter-rouge">Array</code> and
+<code class="highlighter-rouge">Object</code>. <a href="https://lodash.com/docs/4.17.4#cloneDeep" target="_blank">Lodash</a>
+has a <code class="highlighter-rouge">cloneDeep</code> method, but you should think twice before using it.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="c1">// You can't just copy this nested object entirely with</span>
+  <span class="c1">// any of those built-in methods. Only 1 level deep.</span>
+  <span class="p">{</span>
+    <span class="nl">name</span><span class="p">:</span> <span class="s2">"Dudung"</span><span class="p">,</span>
+    <span class="nx">lastName</span><span class="err">:</span> <span class="s2">"Maman"</span><span class="p">,</span>
+    <span class="nx">education</span><span class="err">:</span> <span class="p">{</span>
+      <span class="nl">highSchool</span><span class="p">:</span> <span class="s2">"Cool Highschool"</span><span class="p">,</span>
+      <span class="nx">higherEducation</span><span class="err">:</span> <span class="p">{</span>
+        <span class="nl">bachelorDegree</span><span class="p">:</span> <span class="s2">"Stanford University"</span><span class="p">,</span>
+        <span class="nx">graduateDegree</span><span class="err">:</span> <span class="s2">"Harvard University"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>Well, I borrow too many words from Wes Bos. I owe him a beer. That’s it
+for today.</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/07/15/day13-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 13: JavaScript Challenge</a>
+    
+    
+      <a href="/the-web/2017/07/22/rust" class="blog-navigation__next-link"> Kunjungan ke Mozilla Community Space &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/07/16/day14-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>

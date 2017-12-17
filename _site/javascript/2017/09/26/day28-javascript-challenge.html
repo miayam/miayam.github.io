@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 28: JavaScript Challenge</title>
+  <meta name="description"
+        content="Speeding up and down the video by moving up and down that fancy slider back and forth… That sounds boring.I think day 11 JavaScript challenge is more challen...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/09/26/day28-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 28: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 28: JavaScript Challenge" />
+<meta name="description" content="Speeding up and down the video by moving up and down that fancy slider back and forth… That sounds boring.I think day 11 JavaScript challenge is more challengingthan this, but who am I to complain? Just finish the challenge and move on the next challenge. I am not in the mood ofexplaining. Here’s the demo.I don’t think we can understand how it works by simply reading the snippet below…(function (window, undefined) {  var speedSlider = document.querySelector(&#39;.speed&#39;);  var video = document.querySelector(&#39;.video-player&#39;);  var speedBar = document.querySelector(&#39;.speed-bar&#39;);  var isDown = false;  function handleSliderMove(event) {    var y = event.pageY - this.offsetTop;    var ratio = y / this.offsetHeight;    var min = 0.4;    var max = 4;    var height = Math.round(ratio * 100) + &#39;%&#39;;    var playbackRate = ratio * (max - min) + min;    if (!isDown) {      return;    }    speedBar.style.height = height;    speedBar.textContent = playbackRate.toFixed(2) + &#39;x&#39;;    video.playbackRate = playbackRate;  }  speedSlider.addEventListener(&#39;mouseup&#39;, function () {    isDown = false;  });  speedSlider.addEventListener(&#39;mousedown&#39;, function () {    isDown = true;  });  speedSlider.addEventListener(&#39;mousemove&#39;, handleSliderMove);})(window);I really miss ちえさ せれな." />
+<meta property="og:description" content="Speeding up and down the video by moving up and down that fancy slider back and forth… That sounds boring.I think day 11 JavaScript challenge is more challengingthan this, but who am I to complain? Just finish the challenge and move on the next challenge. I am not in the mood ofexplaining. Here’s the demo.I don’t think we can understand how it works by simply reading the snippet below…(function (window, undefined) {  var speedSlider = document.querySelector(&#39;.speed&#39;);  var video = document.querySelector(&#39;.video-player&#39;);  var speedBar = document.querySelector(&#39;.speed-bar&#39;);  var isDown = false;  function handleSliderMove(event) {    var y = event.pageY - this.offsetTop;    var ratio = y / this.offsetHeight;    var min = 0.4;    var max = 4;    var height = Math.round(ratio * 100) + &#39;%&#39;;    var playbackRate = ratio * (max - min) + min;    if (!isDown) {      return;    }    speedBar.style.height = height;    speedBar.textContent = playbackRate.toFixed(2) + &#39;x&#39;;    video.playbackRate = playbackRate;  }  speedSlider.addEventListener(&#39;mouseup&#39;, function () {    isDown = false;  });  speedSlider.addEventListener(&#39;mousedown&#39;, function () {    isDown = true;  });  speedSlider.addEventListener(&#39;mousemove&#39;, handleSliderMove);})(window);I really miss ちえさ せれな." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/09/26/day28-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/09/26/day28-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-09-26T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 28: JavaScript Challenge",
+    "datePublished": "2017-09-26T00:00:00+07:00",
+    "description": "Speeding up and down the video by moving up and down that fancy slider back and forth… That sounds boring.I think day 11 JavaScript challenge is more challengingthan this, but who am I to complain? Just finish the challenge and move on the next challenge. I am not in the mood ofexplaining. Here’s the demo.I don’t think we can understand how it works by simply reading the snippet below…(function (window, undefined) {  var speedSlider = document.querySelector(&#39;.speed&#39;);  var video = document.querySelector(&#39;.video-player&#39;);  var speedBar = document.querySelector(&#39;.speed-bar&#39;);  var isDown = false;  function handleSliderMove(event) {    var y = event.pageY - this.offsetTop;    var ratio = y / this.offsetHeight;    var min = 0.4;    var max = 4;    var height = Math.round(ratio * 100) + &#39;%&#39;;    var playbackRate = ratio * (max - min) + min;    if (!isDown) {      return;    }    speedBar.style.height = height;    speedBar.textContent = playbackRate.toFixed(2) + &#39;x&#39;;    video.playbackRate = playbackRate;  }  speedSlider.addEventListener(&#39;mouseup&#39;, function () {    isDown = false;  });  speedSlider.addEventListener(&#39;mousedown&#39;, function () {    isDown = true;  });  speedSlider.addEventListener(&#39;mousemove&#39;, handleSliderMove);})(window);I really miss ちえさ せれな.",
+    "url": "https://miayam.github.io/javascript/2017/09/26/day28-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 28: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-09-26T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        26 September 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Speeding up and down the video by moving up and down that fancy slider back and forth… That sounds boring.</p>
+
+<p>I think <a href="/javascript/2017/07/01/day11-javascript-challenge" target="_blank">day 11 JavaScript challenge</a> is more challenging
+than this, but who am I to complain? Just finish the challenge and move on the next challenge. I am not in the mood of
+explaining. Here’s the <a href="/demo_day28" target="_blank">demo</a>.</p>
+
+<p>I don’t think we can understand how it works by simply reading the snippet below…</p>
+
+<p>true<script src="https://gist.github.com/miayam/8d822c49d80d4fd80f221ff52d7b9855.js"> </script></p>
+
+<p>I really miss ちえさ せれな.</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/09/26/day27-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 27: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/09/27/day29-javascript-challenge" class="blog-navigation__next-link"> Day 29: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/09/26/day28-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>

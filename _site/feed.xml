@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>miayam.github.io</title>
+    <description>Written words by Muhammad D. Ramadhan.
+</description>
+    <link>https://miayam.github.io</link>
+    <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 17 Dec 2017 08:59:16 +0700</pubDate>
+    <lastBuildDate>Sun, 17 Dec 2017 08:59:16 +0700</lastBuildDate>
+    <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Bagaimana Kami Mengelola Akun Firebase Menggunakan Ruby?</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Firebase&lt;/code&gt; belum menyediakan pustaka (&lt;em&gt;library&lt;/em&gt;) untuk mengelola akun di &lt;code class=&quot;highlighter-rouge&quot;&gt;Firebase&lt;/code&gt; dalam bahasa &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;.
+Kami punya ide untuk menangani masalah ini.&lt;/p&gt;
+
+&lt;p&gt;Biasanya penerimaan mahasiswa dilakukan melalui proses panjang di UMS (&lt;em&gt;University Management System&lt;/em&gt;):
+Mulai dari pengunggahan berkas-berkas, pemilihan lokasi ujian, melakukan berbagai pembayaran, sampai
+akhirnya calon mahasiswa resmi menjadi mahasiswa di universitas mitra. Semua proses dilakukan
+secara daring (&lt;em&gt;online&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Nah! Salah satu universitas mitra ternyata sudah memiliki daftar mahasiswa (3000-an lebih) melalui
+proses manual. Kami perlu memasukkan daftar mahasiswa tersebut ke basis data (&lt;em&gt;database&lt;/em&gt;) agar mereka bisa
+menikmati semua layanan yang disediakan LMS (&lt;em&gt;Learning Management System&lt;/em&gt;). &lt;em&gt;VP of Engineering&lt;/em&gt; memutar otak
+karena kami sudah terlanjur menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby on Rails&lt;/code&gt; dari awal dan melakukan migrasi ke &lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt; sama
+saja dengan bunuh diri. Bisa saja kami melakukan pengisian manual secara langsung di Firebase, tapi buat
+apa menjadi pengembang web jika masih melakukan pekerjaan repetitif semacam itu? Setelah meminta wejangan
+kepada leluhur, akhirnya kami punya solusi yang cukup &lt;em&gt;nyeleneh&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pertama-tama, kami membuat &lt;a href=&quot;https://kbbi.web.id/folder&quot;&gt;folder&lt;/a&gt; baru dengan nama &lt;code class=&quot;highlighter-rouge&quot;&gt;nodejs&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Berikut adalah &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; untuk proyek &lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt; kami.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;nodejs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;echo \&quot;Error: no test specified\&quot; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;UMS team&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ISC&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;firebase&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^3.6.10&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;firebase-admin&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^4.1.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;sleep&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^5.1.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;pg&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^6.1.5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;^0.11.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Tidak ada satu pun di tim kami yang punya pengalaman dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt;, jadi harap maklum jika kode yang akan
+kalian lihat membuat mata perih.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/zzG8J5w.png&quot; alt=&quot;my eyes&quot; class=&quot;blog-post-image&quot; /&gt;
+&lt;em class=&quot;description&quot;&gt;My eyes!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Solusi paling masuk akal adalah meminta tim operasional mengimpor daftar mahasiswa tersebut dalam bentuk CSV
+ke UMS, kemudian biarkan program berjalan di belakang layar sampai semua mahasiswa
+mendapatkan hak akses ke LMS.&lt;/p&gt;
+
+&lt;p&gt;Berikut adalah cungkilan dari kode busuk kami yang sama sekali tidak punya keindahan semantik
+dan estetika.&lt;/p&gt;
+
+&lt;p&gt;Ini modul untuk “membungkus” fungsi-fungsi bawaan &lt;code class=&quot;highlighter-rouge&quot;&gt;Firebase&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// firebase_administrator.js&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebaseCreateUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;emailVerified&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;harukaedu1234567890qwertyuiop[]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Successfully created new user:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Email: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Error: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Error creating new user:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'failed'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebaseUpdateUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Error fetching user data: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebaseGetUserUID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getUserByEmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Error fetching user data: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebaseCreateUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebaseUpdateUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getUserUID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebaseGetUserUID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Ini modul untuk mengunggah akun secara masal ke &lt;code class=&quot;highlighter-rouge&quot;&gt;Firebase&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// mass_uploader.js&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebase&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./firebase_administrator'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;serviceAccount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;firebase-admin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initializeApp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;credential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;credential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;serviceAccount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uploadUsers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;firebase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Error creating user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;actions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;uploadUsers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Success!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Failed!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Dari sini, kami memulai menulis kode &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt; untuk pembuatan servis yang akan dieksekusi di belakang layar
+menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;Sidekiq&lt;/code&gt;. Silahkan baca &lt;a href=&quot;https://github.com/mperham/sidekiq/wiki&quot; target=&quot;_blank&quot;&gt;dokumentasinya&lt;/a&gt;
+agar lebih jelas.&lt;/p&gt;
+
+&lt;p&gt;Sebelum menulis kode, kami memastikan pustaka &lt;code class=&quot;highlighter-rouge&quot;&gt;execjs&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;therubyracer&lt;/code&gt; terlampir di konfigurasi &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DSrVPca.png&quot; alt=&quot;seperti ini&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kurang lebih seperti ini kodenya:&lt;/p&gt;
+
+&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/miayam/d286dc449dc46f5ccf1cf51a54caaa26.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Servis ini akan berjalan setiap tim operasional melakukan pengunggahan. Secara otomatis, &lt;code class=&quot;highlighter-rouge&quot;&gt;Sidekiq&lt;/code&gt;
+akan mendaftarkan proses ini ke antrian sebelum dieksekusi. Ini cukup masuk
+akal karena 3000 lebih mahasiswa tidak diunggah dalam 1 dokumen, mereka dibagi
+berdasarkan kelas dan mata kuliah yang diambil di semester yang sedang berjalan.&lt;/p&gt;
+
+&lt;p&gt;Inilah kode kunci untuk menyelesaikan masalah ini. Kami meminta mesin &lt;code class=&quot;highlighter-rouge&quot;&gt;linux&lt;/code&gt; untuk menjalankan
+skrip &lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt; dari CLI (&lt;em&gt;Command-line Interface&lt;/em&gt;), sementara parameter-parameter yang kami butuhkan
+dimasukkan secara dinamis—yang berarti tidak ditulis secara langsung di baris perintah.
+Berikut adalah solusi kami yang agak jenaka:&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;# users_uploader.rb
+require &amp;#39;execjs&amp;#39;
+
+module StudentHandler
+  class UsersUploader
+    attr_reader :command
+
+    def initialize(emails:, partner_id:)
+      partner = Partner.find_by(id: partner_id)
+      emails = emails.join(&amp;#39; &amp;#39;)
+      @command = &amp;quot;node lib/nodejs/mass_uploader.js &amp;#39;#{emails}&amp;#39; &amp;#39;#{partner.firebase_credential}&amp;#39;&amp;quot;
+    end
+
+    def execute
+      system @command
+    end
+  end
+end&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/a1c6fa21c1d793e25a13fbe907134a8a.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Kami membiarkan &lt;code class=&quot;highlighter-rouge&quot;&gt;Sidekiq&lt;/code&gt; bekerja sendiri, sementara kami punya waktu untuk bisa bernafas lega:&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;module StudentImportWorker
+  class ImportWorker
+    include Sidekiq::Worker
+
+    def perform(id)
+      StudentCSVHandler::CSVImport.new(
+        id: id
+      ).execute
+    end
+  end
+end&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/bec52f5d6834719f451c4c7206cf1787.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Alhamdulillah, karya busuk kami masih berjalan sampai sekarang meski terdapat banyak kesalahan
+di sana-sini.&lt;/p&gt;
+
+&lt;p&gt;Kini, ribuan mahasiswa yang sebelumnya sudah terdaftar di universitas mitra bisa
+menikmati layanan yang disediakan LMS tanpa perlu melakukan proses penerimaan mahasiswa baru
+yang melelahkan. Terima kasih &lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt;! Terima kasih &lt;code class=&quot;highlighter-rouge&quot;&gt;Firebase&lt;/code&gt;! Saya pensiun menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby on Rails&lt;/code&gt;!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Oct 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/ruby/2017/10/08/import-firebase-account</link>
+        <guid isPermaLink="true">https://miayam.github.io/ruby/2017/10/08/import-firebase-account</guid>
+        
+        
+        <category>ruby</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 30: JavaScript Challenge</title>
+        <description>&lt;p&gt;After 4 months trying to get into the DOM and Web API (without libraries, frameworks, or tooling),
+I finally finish 30 day JavaScript challenge! It sounds easy, but you have to try it
+yourself. It takes a lot of hard work!&lt;/p&gt;
+
+&lt;p&gt;What am I going to do now? I am going to learn React, I mean React’s source code.
+I want to know how it works, not just how to use it smartly like those smart people
+out there. It must be hard.&lt;/p&gt;
+
+&lt;p&gt;Why I choose React? Because Reddit use it in production and I am a big fan of Reddit.
+If Reddit, Mozilla, or Wikipedia happened to use Angular in production,
+I will learn and use Angular instead. Just as simple as that. I am not fascinated by
+benchmark, comparison, speed, and whatnot. I am not Software Engineer and I don’t
+make any decisions. If the team decided to use whatever technologies available,
+I won’t mind it as long as the features delivered and the customers happy. The only thing
+that makes human happy is usefulness, so I intend to be useful, always! By the way,
+here’s the &lt;a href=&quot;/demo_day30&quot; target=&quot;_blank&quot;&gt;last demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here’s how I finish the challenge. I will comment on it if it is somewhat necessary.&lt;/p&gt;
+
+&lt;h3 id=&quot;markup&quot;&gt;Markup&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Whack-a-mole! &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;score&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;game&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hole hole1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mole&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hole hole2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mole&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hole hole3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mole&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hole hole4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mole&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hole hole5&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mole&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hole hole6&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mole&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;playAgain&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display: none; margin: 20px auto; height: 50px; font-size: medium&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      Play again!
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  var holes = document.querySelectorAll(&amp;#39;.hole&amp;#39;);
+  var moles = document.querySelectorAll(&amp;#39;.mole&amp;#39;);
+  var scoreBoard = document.querySelector(&amp;#39;.score&amp;#39;);
+  var playButton = document.querySelector(&amp;#39;.playAgain&amp;#39;);
+  var timeUp = false;
+  var poppingTimeout = null;
+  var playTimeout = null;
+  var score = 0;
+  var lastHole;
+
+  function randomTime(min, max) {
+    var time = Math.random() * (max - min) + min
+    return Math.round(time);
+  }
+
+  function randomHole(holes) {
+    var index = Math.floor(Math.random() * holes.length);
+    var hole = holes[index];
+
+    if (hole == lastHole) {
+      return randomHole(holes);
+    }
+
+    lastHole = hole;
+    return hole;
+  }
+
+  function popUpMole() {
+    var time = randomTime(200, 500);
+    var hole = randomHole(holes);
+
+    window.clearTimeout(poppingTimeout);
+
+    hole.classList.add(&amp;#39;up&amp;#39;);
+    poppingTimeout = window.setTimeout(function () {
+      hole.classList.remove(&amp;#39;up&amp;#39;);
+      if (!timeUp) {
+        popUpMole();
+      }
+    }, time);
+  }
+
+  function resetScoreBoard() {
+    score = 0;
+    scoreBoard.textContent = 0;
+  }
+
+  function playOnAndOn() {
+    var duration = 20000; // 20 seconds
+
+    window.clearTimeout(playTimeout);
+
+    playButton.style.display = &amp;quot;none&amp;quot;;
+    timeUp = false;
+    resetScoreBoard();
+
+    popUpMole();
+
+    playTimeout = window.setTimeout(function () {
+      if (window.confirm(&amp;#39;Time is up! Want to play again?&amp;#39;)) {
+        resetScoreBoard();
+        playOnAndOn();
+      } else {
+        resetScoreBoard();
+        timeUp = true;
+        playButton.style.display = &amp;quot;block&amp;quot;;
+      }
+    }, duration);
+  }
+
+  function bonk(event) {
+    if (!event.isTrusted) {
+      return;
+    }
+
+    score++;
+
+    this.parentNode.classList.remove(&amp;#39;up&amp;#39;);
+    scoreBoard.textContent = score;
+  }
+
+  return function init() {
+    playButton.addEventListener(&amp;#39;click&amp;#39;, playOnAndOn);
+
+    moles.forEach(function (mole) {
+      mole.addEventListener(&amp;#39;click&amp;#39;, bonk);
+    });
+
+    playOnAndOn();
+  };
+})(window)();
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/e0c3e6497cb195d4ed8f0f2f82e0afe9.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;I summarise 30 day JavaScript challenge on a single page. &lt;a href=&quot;/js30&quot; target=&quot;_blank&quot;&gt;Here it is&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 28 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/28/day30-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/28/day30-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 29: JavaScript Challenge</title>
+        <description>&lt;p&gt;Making a custom timer for procrastinator like me is quite fun and useful. What an interesting challenge!
+Here’s the &lt;a href=&quot;/demo_day29&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I can only show the markup and JavaScript code here. Nothing to explain.&lt;/p&gt;
+
+&lt;h3 id=&quot;markup&quot;&gt;Markup&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timer__controls&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-time=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;20&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timer__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;20 Secs&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-time=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;300&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timer__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Work 5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-time=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;900&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timer__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Quick 15&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-time=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1200&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timer__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Snack 20&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-time=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;3600&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timer__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Lunch Break&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;customForm&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;custom&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;minutes&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Enter Minutes&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display__time-left&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display__end-time&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;scripts.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
+&lt;noscript&gt;&lt;pre&gt;(function (timer, window, undefined) {
+  var buttons = document.querySelectorAll(&amp;#39;[data-time]&amp;#39;);
+  var form = document.customForm;
+
+  function setTimer() {
+    var seconds = window.parseInt(this.dataset.time);
+    timer(seconds);
+  }
+
+  function setCustomTimer(event) {
+    var minutes, seconds;
+
+    event.preventDefault();
+    minutes = this.minutes.value;
+    seconds = minutes * 60;
+    timer(seconds);
+    this.reset();
+  }
+
+  form.addEventListener(&amp;#39;submit&amp;#39;, setCustomTimer);
+
+  buttons.forEach(function (button) {
+    button.addEventListener(&amp;#39;click&amp;#39;, setTimer);
+  });
+})((function (window, undefined) {
+    var countdown = null;
+    var timerDisplay = document.querySelector(&amp;#39;.display__time-left&amp;#39;);
+    var endTime = document.querySelector(&amp;#39;.display__end-time&amp;#39;);
+
+    function displayTimeLeft(seconds) {
+      var minutes = window.Math.floor(seconds / 60);
+      var remainderSeconds = seconds % 60;
+      var display, placeholder;
+
+      minutes = window.Math.round(minutes);
+      placeholder = remainderSeconds &amp;lt; 10 ? &amp;#39;0&amp;#39; : &amp;#39;&amp;#39;;
+      display = `
+        ${minutes}:${placeholder}${remainderSeconds}
+      `;
+      timerDisplay.textContent = display;
+      document.title = display;
+    }
+
+    function displayEndTime(timestamps) {
+      var end = new Date(timestamps);
+      var hours = end.getHours();
+      var adjustedHours = hours &amp;gt; 12 ? hours - 12 : hours;
+      var minutes = end.getMinutes();
+      endTime.textContent = `Be back at ${adjustedHours}:${minutes}`;
+    }
+
+    return function timer(seconds) {
+      var now = Date.now();
+      var then = now + seconds * 1000;
+
+      window.clearInterval(countdown);
+
+      displayTimeLeft(seconds);
+      displayEndTime(then);
+
+      countdown = window.setInterval(function () {
+        var secondsLeft = (then - Date.now()) / 1000
+        secondsLeft = window.Math.round(secondsLeft);
+
+        if (secondsLeft &amp;lt; 0) {
+          window.clearInterval(countdown);
+          return;
+        }
+
+        displayTimeLeft(secondsLeft);
+      }, 1000);
+    };
+  })(window), window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/ea34cc4d1da41b7c91dfaced3777dc35.js&quot;&gt; &lt;/script&gt;
+
+</description>
+        <pubDate>Wed, 27 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/27/day29-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/27/day29-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 28: JavaScript Challenge</title>
+        <description>&lt;p&gt;Speeding up and down the video by moving up and down that fancy slider back and forth… That sounds boring.&lt;/p&gt;
+
+&lt;p&gt;I think &lt;a href=&quot;/javascript/2017/07/01/day11-javascript-challenge&quot; target=&quot;_blank&quot;&gt;day 11 JavaScript challenge&lt;/a&gt; is more challenging
+than this, but who am I to complain? Just finish the challenge and move on the next challenge. I am not in the mood of
+explaining. Here’s the &lt;a href=&quot;/demo_day28&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don’t think we can understand how it works by simply reading the snippet below…&lt;/p&gt;
+
+&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/miayam/8d822c49d80d4fd80f221ff52d7b9855.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;I really miss ちえさ せれな.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/26/day28-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/26/day28-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 27: JavaScript Challenge</title>
+        <description>&lt;p&gt;Scrolling that fancy carousel by grabbing and moving it back and forth… That sounds boring.&lt;/p&gt;
+
+&lt;p&gt;At first, I really wanted to skip ahead and move on to the next challenge–I was terrified by CSS.
+After hearing ちえさ せれな said ‘yes’ to my invitation, I got up and read that CSS snippet with hustle to
+fully understand how it works. Sometime affection really affects people. And then I found a great resource about
+CSS 3D transforms! Kudos to &lt;a href=&quot;https://desandro.com/&quot; target=&quot;_blank&quot;&gt;David DeSandro&lt;/a&gt; for his clear explanation!&lt;/p&gt;
+
+&lt;p&gt;I am not willing to bother myself repeating what the author says. &lt;a href=&quot;https://desandro.github.io/3dtransforms/&quot; target=&quot;_blank&quot;&gt;Let him explain himself&lt;/a&gt;.
+Here’s the &lt;a href=&quot;/demo_day27&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;By the way, I am not concerned about how I finish the challenge,
+I am just concerned about ちえさ せれな’s cute ponytail…&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/26/day27-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/26/day27-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 26: JavaScript Challenge</title>
+        <description>&lt;p&gt;This is improvement for &lt;a href=&quot;/javascript/2017/08/27/day22-javascript-challenge&quot; target=&quot;_blank&quot;&gt;day 22 JavaScript challenge&lt;/a&gt; (copying Stripe feature). It’s not so bad.&lt;/p&gt;
+
+&lt;p&gt;I’ll say that again, it’s superfluous for a web page to have this kind of feature. Craig Newmark will look
+away and insult us in his mind! Well, if it was for fun, I wouldn’t attach too much importance to his
+thinking. Here we are completely copying Stripe new web page! Here’s the &lt;a href=&quot;/demo_day26&quot; target=&quot;_blank&quot;&gt;demo!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ve got nothing to say, but it’s really fun. Here’s my solution.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  // It&amp;#39;s a row of menu on navigation you hover over it.
+  var menuList = document.querySelectorAll(&amp;#39;.cool &amp;gt; li&amp;#39;);
+  
+  // It&amp;#39;s obviously a dynamic background that follow along
+  // that &amp;quot;mega menu&amp;quot;.
+  var background = document.querySelector(&amp;#39;.dropdownBackground&amp;#39;);
+  
+  var navigation = document.querySelector(&amp;#39;.top&amp;#39;);
+
+  function handleMouseEnter() {
+    // Lexical `this`.
+    var owningObject = this;
+    var dropdown, dropdownCoords, navCoords, coords;
+
+    background.classList.add(&amp;#39;open&amp;#39;);
+    owningObject.classList.add(&amp;#39;trigger-enter&amp;#39;);
+
+    setTimeout(function () {
+      if (owningObject.classList.contains(&amp;#39;trigger-enter&amp;#39;)) {
+        owningObject.classList.add(&amp;#39;trigger-enter-active&amp;#39;);
+      }
+    }, 150);
+
+    // Here&amp;#39;s the mega menu you want to display
+    dropdown = owningObject.querySelector(&amp;#39;.dropdown&amp;#39;);
+
+    // Get the coordinate of mega menu relative to its viewport
+    dropdownCoords = dropdown.getBoundingClientRect();
+  
+    // Get the coordinate of navigation relative to its viewport
+    navCoords = nav.getBoundingClientRect();
+
+    coords = {
+      height: dropdownCoords.height,
+      width: dropdownCoords.width,
+
+      // Why? Because when you add yet another element on top of mega menu,
+      // you will see the background rather off because that added element
+      // takes up an area in which the background that follow along mega
+      // menu stays away from its expected position. So, the offset top
+      // must be adjusted this way.
+      top: dropdownCoords.top - navCoords.top,
+      left: dropdownCoords.left - navCoords.left
+    };
+
+    background.style.setProperty(&amp;#39;width&amp;#39;, `${coords.width}px`);
+    background.style.setProperty(&amp;#39;height&amp;#39;, `${coords.height}px`);
+    background.style.setProperty(
+      &amp;#39;transform&amp;#39;,
+      `translate(${coords.left}px, ${coords.top}px)`
+    );
+  }
+
+  function handleMouseLeave() {
+    this.classList.remove(&amp;#39;trigger-enter&amp;#39;, &amp;#39;trigger-enter-active&amp;#39;);
+    background.classList.remove(&amp;#39;open&amp;#39;);
+  }
+
+  menuList.forEach(function (menu) {
+    menu.addEventListener(&amp;#39;mouseenter&amp;#39;, handleMouseEnter);
+    menu.addEventListener(&amp;#39;mouseleave&amp;#39;, handleMouseLeave);
+  });
+})(window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/e4601c797a1fc19499c1df6bd37e7d86.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;That’s it for today.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 18 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/18/day26-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/18/day26-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Bogus Object Oriented Programming</title>
+        <description>&lt;p&gt;It’s just a distillation from &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; &amp;amp; Object Prototype of YDKJS (You Don’t Know JavaScript)
+book series. I want to understand how classical object oriented style has been imposed on
+JavaScript for decades and how the true mechanism of &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt; chain works in accordance
+to alternative design pattern Kyle provides in his book (behaviour delegation or OLOO). Some
+eccentric German philosophers said, “You don’t really understand something until you are able
+to explain it to yourself in a simple manner!”&lt;/p&gt;
+
+&lt;p&gt;Let’s debunk all misconceptions about OOP in JavaScript in a simple manner!&lt;/p&gt;
+
+&lt;h3 id=&quot;no-such-thing-like-class&quot;&gt;1. No Such Thing Like Class!&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;You are created by God!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Muhammad D. Ramadhan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Muhammad D. Ramadhan&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// You can't access [[Prototype]] like this, but&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// the statement below is true!&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.[[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Human&lt;/code&gt; is an ordinary function that happens to be paved over by &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; keyword, so
+it returns newly created object out of thin air in addition to executing all
+statements in its function’s body (&lt;code class=&quot;highlighter-rouge&quot;&gt;this.name&lt;/code&gt; assignment and &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log&lt;/code&gt;).
+We’ll be back to this later.&lt;/p&gt;
+
+&lt;p&gt;Now, we have to understand what exactly &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt; property is.&lt;/p&gt;
+
+&lt;p&gt;You might have heard that every object in JavaScript is linked to other object
+via &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt;. That property is not accessible. However, in modern
+browser (most latest version of Chrome), you can access that property via
+&lt;code class=&quot;highlighter-rouge&quot;&gt;__proto__&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Your name&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Object.prototype&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You might have wondered how come we can access &lt;code class=&quot;highlighter-rouge&quot;&gt;toString&lt;/code&gt; property?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [object Object]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;We didn’t even declare &lt;code class=&quot;highlighter-rouge&quot;&gt;toString&lt;/code&gt; property, right?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Your Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// Implementation...&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In reality, &lt;code class=&quot;highlighter-rouge&quot;&gt;foo&lt;/code&gt; object has link to &lt;code class=&quot;highlighter-rouge&quot;&gt;Object.prototype&lt;/code&gt; object via &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt; property,
+so it looks up and follows the &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt; chain to find &lt;code class=&quot;highlighter-rouge&quot;&gt;toString&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s see how it’s done:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;// We actually access it via [[Prototype]] / __proto__.&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Nah, how about that &lt;code class=&quot;highlighter-rouge&quot;&gt;me&lt;/code&gt; object “constructed by” &lt;code class=&quot;highlighter-rouge&quot;&gt;Human&lt;/code&gt; function above?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Human&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;See? It’s logical to assume that the &lt;code class=&quot;highlighter-rouge&quot;&gt;me&lt;/code&gt; object is constructed by &lt;code class=&quot;highlighter-rouge&quot;&gt;Human&lt;/code&gt;, right?
+That &lt;code class=&quot;highlighter-rouge&quot;&gt;constructor&lt;/code&gt; property refers to &lt;code class=&quot;highlighter-rouge&quot;&gt;Human&lt;/code&gt; function!&lt;/p&gt;
+
+&lt;p&gt;Well, don’t be fooled by that! It doesn’t mean &lt;code class=&quot;highlighter-rouge&quot;&gt;me&lt;/code&gt; object is constructed by &lt;code class=&quot;highlighter-rouge&quot;&gt;Human&lt;/code&gt;.
+As the subtitle said, “there’s no such thing like class!”&lt;/p&gt;
+
+&lt;p&gt;Everytime you declare a function, no matter what it is, you will get access to
+its own &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt; property and the default value of that property is
+this object:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// { constructor: f }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Interestingly, that &lt;code class=&quot;highlighter-rouge&quot;&gt;constructor&lt;/code&gt; property point back to the function itself:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Bear it in mind, &lt;code class=&quot;highlighter-rouge&quot;&gt;new Human(&quot;Muhammad D. Ramadhan&quot;);&lt;/code&gt; will create new object and make its &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt;
+property link to &lt;code class=&quot;highlighter-rouge&quot;&gt;Human.prototype&lt;/code&gt;, so that new object can access default
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Human.prototype&lt;/code&gt;’s properties (&lt;code class=&quot;highlighter-rouge&quot;&gt;constructor&lt;/code&gt; in our case) or any properties
+you add to it later on. Here’s the example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;You are created by God!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Add new property, so new object created by construction call&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// (`new` keyword in front of ordinary function call) have access&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// to introduceOnceself indirectly via [[Prototype]].&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// No instantiation. No inheritance. It's just linking!&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;introduceOneself&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ちえさ&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;せれな`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Muhammad D. Ramadhan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;introduceOneself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// My name is Muhammad D. Ramadhan and I like ちえさ せれな&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Actually, we access &lt;code class=&quot;highlighter-rouge&quot;&gt;introduceOneself&lt;/code&gt; property this way:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;introduceOneself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;introduceOneself&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;introduceOneself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;introduceOneself&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;introduceOneself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The same thing goes to that bogus &lt;code class=&quot;highlighter-rouge&quot;&gt;constructor&lt;/code&gt; property!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__proto__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Truth be told, we can override &lt;code class=&quot;highlighter-rouge&quot;&gt;constructor&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;prototype&lt;/code&gt;!
+I don’t think I can rely on parent-children relationship
+if I can freely change those properties!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ha ha ha, you are bogus!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Muhammad D. Ramadhan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Ha ha ha, you are bogus!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;it-is-really-complicated&quot;&gt;2. It Is Really Complicated&lt;/h3&gt;
+
+&lt;p&gt;Here’s how I implement classical object oriented style in JavaScript.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/pVxLX5s.png&quot; alt=&quot;Bogus Object Oriented Programming&quot; class=&quot;blog-post-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Follow the &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt; chain to look up properties not directly accessible on current object.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;function Human(name) {
+    this.name = name;
+    this.isMortal = true;
+}
+
+Human.prototype.introduceOneSelf = function () {
+    console.log(`Hello my name is ${this.name}`);
+};
+
+function Machine(id, name) {
+    Human.call(this, name);
+    this.id = id;
+    this.isMortal = false;
+    this.isOn = false;
+}
+
+Machine.prototype.engine = {
+    name: &amp;quot;V9&amp;quot;,
+    type: &amp;quot;Electrical Motor&amp;quot;
+};
+
+Machine.prototype.introduceOneSelf = function () {
+    Human.prototype.introduceOneSelf.call(this);
+    console.log(`My ID is ${this.id}`);
+};
+
+Machine.prototype.turnOn = function () {
+    console.log(`Turn on the ${this.engine.name} engine`)
+    this.isOn = true;
+};
+
+Machine.prototype.turnOff = function () {
+    console.log(`Turn off the ${this.engine.name} engine`)
+    this.isOn = false;
+};
+
+Object.setPrototypeOf(Machine.prototype, Human.prototype);
+
+var android = new Machine(&amp;#39;AND001&amp;#39;, &amp;#39;Johan&amp;#39;);
+
+android.turnOn();
+android.introduceOneSelf();
+android.turnOff();&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/a925cecca09f02cdf998863ce390d12e.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Alright then, that’s it for today. Next time, we are going to get rid of this complex
+mechanism using behaviour delegation (OLOO).&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/17/bogus-oop</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/17/bogus-oop</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 25: JavaScript Challenge</title>
+        <description>&lt;p&gt;It’s very important for the one who build user-facing features on top of DOM and Web API to
+understand event propagation, bubbling, and capturing. What the heck are those terms about?
+Here’s the &lt;a href=&quot;/demo_day25&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; to help explain how it works.&lt;/p&gt;
+
+&lt;h2 id=&quot;event-propagation&quot;&gt;Event propagation&lt;/h2&gt;
+
+&lt;p&gt;Event propagation is a process of handling multiple event listeners triggered by a
+single event because of both event listeners on nesting and nested
+elements listen to the same event type (‘click’ for example). Let’s say we
+attach event listener to both parent and child elements:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alert('I like you ちえさ せれな')&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;clickable&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Click me~&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;askHerOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;I would love to ask ちえさ せれな out on a date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.clickable'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;askHerOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;event-bubbling&quot;&gt;1. Event Bubbling&lt;/h3&gt;
+
+&lt;p&gt;If we click on inner element (&lt;code class=&quot;highlighter-rouge&quot;&gt;button&lt;/code&gt;), the engine will run a function that handles event on
+current target element (&lt;code class=&quot;highlighter-rouge&quot;&gt;askHerOut&lt;/code&gt;) and soon after it was invoked, the built-in &lt;code class=&quot;highlighter-rouge&quot;&gt;alert&lt;/code&gt;
+function that handles event on its parent element will run eventually even if we don’t
+actually click on it. It starts from within and then bubbles up until it reaches heaven (kidding).&lt;/p&gt;
+
+&lt;h3 id=&quot;event-capturing&quot;&gt;2. Event Capturing&lt;/h3&gt;
+
+&lt;p&gt;What if we reverse that process? What will happen? Instead of bubbling, the engine is
+capturing listeners for nesting elements and then sink down to elements at lower levels.
+In other words, the handler that listens to event on outermost target element—&lt;code class=&quot;highlighter-rouge&quot;&gt;alert('I like you ちえさ せれな')&lt;/code&gt;—will
+run first and then sink down to inner nested elements—&lt;code class=&quot;highlighter-rouge&quot;&gt;askHerOut()&lt;/code&gt;, on and on, until it reaches
+the inner core of the earth (kidding).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alert('I like you ちえさ せれな')&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;clickable&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Click me~&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;askHerOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;I would love to ask ちえさ せれな out on a date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.clickable'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;askHerOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;capture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;one-time-event-listener&quot;&gt;3. One Time Event Listener&lt;/h3&gt;
+
+&lt;p&gt;Sometime we want to click a button, see it functions correctly, and then disable it.
+How can we do that?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alert('I like you ちえさ せれな')&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;clickable&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Click me~&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;askHerOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;I would love to ask ちえさ せれな out on a date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.clickable'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;askHerOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s only a distillation that barely covers the whole nitty-gritty of
+event propagation. I recommend you to read these articles:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sitepoint.com/event-bubbling-javascript/&quot; target=&quot;_blank&quot;&gt;https://www.sitepoint.com/event-bubbling-javascript/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.javascripter.net/faq/eventbubbling.htm&quot; target=&quot;_blank&quot;&gt;http://www.javascripter.net/faq/eventbubbling.htm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Well, both event capturing and bubbling are expensive, what if we attach event listener
+to a thousand elements nesting to each other? If we click on one of them, it will bubble
+up or sink down to upper or lower levels. Don’t we only intend to click on a single element
+and see it works correctly? Event delegation is the solution! I blogged about
+&lt;a href=&quot;/javascript/2017/07/30/day15-javascript-challenge&quot; target=&quot;_blank&quot;&gt;that&lt;/a&gt; months ago.&lt;/p&gt;
+
+&lt;p&gt;That’s it for today. I wonder how is it like to be in relationship? I always think having a
+girlfriend is a tremendous waste of time, but I want to taste it for a bit. Just for a
+week and see what happens.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/16/day25-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/16/day25-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 24: JavaScript Challenge</title>
+        <description>&lt;p&gt;It’s about sticky navigation bar most modern web pages bother to have. Here’s the
+&lt;a href=&quot;/demo_day24&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First thing first, we have to determine the distance of navigation bar relative to
+its parent (&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt; tag). After that, stick the navigation bar at the point where the
+top edge of the current &lt;code class=&quot;highlighter-rouge&quot;&gt;viewport&lt;/code&gt; (an area to display the web content in the browser)
+touches or passes through the top of navigation bar. In other words, the gap between
+the top edge of the page and navigation bar has been passed through (hidden because we
+scroll down the scroll bar).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'main'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gapHeightBettweenParentAndNav&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;offsetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fixNav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gapHeightBettweenParentAndNav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// Stick the damn navigation.&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'nav--fixed'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+      &lt;span class=&quot;c1&quot;&gt;// And so on...&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'scroll'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fixNav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The only thing left is adding approriate CSS to style the sticky bar.
+Here’s how I do that.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nc&quot;&gt;.nav--fixed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;fixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here’s the markup.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;logo&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;LOST.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Home&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;About&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Images&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Locations&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Maps&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s very common to see a logo slide in after the top edge of the current &lt;code class=&quot;highlighter-rouge&quot;&gt;viewport&lt;/code&gt; touched or
+passed through the navigation bar. How about adding more useless feature to our existing code?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'main'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gapHeightBettweenParentAndNav&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;offsetTop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;logo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.logo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;siteWrap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.site-wrap'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fixNav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gapHeightBettweenParentAndNav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'nav--fixed'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;logo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'logo--shown'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;siteWrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'site-wrap--bigger'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Fill the area the navigation bar left after its potition&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// being fixed relative to the `viewport`.&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;paddingTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;offsetHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'nav--fixed'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;logo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'logo--shown'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;siteWrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;classList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'site-wrap--bigger'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;paddingTop&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'scroll'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fixNav&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Be careful! Once you decide to fix the block-level element’s position relative to the &lt;code class=&quot;highlighter-rouge&quot;&gt;viewport&lt;/code&gt;, the area that element
+previously took up before being fixed will vanish. We have to add padding to its parent element, so the
+place where the navigation bar left would be filled appropriately.&lt;/p&gt;
+
+&lt;p&gt;That’s it for today. I think I kind of miss メリー メディオーアティ.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/16/day24-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/16/day24-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Day 23: JavaScript Challenge</title>
+        <description>&lt;p&gt;I’ve done the similar challenge in day 20 before (Hawking’s voice synthesizer), but it’s more challenging (not really).&lt;/p&gt;
+
+&lt;p&gt;I am too tired to explain the challange. Perhaps, the only thing that’s worth-explaining is
+this part:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DMZ&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Adding arguments to callback... Sounds magical!&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;whateverDOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'click'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DMZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I’ve read &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; binding mechanism from This &amp;amp; Prototype of YDKJS (You Don’t Know JavaScript)
+book series and put it into action here.&lt;/p&gt;
+
+&lt;p&gt;Passing empty object (&lt;code class=&quot;highlighter-rouge&quot;&gt;DMZ&lt;/code&gt;) to the first parameter of &lt;code class=&quot;highlighter-rouge&quot;&gt;Function.prototype.bind&lt;/code&gt; and then passing
+any values to the rest of parameters is to set default arguments passed to callback
+and have it ignore the &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; binding. Consequently, after it was applied, the callback
+would be bound to empty object that has no link to &lt;code class=&quot;highlighter-rouge&quot;&gt;[[Prototype]]&lt;/code&gt; chain and &lt;code class=&quot;highlighter-rouge&quot;&gt;arguments&lt;/code&gt; are set
+without having to invoke the callback, something like &lt;code class=&quot;highlighter-rouge&quot;&gt;callback(arg1, arg2);&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here’s the &lt;a href=&quot;/demo_day23&quot; target=&quot;_blank&quot;&gt;demo&lt;/a&gt; and my half-assed solution below.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  var utterance = new SpeechSynthesisUtterance();
+  var voicesDropdown = document.querySelector(&amp;#39;[name=&amp;quot;voice&amp;quot;]&amp;#39;);
+  var options = document.querySelectorAll(&amp;#39;[type=&amp;quot;range&amp;quot;]&amp;#39;);
+  var text = document.querySelector(&amp;#39;[name=&amp;quot;text&amp;quot;]&amp;#39;);
+  var speakButton = document.querySelector(&amp;#39;#speak&amp;#39;);
+  var stopButton = document.querySelector(&amp;#39;#stop&amp;#39;);
+  var voices = [];
+  var DMZ = Object.create(null);
+
+  function populateVoices() {
+    voices = this.getVoices();
+    voicesDropdown.innerHTML = voices.filter(function (voice) {
+      return voice.lang.includes(&amp;#39;en&amp;#39;);
+    }).map(function (voice) {
+      return `
+        &amp;lt;option value=&amp;quot;${voice.name}&amp;quot;&amp;gt;
+          ${voice.name} (${voice.lang})
+        &amp;lt;/option&amp;gt;
+      `;
+    }).join(&amp;#39;&amp;#39;);
+  }
+
+  function setVoice() {
+    // It&amp;#39;s lexical `this`.
+    var option = this;
+    utterance.voice = voices.find(function (voice) {
+      return voice.name === option.value;
+    });
+
+    toogle();
+  }
+
+  function toogle(continueToSpeak = true) {
+    window.speechSynthesis.cancel();
+
+    if (continueToSpeak) {
+      utterance.text = text.value;
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  function setOption() {
+    utterance[this.name] = this.value;
+    toogle();
+  }
+
+  window.speechSynthesis.addEventListener(&amp;#39;voiceschanged&amp;#39;, populateVoices);
+  voicesDropdown.addEventListener(&amp;#39;change&amp;#39;, setVoice);
+  options.forEach(function (option) {
+    option.addEventListener(&amp;#39;change&amp;#39;, setOption);
+  });
+  speakButton.addEventListener(&amp;#39;click&amp;#39;, toogle);
+  stopButton.addEventListener(&amp;#39;click&amp;#39;, toogle.bind(DMZ, false));
+})(window);&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/e1e691e48c54590eb137b5e077d17336.js&quot;&gt; &lt;/script&gt;
+
+</description>
+        <pubDate>Sun, 03 Sep 2017 00:00:00 +0700</pubDate>
+        <link>https://miayam.github.io/javascript/2017/09/03/day23-javascript-challenge</link>
+        <guid isPermaLink="true">https://miayam.github.io/javascript/2017/09/03/day23-javascript-challenge</guid>
+        
+        <category>js30</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+  </channel>
+</rss>

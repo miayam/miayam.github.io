@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Day 21: JavaScript Challenge</title>
+  <meta name="description"
+        content="I don’t have Mac, so doing the actual challenge might be frustrating. However, playing (copy-pasting)with Google Map API doesn’t leave bad taste in my mouth....">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/08/25/day21-javascript-challenge" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Day 21: JavaScript Challenge - miayam.github.io</title>
+<meta property="og:title" content="Day 21: JavaScript Challenge" />
+<meta name="description" content="I don’t have Mac, so doing the actual challenge might be frustrating. However, playing (copy-pasting)with Google Map API doesn’t leave bad taste in my mouth.The challenge requires us to install simulator that only runs on Mac computer. I refuse to buy expensiveMac computer to engage in this challenge. The challenge itself is quite simple, it’s about employinggeolocation API to manipulate compass-like image, so it will rotate in accord to device’s changing position, speed, andheading. I replace the challenge with manipulating Google Map using that same geolocation API.Here’s the demo and my stupid code below.function initMap() {  const defaultPosition = {    lat: -6.590369, lng: 106.774549  };  const defaultDescription = `    Lebih baik di sini. Rumah kita sendiri.    Coba klik logo 2 kali secara beruntun.  `;  var image = &#39;/images/pencil.png&#39;;  var map = new google.maps.Map(document.getElementById(&#39;map&#39;), {    zoom: 20,    center: defaultPosition  });  var marker = new google.maps.Marker({    position: defaultPosition,    map: map,    icon: image  });  var info = new google.maps.InfoWindow({    content: &quot;&quot;,    maxWidth: 200  });  // Make sure geolocation interface is available in browser.  if (navigator.geolocation) {    navigator.geolocation.getCurrentPosition(function (position) {      var coordinate = {        lat: position.coords.latitude,        lng: position.coords.longitude      };      map.setCenter(coordinate);      marker.setPosition(coordinate);      info.setContent(defaultDescription);      info.open(map, marker);    }, function () {      info.setContent(&#39;Geolocation is not working!&#39;);      info.open(map, marker);    });  }  marker.addListener(&#39;click&#39;, function () {    info.setContent(defaultDescription);    info.open(map, marker);  });  marker.addListener(&#39;dblclick&#39;, function () {    window.location = &quot;https://miayam.github.io/about&quot;;  });}" />
+<meta property="og:description" content="I don’t have Mac, so doing the actual challenge might be frustrating. However, playing (copy-pasting)with Google Map API doesn’t leave bad taste in my mouth.The challenge requires us to install simulator that only runs on Mac computer. I refuse to buy expensiveMac computer to engage in this challenge. The challenge itself is quite simple, it’s about employinggeolocation API to manipulate compass-like image, so it will rotate in accord to device’s changing position, speed, andheading. I replace the challenge with manipulating Google Map using that same geolocation API.Here’s the demo and my stupid code below.function initMap() {  const defaultPosition = {    lat: -6.590369, lng: 106.774549  };  const defaultDescription = `    Lebih baik di sini. Rumah kita sendiri.    Coba klik logo 2 kali secara beruntun.  `;  var image = &#39;/images/pencil.png&#39;;  var map = new google.maps.Map(document.getElementById(&#39;map&#39;), {    zoom: 20,    center: defaultPosition  });  var marker = new google.maps.Marker({    position: defaultPosition,    map: map,    icon: image  });  var info = new google.maps.InfoWindow({    content: &quot;&quot;,    maxWidth: 200  });  // Make sure geolocation interface is available in browser.  if (navigator.geolocation) {    navigator.geolocation.getCurrentPosition(function (position) {      var coordinate = {        lat: position.coords.latitude,        lng: position.coords.longitude      };      map.setCenter(coordinate);      marker.setPosition(coordinate);      info.setContent(defaultDescription);      info.open(map, marker);    }, function () {      info.setContent(&#39;Geolocation is not working!&#39;);      info.open(map, marker);    });  }  marker.addListener(&#39;click&#39;, function () {    info.setContent(defaultDescription);    info.open(map, marker);  });  marker.addListener(&#39;dblclick&#39;, function () {    window.location = &quot;https://miayam.github.io/about&quot;;  });}" />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/08/25/day21-javascript-challenge" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/08/25/day21-javascript-challenge" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-25T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 21: JavaScript Challenge",
+    "datePublished": "2017-08-25T00:00:00+07:00",
+    "description": "I don’t have Mac, so doing the actual challenge might be frustrating. However, playing (copy-pasting)with Google Map API doesn’t leave bad taste in my mouth.The challenge requires us to install simulator that only runs on Mac computer. I refuse to buy expensiveMac computer to engage in this challenge. The challenge itself is quite simple, it’s about employinggeolocation API to manipulate compass-like image, so it will rotate in accord to device’s changing position, speed, andheading. I replace the challenge with manipulating Google Map using that same geolocation API.Here’s the demo and my stupid code below.function initMap() {  const defaultPosition = {    lat: -6.590369, lng: 106.774549  };  const defaultDescription = `    Lebih baik di sini. Rumah kita sendiri.    Coba klik logo 2 kali secara beruntun.  `;  var image = &#39;/images/pencil.png&#39;;  var map = new google.maps.Map(document.getElementById(&#39;map&#39;), {    zoom: 20,    center: defaultPosition  });  var marker = new google.maps.Marker({    position: defaultPosition,    map: map,    icon: image  });  var info = new google.maps.InfoWindow({    content: &quot;&quot;,    maxWidth: 200  });  // Make sure geolocation interface is available in browser.  if (navigator.geolocation) {    navigator.geolocation.getCurrentPosition(function (position) {      var coordinate = {        lat: position.coords.latitude,        lng: position.coords.longitude      };      map.setCenter(coordinate);      marker.setPosition(coordinate);      info.setContent(defaultDescription);      info.open(map, marker);    }, function () {      info.setContent(&#39;Geolocation is not working!&#39;);      info.open(map, marker);    });  }  marker.addListener(&#39;click&#39;, function () {    info.setContent(defaultDescription);    info.open(map, marker);  });  marker.addListener(&#39;dblclick&#39;, function () {    window.location = &quot;https://miayam.github.io/about&quot;;  });}",
+    "url": "https://miayam.github.io/javascript/2017/08/25/day21-javascript-challenge"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Day 21: JavaScript Challenge</h1>
+    <p class="post-meta">
+      <time datetime="2017-08-25T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        25 August 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I don’t have Mac, so doing the actual challenge might be frustrating. However, playing (copy-pasting)
+with Google Map API doesn’t leave bad taste in my mouth.</p>
+
+<p>The challenge requires us to install simulator that only runs on Mac computer. I refuse to buy expensive
+Mac computer to engage in this challenge. The challenge itself is quite simple, it’s about employing
+geolocation API to manipulate compass-like image, so it will rotate in accord to device’s changing position, speed, and
+heading. I replace the challenge with manipulating Google Map using that same geolocation API.</p>
+
+<p>Here’s the <a href="/demo_day21" target="_blank">demo</a> and my stupid code below.</p>
+
+<p>true<script src="https://gist.github.com/miayam/8efe7217ba6e5cfc319263a7d9b2b60f.js"> </script></p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/08/22/day20-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 20: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/08/27/day22-javascript-challenge" class="blog-navigation__next-link"> Day 22: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/08/25/day21-javascript-challenge" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>

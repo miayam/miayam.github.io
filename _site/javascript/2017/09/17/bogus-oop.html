@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.png">
+  <link rel="image_src" href="/images/personal_life.png">
+
+  <!-- Meta information -->
+  <title>Bogus Object Oriented Programming</title>
+  <meta name="description"
+        content="It’s just a distillation from this &amp; Object Prototype of YDKJS (You Don’t Know JavaScript)book series. I want to understand how classical object oriented...">
+  <link rel="canonical"
+        href="https://miayam.github.io/javascript/2017/09/17/bogus-oop" />
+
+  <!-- hack.css -->
+  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
+  
+    <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
+  
+
+  <!-- Prism.js -->
+  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css">
+
+  <!-- Custom style -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="miayam.github.io"
+        href="/feed.xml" />
+
+  <!-- 'jekyll-seo' plugin -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Bogus Object Oriented Programming - miayam.github.io</title>
+<meta property="og:title" content="Bogus Object Oriented Programming" />
+<meta name="description" content="It’s just a distillation from this &amp; Object Prototype of YDKJS (You Don’t Know JavaScript)book series. I want to understand how classical object oriented style has been imposed onJavaScript for decades and how the true mechanism of [[Prototype]] chain works in accordanceto alternative design pattern Kyle provides in his book (behaviour delegation or OLOO). Someeccentric German philosophers said, “You don’t really understand something until you are ableto explain it to yourself in a simple manner!”Let’s debunk all misconceptions about OOP in JavaScript in a simple manner!1. No Such Thing Like Class!  function Human(name) {    this.name = name    console.log(&quot;You are created by God!&quot;);  }  var me = new Human(&quot;Muhammad D. Ramadhan&quot;);  me.name // Muhammad D. Ramadhan  me.constructor === Human // true  // You can&#39;t access [[Prototype]] like this, but  // the statement below is true!  me.[[Prototype]] === Human.prototype // trueHuman is an ordinary function that happens to be paved over by new keyword, soit returns newly created object out of thin air in addition to executing allstatements in its function’s body (this.name assignment and console.log).We’ll be back to this later.Now, we have to understand what exactly [[Prototype]] property is.You might have heard that every object in JavaScript is linked to other objectvia [[Prototype]]. That property is not accessible. However, in modernbrowser (most latest version of Chrome), you can access that property via__proto__.  var foo = { name: &quot;Your name&quot; };  foo.__proto__; // Object.prototypeYou might have wondered how come we can access toString property?  foo.toString() // [object Object]We didn’t even declare toString property, right?  var foo = {    name: &quot;Your Name&quot;,    toString: function() {      // Implementation...    }  };In reality, foo object has link to Object.prototype object via [[Prototype]] property,so it looks up and follows the [[Prototype]] chain to find toString.Let’s see how it’s done:  // We actually access it via [[Prototype]] / __proto__.  foo.__proto__.toString === Object.prototype.toString // true  foo.toString === foo.__proto__.toString // trueNah, how about that me object “constructed by” Human function above?  me.constructor; // HumanSee? It’s logical to assume that the me object is constructed by Human, right?That constructor property refers to Human function!Well, don’t be fooled by that! It doesn’t mean me object is constructed by Human.As the subtitle said, “there’s no such thing like class!”Everytime you declare a function, no matter what it is, you will get access toits own prototype property and the default value of that property isthis object:  Human.prototype;  // { constructor: f }Interestingly, that constructor property point back to the function itself:  Human.prototype.constructor === Human // trueBear it in mind, new Human(&quot;Muhammad D. Ramadhan&quot;); will create new object and make its [[Prototype]]property link to Human.prototype, so that new object can access defaultHuman.prototype’s properties (constructor in our case) or any propertiesyou add to it later on. Here’s the example:  function Human(name) {    this.name = name;    console.log(&quot;You are created by God!&quot;);  }  // Add new property, so new object created by construction call  // (`new` keyword in front of ordinary function call) have access  // to introduceOnceself indirectly via [[Prototype]].  // No instantiation. No inheritance. It&#39;s just linking!  Human.prototype.introduceOneself = function () {    console.log(`My name is ${this.name} and I like ちえさ せれな`);  };  var me = new Human(&#39;Muhammad D. Ramadhan&#39;);  me.introduceOneself();  // My name is Muhammad D. Ramadhan and I like ちえさ せれなActually, we access introduceOneself property this way:  me.__proto__.introduceOneself();  me.__proto__ === Human.prototype // true  me.__proto__.introduceOneself === Human.prototype.introduceOneself; // true  me.introduceOneself === me.__proto__.introduceOneself; // trueThe same thing goes to that bogus constructor property!  me.__proto__.constructor === Human.prototype.constructor // true  me.constructor === me.__proto__.constructor // trueTruth be told, we can override constructor or prototype!I don’t think I can rely on parent-children relationshipif I can freely change those properties!  Human.prototype = { constructor: &quot;Ha ha ha, you are bogus!&quot; };  me = new Human(&quot;Muhammad D. Ramadhan&quot;);  me.constructor // Ha ha ha, you are bogus!2. It Is Really ComplicatedHere’s how I implement classical object oriented style in JavaScript.Follow the [[Prototype]] chain to look up properties not directly accessible on current object.function Human(name) {    this.name = name;    this.isMortal = true;}Human.prototype.introduceOneSelf = function () {    console.log(`Hello my name is ${this.name}`);};function Machine(id, name) {    Human.call(this, name);    this.id = id;    this.isMortal = false;    this.isOn = false;}Machine.prototype.engine = {    name: &quot;V9&quot;,    type: &quot;Electrical Motor&quot;};Machine.prototype.introduceOneSelf = function () {    Human.prototype.introduceOneSelf.call(this);    console.log(`My ID is ${this.id}`);};Machine.prototype.turnOn = function () {    console.log(`Turn on the ${this.engine.name} engine`)    this.isOn = true;};Machine.prototype.turnOff = function () {    console.log(`Turn off the ${this.engine.name} engine`)    this.isOn = false;};Object.setPrototypeOf(Machine.prototype, Human.prototype);var android = new Machine(&#39;AND001&#39;, &#39;Johan&#39;);android.turnOn();android.introduceOneSelf();android.turnOff();Alright then, that’s it for today. Next time, we are going to get rid of this complexmechanism using behaviour delegation (OLOO)." />
+<meta property="og:description" content="It’s just a distillation from this &amp; Object Prototype of YDKJS (You Don’t Know JavaScript)book series. I want to understand how classical object oriented style has been imposed onJavaScript for decades and how the true mechanism of [[Prototype]] chain works in accordanceto alternative design pattern Kyle provides in his book (behaviour delegation or OLOO). Someeccentric German philosophers said, “You don’t really understand something until you are ableto explain it to yourself in a simple manner!”Let’s debunk all misconceptions about OOP in JavaScript in a simple manner!1. No Such Thing Like Class!  function Human(name) {    this.name = name    console.log(&quot;You are created by God!&quot;);  }  var me = new Human(&quot;Muhammad D. Ramadhan&quot;);  me.name // Muhammad D. Ramadhan  me.constructor === Human // true  // You can&#39;t access [[Prototype]] like this, but  // the statement below is true!  me.[[Prototype]] === Human.prototype // trueHuman is an ordinary function that happens to be paved over by new keyword, soit returns newly created object out of thin air in addition to executing allstatements in its function’s body (this.name assignment and console.log).We’ll be back to this later.Now, we have to understand what exactly [[Prototype]] property is.You might have heard that every object in JavaScript is linked to other objectvia [[Prototype]]. That property is not accessible. However, in modernbrowser (most latest version of Chrome), you can access that property via__proto__.  var foo = { name: &quot;Your name&quot; };  foo.__proto__; // Object.prototypeYou might have wondered how come we can access toString property?  foo.toString() // [object Object]We didn’t even declare toString property, right?  var foo = {    name: &quot;Your Name&quot;,    toString: function() {      // Implementation...    }  };In reality, foo object has link to Object.prototype object via [[Prototype]] property,so it looks up and follows the [[Prototype]] chain to find toString.Let’s see how it’s done:  // We actually access it via [[Prototype]] / __proto__.  foo.__proto__.toString === Object.prototype.toString // true  foo.toString === foo.__proto__.toString // trueNah, how about that me object “constructed by” Human function above?  me.constructor; // HumanSee? It’s logical to assume that the me object is constructed by Human, right?That constructor property refers to Human function!Well, don’t be fooled by that! It doesn’t mean me object is constructed by Human.As the subtitle said, “there’s no such thing like class!”Everytime you declare a function, no matter what it is, you will get access toits own prototype property and the default value of that property isthis object:  Human.prototype;  // { constructor: f }Interestingly, that constructor property point back to the function itself:  Human.prototype.constructor === Human // trueBear it in mind, new Human(&quot;Muhammad D. Ramadhan&quot;); will create new object and make its [[Prototype]]property link to Human.prototype, so that new object can access defaultHuman.prototype’s properties (constructor in our case) or any propertiesyou add to it later on. Here’s the example:  function Human(name) {    this.name = name;    console.log(&quot;You are created by God!&quot;);  }  // Add new property, so new object created by construction call  // (`new` keyword in front of ordinary function call) have access  // to introduceOnceself indirectly via [[Prototype]].  // No instantiation. No inheritance. It&#39;s just linking!  Human.prototype.introduceOneself = function () {    console.log(`My name is ${this.name} and I like ちえさ せれな`);  };  var me = new Human(&#39;Muhammad D. Ramadhan&#39;);  me.introduceOneself();  // My name is Muhammad D. Ramadhan and I like ちえさ せれなActually, we access introduceOneself property this way:  me.__proto__.introduceOneself();  me.__proto__ === Human.prototype // true  me.__proto__.introduceOneself === Human.prototype.introduceOneself; // true  me.introduceOneself === me.__proto__.introduceOneself; // trueThe same thing goes to that bogus constructor property!  me.__proto__.constructor === Human.prototype.constructor // true  me.constructor === me.__proto__.constructor // trueTruth be told, we can override constructor or prototype!I don’t think I can rely on parent-children relationshipif I can freely change those properties!  Human.prototype = { constructor: &quot;Ha ha ha, you are bogus!&quot; };  me = new Human(&quot;Muhammad D. Ramadhan&quot;);  me.constructor // Ha ha ha, you are bogus!2. It Is Really ComplicatedHere’s how I implement classical object oriented style in JavaScript.Follow the [[Prototype]] chain to look up properties not directly accessible on current object.function Human(name) {    this.name = name;    this.isMortal = true;}Human.prototype.introduceOneSelf = function () {    console.log(`Hello my name is ${this.name}`);};function Machine(id, name) {    Human.call(this, name);    this.id = id;    this.isMortal = false;    this.isOn = false;}Machine.prototype.engine = {    name: &quot;V9&quot;,    type: &quot;Electrical Motor&quot;};Machine.prototype.introduceOneSelf = function () {    Human.prototype.introduceOneSelf.call(this);    console.log(`My ID is ${this.id}`);};Machine.prototype.turnOn = function () {    console.log(`Turn on the ${this.engine.name} engine`)    this.isOn = true;};Machine.prototype.turnOff = function () {    console.log(`Turn off the ${this.engine.name} engine`)    this.isOn = false;};Object.setPrototypeOf(Machine.prototype, Human.prototype);var android = new Machine(&#39;AND001&#39;, &#39;Johan&#39;);android.turnOn();android.introduceOneSelf();android.turnOff();Alright then, that’s it for today. Next time, we are going to get rid of this complexmechanism using behaviour delegation (OLOO)." />
+<link rel="canonical" href="https://miayam.github.io/javascript/2017/09/17/bogus-oop" />
+<meta property="og:url" content="https://miayam.github.io/javascript/2017/09/17/bogus-oop" />
+<meta property="og:site_name" content="miayam.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-09-17T00:00:00+07:00" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Bogus Object Oriented Programming",
+    "datePublished": "2017-09-17T00:00:00+07:00",
+    "description": "It’s just a distillation from this &amp; Object Prototype of YDKJS (You Don’t Know JavaScript)book series. I want to understand how classical object oriented style has been imposed onJavaScript for decades and how the true mechanism of [[Prototype]] chain works in accordanceto alternative design pattern Kyle provides in his book (behaviour delegation or OLOO). Someeccentric German philosophers said, “You don’t really understand something until you are ableto explain it to yourself in a simple manner!”Let’s debunk all misconceptions about OOP in JavaScript in a simple manner!1. No Such Thing Like Class!  function Human(name) {    this.name = name    console.log(&quot;You are created by God!&quot;);  }  var me = new Human(&quot;Muhammad D. Ramadhan&quot;);  me.name // Muhammad D. Ramadhan  me.constructor === Human // true  // You can&#39;t access [[Prototype]] like this, but  // the statement below is true!  me.[[Prototype]] === Human.prototype // trueHuman is an ordinary function that happens to be paved over by new keyword, soit returns newly created object out of thin air in addition to executing allstatements in its function’s body (this.name assignment and console.log).We’ll be back to this later.Now, we have to understand what exactly [[Prototype]] property is.You might have heard that every object in JavaScript is linked to other objectvia [[Prototype]]. That property is not accessible. However, in modernbrowser (most latest version of Chrome), you can access that property via__proto__.  var foo = { name: &quot;Your name&quot; };  foo.__proto__; // Object.prototypeYou might have wondered how come we can access toString property?  foo.toString() // [object Object]We didn’t even declare toString property, right?  var foo = {    name: &quot;Your Name&quot;,    toString: function() {      // Implementation...    }  };In reality, foo object has link to Object.prototype object via [[Prototype]] property,so it looks up and follows the [[Prototype]] chain to find toString.Let’s see how it’s done:  // We actually access it via [[Prototype]] / __proto__.  foo.__proto__.toString === Object.prototype.toString // true  foo.toString === foo.__proto__.toString // trueNah, how about that me object “constructed by” Human function above?  me.constructor; // HumanSee? It’s logical to assume that the me object is constructed by Human, right?That constructor property refers to Human function!Well, don’t be fooled by that! It doesn’t mean me object is constructed by Human.As the subtitle said, “there’s no such thing like class!”Everytime you declare a function, no matter what it is, you will get access toits own prototype property and the default value of that property isthis object:  Human.prototype;  // { constructor: f }Interestingly, that constructor property point back to the function itself:  Human.prototype.constructor === Human // trueBear it in mind, new Human(&quot;Muhammad D. Ramadhan&quot;); will create new object and make its [[Prototype]]property link to Human.prototype, so that new object can access defaultHuman.prototype’s properties (constructor in our case) or any propertiesyou add to it later on. Here’s the example:  function Human(name) {    this.name = name;    console.log(&quot;You are created by God!&quot;);  }  // Add new property, so new object created by construction call  // (`new` keyword in front of ordinary function call) have access  // to introduceOnceself indirectly via [[Prototype]].  // No instantiation. No inheritance. It&#39;s just linking!  Human.prototype.introduceOneself = function () {    console.log(`My name is ${this.name} and I like ちえさ せれな`);  };  var me = new Human(&#39;Muhammad D. Ramadhan&#39;);  me.introduceOneself();  // My name is Muhammad D. Ramadhan and I like ちえさ せれなActually, we access introduceOneself property this way:  me.__proto__.introduceOneself();  me.__proto__ === Human.prototype // true  me.__proto__.introduceOneself === Human.prototype.introduceOneself; // true  me.introduceOneself === me.__proto__.introduceOneself; // trueThe same thing goes to that bogus constructor property!  me.__proto__.constructor === Human.prototype.constructor // true  me.constructor === me.__proto__.constructor // trueTruth be told, we can override constructor or prototype!I don’t think I can rely on parent-children relationshipif I can freely change those properties!  Human.prototype = { constructor: &quot;Ha ha ha, you are bogus!&quot; };  me = new Human(&quot;Muhammad D. Ramadhan&quot;);  me.constructor // Ha ha ha, you are bogus!2. It Is Really ComplicatedHere’s how I implement classical object oriented style in JavaScript.Follow the [[Prototype]] chain to look up properties not directly accessible on current object.function Human(name) {    this.name = name;    this.isMortal = true;}Human.prototype.introduceOneSelf = function () {    console.log(`Hello my name is ${this.name}`);};function Machine(id, name) {    Human.call(this, name);    this.id = id;    this.isMortal = false;    this.isOn = false;}Machine.prototype.engine = {    name: &quot;V9&quot;,    type: &quot;Electrical Motor&quot;};Machine.prototype.introduceOneSelf = function () {    Human.prototype.introduceOneSelf.call(this);    console.log(`My ID is ${this.id}`);};Machine.prototype.turnOn = function () {    console.log(`Turn on the ${this.engine.name} engine`)    this.isOn = true;};Machine.prototype.turnOff = function () {    console.log(`Turn off the ${this.engine.name} engine`)    this.isOn = false;};Object.setPrototypeOf(Machine.prototype, Human.prototype);var android = new Machine(&#39;AND001&#39;, &#39;Johan&#39;);android.turnOn();android.introduceOneSelf();android.turnOff();Alright then, that’s it for today. Next time, we are going to get rid of this complexmechanism using behaviour delegation (OLOO).",
+    "url": "https://miayam.github.io/javascript/2017/09/17/bogus-oop"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+</head>
+
+
+
+  
+    <body class="standard">
+  
+
+    <div class="container">
+      <div class="grid">
+        <aside class="cell -3of12" role="navigation">
+          <div class="logo">
+            <a href="/" class="logo_link">
+              <img src="/images/personal_life.png" style="height: 165px" title="Back to the home page...">
+            </a>
+            <span class="bullshit">Delicious Meal for Thought</span>
+          </div>
+          <div class="t-hackcss-navigation">
+  <h2 class="t-hackcss-navigation-heading">Main Menu</h2>
+
+  <nav class="menu" role="menubar">
+    
+    
+      <a class="menu-item "
+        role="menuitem" href="/" title="">
+        Home <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/about" title="">
+        About <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/archive" title="">
+        Archive <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/assets/file/Resume_Muhammad_Deni_Ramadhan.pdf" title="">
+        Resume <div class="pull-right">»</div>
+      </a>
+    
+      <a class="menu-item "
+        role="menuitem" href="/search" title="">
+        Search <div class="pull-right">»</div>
+      </a>
+    
+  </nav>
+</div>
+
+        </aside>
+
+        <main class="cell -9of12">
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Bogus Object Oriented Programming</h1>
+    <p class="post-meta">
+      <time datetime="2017-09-17T00:00:00+07:00"
+            itemprop="datePublished"
+            class="media-heading">
+        17 September 2017
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">written by <a href="https://github.com/miayam">Muhammad D. Ramadhan</a></span>
+      </span>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>It’s just a distillation from <code class="highlighter-rouge">this</code> &amp; Object Prototype of YDKJS (You Don’t Know JavaScript)
+book series. I want to understand how classical object oriented style has been imposed on
+JavaScript for decades and how the true mechanism of <code class="highlighter-rouge">[[Prototype]]</code> chain works in accordance
+to alternative design pattern Kyle provides in his book (behaviour delegation or OLOO). Some
+eccentric German philosophers said, “You don’t really understand something until you are able
+to explain it to yourself in a simple manner!”</p>
+
+<p>Let’s debunk all misconceptions about OOP in JavaScript in a simple manner!</p>
+
+<h3 id="no-such-thing-like-class">1. No Such Thing Like Class!</h3>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">function</span> <span class="nx">Human</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"You are created by God!"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Human</span><span class="p">(</span><span class="s2">"Muhammad D. Ramadhan"</span><span class="p">);</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">name</span> <span class="c1">// Muhammad D. Ramadhan</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">Human</span> <span class="c1">// true</span>
+
+  <span class="c1">// You can't access [[Prototype]] like this, but</span>
+  <span class="c1">// the statement below is true!</span>
+  <span class="nx">me</span><span class="p">.[[</span><span class="nx">Prototype</span><span class="p">]]</span> <span class="o">===</span> <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span> <span class="c1">// true</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">Human</code> is an ordinary function that happens to be paved over by <code class="highlighter-rouge">new</code> keyword, so
+it returns newly created object out of thin air in addition to executing all
+statements in its function’s body (<code class="highlighter-rouge">this.name</code> assignment and <code class="highlighter-rouge">console.log</code>).
+We’ll be back to this later.</p>
+
+<p>Now, we have to understand what exactly <code class="highlighter-rouge">[[Prototype]]</code> property is.</p>
+
+<p>You might have heard that every object in JavaScript is linked to other object
+via <code class="highlighter-rouge">[[Prototype]]</code>. That property is not accessible. However, in modern
+browser (most latest version of Chrome), you can access that property via
+<code class="highlighter-rouge">__proto__</code>.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Your name"</span> <span class="p">};</span>
+  <span class="nx">foo</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">;</span> <span class="c1">// Object.prototype</span></code></pre></figure>
+
+<p>You might have wondered how come we can access <code class="highlighter-rouge">toString</code> property?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">foo</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="c1">// [object Object]</span></code></pre></figure>
+
+<p>We didn’t even declare <code class="highlighter-rouge">toString</code> property, right?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Your Name"</span><span class="p">,</span>
+    <span class="na">toString</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// Implementation...</span>
+    <span class="p">}</span>
+  <span class="p">};</span></code></pre></figure>
+
+<p>In reality, <code class="highlighter-rouge">foo</code> object has link to <code class="highlighter-rouge">Object.prototype</code> object via <code class="highlighter-rouge">[[Prototype]]</code> property,
+so it looks up and follows the <code class="highlighter-rouge">[[Prototype]]</code> chain to find <code class="highlighter-rouge">toString</code>.</p>
+
+<p>Let’s see how it’s done:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="c1">// We actually access it via [[Prototype]] / __proto__.</span>
+  <span class="nx">foo</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">toString</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="c1">// true</span>
+  <span class="nx">foo</span><span class="p">.</span><span class="nx">toString</span> <span class="o">===</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">toString</span> <span class="c1">// true</span></code></pre></figure>
+
+<p>Nah, how about that <code class="highlighter-rouge">me</code> object “constructed by” <code class="highlighter-rouge">Human</code> function above?</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">me</span><span class="p">.</span><span class="nx">constructor</span><span class="p">;</span> <span class="c1">// Human</span></code></pre></figure>
+
+<p>See? It’s logical to assume that the <code class="highlighter-rouge">me</code> object is constructed by <code class="highlighter-rouge">Human</code>, right?
+That <code class="highlighter-rouge">constructor</code> property refers to <code class="highlighter-rouge">Human</code> function!</p>
+
+<p>Well, don’t be fooled by that! It doesn’t mean <code class="highlighter-rouge">me</code> object is constructed by <code class="highlighter-rouge">Human</code>.
+As the subtitle said, “there’s no such thing like class!”</p>
+
+<p>Everytime you declare a function, no matter what it is, you will get access to
+its own <code class="highlighter-rouge">prototype</code> property and the default value of that property is
+this object:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span>
+  <span class="c1">// { constructor: f }</span></code></pre></figure>
+
+<p>Interestingly, that <code class="highlighter-rouge">constructor</code> property point back to the function itself:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">Human</span> <span class="c1">// true</span></code></pre></figure>
+
+<p>Bear it in mind, <code class="highlighter-rouge">new Human("Muhammad D. Ramadhan");</code> will create new object and make its <code class="highlighter-rouge">[[Prototype]]</code>
+property link to <code class="highlighter-rouge">Human.prototype</code>, so that new object can access default
+<code class="highlighter-rouge">Human.prototype</code>’s properties (<code class="highlighter-rouge">constructor</code> in our case) or any properties
+you add to it later on. Here’s the example:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="kd">function</span> <span class="nx">Human</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"You are created by God!"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Add new property, so new object created by construction call</span>
+  <span class="c1">// (`new` keyword in front of ordinary function call) have access</span>
+  <span class="c1">// to introduceOnceself indirectly via [[Prototype]].</span>
+  <span class="c1">// No instantiation. No inheritance. It's just linking!</span>
+  <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">introduceOneself</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">My</span> <span class="nx">name</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span> <span class="nx">and</span> <span class="nx">I</span> <span class="nx">like</span> <span class="err">ちえさ</span> <span class="err">せれな`</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Human</span><span class="p">(</span><span class="s1">'Muhammad D. Ramadhan'</span><span class="p">);</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">introduceOneself</span><span class="p">();</span>
+
+  <span class="c1">// My name is Muhammad D. Ramadhan and I like ちえさ せれな</span></code></pre></figure>
+
+<p>Actually, we access <code class="highlighter-rouge">introduceOneself</code> property this way:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">me</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">introduceOneself</span><span class="p">();</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span> <span class="c1">// true</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">introduceOneself</span> <span class="o">===</span> <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">introduceOneself</span><span class="p">;</span> <span class="c1">// true</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">introduceOneself</span> <span class="o">===</span> <span class="nx">me</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">introduceOneself</span><span class="p">;</span> <span class="c1">// true</span></code></pre></figure>
+
+<p>The same thing goes to that bogus <code class="highlighter-rouge">constructor</code> property!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">me</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="c1">// true</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">me</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">.</span><span class="nx">constructor</span> <span class="c1">// true</span></code></pre></figure>
+
+<p>Truth be told, we can override <code class="highlighter-rouge">constructor</code> or <code class="highlighter-rouge">prototype</code>!
+I don’t think I can rely on parent-children relationship
+if I can freely change those properties!</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="nx">Human</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span> <span class="na">constructor</span><span class="p">:</span> <span class="s2">"Ha ha ha, you are bogus!"</span> <span class="p">};</span>
+  <span class="nx">me</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Human</span><span class="p">(</span><span class="s2">"Muhammad D. Ramadhan"</span><span class="p">);</span>
+  <span class="nx">me</span><span class="p">.</span><span class="nx">constructor</span> <span class="c1">// Ha ha ha, you are bogus!</span></code></pre></figure>
+
+<h3 id="it-is-really-complicated">2. It Is Really Complicated</h3>
+
+<p>Here’s how I implement classical object oriented style in JavaScript.</p>
+
+<p><img src="https://i.imgur.com/pVxLX5s.png" alt="Bogus Object Oriented Programming" class="blog-post-image" /></p>
+
+<p>Follow the <code class="highlighter-rouge">[[Prototype]]</code> chain to look up properties not directly accessible on current object.</p>
+
+<noscript><pre>function Human(name) {
+    this.name = name;
+    this.isMortal = true;
+}
+
+Human.prototype.introduceOneSelf = function () {
+    console.log(`Hello my name is ${this.name}`);
+};
+
+function Machine(id, name) {
+    Human.call(this, name);
+    this.id = id;
+    this.isMortal = false;
+    this.isOn = false;
+}
+
+Machine.prototype.engine = {
+    name: &quot;V9&quot;,
+    type: &quot;Electrical Motor&quot;
+};
+
+Machine.prototype.introduceOneSelf = function () {
+    Human.prototype.introduceOneSelf.call(this);
+    console.log(`My ID is ${this.id}`);
+};
+
+Machine.prototype.turnOn = function () {
+    console.log(`Turn on the ${this.engine.name} engine`)
+    this.isOn = true;
+};
+
+Machine.prototype.turnOff = function () {
+    console.log(`Turn off the ${this.engine.name} engine`)
+    this.isOn = false;
+};
+
+Object.setPrototypeOf(Machine.prototype, Human.prototype);
+
+var android = new Machine(&#39;AND001&#39;, &#39;Johan&#39;);
+
+android.turnOn();
+android.introduceOneSelf();
+android.turnOff();</pre></noscript>
+<script src="https://gist.github.com/miayam/a925cecca09f02cdf998863ce390d12e.js"> </script>
+
+<p>Alright then, that’s it for today. Next time, we are going to get rid of this complex
+mechanism using behaviour delegation (OLOO).</p>
+
+  </div>
+
+  <div class="blog-navigation">
+    <hr>
+    
+      <a href="/javascript/2017/09/16/day25-javascript-challenge" class="blog-navigation__previous-link">&laquo; Day 25: JavaScript Challenge</a>
+    
+    
+      <a href="/javascript/2017/09/18/day26-javascript-challenge" class="blog-navigation__next-link"> Day 26: JavaScript Challenge &raquo;</a>
+    
+  </div>
+</article>
+
+<section>
+  <div class="fb-comments" data-href="https://miayam.github.io/javascript/2017/09/17/bogus-oop" data-width="100%" data-numposts="10">
+  </div>
+</section>
+
+        </main>
+      </div>
+
+    <footer class="t-hackcss-footer">
+  <div class="cell -12of12">
+    <div class="contact-list">
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+
+  </body>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        d.getElementById('loading').style.display = "none";
+        return;
+      }
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=676883012507478";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!-- Prism.js -->
+  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
+</html>
