@@ -6,8 +6,8 @@
 </description>
     <link>https://miayam.github.io</link>
     <atom:link href="https://miayam.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 17 Dec 2017 08:59:16 +0700</pubDate>
-    <lastBuildDate>Sun, 17 Dec 2017 08:59:16 +0700</lastBuildDate>
+    <pubDate>Sun, 17 Dec 2017 09:07:39 +0700</pubDate>
+    <lastBuildDate>Sun, 17 Dec 2017 09:07:39 +0700</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -160,7 +160,55 @@ agar lebih jelas.&lt;/p&gt;
 
 &lt;p&gt;Kurang lebih seperti ini kodenya:&lt;/p&gt;
 
-&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/miayam/d286dc449dc46f5ccf1cf51a54caaa26.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;pre&gt;# student_import.rb
+
+require &amp;#39;csv&amp;#39;
+
+module StudentCSVHandler
+  class CSVImport
+    def initialize(id:)
+      @student_import = StudentImport.find_by(id: id)
+      @file_path = &amp;quot;#{Rails.root}/tmp/#{@student_import.file.path}&amp;quot;
+      @partner = @student_import.partner
+      @id = id
+      # Untuk mengunggah dokumen CSV/Excel ke Google Cloud Storage
+      @gcs_service = GCS2::ImportStudent::FileManagement.new(object_id: id)
+    end
+
+    def execute
+      status, remark = import!
+      student_import(
+        id: @id,
+        status: status,
+        remark: remark
+      )
+
+      @gcs_service.upload_file(
+        subject: @student_import.file_file_name,
+        path: @file_path
+      )
+
+      return status, remark
+    end
+
+    private
+
+    ### Implementasi kami sembunyikan karena kami malu ###
+    def student_import(:id, :status, :remark)
+      emails = @student_import.pluck(:email)
+      StudentHandler::UsersUploader.new(
+        emails: emails,
+        partner_id: @partner.id
+      )
+      ### Sisanya acak-acakan sekali ###
+    end
+    
+    def import!
+      ### Ini juga acak-acakan sekali ###
+    end
+  end
+end&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/d286dc449dc46f5ccf1cf51a54caaa26.js&quot;&gt; &lt;/script&gt;
 
 &lt;p&gt;Servis ini akan berjalan setiap tim operasional melakukan pengunggahan. Secara otomatis, &lt;code class=&quot;highlighter-rouge&quot;&gt;Sidekiq&lt;/code&gt;
 akan mendaftarkan proses ini ke antrian sebelum dieksekusi. Ini cukup masuk
@@ -511,7 +559,41 @@ explaining. Here’s the &lt;a href=&quot;/demo_day28&quot; target=&quot;_blank&
 
 &lt;p&gt;I don’t think we can understand how it works by simply reading the snippet below…&lt;/p&gt;
 
-&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/miayam/8d822c49d80d4fd80f221ff52d7b9855.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;noscript&gt;&lt;pre&gt;(function (window, undefined) {
+  var speedSlider = document.querySelector(&amp;#39;.speed&amp;#39;);
+  var video = document.querySelector(&amp;#39;.video-player&amp;#39;);
+  var speedBar = document.querySelector(&amp;#39;.speed-bar&amp;#39;);
+  var isDown = false;
+
+  function handleSliderMove(event) {
+    var y = event.pageY - this.offsetTop;
+    var ratio = y / this.offsetHeight;
+    var min = 0.4;
+    var max = 4;
+    var height = Math.round(ratio * 100) + &amp;#39;%&amp;#39;;
+    var playbackRate = ratio * (max - min) + min;
+
+    if (!isDown) {
+      return;
+    }
+
+    speedBar.style.height = height;
+    speedBar.textContent = playbackRate.toFixed(2) + &amp;#39;x&amp;#39;;
+    video.playbackRate = playbackRate;
+  }
+
+  speedSlider.addEventListener(&amp;#39;mouseup&amp;#39;, function () {
+    isDown = false;
+  });
+
+  speedSlider.addEventListener(&amp;#39;mousedown&amp;#39;, function () {
+    isDown = true;
+  });
+
+  speedSlider.addEventListener(&amp;#39;mousemove&amp;#39;, handleSliderMove);
+})(window);
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/miayam/8d822c49d80d4fd80f221ff52d7b9855.js&quot;&gt; &lt;/script&gt;
 
 &lt;p&gt;I really miss ちえさ せれな.&lt;/p&gt;
 </description>

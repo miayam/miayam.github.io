@@ -203,7 +203,112 @@ the <a href="/demo_day15" target="_blank">demo</a>. I am off now!</p>
 
 <h3 id="javascript">JavaScript</h3>
 
-<p>true<script src="https://gist.github.com/miayam/0f0a478f92b8b31f8e677442faf025b6.js"> </script></p>
+<noscript><pre>(function (window, undefined) {
+  var form = document.querySelector(&#39;.form&#39;);
+  var itemList = document.querySelector(&#39;.item-list&#39;);
+  var items = JSON.parse(localStorage.getItem(&#39;items&#39;)) || [];
+
+  // Parameters:
+  //    item: new item to be added to existing list of items
+  //          in `localStorage`. If it&#39;s `undefined`, then
+  //          ignore it.
+  function setState(item) {
+    // Append new item if there exist.
+    if (item) {
+      this.push(item);
+    }
+
+    // Turn array of items into a string and store it to
+    // `localStorage`. It&#39;s accessible across browser sessions.
+    // For more about it, visit https://mzl.la/2vWS47O
+    localStorage.setItem(&#39;items&#39;, JSON.stringify(this));
+  }
+
+  // Update content of list by mapping `items` variable
+  // which will be accessed via `this` keyword implicitly
+  // using `Function.prototype.call` method.
+  function updateList() {
+    itemList.innerHTML = this.map(function (item, index) {
+      var isChecked = item.done ? &#39;checked&#39; : &#39;&#39;;
+      return `
+        &lt;li&gt;
+          &lt;input type=&quot;checkbox&quot; data-index=${index} id=&quot;item${index}&quot;
+           ${isChecked}&gt;
+          &lt;label for=&quot;item${index}&quot;&gt;${item.text}&lt;label&gt;
+          &lt;span class=&quot;delete-item&quot; data-index=${index}&gt;✖&lt;/span&gt;
+        &lt;/li&gt;
+      `;
+    }).join(&#39;&#39;);
+  }
+
+  // Hide list if ✖ button clicked. Firstly,
+  // delete corresponding `item` that&#39;s tied up
+  // with DOM element. Update list of items
+  // by calling &quot;updateList.call(items);&quot;
+  // and store updated `items` variable to
+  // `localStorage` by calling &quot;setState.call(items);&quot;
+  function deleteItem(event) {
+    var index, element;
+
+    if (event.target.matches(&#39;span&#39;)) {
+      element = event.target;
+      index = element.dataset.index;
+      element.style.display = &quot;none&quot;;
+      items.splice(index, 1);
+      setState.call(items);
+      updateList.call(items);
+    } else {
+      return;
+    }
+  }
+
+  // In this case, if we check the checbox,
+  // we change the UI (from &#39;⬜️&#39; to &#39;🌮&#39;) and
+  // update the item&#39;s state. We store it to
+  // `localStorage` and list of items
+  // (DOM elements) updated as-is.
+  function toggleItemStatus(event) {
+    var index, element;
+
+    if (event.target.matches(&#39;input&#39;)) {
+      element = event.target;
+      index = element.dataset.index;
+      items[index].done = !items[index].done;
+      setState.call(items);
+      updateList.call(items);
+    } else {
+      return;
+    }
+  }
+  
+  // Add new item, get the text from input field,
+  // and store it to existing list of items (array).
+  // Lastly, we update the DOM elements and set `items`
+  // variable to `localStorage`.
+  function addItem(event) {
+    var newItem = this.querySelector(&#39;input[name=&quot;item&quot;]&#39;);
+    var newItemAttributes = {
+      text: newItem.value,
+      done: false
+    };
+
+    setState.call(items, newItemAttributes);
+    updateList.call(items);
+    event.preventDefault();
+    this.reset();
+  }
+
+  function init() {
+    form.addEventListener(&#39;submit&#39;, addItem);
+    itemList.addEventListener(&#39;click&#39;, toggleItemStatus);
+    itemList.addEventListener(&#39;click&#39;, deleteItem);
+    updateList.call(items);
+  }
+
+  init();
+})(window);
+</pre></noscript>
+<script src="https://gist.github.com/miayam/0f0a478f92b8b31f8e677442faf025b6.js"> </script>
 
 <p>Alright then, that’s it for today. I long for ちえさ せれな’s cute ponytail.
 I cannot wait any longer!</p>
@@ -255,6 +360,4 @@ I cannot wait any longer!</p>
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <!-- Prism.js -->
-  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
 </html>

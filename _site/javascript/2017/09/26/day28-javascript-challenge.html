@@ -135,7 +135,41 @@ explaining. Here’s the <a href="/demo_day28" target="_blank">demo</a>.</p>
 
 <p>I don’t think we can understand how it works by simply reading the snippet below…</p>
 
-<p>true<script src="https://gist.github.com/miayam/8d822c49d80d4fd80f221ff52d7b9855.js"> </script></p>
+<noscript><pre>(function (window, undefined) {
+  var speedSlider = document.querySelector(&#39;.speed&#39;);
+  var video = document.querySelector(&#39;.video-player&#39;);
+  var speedBar = document.querySelector(&#39;.speed-bar&#39;);
+  var isDown = false;
+
+  function handleSliderMove(event) {
+    var y = event.pageY - this.offsetTop;
+    var ratio = y / this.offsetHeight;
+    var min = 0.4;
+    var max = 4;
+    var height = Math.round(ratio * 100) + &#39;%&#39;;
+    var playbackRate = ratio * (max - min) + min;
+
+    if (!isDown) {
+      return;
+    }
+
+    speedBar.style.height = height;
+    speedBar.textContent = playbackRate.toFixed(2) + &#39;x&#39;;
+    video.playbackRate = playbackRate;
+  }
+
+  speedSlider.addEventListener(&#39;mouseup&#39;, function () {
+    isDown = false;
+  });
+
+  speedSlider.addEventListener(&#39;mousedown&#39;, function () {
+    isDown = true;
+  });
+
+  speedSlider.addEventListener(&#39;mousemove&#39;, handleSliderMove);
+})(window);
+</pre></noscript>
+<script src="https://gist.github.com/miayam/8d822c49d80d4fd80f221ff52d7b9855.js"> </script>
 
 <p>I really miss ちえさ せれな.</p>
 
@@ -186,6 +220,4 @@ explaining. Here’s the <a href="/demo_day28" target="_blank">demo</a>.</p>
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <!-- Prism.js -->
-  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
 </html>

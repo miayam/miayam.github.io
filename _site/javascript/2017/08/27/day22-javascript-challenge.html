@@ -157,7 +157,45 @@ and take that cute “mega menu” aside. Cuteness will find its way.</p>
 
 <p>Alright then, here’s the <a href="/demo_day22" target="_blank">demo</a> and my solution below.</p>
 
-<p>true<script src="https://gist.github.com/miayam/f3096461eb28c930fed86a8cec441e6d.js"> </script></p>
+<noscript><pre>(function (window, undefined) {
+  var allLinks = document.getElementsByTagName(&#39;a&#39;);
+  var highlighter = document.createElement(&#39;span&#39;);
+
+  // Add custom styling for highlighter.
+  highlighter.classList.add(&#39;highlight&#39;);
+  document.body.appendChild(highlighter);
+
+  // It&#39;s for iterating DOM elements. The Array.prototype.forEach
+  // won&#39;t work with NodeList.
+  function forEach(callback) {
+    for (var i = 0; i &lt; this.length; i++) {
+      callback.call(this, this[i], i);
+    }
+  }
+
+  function highlightLink() {
+    var linkCoordinate = this.getBoundingClientRect();
+    var coordinate = {
+      width: linkCoordinate.width,
+      height: linkCoordinate.height,
+      top: linkCoordinate.top + window.scrollY,
+      left: linkCoordinate.left + window.scrollX
+    };
+
+
+    highlighter.style.width = `${coordinate.width}px`;
+    highlighter.style.height = `${coordinate.height}px`;
+    highlighter.style.transform = `
+      translate(${coordinate.left}px, ${coordinate.top}px)
+    `;
+  }
+
+  forEach.call(allLinks, function (link) {
+    link.addEventListener(&#39;mouseenter&#39;, highlightLink);
+  });
+})(window);
+</pre></noscript>
+<script src="https://gist.github.com/miayam/f3096461eb28c930fed86a8cec441e6d.js"> </script>
 
 <p>That’s it for today.</p>
 
@@ -215,6 +253,4 @@ of that.</p>
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <!-- Prism.js -->
-  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
 </html>

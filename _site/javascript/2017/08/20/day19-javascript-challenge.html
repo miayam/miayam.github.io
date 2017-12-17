@@ -154,7 +154,90 @@
 
 <h3 id="javascript">JavaScript</h3>
 
-<p>true<script src="https://gist.github.com/miayam/9120349e9dc6b4d8250864a6b8526137.js"> </script></p>
+<noscript><pre>(function (window, undefined) {
+  var video = document.querySelector(&#39;.player&#39;);
+  var canvas = document.querySelector(&#39;.photo&#39;);
+  var strip = document.querySelector(&#39;.strip&#39;);
+  var snap = document.querySelector(&#39;.snap&#39;);
+  var context = canvas.getContext(&#39;2d&#39;);
+  var takePhotoButton = document.querySelector(&#39;.take-photo-js&#39;);
+  var timeout;
+
+  function getVideo() {
+    navigator.mediaDevices.getUserMedia({
+      video: true, audio: false
+    }).then(function (localMediaStream) {
+      video.src = window.URL.createObjectURL(localMediaStream);
+      video.play();
+    }).catch(function (error) {
+      console.error(`You can&#39;t play the video: ${error}`);
+    });
+  }
+
+  function paintToCanvas() {
+    var width = video.videoWidth;
+    var height = video.videoHeight;
+
+    canvas.width = width;
+    canvas.height = height;
+    
+    // This is `div` that wraps the canvas.
+    canvas.parentNode.width = width;
+    canvas.parentNode.height = height;
+    
+    // It&#39;s for mirroring. The webcam doesn&#39;t mirror our reflection.
+    // If you raise your left hand, you will see your actual left hand
+    // raised on the canvas. That&#39;s not what usually people want for their
+    // taking picture&#39;s business. To fix that, we have to flip the canvas
+    // horizontally.
+    context.translate(width, 0);
+    context.scale(-1, 1);
+
+    window.clearInterval(timeout);
+    
+    timeout = window.setInterval(function () {
+      context.drawImage(video, 0, 0, width, height);
+    }, 32);
+  }
+
+  function takePhoto() {
+    var data = canvas.toDataURL(&#39;image/jpeg&#39;);
+    var link = document.createElement(&#39;a&#39;);
+    var numbering = Math.floor(Math.random() * 1000000);
+
+
+    // Play the &quot;snap&quot; sound when we take a photo.
+    snap.currentTime = 0;
+    snap.play();
+
+    link.href = data;
+    link.setAttribute(&#39;download&#39;, `handsome-${numbering}.jpeg`);
+
+    link.innerHTML = `&lt;img src=&quot;${data}&quot; alt=&quot;photo&quot;/&gt;`;
+    strip.insertBefore(link, strip.firstChild);
+  }
+
+  function init() {
+    getVideo();
+    
+    // When the video is ready to start playing (even if it&#39;s buffering),
+    // paint the snapshot taken from video to canvas. This event listener
+    // runs repeatedly as the video loads the stream from webcam which
+    // is always on until users disable it. For more about it,
+    // visit http://bit.ly/2g0D9G5
+    video.addEventListener(&#39;canplay&#39;, paintToCanvas);
+    
+    takePhotoButton.addEventListener(&#39;click&#39;, takePhoto);
+  }
+
+  return {
+    init: init,
+    canvas: canvas,
+    video: video
+  };
+})(window).init();</pre></noscript>
+<script src="https://gist.github.com/miayam/9120349e9dc6b4d8250864a6b8526137.js"> </script>
+
 
   </div>
 
@@ -203,6 +286,4 @@
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <!-- Prism.js -->
-  <script src="https://npmcdn.com/prismjs@1.5.1/prism.js"></script>
 </html>
