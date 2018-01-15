@@ -1,6 +1,6 @@
 ---
 layout: post
-title: My Data Science Journey: Stupid Idea!
+title: "My Data Science Journey: Stupid Idea!"
 category: "personal-life"
 short_description: This is how I keep my mind occupied. I don't want to be a dweller.
 image_preview: /images/opinion.png
