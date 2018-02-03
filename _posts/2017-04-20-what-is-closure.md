@@ -5,6 +5,7 @@ category: javascript
 short_description: Scope is a set of rules that determines where and how a variable can be looked-up.
 image_preview: /images/javascript.png
 category_page: js
+published: false
 ---
 
 Scope is a set of rules that determines where and how

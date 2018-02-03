@@ -43,8 +43,8 @@ navigation:
     url: /about
   - text: Archive
     url: /archive
-  - text: Resume
-    url: /assets/file/Resume_Muhammad_Deni_Ramadhan.pdf
+  - text: Reading List
+    url: /reading-list
   - text: Search
     url: /search
 
