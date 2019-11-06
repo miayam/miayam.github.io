@@ -15,7 +15,7 @@ Dari bahasa yang keluar dari mulutnya sepertinya orang Persia.
 
 Dari kejauhan, pria itu berteriak, "Tuhan sudah mati!".
 
-Bayi sebatang kara yang diletakkan sembarangan dibesarkan
+Bayi sebatang kara yang diletakkan sembarangan dibawa pergi
 Nabi palsu biadab. Di masa depan, bayi ini akan menjadi pengikut
 semata wayangnya. Dua hamba ketiadaan hidup bersama...
 
