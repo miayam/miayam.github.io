@@ -15,7 +15,7 @@ Dari bahasa yang keluar dari mulutnya sepertinya orang Persia.
 
 Dari kejauhan, pria itu berteriak, "Tuhan sudah mati! Tuhan sudah mati!"
 
-Bayi kurang beruntung yang diletakkan sembarangan ibunya dibawa sang Nabi palsu.
+Bayi kurang beruntung yang diletakkan sembarangan ibunya dibawa pergi sang Nabi palsu.
 Di masa depan, bayi ini akan menjadi pengikutnya. Dua hamba ketiadaan
 hidup bersama...
 
