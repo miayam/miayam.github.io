@@ -15,11 +15,11 @@ Dari bahasa yang keluar dari mulutnya sepertinya orang Persia.
 
 Dari kejauhan, pria itu berteriak, "Tuhan sudah mati! Tuhan sudah mati!"
 
-Diam-diam, bayi kurang beruntung yang diletakkan sembarangan ibunya dibawa pergi sang
-Nabi palsu. Di masa depan, bayi ini akan menjadi pengikutnya. Dua hamba ketiadaan
-hidup bersama...
+Diam-diam, bayi sial yang diletakkan sembarangan ibunya dibawa pergi sang
+Nabi palsu Zarathustra. Di masa depan, bayi ini akan menjadi pengikutnya.
+Dua hamba ketiadaan hidup bersama...
 
-Jelas-jelas ini adalah penculikan. Biarkan saja mereka
+Jelas-jelas ini penculikan. Biarkan saja mereka
 pergi! Biar langit yang menentukan nasib mereka!
 
 27 tahun berlalu, kini yang terlihat adalah pria kurus yang
