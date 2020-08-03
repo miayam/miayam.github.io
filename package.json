@@ -1,0 +1,22 @@
+{
+  "name": "miayam.github.io",
+  "version": "1.0.0",
+  "description": "A simple blog site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miayam/miayam.github.io.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "license": "WTFPL",
+  "author": "Muhammad D. Ramadhan",
+  "bugs": {
+    "url": "https://github.com/miayam/miayam.github.io/issues"
+  },
+  "homepage": "https://github.com/miayam/miayam.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  },
+  "dependencies": {}
+}
