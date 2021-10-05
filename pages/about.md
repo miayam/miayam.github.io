@@ -3,30 +3,22 @@ layout: page
 permalink: about
 ---
 
-About Me
-========
+About
+=====
 
-I am a boring person interested in building user-facing features using HTML, CSS, and JavaScript. I blog
-about anything that interest me and most of my writings here are dedicated to JavaScript and
-the web in general.
+Hello! It's been 4 years since I built this shitty blog site
+with Jekyll. Back then, I was a Junior Ruby on Rails Developer at
+HarukaEdu and wasn't doing well there. In my last day, I could feel
+the dissapointments from both CTO and teammates about my
+performance during one and a half years of employment. It was plain to
+see that I made a wrong carrer decision. I was very bad at querying database,
+but pretty good at querying the DOM, so I decided to pivot and began my career
+as Frontend Developer. Despite my bad performance, I made few good friends
+at HarukaEdu (Risal, Randi, Yusuf, Rifa, and all members of Bandung Squad).
+I attend some of their weddings even if I hate mingling with people. I made
+an exception for them.
 
-JavaScript is a weird programming language and might takes a lot of time to tame it.
-I have spent my precious time, money, and energy on it, therefore I love it. Nonetheless, I still don't know
-JavaScript.
+4 years has passed, I don't regret my decision. I make a good living.
+Now it is time for the new chapter. The new [miayam.io](https://miayam.io).
 
-Most of the time, I tinker with the DOM and Web API to create pleasing experience on the web.
-I am very grateful for picking up the right hobby.
-
-Dear reader, I would like to be your friend and potential friends should know each other's shortcomings.
-I suck at SQL, NoSQL, any kind of fullstack frameworks (Django, Laravel, Ruby on Rails, etc), any kind of ORM
-libraries, or any fancy stuffs most developers love to talk about (shiny new technologies).
-
-For more details, you can find me on [LinkedIn](https://www.linkedin.com/in/miayam/), [GitHub](https://github.com/miayam), [CodePen](https://codepen.io/miayam/),
-and [Twitter](https://twitter.com/MuhammadD9). If you got any questions about anything, feel free to [send me email](mailto:muhammaddeni90@gmail.com).
-
-I need lots of feedbacks from everyone because I can't keep my attitude in check all the time. Please, don't sugarcoat
-your words if it's necessary to treat me somewhat inconsiderately. I will not take it personal.
-
-I hope you will find this blog interesting.
-
-{% gist miayam/656a8752b93fbfaf83df2d8c13287223 %}
+Farewell good friend! It's been a bumpy ride but you've done wonders so far!

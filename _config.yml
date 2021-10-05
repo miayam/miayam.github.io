@@ -43,35 +43,12 @@ navigation:
     url: /about
   - text: Archive
     url: /archive
-  - text: Reading List
-    url: /reading-list
-  - text: Search
-    url: /search
+
 
 category_pages:
   - text: JavaScript
     url: /js
     src: /images/javascript.png
-
-  - text: Mathematics
-    url: /math
-    src: /images/mathematics.jpg
-
-  - text: My Two Cents
-    url: /personal
-    src: /images/opinion.png
-
-  - text: Philosophy
-    url: /phil
-    src: /images/philosophy.png
-
-  - text: Ruby
-    url: /rb
-    src: /images/ruby.png
-
-  - text: The Web
-    url: /web
-    src: /images/the_web.png
 
 # Plugins
 gems:
