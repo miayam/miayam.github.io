@@ -20,7 +20,7 @@ layout: default
 
 <section>
   <div class="grid t-hackcss-cards">
-    {% for post in paginator.posts %}
+    {% for post in paginator.posts reversed %}
       <div class="cell -6of12 t-hackcss-cards-cell">
         <div class="card">
           {% for category in site.data.categories %}
