@@ -1,7 +1,7 @@
 # Miayam Blog
 
 Hello! It's been 4 years since I built this shitty blog site
-with Jekyll. Back then, I was a Junior Ruby on Rails Developer at
+with Jekyll in early 2017. Back then, I was a Junior Ruby on Rails Developer at
 HarukaEdu and wasn't doing well there. In my last day, I could feel
 the dissapointments from both CTO and teammates about my performance
 during one and a half years of employment. It was plain to see that
