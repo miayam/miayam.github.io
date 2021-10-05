@@ -1,4 +1,4 @@
-# Miayam Blog
+# Miayam Blog (Legacy)
 
 Hello! It's been 4 years since I built this shitty blog site
 with Jekyll in early 2017. Back then, I was a Junior Ruby on Rails Developer at
